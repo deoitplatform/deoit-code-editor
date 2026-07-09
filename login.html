@@ -44,12 +44,7 @@
   <script src="js/auth.js"></script>
   <script>
     (function() {
-      // handle redirect result
-      auth.getRedirectResult().then(function(r) {
-        if (r.user) window.location.replace('pages/editor.html');
-      }).catch(function(){});
-
-      // if already signed in
+      // if already signed in or just signed in via popup
       auth.onAuthStateChanged(function(user) {
         if (user) window.location.replace('pages/editor.html');
       });
