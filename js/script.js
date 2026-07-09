@@ -1,11 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
   const sidebar = document.querySelector('.sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
   const toggleBtn = document.getElementById('menuToggle');
-  if (toggleBtn && sidebar) {
-    toggleBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
+
+  window.toggleSidebar = function() {
+    if (!sidebar) return;
+    sidebar.classList.toggle('open');
+    if (overlay) overlay.classList.toggle('show');
+    document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : '';
+  };
+
+  // Close sidebar on link click (mobile)
+  document.querySelectorAll('.sidebar-link').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        sidebar.classList.remove('open');
+        if (overlay) overlay.classList.remove('show');
+        document.body.style.overflow = '';
+      }
     });
-  }
+  });
+
+  // Auto-close sidebar on resize to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      sidebar.classList.remove('open');
+      if (overlay) overlay.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+  });
 
   // ─── Smooth Scroll for anchor links ───
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -16,7 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const offset = 70;
         const top = target.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: 'smooth' });
-        if (sidebar) sidebar.classList.remove('open');
+        if (sidebar && window.innerWidth <= 768) {
+          sidebar.classList.remove('open');
+          if (overlay) overlay.classList.remove('show');
+          document.body.style.overflow = '';
+        }
       }
     });
   });
@@ -94,13 +121,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (codeTabs.length) {
-    // Start with first tab active (already in HTML)
     codeTabs.forEach((tab, i) => {
       if (tab.classList.contains('active')) currentIdx = i;
       tab.addEventListener('click', () => {
         stopCycle();
         showTab(i);
-        // Resume cycling after 6s of inactivity
         setTimeout(() => {
           if (!cycleInterval) startCycle();
         }, 6000);
@@ -108,4 +133,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     startCycle();
   }
+
+  // ─── Sidebar active link ───
+  const currentPath = window.location.pathname;
+  document.querySelectorAll('.sidebar-link').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && currentPath.endsWith(href.replace('../',''))) {
+      link.style.color = 'var(--text-primary)';
+      link.querySelector('svg').style.opacity = '1';
+    }
+  });
 });

@@ -570,12 +570,35 @@ body {
 .logged-out #loginPrompt { display: flex !important; flex-direction: column; }
 
 /* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .st-dialog { width: 90vw !important; }
+  .st-grid { grid-template-columns: 120px 1fr !important; }
+}
+
 @media (max-width: 768px) {
   .file-sidebar { display: none; }
   .resize-bar-v { display: none; }
   .toolbar-center { display: none; }
   .editor-body { grid-template-columns: 1fr; }
-  .editor-gutter { width: 36px; padding-right: 6px; }
-  .editor-wrap { grid-template-columns: 36px 1fr; }
+  .editor-gutter { width: 32px; padding-right: 4px; }
+  .editor-wrap { grid-template-columns: 32px 1fr; }
   .main-content { grid-template-rows: 34px 1fr 4px var(--console-h, 100px); }
+  .toolbar-left { gap: 6px; }
+  .toolbar-right { gap: 4px; }
+  .toolbar { padding: 0 8px; }
+  .toolbar-btn { padding: 4px 6px; font-size: 11px; }
+  .toolbar-btn span { display: none; }
+  .dialog-box { min-width: 0; width: 90vw; margin: 0 12px; }
+  .st-dialog { width: 100% !important; }
+  .st-grid { grid-template-columns: 1fr !important; height: auto; max-height: 80vh; }
+}
+
+@media (max-width: 480px) {
+  .toolbar-logo span { display: none; }
+  .toolbar-btn.run { padding: 4px 10px; }
+  .editor-gutter { display: none; }
+  .editor-wrap { grid-template-columns: 1fr; }
+  .panel-body { font-size: 11px; }
+  .panel-tab { font-size: 9px; padding: 0 5px; }
+  .st-grid { max-height: 75vh; }
 }

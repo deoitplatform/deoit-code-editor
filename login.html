@@ -38,6 +38,9 @@
   <link rel="apple-touch-icon" href="logo.png">
   <link rel="manifest" href="manifest.json">
 
+  <!-- Preload -->
+  <link rel="preload" href="css/login.css" as="style">
+
   <!-- Preconnect -->
   <link rel="preconnect" href="https://www.gstatic.com">
   <link rel="preconnect" href="https://apis.google.com">
@@ -105,6 +108,9 @@
       bg.addEventListener('click', function() { doSignIn(signInGoogle, bg); });
       bg2.addEventListener('click', function() { doSignIn(signInGithub, bg2); });
     })();
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
   </script>
 </body>
 </html>

@@ -189,6 +189,7 @@ function countAll(node) {
   return {f,c};
 }
 function esc(t) { const d=document.createElement('div'); d.textContent=t; return d.innerHTML; }
+function escAttr(t) { return String(t).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
 // ─── PERSIST ───
 function save() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(fileSystem)); } catch(e) {} }
@@ -237,8 +238,8 @@ function renderNode(node, indent, el) {
   if (node.type === 'file') {
     d.innerHTML = `<span class="icon">${getIcon(node.name)}</span><span class="name">${esc(node.name)}</span>
       <span class="file-actions">
-        <button data-action="rename" data-id="${node.id}" title="Rename">&#9998;</button>
-        <button data-action="delete" data-id="${node.id}" title="Delete">&#10005;</button>
+        <button data-action="rename" data-id="${escAttr(node.id)}" title="Rename">&#9998;</button>
+        <button data-action="delete" data-id="${escAttr(node.id)}" title="Delete">&#10005;</button>
       </span>`;
     if (node.id === activeHtmlId || node.id === activeCssId || node.id === activeJsId) d.classList.add('active');
   } else {
@@ -246,10 +247,10 @@ function renderNode(node, indent, el) {
     const arrow = expanded ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10"><polyline points="6 9 12 15 18 9"/></svg>' : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10"><polyline points="9 18 15 12 9 6"/></svg>';
     d.innerHTML = `<span class="icon arrow">${arrow}</span><span class="icon">${getIcon(node.name, true, expanded)}</span><span class="name">${esc(node.name)}</span>
       <span class="file-actions">
-        <button data-action="new-file" data-id="${node.id}" title="New File">+</button>
-        <button data-action="new-folder" data-id="${node.id}" title="New Folder">&#128193;</button>
-        <button data-action="rename" data-id="${node.id}" title="Rename">&#9998;</button>
-        <button data-action="delete" data-id="${node.id}" title="Delete">&#10005;</button>
+        <button data-action="new-file" data-id="${escAttr(node.id)}" title="New File">+</button>
+        <button data-action="new-folder" data-id="${escAttr(node.id)}" title="New Folder">&#128193;</button>
+        <button data-action="rename" data-id="${escAttr(node.id)}" title="Rename">&#9998;</button>
+        <button data-action="delete" data-id="${escAttr(node.id)}" title="Delete">&#10005;</button>
       </span>`;
   }
   d.addEventListener('contextmenu', e => { e.preventDefault(); e.stopPropagation(); showCtx(e.clientX, e.clientY, node.id); });
@@ -476,7 +477,7 @@ function renderTabs() {
     tab.draggable = true;
     const dc = f.lang==='html'?'var(--hl-tag)':f.lang==='css'?'var(--hl-attr)':'var(--hl-entity)';
     tab.innerHTML = `<span class="tab-dot" style="background:${dc}"></span>${esc(f.name)}
-      <button class="tab-close" data-action="close-tab" data-id="${f.id}">&#10005;</button>`;
+      <button class="tab-close" data-action="close-tab" data-id="${escAttr(f.id)}">&#10005;</button>`;
     tab.addEventListener('dragstart', e => {
       e.dataTransfer.setData('text/plain', f.id);
       e.dataTransfer.effectAllowed = 'move';
@@ -675,8 +676,8 @@ function showRunDialog(htmlFiles) {
         <h3 style="font-size:14px;margin-bottom:12px;">Run which HTML file?</h3>
         <div id="runFileList" style="display:flex;flex-direction:column;gap:3px;margin-bottom:12px;">
           ${htmlFiles.map(f => `
-            <label class="run-option" data-id="${f.id}" style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:5px;cursor:pointer;background:${f.id === current ? 'rgba(255,255,255,0.07)' : 'transparent'};border:1px solid ${f.id === current ? 'var(--border)' : 'transparent'};">
-              <input type="radio" name="runHtml" value="${f.id}" ${f.id === current ? 'checked' : ''}>
+            <label class="run-option" data-id="${escAttr(f.id)}" style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:5px;cursor:pointer;background:${f.id === current ? 'rgba(255,255,255,0.07)' : 'transparent'};border:1px solid ${f.id === current ? 'var(--border)' : 'transparent'};">
+              <input type="radio" name="runHtml" value="${escAttr(f.id)}" ${f.id === current ? 'checked' : ''}>
               <span style="font-size:13px;color:var(--text-primary);font-family:var(--font-mono);">${esc(f.name)}</span>
             </label>
           `).join('')}
@@ -841,8 +842,8 @@ function showCtx(x, y, id) {
   if (!file) return;
   const isFolder = file.type === 'folder', isRoot = id === 'root';
   let h = '';
-  if (isFolder && !isRoot) { h += `<div class="context-menu-item" data-action="new-file" data-id="${id}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg> New File</div><div class="context-menu-item" data-action="new-folder" data-id="${id}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> New Folder</div><div class="context-menu-sep"></div>`; }
-  if (!isRoot) { h += `<div class="context-menu-item" data-action="rename" data-id="${id}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Rename</div><div class="context-menu-item danger" data-action="delete" data-id="${id}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg> Delete</div>`; }
+  if (isFolder && !isRoot) { h += `<div class="context-menu-item" data-action="new-file" data-id="${escAttr(id)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg> New File</div><div class="context-menu-item" data-action="new-folder" data-id="${escAttr(id)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> New Folder</div><div class="context-menu-sep"></div>`; }
+  if (!isRoot) { h += `<div class="context-menu-item" data-action="rename" data-id="${escAttr(id)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Rename</div><div class="context-menu-item danger" data-action="delete" data-id="${escAttr(id)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg> Delete</div>`; }
   contextMenu.innerHTML = h;
   contextMenu.style.left = x + 'px'; contextMenu.style.top = y + 'px';
   contextMenu.classList.add('show');

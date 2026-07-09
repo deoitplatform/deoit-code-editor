@@ -37,6 +37,9 @@
   <link rel="apple-touch-icon" href="logo.png">
   <link rel="manifest" href="manifest.json">
 
+  <!-- Preload -->
+  <link rel="preload" href="css/style.css" as="style">
+
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
 
@@ -66,6 +69,7 @@
 </head>
 <body>
   <div class="app-layout">
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()" aria-hidden="true"></div>
     <aside class="sidebar">
       <div class="sidebar-logo">
         <img src="logo.png" alt="Deoit">
@@ -97,7 +101,7 @@
     </aside>
     <div class="main-content">
       <header class="header-bar">
-        <button class="mobile-menu-toggle" id="menuToggle">
+        <button class="mobile-menu-toggle" id="menuToggle" onclick="toggleSidebar()" aria-label="Toggle menu">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
         <div class="header-actions">
@@ -205,5 +209,14 @@
     </div>
   </div>
   <script src="js/script.js"></script>
+  <script>
+    function toggleSidebar() {
+      var s = document.getElementById('sidebar'); var o = document.getElementById('sidebarOverlay');
+      if (!s) return; s.classList.toggle('open');
+      if (o) o.classList.toggle('show');
+      document.body.style.overflow = s.classList.contains('open') ? 'hidden' : '';
+    }
+    if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
+  </script>
 </body>
 </html>

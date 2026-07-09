@@ -49,6 +49,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://www.gstatic.com">
 
+  <!-- Preload -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -214,8 +217,28 @@
     .auth-gate-box .btn { padding: 8px 0; width: 100%; justify-content: center; font-size: 14px; }
 
     @media (max-width: 768px) {
-      .lesson-sidebar { width: 200px; min-width: 200px; }
+      .lesson-app { flex-direction: column; }
+      .lesson-sidebar {
+        width: 100%; min-width: 0; max-height: 40vh;
+        border-right: none; border-bottom: 1px solid var(--border);
+      }
       .lesson-content-inner { padding: 24px 16px; }
+      .lesson-content h2 { font-size: 22px; }
+      .lesson-content p, .lesson-content li { font-size: 14px; }
+      .lesson-code { font-size: 12px; padding: 12px 14px; }
+    }
+
+    @media (max-width: 480px) {
+      .lesson-sidebar { max-height: 35vh; }
+      .lesson-topbar { padding: 6px 12px; flex-wrap: wrap; gap: 4px; }
+      .lesson-content-inner { padding: 16px 12px 60px; }
+      .lesson-content h2 { font-size: 20px; }
+      .lesson-content h3 { font-size: 17px; }
+      .lesson-code { font-size: 11px; padding: 10px 12px; }
+      .lesson-nav { flex-direction: column; gap: 8px; }
+      .lesson-nav .nav-next { margin-left: 0; }
+      .lesson-nav a { text-align: center; }
+      .auth-gate-box { padding: 24px 20px; }
     }
   </style>
   <!-- Schema.org JSON-LD -->
@@ -364,6 +387,9 @@
     }
 
     renderLesson();
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
   </script>
 </body>
 </html>
