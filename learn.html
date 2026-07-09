@@ -1,13 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learn — Deoit</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-ancestors 'none'">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="theme-color" content="#0d0d0e">
+  <meta name="color-scheme" content="dark">
+
+  <!-- Primary Meta Tags -->
+  <title>Learn HTML, CSS &amp; JavaScript — Deoit Interactive Lessons</title>
+  <meta name="title" content="Learn HTML, CSS &amp; JavaScript — Deoit Interactive Lessons">
+  <meta name="description" content="Master web development with Deoit's structured lessons. Learn HTML5, CSS3, and JavaScript from beginner to intermediate with interactive examples and real code.">
+  <meta name="keywords" content="learn web development, HTML tutorial, CSS tutorial, JavaScript tutorial, learn programming online, free coding lessons, interactive coding, web development course">
+  <meta name="author" content="Majed Qandeel">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://deoit.vercel.app/learn.html">
+  <meta property="og:site_name" content="Deoit">
+  <meta property="og:title" content="Learn HTML, CSS &amp; JavaScript — Deoit Interactive Lessons">
+  <meta property="og:description" content="Master web development with Deoit's structured lessons. Learn HTML5, CSS3, and JavaScript with interactive examples and real code.">
+  <meta property="og:image" content="https://deoit.vercel.app/logo.png">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Learn HTML, CSS &amp; JavaScript — Deoit Interactive Lessons">
+  <meta name="twitter:description" content="Master web development with Deoit's structured lessons. Learn HTML5, CSS3, and JavaScript with interactive examples.">
+  <meta name="twitter:image" content="https://deoit.vercel.app/logo.png">
+
+  <!-- hreflang -->
+  <link rel="alternate" href="https://deoit.vercel.app/learn.html" hreflang="en"/>
+  <link rel="alternate" href="https://deoit.vercel.app/learn.html?lang=ar" hreflang="ar"/>
+  <link rel="alternate" href="https://deoit.vercel.app/learn.html" hreflang="x-default"/>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://deoit.vercel.app/learn.html">
+
+  <!-- Icons & PWA -->
   <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.gstatic.com">
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Frame buster -->
+  <script>if(top!==self){top.location.href=self.location.href}</script>
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -107,6 +154,52 @@
       .courses-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Web Development Courses",
+    "description": "Learn HTML, CSS, and JavaScript with interactive lessons.",
+    "url": "https://deoit.vercel.app/learn.html",
+    "itemListElement": [
+      {
+        "@type": "Course",
+        "position": 1,
+        "name": "HTML Course",
+        "description": "The foundation of the web. Learn to structure content with elements, forms, tables, and semantic markup.",
+        "url": "https://deoit.vercel.app/lesson.html?lang=html",
+        "provider": { "@type": "Organization", "name": "Deoit", "url": "https://deoit.vercel.app" }
+      },
+      {
+        "@type": "Course",
+        "position": 2,
+        "name": "CSS Course",
+        "description": "Style anything. Master Flexbox, Grid, typography, animations, and responsive design.",
+        "url": "https://deoit.vercel.app/lesson.html?lang=css",
+        "provider": { "@type": "Organization", "name": "Deoit", "url": "https://deoit.vercel.app" }
+      },
+      {
+        "@type": "Course",
+        "position": 3,
+        "name": "JavaScript Course",
+        "description": "Make things interactive. Learn variables, functions, DOM manipulation, events, and more.",
+        "url": "https://deoit.vercel.app/lesson.html?lang=js",
+        "provider": { "@type": "Organization", "name": "Deoit", "url": "https://deoit.vercel.app" }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://deoit.vercel.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Learn", "item": "https://deoit.vercel.app/learn.html" }
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- Header -->
