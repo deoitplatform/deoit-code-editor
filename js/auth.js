@@ -26,11 +26,15 @@ function getUser() {
 }
 
 function signInGoogle() {
-  return auth.signInWithPopup(googleProvider);
+  return auth.signInWithRedirect(googleProvider);
 }
 
 function signInGithub() {
-  return auth.signInWithPopup(githubProvider);
+  return auth.signInWithRedirect(githubProvider);
+}
+
+function getRedirectResult() {
+  return auth.getRedirectResult();
 }
 
 function signOut() {
