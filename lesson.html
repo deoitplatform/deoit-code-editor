@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson — Deoit</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #0d0d0d; --bg-card: #141414; --bg-code: #1a1a1a; --bg-hover: #1e1e1e;
+      --text: #d9d9d9; --text-sec: #8a8a8a; --text-muted: #484848;
+      --border: #2a2a2a; --accent: #d9d9d9;
+      --font: 'Inter', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', 'Consolas', monospace;
+    }
+    html, body { height: 100%; background: var(--bg); color: var(--text); font-family: var(--font); }
+
+    /* ─── Layout ─── */
+    .lesson-app { display: flex; height: 100vh; overflow: hidden; }
+
+    /* ─── Sidebar ─── */
+    .lesson-sidebar {
+      width: 280px; min-width: 280px; background: var(--bg-card);
+      border-right: 1px solid var(--border); display: flex; flex-direction: column;
+      overflow: hidden;
+    }
+    .lesson-sidebar-header {
+      padding: 16px; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .lesson-sidebar-header h3 {
+      font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px;
+    }
+    .lesson-sidebar-header a {
+      color: var(--text-sec); text-decoration: none; font-size: 12px; padding: 4px 8px;
+      border-radius: 4px; transition: background 0.15s;
+    }
+    .lesson-sidebar-header a:hover { background: var(--bg-hover); color: var(--text); }
+    .lesson-list { flex: 1; overflow-y: auto; padding: 8px; }
+    .lesson-item {
+      display: flex; align-items: center; gap: 10px; padding: 10px 12px;
+      border-radius: 6px; cursor: pointer; transition: background 0.15s;
+      text-decoration: none; color: inherit; border: none; background: none;
+      width: 100%; text-align: left; font-family: var(--font); font-size: 13px;
+    }
+    .lesson-item:hover { background: var(--bg-hover); }
+    .lesson-item.active { background: rgba(217,217,217,0.08); }
+    .lesson-item .lesson-num {
+      width: 24px; height: 24px; border-radius: 6px; display: flex;
+      align-items: center; justify-content: center; font-size: 11px; font-weight: 600;
+      background: rgba(217,217,217,0.08); color: var(--text-sec); flex-shrink: 0;
+    }
+    .lesson-item.active .lesson-num { background: rgba(217,217,217,0.15); color: var(--text); }
+    .lesson-item .lesson-info { flex: 1; min-width: 0; }
+    .lesson-item .lesson-info .lesson-item-title { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .lesson-item .lesson-info .lesson-item-desc { font-size: 11px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .lesson-item .lesson-lock {
+      width: 16px; height: 16px; flex-shrink: 0; opacity: 0.4;
+    }
+    .lesson-sidebar-footer {
+      padding: 12px 16px; border-top: 1px solid var(--border);
+      display: flex; gap: 8px;
+    }
+    .lesson-sidebar-footer a {
+      flex: 1; text-align: center; padding: 7px 0; border-radius: 6px;
+      font-size: 12px; text-decoration: none; color: var(--text-sec);
+      background: rgba(217,217,217,0.05); transition: background 0.15s;
+    }
+    .lesson-sidebar-footer a:hover { background: var(--bg-hover); color: var(--text); }
+
+    /* ─── Main Content ─── */
+    .lesson-main {
+      flex: 1; display: flex; flex-direction: column; overflow: hidden;
+    }
+    .lesson-topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 24px; background: var(--bg-card); border-bottom: 1px solid var(--border);
+    }
+    .lesson-topbar-left { display: flex; align-items: center; gap: 12px; }
+    .lesson-topbar-logo { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; }
+    .lesson-topbar-logo img { width: 20px; height: 20px; border-radius: 4px; }
+    .lesson-topbar-logo .accent { color: var(--accent); }
+    .lesson-topbar-right { display: flex; align-items: center; gap: 8px; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 500; text-decoration: none; transition: all 0.15s; cursor: pointer; border: none; font-family: var(--font); }
+    .btn-ghost { background: transparent; color: var(--text-sec); }
+    .btn-ghost:hover { background: rgba(217,217,217,0.08); color: var(--text); }
+    .btn-accent { background: rgba(217,217,217,0.1); color: var(--text); border: 1px solid var(--border); }
+    .btn-accent:hover { background: rgba(217,217,217,0.18); }
+
+    /* ─── Lesson Content ─── */
+    .lesson-content {
+      flex: 1; overflow-y: auto; padding: 48px 56px;
+    }
+    .lesson-content-inner {
+      max-width: 720px; margin: 0 auto;
+    }
+    .lesson-content h2 {
+      font-size: 26px; font-weight: 700; margin-bottom: 8px;
+    }
+    .lesson-content h3 {
+      font-size: 18px; font-weight: 600; margin: 28px 0 10px; color: var(--text);
+    }
+    .lesson-content h4 {
+      font-size: 15px; font-weight: 600; margin: 20px 0 8px; color: var(--text);
+    }
+    .lesson-content p {
+      font-size: 14px; line-height: 1.8; color: var(--text-sec); margin-bottom: 14px;
+    }
+    .lesson-content ul {
+      margin: 10px 0 18px 20px;
+    }
+    .lesson-content li {
+      font-size: 14px; line-height: 1.8; color: var(--text-sec); margin-bottom: 4px;
+    }
+    .lesson-content li strong { color: var(--text); }
+    .lesson-content code {
+      font-family: var(--mono); font-size: 13px; background: var(--bg-code);
+      padding: 2px 6px; border-radius: 4px; color: var(--text);
+    }
+    .lesson-content a.lesson-link {
+      color: var(--text); text-decoration: underline; text-underline-offset: 2px;
+    }
+    .lesson-code {
+      background: var(--bg-code); border: 1px solid var(--border); border-radius: 8px;
+      padding: 18px 20px; font-family: var(--mono); font-size: 13px; line-height: 1.8;
+      margin: 16px 0; overflow-x: auto; white-space: pre;
+    }
+    .lesson-tip {
+      background: rgba(217,217,217,0.05); border: 1px solid var(--border);
+      border-left: 3px solid var(--accent); border-radius: 8px;
+      padding: 14px 18px; margin: 20px 0; font-size: 13px; color: var(--text-sec); line-height: 1.6;
+    }
+    .lesson-tip strong { color: var(--text); }
+    .lesson-diagram {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      background: var(--bg-code); border: 1px solid var(--border); border-radius: 8px;
+      padding: 24px; margin: 16px 0;
+    }
+    .diagram-step {
+      display: flex; align-items: center; gap: 10px; font-size: 13px;
+    }
+    .step-num {
+      width: 28px; height: 28px; border-radius: 50%; background: rgba(217,217,217,0.1);
+      display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; flex-shrink: 0;
+    }
+    .diagram-arrow { color: var(--text-muted); font-size: 18px; }
+    .step-desc { color: var(--text-muted); font-size: 12px; }
+
+    /* ─── Syntax Highlighting ─── */
+    .hl-tag { color: #e06c75; }
+    .hl-attr { color: #d19a66; }
+    .hl-string { color: #98c379; }
+    .hl-comment { color: #5c6370; }
+    .hl-selector { color: #e5c07b; }
+    .hl-prop { color: #61afef; }
+    .hl-value { color: #98c379; }
+    .hl-number { color: #d19a66; }
+    .hl-keyword { color: #c678dd; }
+    .hl-function { color: #61afef; }
+    .hl-builtin { color: #e06c75; }
+    .hl-keyframe { color: #c678dd; }
+    .lesson-content .lesson-code .hl-comma { color: var(--text-sec); }
+
+    /* ─── Auth Gate Overlay ─── */
+    .auth-gate {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+      z-index: 1000; align-items: center; justify-content: center; backdrop-filter: blur(4px);
+    }
+    .auth-gate.show { display: flex; }
+    .auth-gate-box {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 40px; max-width: 380px; width: 90%; text-align: center;
+    }
+    .auth-gate-box .lock-icon {
+      width: 48px; height: 48px; border-radius: 12px; background: rgba(217,217,217,0.08);
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
+    }
+    .auth-gate-box h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .auth-gate-box p { font-size: 13px; color: var(--text-sec); margin-bottom: 20px; line-height: 1.6; }
+    .auth-gate-box .btn { padding: 10px 0; width: 100%; justify-content: center; font-size: 14px; }
+
+    /* ─── Scrollbar ─── */
+    .lesson-list::-webkit-scrollbar, .lesson-content::-webkit-scrollbar { width: 6px; }
+    .lesson-list::-webkit-scrollbar-track, .lesson-content::-webkit-scrollbar-track { background: transparent; }
+    .lesson-list::-webkit-scrollbar-thumb, .lesson-content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 768px) {
+      .lesson-sidebar { width: 220px; min-width: 220px; }
+      .lesson-content { padding: 24px 16px; }
+      .lesson-diagram { flex-direction: column; }
+      .diagram-arrow { transform: rotate(90deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="lesson-app">
+    <!-- ─── Sidebar ─── -->
+    <aside class="lesson-sidebar" id="lessonSidebar">
+      <div class="lesson-sidebar-header">
+        <h3 id="sidebarTitle">Course</h3>
+        <a href="learn.html" title="Back to courses">&larr;</a>
+      </div>
+      <div class="lesson-list" id="lessonList"></div>
+      <div class="lesson-sidebar-footer">
+        <a href="index.html">Home</a>
+        <a href="pages/editor.html">Editor</a>
+      </div>
+    </aside>
+
+    <!-- ─── Main ─── -->
+    <div class="lesson-main">
+      <div class="lesson-topbar">
+        <div class="lesson-topbar-left">
+          <div class="lesson-topbar-logo">
+            <img src="logo.png" alt="Deoit">
+            <span><span class="accent">Deoit</span></span>
+          </div>
+        </div>
+        <div class="lesson-topbar-right">
+          <a href="pages/editor.html" class="btn btn-ghost">Editor</a>
+          <a href="login.html" class="btn btn-accent" id="loginBtn">Sign In</a>
+          <div id="userMenu" style="display:none;align-items:center;gap:8px;">
+            <span id="userName" style="font-size:13px;color:var(--text-sec);"></span>
+            <button id="logoutBtn" class="btn btn-ghost" style="padding:4px 10px;font-size:12px;">Sign Out</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson-content" id="lessonContent">
+        <div class="lesson-content-inner" id="lessonContentInner"></div>
+      </div>
+    </div>
+
+    <!-- ─── Auth Gate ─── -->
+    <div class="auth-gate" id="authGate">
+      <div class="auth-gate-box">
+        <div class="lock-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24" color="var(--text-sec)"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3>Lesson Locked</h3>
+        <p>Sign in to access all lessons and track your progress.</p>
+        <a href="login.html" class="btn btn-accent">Sign In to Continue</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/lessons.js"></script>
+  <script>
+    let currentUser = null;
+    let currentLang = null;
+    let currentLessonId = 1;
+
+    firebase.auth().onAuthStateChanged(user => {
+      currentUser = user;
+      const loginBtn = document.getElementById('loginBtn');
+      const userMenu = document.getElementById('userMenu');
+      const userName = document.getElementById('userName');
+      if (user) {
+        loginBtn.style.display = 'none';
+        userMenu.style.display = 'flex';
+        userName.textContent = user.displayName || user.email;
+      } else {
+        loginBtn.style.display = '';
+        userMenu.style.display = 'none';
+      }
+      renderLesson();
+    });
+    document.getElementById('logoutBtn').addEventListener('click', () => signOut());
+
+    // Get lang from URL
+    const params = new URLSearchParams(window.location.search);
+    currentLang = params.get('lang') || 'html';
+    currentLessonId = parseInt(params.get('lesson')) || 1;
+
+    const course = LESSONS[currentLang];
+    if (!course) window.location.href = 'learn.html';
+
+    document.getElementById('sidebarTitle').textContent = course.title;
+
+    // Render lesson list
+    function renderSidebar() {
+      const list = document.getElementById('lessonList');
+      list.innerHTML = '';
+      course.lessons.forEach((lesson, i) => {
+        const idx = i + 1;
+        const isLocked = idx > 1 && !currentUser;
+        const item = document.createElement('a');
+        item.href = 'lesson.html?lang=' + currentLang + '&lesson=' + idx;
+        item.className = 'lesson-item' + (idx === currentLessonId ? ' active' : '');
+        item.innerHTML = `
+          <div class="lesson-num">${idx}</div>
+          <div class="lesson-info">
+            <div class="lesson-item-title">${lesson.title}</div>
+            <div class="lesson-item-desc">${lesson.desc}</div>
+          </div>
+          ${isLocked ? '<svg class="lesson-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>' : ''}
+        `;
+        list.appendChild(item);
+      });
+    }
+
+    // Render lesson content
+    function renderLesson() {
+      renderSidebar();
+      const lesson = course.lessons.find(l => l.id === currentLessonId) || course.lessons[0];
+      const inner = document.getElementById('lessonContentInner');
+
+      // Check auth for lessons after #1
+      const gate = document.getElementById('authGate');
+      if (lesson.id > 1 && !currentUser) {
+        gate.classList.add('show');
+      } else {
+        gate.classList.remove('show');
+      }
+
+      inner.innerHTML = lesson.content || '<p>Lesson content coming soon.</p>';
+    }
+
+    renderLesson();
+  </script>
+</body>
+</html>
