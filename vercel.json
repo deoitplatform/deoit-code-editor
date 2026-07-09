@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/editor", "destination": "/pages/editor.html" },
+    { "source": "/learn", "destination": "/learn.html" },
+    { "source": "/lesson", "destination": "/lesson.html" }
+  ]
+}
