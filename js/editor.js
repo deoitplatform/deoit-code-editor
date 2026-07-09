@@ -30,10 +30,14 @@ function checkAuth() {
       }
       dropdownName.textContent = user.displayName || 'User';
       dropdownEmail.textContent = user.email || '';
+      // restore file tree
+      if (fileTree.children.length <= 1) renderTree();
     } else {
       if (avatarIcon) avatarIcon.hidden = false;
       if (avatarLetter) avatarLetter.hidden = true;
       dropdown.hidden = true;
+      // show empty message in file tree
+      fileTree.innerHTML = '<div class="tree-empty">Sign in to manage files</div>';
     }
   });
 }
