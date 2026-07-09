@@ -117,7 +117,12 @@ body {
 }
 .user-avatar:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); }
 .avatar-icon { width: 14px; height: 14px; display: block; }
-.avatar-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+.avatar-letter {
+  width: 100%; height: 100%; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; color: #fff;
+  text-transform: uppercase; user-select: none;
+}
 .user-dropdown {
   position: absolute; top: calc(100% + 6px); right: 0;
   background: var(--bg-panel, #161616);
@@ -142,7 +147,7 @@ body {
 .logged-out .user-dropdown { display: none !important; }
 .logged-out .user-avatar { cursor: pointer; }
 .logged-out .avatar-icon { display: block; }
-.logged-out .avatar-img { display: none; }
+.logged-out .avatar-letter { display: none !important; }
 
 /* ─── BODY GRID ─── */
 .editor-body {

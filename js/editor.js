@@ -2,6 +2,13 @@
 if (top !== self) { top.location.href = self.location.href; }
 
 // ─── AUTH LOCK ───
+function stringToColor(s) {
+  var colors = ['#3b82f6','#8b5cf6','#ec4899','#f59e0b','#10b981','#06b6d4','#ef4444','#14b8a6','#f97316','#6366f1'];
+  var h = 0;
+  for (var i = 0; i < s.length; i++) h = s.charCodeAt(i) + ((h << 5) - h);
+  return colors[Math.abs(h) % colors.length];
+}
+
 function checkAuth() {
   firebase.auth().onAuthStateChanged(user => {
     const loggedOut = !user;
@@ -12,26 +19,26 @@ function checkAuth() {
     const dropdownName = document.getElementById('dropdownName');
     const dropdownEmail = document.getElementById('dropdownEmail');
     const avatarIcon = avatar && avatar.querySelector('.avatar-icon');
+    const avatarLetter = document.getElementById('avatarLetter');
     if (user) {
-      if (user.photoURL) {
-        if (avatarIcon) avatarIcon.hidden = true;
-        avatarImg.hidden = false;
-        avatarImg.src = user.photoURL;
-      } else {
-        if (avatarIcon) avatarIcon.hidden = false;
-        avatarImg.hidden = true;
+      if (avatarIcon) avatarIcon.hidden = true;
+      if (avatarLetter) {
+        avatarLetter.hidden = false;
+        const name = user.displayName || user.email || 'U';
+        avatarLetter.textContent = name.charAt(0).toUpperCase();
+        avatarLetter.style.background = stringToColor(name);
       }
       dropdownName.textContent = user.displayName || 'User';
       dropdownEmail.textContent = user.email || '';
     } else {
       if (avatarIcon) avatarIcon.hidden = false;
-      avatarImg.hidden = true;
+      if (avatarLetter) avatarLetter.hidden = true;
       dropdown.hidden = true;
     }
   });
 }
 
-// avatar click to toggle dropdown
+// avatar click to toggle dropdown + dropdown item clicks
 document.addEventListener('click', function(e) {
   var wrap = document.getElementById('userMenuWrap');
   var dropdown = document.getElementById('userDropdown');
@@ -40,6 +47,17 @@ document.addEventListener('click', function(e) {
     window.location.href = '../login.html';
     return;
   }
+  // dropdown item click
+  var item = e.target.closest('.user-dropdown-item');
+  if (item) {
+    var a = item.dataset.action;
+    if (a === 'logout') { signOut().then(function() { window.location.href = '../login.html'; }); }
+    else if (a === 'home') { window.location.href = '../index.html'; }
+    else if (a === 'settings') { showSettings(); }
+    dropdown.hidden = true;
+    return;
+  }
+  // avatar click
   if (e.target.closest('#userAvatar')) {
     var body = document.body;
     var isLoggedIn = !body.classList.contains('logged-out');
