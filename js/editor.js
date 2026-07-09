@@ -11,19 +11,20 @@ function checkAuth() {
     const dropdown = document.getElementById('userDropdown');
     const dropdownName = document.getElementById('dropdownName');
     const dropdownEmail = document.getElementById('dropdownEmail');
+    const avatarIcon = avatar && avatar.querySelector('.avatar-icon');
     if (user) {
       if (user.photoURL) {
-        avatar.hidden = true;
+        if (avatarIcon) avatarIcon.hidden = true;
         avatarImg.hidden = false;
         avatarImg.src = user.photoURL;
       } else {
-        avatar.hidden = false;
+        if (avatarIcon) avatarIcon.hidden = false;
         avatarImg.hidden = true;
       }
       dropdownName.textContent = user.displayName || 'User';
       dropdownEmail.textContent = user.email || '';
     } else {
-      avatar.hidden = false;
+      if (avatarIcon) avatarIcon.hidden = false;
       avatarImg.hidden = true;
       dropdown.hidden = true;
     }
@@ -39,7 +40,7 @@ document.addEventListener('click', function(e) {
     window.location.href = '../login.html';
     return;
   }
-  if (e.target.closest('#userAvatar, #userAvatarImg')) {
+  if (e.target.closest('#userAvatar')) {
     var body = document.body;
     var isLoggedIn = !body.classList.contains('logged-out');
     if (isLoggedIn) {
