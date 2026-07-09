@@ -42,13 +42,10 @@
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
   <script src="js/auth.js"></script>
   <script>
-    if (firebase.auth().currentUser) {
-      window.location.href = 'pages/editor.html';
-    } else {
-      firebase.auth().onAuthStateChanged(user => {
-        if (user) window.location.href = 'pages/editor.html';
-      });
-    }
+    // if already signed in
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) window.location.href = 'pages/editor.html';
+    });
 
     // mouse follower glow on buttons
     document.querySelectorAll('.login-btn').forEach(btn => {
@@ -59,12 +56,25 @@
       });
     });
 
-    document.getElementById('btnGoogle').addEventListener('click', () => {
-      signInGoogle().then(() => window.location.href = 'pages/editor.html').catch(err => alert('Google sign-in failed: ' + err.message));
-    });
-    document.getElementById('btnGithub').addEventListener('click', () => {
-      signInGithub().then(() => window.location.href = 'pages/editor.html').catch(err => alert('GitHub sign-in failed: ' + err.message));
-    });
+    const btnGoogle = document.getElementById('btnGoogle');
+    const btnGithub = document.getElementById('btnGithub');
+
+    async function doSignIn(provider, btn) {
+      btn.disabled = true; btn.textContent = 'Please wait...';
+      try {
+        await provider();
+        // redirect is handled by onAuthStateChanged above
+      } catch (err) {
+        btn.disabled = false; btn.textContent = btn.dataset.label;
+        alert('Sign-in failed: ' + err.message);
+      }
+    }
+
+    btnGoogle.dataset.label = 'Continue with Google';
+    btnGithub.dataset.label = 'Continue with GitHub';
+
+    btnGoogle.addEventListener('click', () => doSignIn(signInGoogle, btnGoogle));
+    btnGithub.addEventListener('click', () => doSignIn(signInGithub, btnGithub));
   </script>
 </body>
 </html>
