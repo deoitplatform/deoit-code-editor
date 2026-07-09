@@ -4,11 +4,53 @@ if (top !== self) { top.location.href = self.location.href; }
 // ─── AUTH LOCK ───
 function checkAuth() {
   firebase.auth().onAuthStateChanged(user => {
-    document.body.classList.toggle('logged-out', !user);
-    const un = document.getElementById('editorUserName');
-    if (user && un) un.textContent = user.displayName || user.email || user.uid;
+    const loggedOut = !user;
+    document.body.classList.toggle('logged-out', loggedOut);
+    const avatar = document.getElementById('userAvatar');
+    const avatarImg = document.getElementById('userAvatarImg');
+    const dropdown = document.getElementById('userDropdown');
+    const dropdownName = document.getElementById('dropdownName');
+    const dropdownEmail = document.getElementById('dropdownEmail');
+    if (user) {
+      if (user.photoURL) {
+        avatar.hidden = true;
+        avatarImg.hidden = false;
+        avatarImg.src = user.photoURL;
+      } else {
+        avatar.hidden = false;
+        avatarImg.hidden = true;
+      }
+      dropdownName.textContent = user.displayName || 'User';
+      dropdownEmail.textContent = user.email || '';
+    } else {
+      avatar.hidden = false;
+      avatarImg.hidden = true;
+      dropdown.hidden = true;
+    }
   });
 }
+
+// avatar click to toggle dropdown
+document.addEventListener('click', function(e) {
+  var wrap = document.getElementById('userMenuWrap');
+  var dropdown = document.getElementById('userDropdown');
+  if (!wrap || !dropdown) return;
+  if (wrap.contains(e.target) && !firebase.auth().currentUser) {
+    window.location.href = '../login.html';
+    return;
+  }
+  if (e.target.closest('#userAvatar, #userAvatarImg')) {
+    var body = document.body;
+    var isLoggedIn = !body.classList.contains('logged-out');
+    if (isLoggedIn) {
+      dropdown.hidden = !dropdown.hidden;
+    } else {
+      window.location.href = '../login.html';
+    }
+  } else if (!wrap.contains(e.target)) {
+    dropdown.hidden = true;
+  }
+});
 
 // ─── DOM REFS ───
 const editorCode = document.getElementById('editorCode');
@@ -1135,7 +1177,7 @@ function init() {
 }
 
 // ─── EVENT DELEGATION (CSP-safe) ───
-function requireAuth() { if (!firebase.auth().currentUser) { alert('Please sign in to use this feature.'); return false; } return true; }
+function requireAuth() { if (!firebase.auth().currentUser) { window.location.href = '../login.html'; return false; } return true; }
 
 function setupDelegation() {
   document.querySelector('.toolbar')?.addEventListener('click', e => {

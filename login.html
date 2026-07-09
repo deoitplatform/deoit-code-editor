@@ -3,13 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://apis.google.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://www.googleapis.com https://firestore.googleapis.com https://www.gstatic.com; frame-src 'self' https://deoit-d2c47.firebaseapp.com https://apis.google.com">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <title>Sign in — Deoit</title>
   <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-  <script>if(top!==self){top.location.href=self.location.href}</script>
   <div class="login-wrapper">
     <div class="login-card">
       <div class="login-header">
@@ -17,10 +14,12 @@
           <img src="logo.png" alt="Deoit">
         </div>
         <h1>Welcome back</h1>
-        <p>Sign in to your account to continue</p>
+        <p>Sign in to unlock all features</p>
       </div>
-      <div class="code-decoration">
-        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <div class="login-features">
+        <span>&#10003; File explorer</span>
+        <span>&#10003; Settings</span>
+        <span>&#10003; Export &amp; Download</span>
       </div>
       <div class="login-body">
         <button class="login-btn google" id="btnGoogle">
@@ -35,7 +34,7 @@
         </button>
       </div>
       <div class="login-footer">
-        <p>By signing in, you agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</p>
+        <p>By continuing, you agree to the <a href="terms.html">Terms</a> &amp; <a href="privacy.html">Privacy</a>.</p>
       </div>
     </div>
   </div>
@@ -44,42 +43,31 @@
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
   <script src="js/auth.js"></script>
   <script>
-    // handle redirect result (coming back from OAuth)
-    getRedirectResult().then(result => {
-      if (result.user) window.location.href = 'pages/editor.html';
-    }).catch(err => {
-      // silent — user probably cancelled
-    });
+    (function() {
+      // handle redirect result
+      auth.getRedirectResult().then(function(r) {
+        if (r.user) window.location.replace('pages/editor.html');
+      }).catch(function(){});
 
-    // if already signed in
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) window.location.href = 'pages/editor.html';
-    });
-
-    // mouse follower glow on buttons
-    document.querySelectorAll('.login-btn').forEach(btn => {
-      btn.addEventListener('mousemove', e => {
-        const r = btn.getBoundingClientRect();
-        btn.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
-        btn.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+      // if already signed in
+      auth.onAuthStateChanged(function(user) {
+        if (user) window.location.replace('pages/editor.html');
       });
-    });
 
-    const btnGoogle = document.getElementById('btnGoogle');
-    const btnGithub = document.getElementById('btnGithub');
+      var bg = document.getElementById('btnGoogle');
+      var bg2 = document.getElementById('btnGithub');
 
-    async function doSignIn(provider, btn) {
-      btn.classList.add('loading'); btn.disabled = true;
-      try {
-        await provider();
-      } catch (err) {
-        btn.classList.remove('loading'); btn.disabled = false;
-        alert('Sign-in failed: ' + err.message);
+      function doSignIn(provider, btn) {
+        btn.classList.add('loading'); btn.disabled = true;
+        provider().catch(function(err) {
+          btn.classList.remove('loading'); btn.disabled = false;
+          alert('Sign-in failed. Please try again.');
+        });
       }
-    }
 
-    btnGoogle.addEventListener('click', () => doSignIn(signInGoogle, btnGoogle));
-    btnGithub.addEventListener('click', () => doSignIn(signInGithub, btnGithub));
+      bg.addEventListener('click', function() { doSignIn(signInGoogle, bg); });
+      bg2.addEventListener('click', function() { doSignIn(signInGithub, bg2); });
+    })();
   </script>
 </body>
 </html>
