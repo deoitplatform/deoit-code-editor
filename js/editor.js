@@ -3,10 +3,11 @@ if (top !== self) { top.location.href = self.location.href; }
 
 // ─── AUTH LOCK ───
 function checkAuth() {
-  const user = firebase.auth().currentUser;
-  document.body.classList.toggle('logged-out', !user);
-  const un = document.getElementById('editorUserName');
-  if (user && un) un.textContent = user.displayName || user.email || user.uid;
+  firebase.auth().onAuthStateChanged(user => {
+    document.body.classList.toggle('logged-out', !user);
+    const un = document.getElementById('editorUserName');
+    if (user && un) un.textContent = user.displayName || user.email || user.uid;
+  });
 }
 
 // ─── DOM REFS ───
@@ -1806,5 +1807,4 @@ window.addEventListener('load', () => {
   init();
   setupDelegation();
   checkAuth();
-  firebase.auth().onAuthStateChanged(() => checkAuth());
 });

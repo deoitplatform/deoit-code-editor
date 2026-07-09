@@ -60,10 +60,10 @@
     });
 
     document.getElementById('btnGoogle').addEventListener('click', () => {
-      signInGoogle().catch(err => alert('Google sign-in failed: ' + err.message));
+      signInGoogle().then(() => window.location.href = 'pages/editor.html').catch(err => alert('Google sign-in failed: ' + err.message));
     });
     document.getElementById('btnGithub').addEventListener('click', () => {
-      signInGithub().catch(err => alert('GitHub sign-in failed: ' + err.message));
+      signInGithub().then(() => window.location.href = 'pages/editor.html').catch(err => alert('GitHub sign-in failed: ' + err.message));
     });
   </script>
 </body>
