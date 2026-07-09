@@ -3,304 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; script-src 'self' 'unsafe-inline' https://www.gstatic.com; font-src 'self' https://fonts.gstatic.com">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <title>Deoit - Online Code Editor</title>
+  <title>Deoit — online code editor</title>
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <script>if(top!==self){top.location.href=self.location.href}</script>
-  <div class="app-layout">
-    <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
-      <div class="sidebar-logo">
-        <img src="logo.png" alt="Deoit">
-        <span><span class="logo-accent">Deoit</span></span>
+
+  <header class="header">
+    <a href="index.html" class="header-logo">
+      <img src="logo.png" alt="">Deoit
+    </a>
+    <nav class="header-nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="pages/editor.html">Editor</a>
+      <a href="login.html" id="loginLink">Sign in</a>
+      <div id="userMenu" style="display:none;align-items:center;gap:6px;margin-left:4px;">
+        <span id="userName" style="font-size:12px;color:var(--text-dim);"></span>
+        <button class="btn btn-ghost" id="logoutBtn" style="font-size:12px;padding:4px 10px;">Sign out</button>
       </div>
+    </nav>
+  </header>
 
-      <nav class="sidebar-links">
-        <a href="index.html" class="sidebar-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          Home
-        </a>
-        <a href="pages/editor.html" class="sidebar-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5"/><line x1="12" y1="22" x2="12" y2="15.5"/><polyline points="22 8.5 12 15.5 2 8.5"/></svg>
-          Editor
-        </a>
-        <div class="sidebar-divider"></div>
-        <a href="mailto:deoit.platform@gmail.com" class="sidebar-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
-          Contact
-        </a>
-      </nav>
+  <section class="hero">
+    <div class="hero-gradient"></div>
+    <div class="hero-badge"><span class="dot"></span> Free &middot; no sign-up required</div>
+    <h1>Code directly <span class="accent">in your browser</span></h1>
+    <p>Write HTML, CSS, and JavaScript, see the result instantly. Save projects, export as ZIP, sign in for more.</p>
+    <div class="hero-buttons">
+      <a href="pages/editor.html" class="btn btn-primary">Open Editor</a>
+      <a href="login.html" class="btn btn-outline">Sign in</a>
+    </div>
+  </section>
 
-      <div class="sidebar-cta">
-        <p>Build, test, and preview your code instantly in the browser.</p>
-        <a href="pages/editor.html" class="btn btn-accent" style="width:100%;justify-content:center;">Start Coding</a>
+  <div class="container">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span>
+        <span class="terminal-title">index.html</span>
       </div>
-    </aside>
-
-    <!-- Main -->
-    <div class="main-content">
-      <!-- Header Bar -->
-      <header class="header-bar">
-        <button class="mobile-menu-toggle" id="menuToggle">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-        <div class="header-search">
-          <svg viewBox="0 0 56.7 56.7" fill="currentColor"><path d="M42.8 7.3C33-2.4 17.1-2.4 7.3 7.3c-9.8 9.8-9.8 25.7 0 35.5 8.7 8.7 22.2 9.7 32 2.9l9.6 9.6c1.8 1.8 4.7 1.8 6.4 0 1.8-1.8 1.8-4.7 0-6.4l-9.6-9.6c6.8-9.8 5.8-23.3-2.9-32zm-6.2 29.3c-6.4 6.4-16.7 6.4-23.1 0s-6.4-16.7 0-23.1 16.7-6.4 23.1 0 6.4 16.8 0 23.1z"/></svg>
-          <input type="search" placeholder="Search Deoit...">
-        </div>
-        <div class="header-actions" id="headerActions">
-          <a href="pages/editor.html" class="btn btn-ghost">Get Started</a>
-          <a href="login.html" class="btn btn-accent" id="loginBtn">Sign In</a>
-          <div id="userMenu" style="display:none;align-items:center;gap:8px;">
-            <span id="userName" style="font-size:13px;color:var(--text-secondary);"></span>
-            <button id="logoutBtn" class="btn btn-ghost" style="padding:4px 10px;font-size:12px;">Sign Out</button>
-          </div>
-        </div>
-      </header>
-
-      <!-- Hero -->
-      <section class="hero">
-        <!-- Floating Glass Shapes -->
-        <div class="float-shape shape-circle" style="top:8%;left:5%;width:70px;height:70px;animation-delay:0s;background:rgba(97,175,239,0.06);border-color:rgba(97,175,239,0.12);"></div>
-        <div class="float-shape shape-square" style="top:15%;right:8%;width:55px;height:55px;animation-delay:1.5s;animation-duration:14s;background:rgba(229,192,123,0.06);border-color:rgba(229,192,123,0.12);"></div>
-        <div class="float-shape shape-triangle" style="top:45%;left:3%;width:60px;height:60px;animation-delay:3s;animation-duration:16s;background:rgba(198,120,221,0.06);border-color:rgba(198,120,221,0.12);"></div>
-        <div class="float-shape shape-circle" style="top:55%;right:5%;width:45px;height:45px;animation-delay:2s;animation-duration:13s;background:rgba(224,108,117,0.06);border-color:rgba(224,108,117,0.12);"></div>
-        <div class="float-shape shape-square" style="top:75%;left:12%;width:50px;height:50px;animation-delay:4s;animation-duration:18s;background:rgba(152,195,121,0.06);border-color:rgba(152,195,121,0.12);"></div>
-        <div class="float-shape shape-triangle" style="top:30%;right:2%;width:40px;height:40px;animation-delay:1s;animation-duration:15s;background:rgba(217,217,217,0.06);border-color:rgba(217,217,217,0.12);"></div>
-
-        <div class="hero-logo">
-          <img src="logo.png" alt="Deoit" width="64" height="64" style="border-radius:12px;">
-        </div>
-        <h1><span class="typing-static">Write, run, and debug</span><br><span class="typing-dynamic"></span><span class="typing-cursor">|</span></h1>
-        <p>Deoit is a lightweight online code editor with syntax highlighting, autocomplete, and a file explorer. Open a file, write code, and see the result — all in your browser.</p>
-
-        <!-- Code Demo -->
-        <div class="code-demo">
-          <div class="code-demo-tabs">
-            <div class="code-demo-tab active" data-lang="html">
-              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M15 6.675l-1.8-.6c-.2-.1-.3-.3-.2-.4l.9-1.7c.6-1.2-.7-2.5-1.9-1.9l-1.7.9c-.1.1-.3 0-.4-.2l-.6-1.8c-.4-1.3-2.2-1.3-2.6 0l-.6 1.8c-.1.2-.3.3-.4.2l-1.7-.9c-1.2-.6-2.5.7-1.9 1.9l.9 1.7c.1.1 0 .3-.2.4l-1.8.6c-1.3.4-1.3 2.3 0 2.7l1.8.6c.2 0 .3.2.2.3l-.9 1.7c-.6 1.2.7 2.5 1.9 1.9l1.7-.9c.2-.1.4 0 .4.2l.6 1.8c.4 1.3 2.3 1.3 2.7 0l.6-1.8c.1-.2.3-.3.4-.2l1.7.9c1.2.6 2.5-.7 1.9-1.9l-1-1.7c-.1-.2 0-.4.2-.4l1.8-.6c1.3-.4 1.3-2.2 0-2.6zm-7 3.7c-1.3 0-2.4-1.1-2.4-2.4 0-1.3 1.1-2.4 2.4-2.4 1.3 0 2.4 1.1 2.4 2.4 0 1.3-1.1 2.4-2.4 2.4z"/></svg>
-              HTML
-            </div>
-            <div class="code-demo-tab" data-lang="css">
-              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M15 6.675l-1.8-.6c-.2-.1-.3-.3-.2-.4l.9-1.7c.6-1.2-.7-2.5-1.9-1.9l-1.7.9c-.1.1-.3 0-.4-.2l-.6-1.8c-.4-1.3-2.2-1.3-2.6 0l-.6 1.8c-.1.2-.3.3-.4.2l-1.7-.9c-1.2-.6-2.5.7-1.9 1.9l.9 1.7c.1.1 0 .3-.2.4l-1.8.6c-1.3.4-1.3 2.3 0 2.7l1.8.6c.2 0 .3.2.2.3l-.9 1.7c-.6 1.2.7 2.5 1.9 1.9l1.7-.9c.2-.1.4 0 .4.2l.6 1.8c.4 1.3 2.3 1.3 2.7 0l.6-1.8c.1-.2.3-.3.4-.2l1.7.9c1.2.6 2.5-.7 1.9-1.9l-1-1.7c-.1-.2 0-.4.2-.4l1.8-.6c1.3-.4 1.3-2.2 0-2.6zm-7 3.7c-1.3 0-2.4-1.1-2.4-2.4 0-1.3 1.1-2.4 2.4-2.4 1.3 0 2.4 1.1 2.4 2.4 0 1.3-1.1 2.4-2.4 2.4z"/></svg>
-              CSS
-            </div>
-            <div class="code-demo-tab" data-lang="js">
-              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M15 6.675l-1.8-.6c-.2-.1-.3-.3-.2-.4l.9-1.7c.6-1.2-.7-2.5-1.9-1.9l-1.7.9c-.1.1-.3 0-.4-.2l-.6-1.8c-.4-1.3-2.2-1.3-2.6 0l-.6 1.8c-.1.2-.3.3-.4.2l-1.7-.9c-1.2-.6-2.5.7-1.9 1.9l.9 1.7c.1.1 0 .3-.2.4l-1.8.6c-1.3.4-1.3 2.3 0 2.7l1.8.6c.2 0 .3.2.2.3l-.9 1.7c-.6 1.2.7 2.5 1.9 1.9l1.7-.9c.2-.1.4 0 .4.2l.6 1.8c.4 1.3 2.3 1.3 2.7 0l.6-1.8c.1-.2.3-.3.4-.2l1.7.9c1.2.6 2.5-.7 1.9-1.9l-1-1.7c-.1-.2 0-.4.2-.4l1.8-.6c1.3-.4 1.3-2.2 0-2.6zm-7 3.7c-1.3 0-2.4-1.1-2.4-2.4 0-1.3 1.1-2.4 2.4-2.4 1.3 0 2.4 1.1 2.4 2.4 0 1.3-1.1 2.4-2.4 2.4z"/></svg>
-              JavaScript
-            </div>
-          </div>
-          <!-- HTML content -->
-          <div class="code-demo-content" data-lang="html" style="display:block">
-            <span class="hl-tag">&lt;div</span> <span class="hl-attr">class</span>=<span class="hl-string">"card"</span><span class="hl-tag">&gt;</span><br>
-            &nbsp;&nbsp;<span class="hl-tag">&lt;h1&gt;</span>Hello, World!<span class="hl-tag">&lt;/h1&gt;</span><br>
-            &nbsp;&nbsp;<span class="hl-tag">&lt;p&gt;</span>This is a demo<span class="hl-tag">&lt;/p&gt;</span><br>
-            <span class="hl-tag">&lt;/div&gt;</span>
-          </div>
-          <!-- CSS content -->
-          <div class="code-demo-content" data-lang="css" style="display:none">
-            <span class="hl-selector">.card</span> {<br>
-            &nbsp;&nbsp;            <span class="hl-prop">background</span>: <span class="hl-value">linear-gradient(135deg, #444, #222)</span>;<br>
-            &nbsp;&nbsp;<span class="hl-prop">padding</span>: <span class="hl-number">2rem</span>;<br>
-            &nbsp;&nbsp;<span class="hl-prop">border-radius</span>: <span class="hl-number">12px</span>;<br>
-            &nbsp;&nbsp;<span class="hl-prop">color</span>: <span class="hl-value">white</span>;<br>
-            }
-          </div>
-          <!-- JS content -->
-          <div class="code-demo-content" data-lang="js" style="display:none">
-            <span class="hl-keyword">const</span> <span class="hl-function">greet</span> = <span class="hl-keyword">function</span>() {<br>
-            &nbsp;&nbsp;<span class="hl-keyword">const</span> name = <span class="hl-string">"Developer"</span>;<br>
-            &nbsp;&nbsp;<span class="hl-keyword">return</span> <span class="hl-string">`Hello, <span class="hl-value">${name}</span>!`</span>;<br>
-            };<br>
-            <br>
-            console.<span class="hl-function">log</span>(<span class="hl-function">greet</span>());
-          </div>
-        </div>
-
-        <div class="hero-buttons">
-          <a href="pages/editor.html" class="btn btn-accent btn-big">Try the Editor</a>
-          <a href="#features" class="btn btn-outline btn-big">Learn More</a>
-        </div>
-      </section>
-
-      <!-- Features -->
-      <section class="features" id="features">
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon" style="background:rgba(217,217,217,0.1);color:var(--accent);">&#128221;</div>
-            <h3>Single Editor</h3>
-            <p>Write HTML, CSS, and JavaScript in a clean single-panel editor with syntax highlighting, autocomplete, and file explorer.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon" style="background:rgba(217,217,217,0.1);color:var(--accent);">&#128640;</div>
-            <h3>Fast Preview</h3>
-            <p>Run your code instantly in a popup window. No page reloads, no config — just click Run and see the result.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon" style="background:rgba(217,217,217,0.1);color:var(--accent);">&#128190;</div>
-            <h3>Auto-Save &amp; Export</h3>
-            <p>Your projects are automatically saved to your browser. Build, test, and refine without losing your work.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Editor Showcase -->
-      <section class="editor-showcase">
-        <div class="editor-showcase-wrapper">
-          <div>
-            <h2>A lightweight editor for quick front-end experiments</h2>
-            <p>Deoit gives you a distraction-free coding environment with syntax highlighting, smart autocomplete, and a file explorer — all in your browser.</p>
-            <ul class="editor-showcase-list">
-              <li>
-                <div>
-                  <summary>Syntax Highlighting</summary>
-                  <p>Full-color syntax highlighting for HTML, CSS, and JavaScript with support for 25+ token types and bracket pair guides.</p>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <summary>Smart Autocomplete</summary>
-                  <p>Context-aware suggestions for HTML tags &amp; attributes, CSS properties, and JavaScript keywords &amp; snippets.</p>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <summary>File Explorer</summary>
-                  <p>Create, rename, and delete files and folders directly in the editor. Perfect for multi-file projects like landing pages.</p>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <summary>Fast Run Preview</summary>
-                  <p>Run your HTML/CSS/JS combo instantly in a popup window. Supports multiple HTML files with a smart file picker.</p>
-                </div>
-              </li>
-            </ul>
-            <a href="pages/editor.html" class="btn btn-accent" style="margin-top:16px;">Explore the Editor</a>
-          </div>
-          <div style="background:var(--bg-card);border-radius:12px;border:1px solid var(--border);padding:40px;text-align:center;min-height:300px;display:flex;align-items:center;justify-content:center;">
-            <div>
-              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:24px;">
-                <div style="background:var(--bg-code);padding:12px;border-radius:6px;font-size:12px;font-family:var(--font-mono);color:#d9d9d9;">&lt;div&gt;</div>
-                <div style="background:var(--bg-code);padding:12px;border-radius:6px;font-size:12px;font-family:var(--font-mono);color:#a0a0a0;">.card {}</div>
-                <div style="background:var(--bg-code);padding:12px;border-radius:6px;font-size:12px;font-family:var(--font-mono);color:#b0b0b0;">console.log</div>
-              </div>
-              <p style="color:var(--text-secondary);font-size:14px;">Visual preview of your code in real-time</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Tech Stack -->
-      <section class="techstack">
-        <div class="techstack-wrapper">
-          <div class="techstack-header">
-            <h2>Built with</h2>
-            <p>Pure web technologies — no frameworks, no dependencies.</p>
-          </div>
-          <div class="techstack-grid">
-            <div class="tech-card">
-              <svg viewBox="0 0 32 32" fill="none"><path d="M6 2L4 27L16 30L28 27L26 2H6Z" fill="#E44D26"/><path d="M16 28.5L24.5 26.5L26 4H16V28.5Z" fill="#F16529"/><path d="M10 11H16V8H7L7.5 14H16V11H10.5L10 11Z" fill="white"/><path d="M9.5 17H12.5L13 20L16 21L19 20L19.5 17H25L24 24L16 26L8 24L7.5 17Z" fill="white"/></svg>
-              <h4>HTML5</h4>
-              <p>Semantic markup &amp; modern APIs</p>
-            </div>
-            <div class="tech-card">
-              <svg viewBox="0 0 32 32" fill="none"><path d="M6 2L4 27L16 30L28 27L26 2H6Z" fill="#264DE4"/><path d="M16 28.5L24.5 26.5L26 4H16V28.5Z" fill="#2965F1"/><path d="M10 11H16V8H7L7.5 14H16V11H10.5L10 11Z" fill="white"/><path d="M9.5 17H12.5L13 20L16 21L19 20L19.5 17H25L24 24L16 26L8 24L7.5 17Z" fill="white"/></svg>
-              <h4>CSS3</h4>
-              <p>Flexbox, Grid &amp; custom properties</p>
-            </div>
-            <div class="tech-card">
-              <svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="4" fill="#F7DF1E"/><path d="M20 24C20 25.5 19 26.5 17 26.5C15 26.5 14 25.5 14 24H16C16 24.5 16.5 25 17 25C17.5 25 18 24.5 18 24C18 23 14 23.5 14 21C14 19.5 15 18.5 17 18.5C19 18.5 20 19.5 20 21H18C18 20.5 17.5 20 17 20C16.5 20 16 20.5 16 21C16 22 20 21.5 20 24Z" fill="black"/><path d="M9 21.5C9 22.5 9.5 23 10.5 23C11.5 23 12 22.5 12 21.5H14C14 23.5 13 25 10.5 25C8 25 7 23.5 7 21.5H9Z" fill="black"/></svg>
-              <h4>JavaScript</h4>
-              <p>ES6+, DOM APIs &amp; modules</p>
-            </div>
-            <div class="tech-card">
-              <svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="4" fill="#181717"/><path d="M16 5C10.5 5 6 9.5 6 15C6 18.7 8.1 22 11.2 23.6C11.6 23.7 11.7 23.4 11.7 23.2C11.7 23 11.7 22.4 11.7 21.6C9.8 22 9.4 20.7 9.4 20.7C9.1 19.8 8.6 19.6 8.6 19.6C7.9 19.2 8.7 19.2 8.7 19.2C9.5 19.3 9.9 20.1 9.9 20.1C10.6 21.4 11.8 21.1 12.2 20.9C12.3 20.4 12.5 20.1 12.7 19.9C11.3 19.7 9.8 18.9 9.8 14.9C9.8 13.7 10.2 12.8 10.9 12.1C10.8 11.9 10.4 10.9 11 9.6C11 9.6 11.9 9.3 13.5 10.5C14.3 10.3 15.1 10.2 16 10.2C16.9 10.2 17.7 10.3 18.5 10.5C20.1 9.3 21 9.6 21 9.6C21.6 10.9 21.2 11.9 21.1 12.1C21.8 12.8 22.2 13.7 22.2 14.9C22.2 18.9 20.7 19.7 19.3 19.9C19.5 20.1 19.8 20.6 19.8 21.4C19.8 22.5 19.8 23.4 19.8 23.6C19.8 23.8 19.9 24.1 20.4 24C23.8 22.3 26 18.9 26 15C26 9.5 21.5 5 16 5Z" fill="white"/></svg>
-              <h4>GitHub</h4>
-              <p>Version control &amp; collaboration</p>
-            </div>
-            <div class="tech-card">
-              <svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="4" fill="#E0234E"/><path d="M16 11C14.5 11 13 11.5 12 12.5C10 14.5 10 17.5 12 19.5C13 20.5 14.5 21 16 21C17.5 21 19 20.5 20 19.5C22 17.5 22 14.5 20 12.5C19 11.5 17.5 11 16 11ZM16 19C14.9 19 14 18.1 14 17C14 15.9 14.9 15 16 15C17.1 15 18 15.9 18 17C18 18.1 17.1 19 16 19Z" fill="white"/><path d="M16 6C11 6 7 10 7 15V20C7 21.1 7.9 22 9 22H12V15C12 12.2 14.2 10 16 10C17.8 10 20 12.2 20 15V22H23C24.1 22 25 21.1 25 20V15C25 10 21 6 16 6Z" fill="white"/></svg>
-              <h4>localStorage</h4>
-              <p>Client-side persistence</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Footer -->
-      <footer class="site-footer">
-        <div class="footer-content">
-          <div class="footer-brand">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-              <svg viewBox="0 0 100 100" width="28" height="28"><path d="M100 34.2c-.4-2.6-3.3-4-5.3-5.3-3.6-2.4-7.1-4.7-10.7-7.1-8.5-5.7-17.1-11.4-25.6-17.1-2-1.3-4-2.7-6-4-1.4-1-3.3-1-4.8 0-5.7 3.8-11.5 7.7-17.2 11.5L5.2 29C3 30.4.1 31.8 0 34.8c-.1 3.3 0 6.7 0 10v16c0 2.9-.6 6.3 2.1 8.1 6.4 4.4 12.9 8.6 19.4 12.9 8 5.3 16 10.7 24 16 2.2 1.5 4.4 3.1 7.1 1.3 2.3-1.5 4.5-3 6.8-4.5 8.9-5.9 17.8-11.9 26.7-17.8l9.9-6.6c.6-.4 1.3-.8 1.9-1.3 1.4-1 2-2.4 2-4.1V37.3c.1-1.1.2-2.1.1-3.1 0-.1 0 .2 0 0z" fill="#d9d9d9"/></svg>
-              <span style="font-size:18px;font-weight:700;"><span style="color:var(--accent);">Deoit</span></span>
-            </div>
-            <p>&copy; 2026 Deoit</p>
-            <p style="color:var(--text-secondary);font-size:13px;">Built by <strong style="color:var(--text-primary);">Majed Qandeel</strong></p>
-            <p><a href="mailto:deoit.platform@gmail.com" style="color:var(--accent);text-decoration:none;font-size:13px;">deoit.platform@gmail.com</a></p>
-          </div>
-          <div class="footer-col">
-            <h4>Deoit</h4>
-            <a href="#">About</a>
-            <a href="#">Pricing</a>
-            <a href="#">Blog</a>
-            <a href="#">Documentation</a>
-            <a href="#">Support</a>
-          </div>
-          <div class="footer-col">
-            <h4>For</h4>
-            <a href="#">Teams</a>
-            <a href="#">Privacy</a>
-            <a href="#">Embeds</a>
-            <a href="#">Asset Hosting</a>
-          </div>
-          <div class="footer-col">
-            <h4>Social</h4>
-            <a href="#" rel="noopener noreferrer">YouTube</a>
-            <a href="#" rel="noopener noreferrer">Twitter / X</a>
-            <a href="#" rel="noopener noreferrer">Instagram</a>
-            <a href="#" rel="noopener noreferrer">GitHub</a>
-          </div>
-          <div class="footer-col">
-            <h4>Community</h4>
-            <a href="#">Spark</a>
-            <a href="#">Challenges</a>
-            <a href="#">Topics</a>
-            <a href="#">Code of Conduct</a>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <a href="terms.html" style="color:inherit;text-decoration:none;">Terms of Service</a> &middot; <a href="privacy.html" style="color:inherit;text-decoration:none;">Privacy Policy</a>
-          <span>Made with &hearts; by <strong>Majed Qandeel</strong></span>
-        </div>
-      </footer>
+      <div class="terminal-body">
+        <div class="line"><span class="prompt">$</span> <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"hero"</span><span class="tag">&gt;</span></div>
+        <div class="line">&nbsp;&nbsp;<span class="tag">&lt;h1&gt;</span>Hello, World<span class="tag">&lt;/h1&gt;</span></div>
+        <div class="line">&nbsp;&nbsp;<span class="tag">&lt;style&gt;</span></div>
+        <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="sel">.hero</span> { <span class="prop">background</span>: <span class="val">#000</span>; }</div>
+        <div class="line">&nbsp;&nbsp;<span class="tag">&lt;/style&gt;</span></div>
+        <div class="line"><span class="tag">&lt;/div&gt;</span><span class="cursor"></span></div>
+      </div>
     </div>
   </div>
+
+  <section class="features">
+    <p class="features-title">What you get</p>
+    <div class="features-list container">
+      <div class="features-item">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Syntax highlighting for HTML, CSS, JS
+      </div>
+      <div class="features-item">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Autocomplete with fuzzy matching
+      </div>
+      <div class="features-item">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+        File explorer &amp; tab management
+      </div>
+      <div class="features-item">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+        One-click Run popup preview
+      </div>
+      <div class="features-item">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Console panel with error capture
+      </div>
+      <div class="features-item">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Export &amp; ZIP download
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <a href="terms.html">Terms</a><span class="footer-sep">&middot;</span>
+    <a href="privacy.html">Privacy</a><span class="footer-sep">&middot;</span>
+    <span>Built by Majed Qandeel</span><span class="footer-sep">&middot;</span>
+    <a href="mailto:deoit.platform@gmail.com">Contact</a>
+  </footer>
 
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
   <script src="js/auth.js"></script>
   <script>
-    firebase.auth().onAuthStateChanged(user => {
-      const loginBtn = document.getElementById('loginBtn');
-      const userMenu = document.getElementById('userMenu');
-      const userName = document.getElementById('userName');
+    firebase.auth().onAuthStateChanged(function(user) {
+      var loginLink = document.getElementById('loginLink');
+      var userMenu = document.getElementById('userMenu');
+      var userName = document.getElementById('userName');
       if (user) {
-        loginBtn.style.display = 'none';
+        loginLink.style.display = 'none';
         userMenu.style.display = 'flex';
         userName.textContent = user.displayName || user.email;
       } else {
-        loginBtn.style.display = '';
+        loginLink.style.display = '';
         userMenu.style.display = 'none';
       }
     });
-    document.getElementById('logoutBtn').addEventListener('click', () => signOut());
+    document.getElementById('logoutBtn').addEventListener('click', function() { signOut(); });
   </script>
-  <script src="js/script.js"></script>
 </body>
 </html>

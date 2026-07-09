@@ -9,55 +9,25 @@
   <style>
     .legal-page { max-width: 720px; margin: 0 auto; padding: 60px 24px 100px; }
     .legal-page h1 { font-size: 28px; margin-bottom: 6px; }
-    .legal-page .date { font-size: 13px; color: var(--text-secondary); margin-bottom: 32px; }
+    .legal-page .date { font-size: 13px; color: var(--text-dim); margin-bottom: 32px; }
     .legal-page h2 { font-size: 18px; margin: 28px 0 10px; }
-    .legal-page p { font-size: 14px; line-height: 1.7; color: var(--text-secondary); margin-bottom: 12px; }
+    .legal-page p { font-size: 14px; line-height: 1.7; color: var(--text-dim); margin-bottom: 12px; }
     .legal-page ul { margin: 8px 0 16px 20px; }
-    .legal-page li { font-size: 14px; line-height: 1.7; color: var(--text-secondary); margin-bottom: 4px; }
-    body { background: var(--bg-app); }
+    .legal-page li { font-size: 14px; line-height: 1.7; color: var(--text-dim); margin-bottom: 4px; }
+    body { background: var(--bg); }
   </style>
 </head>
 <body>
-  <div class="app-layout">
-    <aside class="sidebar">
-      <div class="sidebar-logo">
-        <img src="logo.png" alt="Deoit">
-        <span><span class="logo-accent">Deoit</span></span>
-      </div>
-      <nav class="sidebar-links">
-        <a href="index.html" class="sidebar-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          Home
-        </a>
-        <a href="pages/editor.html" class="sidebar-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5"/><line x1="12" y1="22" x2="12" y2="15.5"/><polyline points="22 8.5 12 15.5 2 8.5"/></svg>
-          Editor
-        </a>
-        <div class="sidebar-divider"></div>
-        <a href="mailto:deoit.platform@gmail.com" class="sidebar-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
-          Contact
-        </a>
-      </nav>
-      <div class="sidebar-cta">
-        <p>Build, test, and preview your code instantly in the browser.</p>
-        <a href="pages/editor.html" class="btn btn-accent" style="width:100%;justify-content:center;">Start Coding</a>
-      </div>
-    </aside>
-    <div class="main-content">
-      <header class="header-bar">
-        <button class="mobile-menu-toggle" id="menuToggle">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-        <div class="header-search">
-          <svg viewBox="0 0 56.7 56.7" fill="currentColor"><path d="M42.8 7.3C33-2.4 17.1-2.4 7.3 7.3c-9.8 9.8-9.8 25.7 0 35.5 8.7 8.7 22.2 9.7 32 2.9l9.6 9.6c1.8 1.8 4.7 1.8 6.4 0 1.8-1.8 1.8-4.7 0-6.4l-9.6-9.6c6.8-9.8 5.8-23.3-2.9-32zm-6.2 29.3c-6.4 6.4-16.7 6.4-23.1 0s-6.4-16.7 0-23.1 16.7-6.4 23.1 0 6.4 16.8 0 23.1z"/></svg>
-          <input type="search" placeholder="Search Deoit...">
-        </div>
-        <div class="header-actions">
-          <a href="login.html" class="btn btn-accent">Sign In</a>
-        </div>
-      </header>
-      <div class="legal-page">
+  <header class="header">
+    <a href="index.html" class="header-logo">
+      <img src="logo.png" alt="">Deoit
+    </a>
+    <nav class="header-nav">
+      <a href="index.html">Home</a>
+      <a href="pages/editor.html">Editor</a>
+    </nav>
+  </header>
+  <div class="legal-page">
         <h1>Terms of Service</h1>
         <p class="date">Last updated: July 5, 2026</p>
 
@@ -96,6 +66,10 @@
       </div>
     </div>
   </div>
-  <script src="js/script.js"></script>
+  <footer class="footer">
+    <a href="terms.html">Terms</a><span class="footer-sep">&middot;</span>
+    <a href="privacy.html">Privacy</a><span class="footer-sep">&middot;</span>
+    <a href="index.html">Home</a>
+  </footer>
 </body>
 </html>
