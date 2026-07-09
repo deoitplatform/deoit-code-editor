@@ -47,52 +47,79 @@
     <div class="main-content">
       <header class="header-bar">
         <button class="mobile-menu-toggle" id="menuToggle">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
-        <div class="header-search">
-          <svg viewBox="0 0 56.7 56.7" fill="currentColor"><path d="M42.8 7.3C33-2.4 17.1-2.4 7.3 7.3c-9.8 9.8-9.8 25.7 0 35.5 8.7 8.7 22.2 9.7 32 2.9l9.6 9.6c1.8 1.8 4.7 1.8 6.4 0 1.8-1.8 1.8-4.7 0-6.4l-9.6-9.6c6.8-9.8 5.8-23.3-2.9-32zm-6.2 29.3c-6.4 6.4-16.7 6.4-23.1 0s-6.4-16.7 0-23.1 16.7-6.4 23.1 0 6.4 16.8 0 23.1z"/></svg>
-          <input type="search" placeholder="Search Deoit...">
-        </div>
         <div class="header-actions">
           <a href="login.html" class="btn btn-accent">Sign In</a>
         </div>
       </header>
       <div class="legal-page">
         <h1>Terms of Service</h1>
-        <p class="date">Last updated: July 5, 2026</p>
+        <p class="date">Last updated: July 9, 2026</p>
 
         <h2>1. Acceptance of Terms</h2>
-        <p>By accessing or using Deoit ("the Service"), you agree to be bound by these Terms of Service. If you do not agree, do not use the Service.</p>
+        <p>By accessing or using Deoit ("the Service"), you agree to be bound by these Terms of Service. If you do not agree, do not use the Service. These terms apply to all visitors, users, and anyone who accesses the Service.</p>
 
         <h2>2. Description of Service</h2>
-        <p>Deoit is an online code editor that allows users to write, run, and preview HTML, CSS, and JavaScript code directly in their browser. The Service stores project data locally in your browser and optionally in cloud storage when you sign in.</p>
+        <p>Deoit is an online code editor that allows users to write, run, and preview HTML, CSS, and JavaScript code directly in their browser. The Service stores project data locally in your browser via localStorage. When you sign in with Google or GitHub, projects may also be associated with your account for backup and synchronization purposes.</p>
 
-        <h2>3. User Accounts</h2>
-        <p>When you sign in using Google or GitHub authentication, you are responsible for maintaining the confidentiality of your account. You agree to provide accurate information and notify us immediately of any unauthorized use.</p>
+        <h2>3. Eligibility</h2>
+        <p>You must be at least 13 years old to use the Service. By using Deoit, you represent that you meet this age requirement. If you are under 13, you may not use the Service or create an account.</p>
 
-        <h2>4. Acceptable Use</h2>
+        <h2>4. User Accounts</h2>
+        <p>When you sign in using Google or GitHub authentication, you are responsible for maintaining the confidentiality of your account credentials. You agree to:</p>
+        <ul>
+          <li>Provide accurate, current, and complete information</li>
+          <li>Maintain and promptly update your account information</li>
+          <li>Notify us immediately of any unauthorized use of your account</li>
+          <li>Accept responsibility for all activities that occur under your account</li>
+        </ul>
+
+        <h2>5. Acceptable Use</h2>
         <p>You agree not to:</p>
         <ul>
           <li>Use the Service for any illegal purpose or in violation of any applicable laws</li>
-          <li>Attempt to disrupt, damage, or gain unauthorized access to the Service</li>
-          <li>Upload or generate content that is harmful, abusive, or violates the rights of others</li>
-          <li>Use the Service to distribute malware or harmful code</li>
+          <li>Attempt to disrupt, damage, or gain unauthorized access to the Service, its servers, or networks</li>
+          <li>Upload, create, or distribute content that is harmful, abusive, defamatory, obscene, or violates the rights of others</li>
+          <li>Use the Service to distribute malware, viruses, or any harmful code</li>
+          <li>Reverse-engineer, decompile, or disassemble any part of the Service</li>
+          <li>Attempt to circumvent any security measures or access restrictions</li>
+          <li>Use automated scripts, bots, or scrapers without express permission</li>
         </ul>
 
-        <h2>5. Intellectual Property</h2>
-        <p>You retain full ownership of the code you write using Deoit. We do not claim any rights to your code. The Service itself, including its design, logos, and interface, is the property of Deoit and may not be reproduced without permission.</p>
+        <h2>6. User Content</h2>
+        <p>You retain full ownership of all code and content you create using Deoit. We do not claim any intellectual property rights over your code. You are solely responsible for the content you create and the legality of that content. You grant Deoit a limited, non-exclusive license to store, display, and process your content solely for the purpose of providing the Service to you.</p>
 
-        <h2>6. Data Storage & Privacy</h2>
-        <p>When signed in, your project data is stored locally in your browser's localStorage and associated with your account. We do not sell or share your personal data. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
+        <h2>7. Intellectual Property</h2>
+        <p>The Service itself, including its design, logos, interface, trademarks, and underlying technology, is the exclusive property of <strong>Majed Qandeel</strong> (Deoit). You may not reproduce, distribute, modify, or create derivative works of the Service without explicit written permission. The name "Deoit," the Deoit logo, and related marks are trademarks of Deoit.</p>
 
-        <h2>7. Limitation of Liability</h2>
-        <p>Deoit is provided "as is" without warranty of any kind. We are not liable for any damages arising from your use of the Service, including data loss or service interruption.</p>
+        <h2>8. Data Storage & Privacy</h2>
+        <p>Your project data is stored locally in your browser's localStorage. When you sign in, projects are associated with your account for backup purposes. We collect only the information provided by your Google or GitHub authentication (name, email, and profile picture). We do not sell, rent, or share your personal data with third parties. See our <a href="privacy.html">Privacy Policy</a> for complete details.</p>
 
-        <h2>8. Changes to Terms</h2>
-        <p>We reserve the right to modify these terms at any time. Changes will be posted on this page with an updated revision date. Continued use of the Service after changes constitutes acceptance of the new terms.</p>
+        <h2>9. Third-Party Services</h2>
+        <p>Deoit uses Firebase (Google) for authentication. By signing in, you also agree to Firebase's terms of service. The Service may load resources from CDNs and font providers; these services operate under their own terms.</p>
 
-        <h2>9. Contact</h2>
-        <p>For questions about these terms, contact us at <a href="mailto:deoit.platform@gmail.com">deoit.platform@gmail.com</a>.</p>
+        <h2>10. Limitation of Liability</h2>
+        <p>Deoit is provided "as is" and "as available" without warranty of any kind, express or implied. To the maximum extent permitted by law, Deoit and its developer shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from your use of or inability to use the Service, including but not limited to data loss, service interruption, or loss of profits.</p>
+
+        <h2>11. Indemnification</h2>
+        <p>You agree to indemnify and hold harmless Deoit and its developer from any claims, damages, liabilities, and expenses arising from your use of the Service, your violation of these terms, or your violation of any third-party rights.</p>
+
+        <h2>12. Termination</h2>
+        <p>We reserve the right to suspend or terminate your access to the Service at any time, without prior notice, for conduct that we believe violates these Terms or is harmful to other users, third parties, or the Service itself. Upon termination, your right to use the Service will immediately cease. You may discontinue use of the Service at any time.</p>
+
+        <h2>13. Changes to Terms</h2>
+        <p>We reserve the right to modify these terms at any time. Changes will be posted on this page with an updated revision date. We will notify users of material changes via email (if you have signed in) or through a notice on the Service. Continued use of the Service after changes constitutes acceptance of the new terms. If you do not agree to the changes, you must stop using the Service.</p>
+
+        <h2>14. Governing Law</h2>
+        <p>These terms shall be governed by and construed in accordance with the laws of the jurisdiction in which the developer operates, without regard to its conflict of law provisions. Any disputes arising from these terms shall be resolved through amicable negotiation. If negotiation fails, the dispute shall be submitted to the competent courts.</p>
+
+        <h2>15. Contact</h2>
+        <p>For questions, concerns, or requests regarding these Terms of Service, please contact us:</p>
+        <p>
+          <strong>Developer:</strong> Majed Qandeel<br>
+          <strong>Email:</strong> <a href="mailto:deoit.platform@gmail.com">deoit.platform@gmail.com</a>
+        </p>
       </div>
     </div>
   </div>
