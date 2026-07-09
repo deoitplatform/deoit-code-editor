@@ -189,3 +189,22 @@ body::after {
   0%, 100% { opacity: 0.3; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.5); background: rgba(59,130,246,0.4); }
 }
+
+/* loading state */
+.login-btn:disabled {
+  opacity: 0.7; cursor: not-allowed; transform: none !important;
+}
+
+.login-btn .spinner {
+  display: none; width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,0.15);
+  border-top-color: #e4e4e7;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.login-btn.loading .spinner { display: inline-block; }
+.login-btn.loading .btn-text { display: none; }
+.login-btn.loading { pointer-events: none; }
