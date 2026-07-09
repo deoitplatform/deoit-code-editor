@@ -301,6 +301,91 @@ a:hover { color: var(--accent); }
   font-size: 12px; color: var(--text-muted);
 }
 
+/* ─── LEARN SECTION ─── */
+.learn-section {
+  padding: 64px 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+.learn-wrapper { width: 100%; }
+.learn-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.learn-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+.learn-header p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0 auto;
+}
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.learn-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.learn-card:hover {
+  border-color: var(--text-muted);
+  transform: translateY(-2px);
+}
+.learn-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.learn-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.learn-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.learn-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.learn-topics span {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(217,217,217,0.07);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+.learn-snippet {
+  background: var(--bg-code);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  min-height: 80px;
+}
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
   .features-grid { grid-template-columns: repeat(2, 1fr); }
@@ -322,6 +407,8 @@ a:hover { color: var(--accent); }
   .header-search { width: 140px; }
   .header-search input { font-size: 12px; }
   .features, .techstack, .editor-showcase { padding: 40px 16px; }
+  .learn-section { padding: 48px 16px; }
+  .learn-grid { grid-template-columns: 1fr; }
   .footer-content { grid-template-columns: 1fr; }
   .site-footer { padding: 32px 16px 20px; }
   .code-demo { max-width: 100%; border-radius: 0; margin-left: -16px; margin-right: -16px; }
