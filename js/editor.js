@@ -57,6 +57,7 @@ document.addEventListener('click', function(e) {
     var a = item.dataset.action;
     if (a === 'logout') { signOut().then(function() { window.location.href = '../login.html'; }); }
     else if (a === 'home') { window.location.href = '../index.html'; }
+    else if (a === 'learn') { window.location.href = '../learn.html'; }
     else if (a === 'settings') { showSettings(); }
     dropdown.hidden = true;
     return;
