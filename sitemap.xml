@@ -4,7 +4,6 @@
   <url>
     <loc>https://deoit.vercel.app/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://deoit.vercel.app/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://deoit.vercel.app/?lang=ar"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
