@@ -11,114 +11,112 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --bg: #0d0d0d; --bg-card: #141414; --bg-code: #1a1a1a;
+      --bg: #0d0d0d; --bg-card: #141414; --bg-card-hover: #1a1a1a;
       --text: #d9d9d9; --text-sec: #8a8a8a; --text-muted: #484848;
-      --border: #2a2a2a; --accent: #d9d9d9;
+      --border: #2a2a2a; --border-light: #333;
       --font: 'Inter', system-ui, sans-serif;
       --mono: 'JetBrains Mono', 'Consolas', monospace;
     }
-    body { background: var(--bg); color: var(--text); font-family: var(--font); }
+    body { background: var(--bg); color: var(--text); font-family: var(--font); min-height: 100vh; display: flex; flex-direction: column; }
 
-    /* ─── Toolbar ─── */
-    .learn-toolbar {
+    /* ─── Header ─── */
+    .header {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 10px 24px; background: var(--bg-card); border-bottom: 1px solid var(--border);
+      padding: 14px 32px; border-bottom: 1px solid var(--border);
+      background: rgba(13,13,13,0.8); backdrop-filter: blur(12px);
       position: sticky; top: 0; z-index: 100;
     }
-    .learn-toolbar-left { display: flex; align-items: center; gap: 20px; }
-    .learn-toolbar-logo { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 700; }
-    .learn-toolbar-logo img { width: 22px; height: 22px; border-radius: 4px; }
-    .learn-toolbar-logo .accent { color: var(--accent); }
-    .learn-toolbar-nav { display: flex; align-items: center; gap: 4px; }
-    .learn-toolbar-nav a {
-      display: flex; align-items: center; gap: 6px; padding: 6px 12px;
+    .header-left { display: flex; align-items: center; gap: 28px; }
+    .header-logo { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--text); }
+    .header-logo img { width: 22px; height: 22px; border-radius: 4px; }
+    .header-nav { display: flex; align-items: center; gap: 4px; }
+    .header-nav a {
+      display: flex; align-items: center; gap: 6px; padding: 6px 14px;
       border-radius: 6px; font-size: 13px; font-weight: 500; color: var(--text-sec);
-      text-decoration: none; transition: background 0.15s;
+      text-decoration: none; transition: all 0.15s;
     }
-    .learn-toolbar-nav a:hover { background: rgba(217,217,217,0.08); color: var(--text); }
-    .learn-toolbar-nav a svg { width: 16px; height: 16px; }
-    .learn-toolbar-nav a.active { color: var(--text); background: rgba(217,217,217,0.06); }
-    .learn-toolbar-right { display: flex; align-items: center; gap: 8px; }
-    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; border-radius: 6px; font-size: 13px; font-weight: 500; text-decoration: none; transition: all 0.15s; cursor: pointer; border: none; }
+    .header-nav a:hover { background: rgba(217,217,217,0.06); color: var(--text); }
+    .header-nav a.active { color: var(--text); background: rgba(217,217,217,0.06); }
+    .header-nav a svg { width: 16px; height: 16px; }
+    .header-right { display: flex; align-items: center; gap: 8px; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; border-radius: 6px; font-size: 13px; font-weight: 500; text-decoration: none; transition: all 0.15s; cursor: pointer; border: none; font-family: var(--font); }
     .btn-ghost { background: transparent; color: var(--text-sec); }
-    .btn-ghost:hover { background: rgba(217,217,217,0.08); color: var(--text); }
-    .btn-accent { background: rgba(217,217,217,0.1); color: var(--text); border: 1px solid var(--border); }
-    .btn-accent:hover { background: rgba(217,217,217,0.18); }
+    .btn-ghost:hover { background: rgba(217,217,217,0.06); color: var(--text); }
+    .btn-accent { background: #d9d9d9; color: #0d0d0d; }
+    .btn-accent:hover { background: #b0b0b0; }
 
     /* ─── Hero ─── */
-    .learn-hero {
-      text-align: center; padding: 80px 24px 60px;
-      max-width: 700px; margin: 0 auto;
+    .hero {
+      text-align: center; padding: 72px 24px 48px;
+      max-width: 640px; margin: 0 auto;
     }
-    .learn-hero h1 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
-    .learn-hero p { font-size: 16px; color: var(--text-sec); line-height: 1.7; }
+    .hero h1 { font-size: 38px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 12px; }
+    .hero p { font-size: 16px; color: var(--text-sec); line-height: 1.7; }
 
-    /* ─── Courses Grid ─── */
-    .learn-courses { max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; }
-    .learn-courses h2 { font-size: 22px; font-weight: 700; margin-bottom: 24px; color: var(--text); }
-    .courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+    /* ─── Stats ─── */
+    .stats {
+      display: flex; justify-content: center; gap: 48px;
+      padding: 0 24px 48px;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 28px; font-weight: 800; }
+    .stat-label { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+
+    /* ─── Courses ─── */
+    .courses { max-width: 1060px; margin: 0 auto; padding: 0 24px 64px; width: 100%; }
+    .courses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .course-card {
       background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
-      padding: 28px 24px; text-decoration: none; color: inherit;
-      display: flex; flex-direction: column; gap: 14px;
-      transition: border-color 0.2s, transform 0.2s;
+      padding: 32px 28px; text-decoration: none; color: inherit;
+      display: flex; flex-direction: column; gap: 16px;
+      transition: all 0.25s; position: relative; overflow: hidden;
     }
-    .course-card:hover { border-color: var(--text-muted); transform: translateY(-2px); }
-    .course-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
-    .course-card h3 { font-size: 18px; font-weight: 700; }
-    .course-card .course-desc { font-size: 13px; color: var(--text-sec); line-height: 1.6; }
-    .course-meta { display: flex; gap: 12px; font-size: 12px; color: var(--text-muted); }
-    .course-meta span { display: flex; align-items: center; gap: 4px; }
-    .course-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .course-tags span {
-      font-size: 11px; padding: 3px 10px; border-radius: 20px;
-      background: rgba(217,217,217,0.07); color: var(--text-sec); border: 1px solid var(--border);
+    .course-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      opacity: 0; transition: opacity 0.25s; background: var(--card-accent, var(--text-muted));
     }
-
-    /* ─── Quick Links ─── */
-    .quick-links { max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; }
-    .quick-links h2 { font-size: 22px; font-weight: 700; margin-bottom: 20px; }
-    .ql-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .ql-card {
-      background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
-      padding: 20px; text-decoration: none; color: inherit;
-      transition: border-color 0.2s;
+    .course-card:hover::before { opacity: 1; }
+    .course-card:hover {
+      border-color: var(--border-light); transform: translateY(-3px);
+      background: var(--bg-card-hover);
     }
-    .ql-card:hover { border-color: var(--text-muted); }
-    .ql-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-    .ql-card p { font-size: 12px; color: var(--text-sec); }
-    .ql-card code {
-      display: block; margin-top: 8px; font-family: var(--mono); font-size: 12px;
-      padding: 8px 10px; background: var(--bg-code); border-radius: 6px; color: var(--text-sec);
+    .course-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
     }
+    .course-card h3 { font-size: 20px; font-weight: 700; }
+    .course-desc { font-size: 14px; color: var(--text-sec); line-height: 1.7; flex: 1; }
+    .course-meta { display: flex; gap: 16px; font-size: 13px; color: var(--text-muted); }
+    .course-meta span { display: flex; align-items: center; gap: 5px; }
 
     /* ─── Footer ─── */
-    .learn-footer {
-      text-align: center; padding: 40px 24px; border-top: 1px solid var(--border);
-      font-size: 13px; color: var(--text-sec);
+    .footer {
+      margin-top: auto; text-align: center; padding: 32px 24px;
+      border-top: 1px solid var(--border); font-size: 13px; color: var(--text-sec);
     }
-    .learn-footer a { color: var(--text); text-decoration: none; }
-    .learn-footer a:hover { text-decoration: underline; }
+    .footer a { color: var(--text); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
 
     /* ─── Responsive ─── */
     @media (max-width: 768px) {
-      .learn-hero { padding: 50px 16px 40px; }
-      .learn-hero h1 { font-size: 26px; }
+      .header { padding: 12px 16px; }
+      .header-nav a span { display: none; }
+      .hero { padding: 48px 16px 32px; }
+      .hero h1 { font-size: 28px; }
+      .stats { gap: 24px; }
       .courses-grid { grid-template-columns: 1fr; }
-      .ql-grid { grid-template-columns: 1fr; }
-      .learn-toolbar-nav a span { display: none; }
     }
   </style>
 </head>
 <body>
-  <!-- ─── Toolbar ─── -->
-  <header class="learn-toolbar">
-    <div class="learn-toolbar-left">
-      <div class="learn-toolbar-logo">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <a href="index.html" class="header-logo">
         <img src="logo.png" alt="Deoit">
-        <span><span class="accent">Deoit</span></span>
-      </div>
-      <nav class="learn-toolbar-nav">
+        Deoit
+      </a>
+      <nav class="header-nav">
         <a href="index.html">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           <span>Home</span>
@@ -131,13 +129,9 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
           <span>Learn</span>
         </a>
-        <a href="mailto:deoit.platform@gmail.com">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
-          <span>Contact</span>
-        </a>
       </nav>
     </div>
-    <div class="learn-toolbar-right">
+    <div class="header-right">
       <a href="pages/editor.html" class="btn btn-ghost">Get Started</a>
       <a href="login.html" class="btn btn-accent" id="loginBtn">Sign In</a>
       <div id="userMenu" style="display:none;align-items:center;gap:8px;">
@@ -147,84 +141,75 @@
     </div>
   </header>
 
-  <!-- ─── Hero ─── -->
-  <section class="learn-hero">
-    <h1>Learn Web Development</h1>
-    <p>Structured tutorials and hands-on examples to help you master HTML, CSS, and JavaScript — directly in your browser.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Start Learning</h1>
+    <p>Pick a course and go from zero to building real projects. Each lesson includes examples you can run in the editor.</p>
   </section>
 
-  <!-- ─── Courses ─── -->
-  <section class="learn-courses">
-    <h2>Courses</h2>
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num" style="color:#e06c75;">7</div>
+      <div class="stat-label">HTML lessons</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" style="color:#61afef;">7</div>
+      <div class="stat-label">CSS lessons</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" style="color:#e5c07b;">7</div>
+      <div class="stat-label">JS lessons</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" style="color:#4ec9b0;">21</div>
+      <div class="stat-label">Total lessons</div>
+    </div>
+  </div>
+
+  <!-- Courses -->
+  <section class="courses">
     <div class="courses-grid">
-      <a href="lesson.html?lang=html" class="course-card">
-        <div class="course-icon" style="background:rgba(228,77,38,0.15);color:#e44d26;">
-          <svg viewBox="0 0 32 32" fill="none" width="26" height="26"><path d="M6 2L4 27L16 30L28 27L26 2H6Z" fill="currentColor"/><path d="M16 28.5L24.5 26.5L26 4H16V28.5Z" fill="#fff" opacity="0.4"/><path d="M10 11H16V8H7L7.5 14H16V11H10.5L10 11Z" fill="#fff"/><path d="M9.5 17H12.5L13 20L16 21L19 20L19.5 17H25L24 24L16 26L8 24L7.5 17Z" fill="#fff"/></svg>
+      <a href="lesson.html?lang=html" class="course-card" style="--card-accent:#e44d26;">
+        <div class="course-icon" style="background:rgba(228,77,38,0.12);color:#e44d26;">
+          <svg viewBox="0 0 32 32" fill="none" width="26" height="26"><path d="M6 2L4 27L16 30L28 27L26 2H6Z" fill="currentColor"/><path d="M16 28.5L24.5 26.5L26 4H16V28.5Z" fill="#fff" opacity="0.35"/><path d="M10 11H16V8H7L7.5 14H16V11H10.5L10 11Z" fill="#fff"/><path d="M9.5 17H12.5L13 20L16 21L19 20L19.5 17H25L24 24L16 26L8 24L7.5 17Z" fill="#fff"/></svg>
         </div>
         <h3>HTML</h3>
-        <p class="course-desc">Learn the structure of the web. From basic tags to semantic HTML5 elements, forms, tables, and accessibility best practices.</p>
-        <div class="course-tags">
-          <span>Elements</span><span>Attributes</span><span>Forms</span><span>Semantic HTML</span>
-        </div>
+        <p class="course-desc">The foundation of the web. Learn to structure content with elements, forms, tables, and semantic markup.</p>
         <div class="course-meta">
-          <span>6 lessons</span>
+          <span>7 lessons</span>
+          <span>Beginner</span>
         </div>
       </a>
-      <a href="lesson.html?lang=css" class="course-card">
-        <div class="course-icon" style="background:rgba(41,101,241,0.15);color:#2965f1;">
-          <svg viewBox="0 0 32 32" fill="none" width="26" height="26"><path d="M6 2L4 27L16 30L28 27L26 2H6Z" fill="currentColor"/><path d="M16 28.5L24.5 26.5L26 4H16V28.5Z" fill="#fff" opacity="0.4"/><path d="M10 11H16V8H7L7.5 14H16V11H10.5L10 11Z" fill="#fff"/><path d="M9.5 17H12.5L13 20L16 21L19 20L19.5 17H25L24 24L16 26L8 24L7.5 17Z" fill="#fff"/></svg>
+      <a href="lesson.html?lang=css" class="course-card" style="--card-accent:#2965f1;">
+        <div class="course-icon" style="background:rgba(41,101,241,0.12);color:#2965f1;">
+          <svg viewBox="0 0 32 32" fill="none" width="26" height="26"><path d="M6 2L4 27L16 30L28 27L26 2H6Z" fill="currentColor"/><path d="M16 28.5L24.5 26.5L26 4H16V28.5Z" fill="#fff" opacity="0.35"/><path d="M10 11H16V8H7L7.5 14H16V11H10.5L10 11Z" fill="#fff"/><path d="M9.5 17H12.5L13 20L16 21L19 20L19.5 17H25L24 24L16 26L8 24L7.5 17Z" fill="#fff"/></svg>
         </div>
         <h3>CSS</h3>
-        <p class="course-desc">Style your pages with modern CSS. Covers selectors, Flexbox, Grid, colors, typography, animations, and responsive design.</p>
-        <div class="course-tags">
-          <span>Selectors</span><span>Flexbox</span><span>Grid</span><span>Animations</span>
-        </div>
+        <p class="course-desc">Style anything. Master Flexbox, Grid, typography, animations, and responsive design.</p>
         <div class="course-meta">
-          <span>6 lessons</span>
+          <span>7 lessons</span>
+          <span>Beginner</span>
         </div>
       </a>
-      <a href="lesson.html?lang=js" class="course-card">
-        <div class="course-icon" style="background:rgba(247,223,30,0.15);color:#f7df1e;">
+      <a href="lesson.html?lang=js" class="course-card" style="--card-accent:#f7df1e;">
+        <div class="course-icon" style="background:rgba(247,223,30,0.12);color:#f7df1e;">
           <svg viewBox="0 0 32 32" fill="none" width="26" height="26"><rect width="32" height="32" rx="4" fill="currentColor"/><path d="M20 24C20 25.5 19 26.5 17 26.5C15 26.5 14 25.5 14 24H16C16 24.5 16.5 25 17 25C17.5 25 18 24.5 18 24C18 23 14 23.5 14 21C14 19.5 15 18.5 17 18.5C19 18.5 20 19.5 20 21H18C18 20.5 17.5 20 17 20C16.5 20 16 20.5 16 21C16 22 20 21.5 20 24Z" fill="black"/><path d="M9 21.5C9 22.5 9.5 23 10.5 23C11.5 23 12 22.5 12 21.5H14C14 23.5 13 25 10.5 25C8 25 7 23.5 7 21.5H9Z" fill="black"/></svg>
         </div>
         <h3>JavaScript</h3>
-        <p class="course-desc">Bring your pages to life. Learn variables, functions, DOM manipulation, events, ES6+ features, and asynchronous programming.</p>
-        <div class="course-tags">
-          <span>Variables</span><span>Functions</span><span>DOM</span><span>ES6+</span>
-        </div>
+        <p class="course-desc">Bring pages to life. Learn variables, functions, the DOM, events, and modern ES6+ features.</p>
         <div class="course-meta">
-          <span>6 lessons</span>
+          <span>7 lessons</span>
+          <span>Beginner</span>
         </div>
       </a>
     </div>
   </section>
 
-  <!-- ─── Quick Examples ─── -->
-  <section class="quick-links">
-    <h2>Try It Yourself</h2>
-    <div class="ql-grid">
-      <a href="pages/editor.html" class="ql-card">
-        <h4>HTML Starter</h4>
-        <p>A basic HTML document to get started</p>
-        <code>&lt;!DOCTYPE html&gt;<br>&lt;html&gt;...&lt;/html&gt;</code>
-      </a>
-      <a href="pages/editor.html" class="ql-card">
-        <h4>CSS Layout</h4>
-        <p>Flexbox layout example</p>
-        <code>display: flex;<br>gap: 1rem;</code>
-      </a>
-      <a href="pages/editor.html" class="ql-card">
-        <h4>JS Interaction</h4>
-        <p>Click handler example</p>
-        <code>btn.addEventListener(<br>&nbsp;&nbsp;"click", fn);</code>
-      </a>
-    </div>
-  </section>
-
-  <!-- ─── Footer ─── -->
-  <footer class="learn-footer">
+  <!-- Footer -->
+  <footer class="footer">
     <p>&copy; 2026 Deoit &middot; Built by <strong>Majed Qandeel</strong> &middot; <a href="mailto:deoit.platform@gmail.com">deoit.platform@gmail.com</a></p>
-    <p style="margin-top:8px;"><a href="terms.html">Terms of Service</a> &middot; <a href="privacy.html">Privacy Policy</a></p>
+    <p style="margin-top:6px;"><a href="terms.html">Terms</a> &middot; <a href="privacy.html">Privacy</a></p>
   </footer>
 
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
