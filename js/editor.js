@@ -48,15 +48,15 @@ document.addEventListener('click', function(e) {
   var dropdown = document.getElementById('userDropdown');
   if (!wrap || !dropdown) return;
   if (wrap.contains(e.target) && !firebase.auth().currentUser) {
-    window.location.href = '../login.html';
+    window.location.href = '../login';
     return;
   }
   // dropdown item click
   var item = e.target.closest('.user-dropdown-item');
   if (item) {
     var a = item.dataset.action;
-    if (a === 'logout') { signOut().then(function() { window.location.href = '../login.html'; }); }
-    else if (a === 'home') { window.location.href = '../index.html'; }
+    if (a === 'logout') { signOut().then(function() { window.location.href = '../login'; }); }
+    else if (a === 'home') { window.location.href = '../index'; }
 
     else if (a === 'settings') { showSettings(); }
     dropdown.hidden = true;
@@ -69,7 +69,7 @@ document.addEventListener('click', function(e) {
     if (isLoggedIn) {
       dropdown.hidden = !dropdown.hidden;
     } else {
-      window.location.href = '../login.html';
+      window.location.href = '../login';
     }
   } else if (!wrap.contains(e.target)) {
     dropdown.hidden = true;
@@ -1202,21 +1202,21 @@ function init() {
 }
 
 // ─── EVENT DELEGATION (CSP-safe) ───
-function requireAuth() { if (!firebase.auth().currentUser) { window.location.href = '../login.html'; return false; } return true; }
+function requireAuth() { if (!firebase.auth().currentUser) { window.location.href = '../login'; return false; } return true; }
 
 function setupDelegation() {
   document.querySelector('.toolbar')?.addEventListener('click', e => {
     const btn = e.target.closest('[data-action]');
     if (!btn) return;
     const a = btn.dataset.action;
-    if (a === 'home') window.location.href = '../index.html';
+    if (a === 'home') window.location.href = '../index';
     else if (a === 'reset') resetAll();
     else if (a === 'run') runCode();
     else if (a === 'settings') { if (requireAuth()) showSettings(); }
     else if (a === 'export') { if (requireAuth()) exportProject(); }
     else if (a === 'import') { if (requireAuth()) document.getElementById('importInput')?.click(); }
     else if (a === 'download-zip') { if (requireAuth()) downloadZip(); }
-    else if (a === 'logout') { signOut().then(() => window.location.href = '../login.html'); }
+    else if (a === 'logout') { signOut().then(() => window.location.href = '../login'); }
   });
 
   document.querySelector('.sidebar-header-actions')?.addEventListener('click', e => {

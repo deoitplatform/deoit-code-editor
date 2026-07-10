@@ -92,9 +92,9 @@
     <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()" aria-hidden="true"></div> <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-logo"> <img src="logo.png" alt="Deoit"> <span><span class="logo-accent">Deoit</span></span> </div>
-      <nav class="sidebar-links"> <a href="index.html" class="sidebar-link"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <nav class="sidebar-links"> <a href="index" class="sidebar-link"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-          </svg> Home </a> <a href="pages/editor.html" class="sidebar-link"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          </svg> Home </a> <a href="pages/editor" class="sidebar-link"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
           </svg> Editor </a>
         <div class="sidebar-divider"></div> <a href="mailto:deoit.platform@gmail.com" class="sidebar-link"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -102,7 +102,7 @@
           </svg> Contact </a>
       </nav>
       <div class="sidebar-cta">
-        <p>Learn, practice, and build real projects — all from your browser.</p> <a href="pages/editor.html" class="btn btn-accent" style="width:100%;justify-content:center;">Start Coding</a>
+        <p>Learn, practice, and build real projects — all from your browser.</p> <a href="pages/editor" class="btn btn-accent" style="width:100%;justify-content:center;">Start Coding</a>
       </div>
     </aside> <!-- Main -->
     <div class="main-content"> <!-- Header Bar -->
@@ -111,7 +111,7 @@
             <line x1="3" y1="12" x2="21" y2="12" />
             <line x1="3" y1="18" x2="21" y2="18" />
           </svg> </button>
-        <div class="header-actions" id="headerActions"> <a href="pages/editor.html" class="btn btn-ghost">Get Started</a> <a href="login.html" class="btn btn-accent" id="loginBtn">Sign In</a>
+        <div class="header-actions" id="headerActions"> <a href="pages/editor" class="btn btn-ghost">Get Started</a> <a href="login" class="btn btn-accent" id="loginBtn">Sign In</a>
           <div id="userMenu" style="display:none;align-items:center;gap:8px;"> <span id="userName" style="font-size:13px;color:var(--text-secondary);"></span> <button id="logoutBtn" class="btn btn-ghost" style="padding:4px 10px;font-size:12px;">Sign Out</button> </div>
         </div>
       </header> <!-- Hero -->
@@ -141,7 +141,7 @@
           <div class="code-demo-content" data-lang="css" style="display:none"> <span class="hl-selector">.card</span> {<br> &nbsp;&nbsp; <span class="hl-prop">background</span>: <span class="hl-value">linear-gradient(135deg, #444, #222)</span>;<br> &nbsp;&nbsp;<span class="hl-prop">padding</span>: <span class="hl-number">2rem</span>;<br> &nbsp;&nbsp;<span class="hl-prop">border-radius</span>: <span class="hl-number">12px</span>;<br> &nbsp;&nbsp;<span class="hl-prop">color</span>: <span class="hl-value">white</span>;<br> } </div> <!-- JS content -->
           <div class="code-demo-content" data-lang="js" style="display:none"> <span class="hl-keyword">const</span> <span class="hl-function">greet</span> = <span class="hl-keyword">function</span>() {<br> &nbsp;&nbsp;<span class="hl-keyword">const</span> name = <span class="hl-string">"Developer"</span>;<br> &nbsp;&nbsp;<span class="hl-keyword">return</span> <span class="hl-string">`Hello, <span class="hl-value">${name}</span>!`</span>;<br> };<br> <br> console.<span class="hl-function">log</span>(<span class="hl-function">greet</span>()); </div>
         </div>
-        <div class="hero-buttons"> <a href="pages/editor.html" class="btn btn-accent btn-big">Try the Editor</a> <a href="#features" class="btn btn-outline btn-big">Learn More</a> </div>
+        <div class="hero-buttons"> <a href="pages/editor" class="btn btn-accent btn-big">Try the Editor</a> <a href="#features" class="btn btn-outline btn-big">Learn More</a> </div>
       </section> <!-- Features -->
       <section class="features" id="features">
         <div class="features-grid">
@@ -192,7 +192,7 @@
                   <p>Run your HTML/CSS/JS combo instantly in a popup window. Supports multiple HTML files with a smart file picker.</p>
                 </div>
               </li>
-            </ul> <a href="pages/editor.html" class="btn btn-accent" style="margin-top:16px;">Explore the Editor</a>
+            </ul> <a href="pages/editor" class="btn btn-accent" style="margin-top:16px;">Explore the Editor</a>
           </div>
           <div style="background:var(--bg-card);border-radius:12px;border:1px solid var(--border);padding:40px;text-align:center;min-height:300px;display:flex;align-items:center;justify-content:center;">
             <div>
@@ -214,7 +214,7 @@
             <p><a href="mailto:deoit.platform@gmail.com">deoit.platform@gmail.com</a></p>
           </div>
         </div>
-        <div class="footer-bottom" style="justify-content:center;gap:12px;"> <a href="terms.html" style="color:inherit;text-decoration:none;">Terms of Service</a> <span>&middot;</span> <a href="privacy.html" style="color:inherit;text-decoration:none;">Privacy Policy</a> </div>
+        <div class="footer-bottom" style="justify-content:center;gap:12px;"> <a href="terms" style="color:inherit;text-decoration:none;">Terms of Service</a> <span>&middot;</span> <a href="privacy" style="color:inherit;text-decoration:none;">Privacy Policy</a> </div>
       </footer>
     </div>
   </div>

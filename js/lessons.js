@@ -77,7 +77,7 @@ const LESSONS = {
 <div class="note note-warning"><strong>Note:</strong> HTML is not a programming language — it is a <strong>markup language</strong> that structures content. You'll add styling with CSS and interactivity with JavaScript later.</div>
 
 <h3>Try It Yourself</h3>
-<p>Open the <a href="pages/editor.html" class="lesson-link">Deoit Editor</a> and paste the HTML above. Click <strong>Run</strong> to see your first web page in action!</p>
+<p>Open the <a href="pages/editor" class="lesson-link">Deoit Editor</a> and paste the HTML above. Click <strong>Run</strong> to see your first web page in action!</p>
         `
       },
       {
@@ -1140,7 +1140,7 @@ const LESSONS = {
 </div>
 
 <h3>Try It</h3>
-<p>Open the <a href="pages/editor.html" class="lesson-link">Deoit Editor</a>, create a JS file, and type: <code>console.log("Hello!");</code> then click Run. Check the Console panel to see the output!</p>
+<p>Open the <a href="pages/editor" class="lesson-link">Deoit Editor</a>, create a JS file, and type: <code>console.log("Hello!");</code> then click Run. Check the Console panel to see the output!</p>
 
 <div class="lesson-tip">
   <strong>Tip:</strong> Use <code>console.log()</code> often — it's the most important debugging tool in JavaScript!
