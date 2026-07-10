@@ -56,7 +56,7 @@ document.addEventListener('click', function(e) {
   if (item) {
     var a = item.dataset.action;
     if (a === 'logout') { signOut().then(function() { window.location.href = '../login'; }); }
-    else if (a === 'home') { window.location.href = '../index'; }
+    else if (a === 'home') { window.location.href = '/'; }
 
     else if (a === 'settings') { showSettings(); }
     dropdown.hidden = true;
@@ -1209,7 +1209,7 @@ function setupDelegation() {
     const btn = e.target.closest('[data-action]');
     if (!btn) return;
     const a = btn.dataset.action;
-    if (a === 'home') window.location.href = '../index';
+    if (a === 'home') window.location.href = '/';
     else if (a === 'reset') resetAll();
     else if (a === 'run') runCode();
     else if (a === 'settings') { if (requireAuth()) showSettings(); }
