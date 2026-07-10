@@ -568,6 +568,18 @@ body {
 .logged-out [data-action="import"],
 .logged-out [data-action="download-zip"] { opacity: 0.35; pointer-events: none; }
 .logged-out #loginPrompt { display: flex !important; flex-direction: column; }
+.logged-out .tabs-bar { display: none; }
+.logged-out .editor-wrap { display: none; }
+.logged-out .editor-locked { display: flex !important; }
+
+.editor-locked {
+  display: none; flex-direction: column; align-items: center; justify-content: center;
+  height: 100%; gap: 12px; color: var(--text-dim);
+  padding: 32px; text-align: center;
+}
+.editor-locked p {
+  font-size: 14px; margin: 0; max-width: 280px; line-height: 1.6;
+}
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
