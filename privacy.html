@@ -28,8 +28,10 @@
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
   <link rel="manifest" href="manifest.json"> <!-- Preload -->
-  <link rel="preload" href="css/style.css" as="style"> <!-- Styles -->
-  <link rel="stylesheet" href="css/style.css"> <!-- Frame buster -->
+  <link rel="preload" href="css/style.css" as="style">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
   <script>
     if (top !== self) {
       top.location.href = self.location.href
@@ -98,16 +100,6 @@
     }
   </script>
 </head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
 
 <body>
   <div class="app-layout">
@@ -233,6 +225,13 @@
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js').catch(function() {});
     }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
   </script>
 </body>
 

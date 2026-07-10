@@ -198,6 +198,7 @@ a:hover { color: var(--accent); }
   border: 1px solid var(--border-subtle);
   background: var(--bg-code); text-align: left;
   box-shadow: var(--shadow);
+  content-visibility: auto; contain-intrinsic-size: 400px;
 }
 .code-demo-tabs {
   display: flex; border-bottom: 1px solid var(--border-subtle);
@@ -229,7 +230,7 @@ a:hover { color: var(--accent); }
 .code-demo-content .hl-number { color: #d19a66; }
 
 /* ─── FEATURES ─── */
-.features { padding: 72px 32px; }
+.features { padding: 72px 32px; content-visibility: auto; contain-intrinsic-size: 600px; }
 .features-grid {
   max-width: 1100px; margin: 0 auto;
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
@@ -271,7 +272,7 @@ a:hover { color: var(--accent); }
 .editor-showcase-list li summary { cursor: pointer; font-weight: 600; color: var(--text-primary); margin-bottom: 3px; }
 
 /* ─── FOOTER ─── */
-.site-footer { background: #080808; border-top: 1px solid var(--border-subtle); padding: 48px 32px 24px; }
+.site-footer { background: #080808; border-top: 1px solid var(--border-subtle); padding: 48px 32px 24px; content-visibility: auto; contain-intrinsic-size: 200px; }
 .footer-content {
   max-width: 1100px; margin: 0 auto;
   display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 36px;
