@@ -34,19 +34,17 @@ const LESSONS = {
 <h3>Your First HTML Document</h3>
 <p>Every HTML document follows a basic structure:</p>
 
-<div class="lesson-code">
-<span class="hl-tag">&lt;!DOCTYPE html&gt;</span>
-<span class="hl-tag">&lt;html</span> <span class="hl-attr">lang</span>=<span class="hl-string">"en"</span><span class="hl-tag">&gt;</span>
-  <span class="hl-tag">&lt;head&gt;</span>
-    <span class="hl-tag">&lt;meta</span> <span class="hl-attr">charset</span>=<span class="hl-string">"UTF-8"</span><span class="hl-tag">&gt;</span>
-    <span class="hl-tag">&lt;title&gt;</span>My Page<span class="hl-tag">&lt;/title&gt;</span>
-  <span class="hl-tag">&lt;/head&gt;</span>
-  <span class="hl-tag">&lt;body&gt;</span>
-    <span class="hl-tag">&lt;h1&gt;</span>Hello, World!<span class="hl-tag">&lt;/h1&gt;</span>
-    <span class="hl-tag">&lt;p&gt;</span>This is my first web page.<span class="hl-tag">&lt;/p&gt;</span>
-  <span class="hl-tag">&lt;/body&gt;</span>
-<span class="hl-tag">&lt;/html&gt;</span>
-</div>
+<pre class="lesson-code" data-try="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;My Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello, World!&lt;/h1&gt;
+  &lt;p&gt;This is my first web page.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
 
 <ul>
   <li><strong>&lt;!DOCTYPE html&gt;</strong> — Declares the document type and HTML version</li>
@@ -56,12 +54,27 @@ const LESSONS = {
   <li><strong>&lt;body&gt;</strong> — Contains the visible content of the page</li>
 </ul>
 
+<h3>Common HTML Tags</h3>
+<table>
+  <tr><th>Tag</th><th>Description</th><th>Example</th></tr>
+  <tr><td>&lt;h1&gt;-&lt;h6&gt;</td><td>Headings (h1 is largest)</td><td>&lt;h1&gt;Title&lt;/h1&gt;</td></tr>
+  <tr><td>&lt;p&gt;</td><td>Paragraph of text</td><td>&lt;p&gt;Text here&lt;/p&gt;</td></tr>
+  <tr><td>&lt;a&gt;</td><td>Hyperlink to another page</td><td>&lt;a href="url"&gt;Link&lt;/a&gt;</td></tr>
+  <tr><td>&lt;img&gt;</td><td>Displays an image</td><td>&lt;img src="pic.jpg"&gt;</td></tr>
+  <tr><td>&lt;ul&gt;/&lt;ol&gt;</td><td>Unordered/Ordered list</td><td>&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</td></tr>
+  <tr><td>&lt;div&gt;</td><td>Block-level container</td><td>&lt;div&gt;Content&lt;/div&gt;</td></tr>
+</table>
+
 <h3>HTML Tags</h3>
 <p>HTML tags are keywords surrounded by angle brackets: <code>&lt;tagname&gt;</code>. Most tags come in pairs — an opening tag and a closing tag with a forward slash.</p>
 
 <div class="lesson-code">
 <span class="hl-tag">&lt;tagname&gt;</span>content goes here<span class="hl-tag">&lt;/tagname&gt;</span>
 </div>
+
+<div class="note note-info"><strong>Tip:</strong> Click the <strong>Run</strong> button above to see the HTML code in action right here!</div>
+
+<div class="note note-warning"><strong>Note:</strong> HTML is not a programming language — it is a <strong>markup language</strong> that structures content. You'll add styling with CSS and interactivity with JavaScript later.</div>
 
 <h3>Try It Yourself</h3>
 <p>Open the <a href="pages/editor.html" class="lesson-link">Deoit Editor</a> and paste the HTML above. Click <strong>Run</strong> to see your first web page in action!</p>
@@ -536,11 +549,19 @@ const LESSONS = {
 </div>
 
 <h3>Your First CSS</h3>
-<div class="lesson-code">
-<span class="hl-comment">/* Make all h1 headings red */</span>
-<span class="hl-selector">h1</span> {
-  <span class="hl-prop">color</span>: <span class="hl-value">red</span>;
-  <span class="hl-prop">text-align</span>: <span class="hl-value">center</span>;
+<pre class="lesson-code" data-try="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+    h1 { color: red; text-align: center; }
+    p { font-size: 18px; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello, CSS!&lt;/h1&gt;
+  &lt;p&gt;This text is styled with CSS.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
 }
 
 <span class="hl-comment">/* Style paragraphs */</span>
@@ -1085,16 +1106,18 @@ const LESSONS = {
 </div>
 
 <h3>Your First JavaScript</h3>
-<div class="lesson-code">
-<span class="hl-comment">// Display a message in the browser console</span>
-<span class="hl-builtin">console</span>.<span class="hl-function">log</span>(<span class="hl-string">"Hello, World!"</span>);
-
-<span class="hl-comment">// Show an alert popup</span>
-<span class="hl-function">alert</span>(<span class="hl-string">"Welcome to JavaScript!"</span>);
-
-<span class="hl-comment">// Write to the page</span>
-<span class="hl-builtin">document</span>.<span class="hl-function">write</span>(<span class="hl-string">"&lt;h1&gt;Hello from JS!&lt;/h1&gt;"</span>);
-</div>
+<pre class="lesson-code" data-try="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+  &lt;h1 id="demo"&gt;Hello, World!&lt;/h1&gt;
+  &lt;button onclick="sayHello()"&gt;Click Me&lt;/button&gt;
+  &lt;script&gt;
+    function sayHello() {
+      document.getElementById('demo').innerHTML = 'Hello from JavaScript!';
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
 
 <h3>Statements</h3>
 <p>JavaScript instructions are called statements. Each statement ends with a semicolon <code>;</code> (optional but recommended).</p>

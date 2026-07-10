@@ -2,8 +2,7 @@ const CACHE = 'deoit-v1';
 const PRECACHE_URLS = [
   '/',
   '/index.html',
-  '/learn.html',
-  '/lesson.html',
+
   '/login.html',
   '/terms.html',
   '/privacy.html',
