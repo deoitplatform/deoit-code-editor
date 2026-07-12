@@ -35,6 +35,7 @@ function checkAuth() {
       if (avatarIcon) avatarIcon.hidden = false;
       if (avatarLetter) avatarLetter.hidden = true;
       dropdown.hidden = true;
+      renderTree();
     }
   });
 }
