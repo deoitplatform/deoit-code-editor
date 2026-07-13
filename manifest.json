@@ -1,27 +1,31 @@
 {
-  "name": "Deoit — Online Code Editor & Learning Platform",
+  "name": "Deoit - Free Online Code Editor & Web Development Learning Platform",
   "short_name": "Deoit",
-  "description": "Learn, write, and run HTML, CSS, and JavaScript online. Interactive lessons, syntax highlighting, autocomplete, and file explorer — all in your browser.",
+  "description": "Learn, write, and run HTML, CSS, and JavaScript online. Free browser-based code editor with syntax highlighting, autocomplete, file explorer, and instant live preview.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0d0d0e",
   "theme_color": "#d9d9d9",
   "orientation": "any",
+  "id": "/",
   "icons": [
     {
       "src": "/logo.png",
       "sizes": "64x64",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/logo.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/logo.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "categories": ["education", "development", "programming"],

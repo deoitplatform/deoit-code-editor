@@ -20,14 +20,14 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://deoit.vercel.app/">
   <meta property="og:site_name" content="Deoit">
-  <meta property="og:title" content="Deoit">
+  <meta property="og:title" content="Deoit - Free Online Code Editor | Learn HTML, CSS & JavaScript">
   <meta property="og:description" content="Learn, write, and run HTML, CSS, and JavaScript online. Interactive lessons, syntax highlighting, autocomplete, and file explorer — all in your browser.">
   <meta property="og:image" content="https://deoit.vercel.app/logo.png">
   <meta property="og:image:width" content="512">
   <meta property="og:image:height" content="512">
   <meta property="og:locale" content="en_US"> <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Deoit">
+  <meta name="twitter:title" content="Deoit - Free Online Code Editor | Learn HTML, CSS & JavaScript">
   <meta name="twitter:description" content="Learn, write, and run HTML, CSS, and JavaScript online. No setup, no downloads — just pure coding.">
   <meta name="twitter:image" content="https://deoit.vercel.app/logo.png"> <!-- hreflang -->
   <link rel="alternate" href="https://deoit.vercel.app/" hreflang="en" />
@@ -63,7 +63,55 @@
       "about": {
         "@type": "Thing",
         "name": "Web Development Education"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://deoit.vercel.app/pages/editor"
+        },
+        "query-input": "required name=query"
       }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Deoit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Deoit is a free online code editor that lets you write, run, and preview HTML, CSS, and JavaScript directly in your browser. No downloads or setup required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Deoit free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Deoit is completely free. You can use the editor without signing in, or sign in with Google or GitHub to unlock file management and project saving features."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I learn HTML, CSS, and JavaScript on Deoit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Deoit provides interactive lessons covering HTML, CSS, and JavaScript fundamentals. You can read lessons and experiment with code in the built-in editor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to sign in to use the editor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Guest users can write and run code in the editor with 3 fixed files (index.html, style.css, script.js). Signing in unlocks the full file explorer, settings, and export features."
+          }
+        }
+      ]
     }
   </script>
   <script type="application/ld+json">
@@ -77,7 +125,8 @@
       "founder": {
         "@type": "Person",
         "name": "Majed Qandeel"
-      }
+      },
+      "sameAs": []
     }
   </script>
 </head>
@@ -144,6 +193,7 @@
         <div class="hero-buttons"> <a href="pages/editor" class="btn btn-accent btn-big">Try the Editor</a> <a href="#features" class="btn btn-outline btn-big">Learn More</a> </div>
       </section> <!-- Features -->
       <section class="features" id="features">
+        <h2 style="text-align:center;font-size:28px;font-weight:700;margin-bottom:32px;">Everything you need to start coding</h2>
         <div class="features-grid">
           <div class="feature-card">
             <div class="feature-icon" style="background:rgba(217,217,217,0.1);color:var(--accent);">&#128221;</div>
@@ -209,7 +259,7 @@
       <footer class="site-footer">
         <div class="footer-content" style="grid-template-columns:1fr;gap:0;text-align:center;">
           <div class="footer-brand">
-            <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:12px;"> <img src="logo.png" style="width:24px;height:24px;border-radius:5px;" loading="lazy" alt=""> <span style="font-size:18px;font-weight:700;">Deoit</span> </div>
+            <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:12px;">               <img src="logo.png" style="width:24px;height:24px;border-radius:5px;" loading="lazy" alt="Deoit logo"> <span style="font-size:18px;font-weight:700;">Deoit</span> </div>
             <p>&copy; 2026 Deoit &middot; Built by <strong>Majed Qandeel</strong></p>
             <p><a href="mailto:deoit.platform@gmail.com">deoit.platform@gmail.com</a></p>
           </div>
