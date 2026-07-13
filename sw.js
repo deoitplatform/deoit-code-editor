@@ -1,4 +1,4 @@
-const CACHE = 'deoit-v6';
+const CACHE = 'deoit-v7';
 const PRECACHE_URLS = [
   '/',
   '/index',

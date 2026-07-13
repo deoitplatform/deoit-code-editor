@@ -557,20 +557,13 @@ body {
 .context-menu-sep { height: 1px; background: var(--border-light); margin: 4px 6px; }
 
 /* ─── AUTH LOCK ─── */
-.logged-out .file-tree { pointer-events: none; }
 .logged-out .sidebar-header-actions { pointer-events: none; opacity: 0.3; }
-.logged-out .tree-item { cursor: default; }
-.logged-out .tree-item:hover { background: transparent; color: var(--text-dim); }
 .logged-out .tree-item .file-actions { display: none; }
-.logged-out .tree-empty { display: flex !important; }
 .logged-out [data-action="settings"],
 .logged-out [data-action="export"],
 .logged-out [data-action="import"],
 .logged-out [data-action="download-zip"] { opacity: 0.35; pointer-events: none; }
 .logged-out #loginPrompt { display: flex !important; flex-direction: column; }
-.logged-out .tabs-bar { display: none; }
-.logged-out .editor-wrap { display: none; }
-.logged-out .editor-locked { display: flex !important; }
 
 .editor-locked {
   display: none; flex-direction: column; align-items: center; justify-content: center;

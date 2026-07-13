@@ -225,7 +225,18 @@ function getIcon(name, isFolder, expanded) {
 // ─── TREE ───
 function renderTree() {
   if (!firebase.auth().currentUser) {
-    fileTree.innerHTML = '<div class="tree-empty"><div class="empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="empty-title">No files</div><div class="empty-sub">Sign in to create and manage your project files</div></div>';
+    fileTree.innerHTML = '';
+    if (fileSystem && fileSystem.children) {
+      fileSystem.children.filter(c => c.type === 'file' && c.id !== 'f_utils').forEach(c => {
+        const d = document.createElement('div');
+        d.className = 'tree-item indent-0';
+        d.dataset.id = c.id;
+        d.innerHTML = '<span class="icon">' + getIcon(c.name) + '</span><span class="name">' + esc(c.name) + '</span>';
+        if (c.id === activeHtmlId || c.id === activeCssId || c.id === activeJsId) d.classList.add('active');
+        d.addEventListener('click', function() { openFile(c.id); });
+        fileTree.appendChild(d);
+      });
+    }
     return;
   }
   fileTree.innerHTML = '';
@@ -1249,7 +1260,6 @@ function setupDelegation() {
     }
     const item = e.target.closest('.tree-item');
     if (!item) return;
-    if (!firebase.auth().currentUser) { alert('Please sign in to open files.'); return; }
     const id = item.dataset.id;
     const node = findById(fileSystem, id);
     if (!node) return;
