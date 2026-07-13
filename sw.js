@@ -1,8 +1,7 @@
-const CACHE = 'deoit-v7';
+const CACHE = 'deoit-v8';
 const PRECACHE_URLS = [
   '/',
   '/index',
-
   '/login',
   '/terms',
   '/privacy',
@@ -20,7 +19,9 @@ const PRECACHE_URLS = [
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE).then(cache => cache.addAll(PRECACHE_URLS))
+    caches.open(CACHE).then(cache =>
+      Promise.all(PRECACHE_URLS.map(url => cache.add(url).catch(() => {})))
+    )
   );
   self.skipWaiting();
 });
@@ -43,7 +44,7 @@ self.addEventListener('fetch', event => {
         }
         return response;
       }).catch(() => cached);
-      return cached || fetchPromise;
+      return cached || fetchPromise || new Response('Offline', { status: 503, statusText: 'Offline' });
     })
   );
 });

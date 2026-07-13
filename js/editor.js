@@ -105,6 +105,7 @@ const STORAGE_KEY = 'deoit_project';
 const SIDEBAR_KEY = 'deoit_sidebar_w';
 const CONSOLE_KEY = 'deoit_console_h';
 let consoleLogs = [];
+let _autoSaveTimer = null;
 
 
 // ─── DEFAULT PROJECT ───
@@ -186,7 +187,7 @@ function countAll(node) {
   if (node.children) node.children.forEach(ch=>{ const r=countAll(ch); f+=r.f; c+=r.c; });
   return {f,c};
 }
-function esc(t) { const d=document.createElement('div'); d.textContent=t; return d.innerHTML; }
+function esc(t) { return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 function escAttr(t) { return String(t).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
 // ─── PERSIST ───
@@ -392,7 +393,7 @@ function renderGuides() {
   container.innerHTML = '';
   const code = editorCode.value;
   if (!code) return;
-  const lines = code.split('\n');
+  const lines = code.split('\n').slice(0, 200);
   const style = getComputedStyle(codeHighlight);
   const lh = parseFloat(style.lineHeight) || 22;
   const ch = 7.8;
@@ -602,8 +603,10 @@ function getHtmlFiles() {
 }
 
 function addConsoleEntry(level, args) {
+  const max = _settings.consoleMaxLines || 500;
   const text = Array.from(args).map(a => typeof a === 'object' ? JSON.stringify(a, null, 2) : String(a)).join(' ');
   consoleLogs.push({ level, text });
+  if (consoleLogs.length > max) consoleLogs.splice(0, consoleLogs.length - max);
   renderConsole();
 }
 
@@ -1078,11 +1081,16 @@ suggestBox.addEventListener('click', e => {
 });
 
 // ─── EVENTS ───
+let _inputTimer = null;
 editorCode.addEventListener('input', function() {
-  updateGutter();
-  updateHighlight();
-  updateStatus();
-  showSuggestions();
+  if (_inputTimer) cancelAnimationFrame(_inputTimer);
+  _inputTimer = requestAnimationFrame(function() {
+    _inputTimer = null;
+    updateGutter();
+    updateHighlight();
+    updateStatus();
+    showSuggestions();
+  });
 });
 editorCode.addEventListener('scroll', function() {
   editorGutter.scrollTop = this.scrollTop;
@@ -1210,8 +1218,9 @@ function init() {
   renderTabs(); updateStatus(); save();
   loadSizes();
   applySettings();
+  if (_autoSaveTimer) clearInterval(_autoSaveTimer);
   if (_settings.autoSave) {
-    setInterval(() => { if (activeTabId) saveCurrent(); }, 30000);
+    _autoSaveTimer = setInterval(() => { if (activeTabId) saveCurrent(); }, 30000);
   }
 }
 

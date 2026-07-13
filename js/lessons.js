@@ -562,7 +562,6 @@ const LESSONS = {
   &lt;p&gt;This text is styled with CSS.&lt;/p&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
-}
 
 <span class="hl-comment">/* Style paragraphs */</span>
 <span class="hl-selector">p</span> {

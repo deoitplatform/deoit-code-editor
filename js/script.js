@@ -140,7 +140,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const href = link.getAttribute('href');
     if (href && currentPath.endsWith(href.replace('../',''))) {
       link.style.color = 'var(--text-primary)';
-      link.querySelector('svg').style.opacity = '1';
+      const svg = link.querySelector('svg');
+      if (svg) svg.style.opacity = '1';
     }
   });
 });
