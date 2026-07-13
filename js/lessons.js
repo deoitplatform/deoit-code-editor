@@ -47,11 +47,11 @@ const LESSONS = {
 &lt;/html&gt;</pre>
 
 <ul>
-  <li><strong>&lt;!DOCTYPE html&gt;</strong> — Declares the document type and HTML version</li>
-  <li><strong>&lt;html&gt;</strong> — The root element of the page</li>
-  <li><strong>&lt;head&gt;</strong> — Contains meta information about the page</li>
-  <li><strong>&lt;title&gt;</strong> — Sets the page title shown in the browser tab</li>
-  <li><strong>&lt;body&gt;</strong> — Contains the visible content of the page</li>
+  <li><strong>&lt;!DOCTYPE html&gt;</strong>  -  Declares the document type and HTML version</li>
+  <li><strong>&lt;html&gt;</strong>  -  The root element of the page</li>
+  <li><strong>&lt;head&gt;</strong>  -  Contains meta information about the page</li>
+  <li><strong>&lt;title&gt;</strong>  -  Sets the page title shown in the browser tab</li>
+  <li><strong>&lt;body&gt;</strong>  -  Contains the visible content of the page</li>
 </ul>
 
 <h3>Common HTML Tags</h3>
@@ -66,7 +66,7 @@ const LESSONS = {
 </table>
 
 <h3>HTML Tags</h3>
-<p>HTML tags are keywords surrounded by angle brackets: <code>&lt;tagname&gt;</code>. Most tags come in pairs — an opening tag and a closing tag with a forward slash.</p>
+<p>HTML tags are keywords surrounded by angle brackets: <code>&lt;tagname&gt;</code>. Most tags come in pairs  -  an opening tag and a closing tag with a forward slash.</p>
 
 <div class="lesson-code">
 <span class="hl-tag">&lt;tagname&gt;</span>content goes here<span class="hl-tag">&lt;/tagname&gt;</span>
@@ -74,7 +74,7 @@ const LESSONS = {
 
 <div class="note note-info"><strong>Tip:</strong> Click the <strong>Run</strong> button above to see the HTML code in action right here!</div>
 
-<div class="note note-warning"><strong>Note:</strong> HTML is not a programming language — it is a <strong>markup language</strong> that structures content. You'll add styling with CSS and interactivity with JavaScript later.</div>
+<div class="note note-warning"><strong>Note:</strong> HTML is not a programming language  -  it is a <strong>markup language</strong> that structures content. You'll add styling with CSS and interactivity with JavaScript later.</div>
 
 <h3>Try It Yourself</h3>
 <p>Open the <a href="pages/editor" class="lesson-link">Deoit Editor</a> and paste the HTML above. Click <strong>Run</strong> to see your first web page in action!</p>
@@ -131,7 +131,7 @@ const LESSONS = {
   <li>Use only one <code>&lt;h1&gt;</code> per page (the main title)</li>
   <li>Follow heading hierarchy: h1 → h2 → h3, don't skip levels</li>
   <li>Keep paragraphs focused on a single topic</li>
-  <li>Use <code>&lt;br&gt;</code> sparingly — use CSS for spacing when possible</li>
+  <li>Use <code>&lt;br&gt;</code> sparingly  -  use CSS for spacing when possible</li>
 </ul>
 
 <div class="lesson-tip">
@@ -160,9 +160,9 @@ const LESSONS = {
 
 <h3>Link Attributes</h3>
 <ul>
-  <li><strong>target="_blank"</strong> — Opens the link in a new tab</li>
-  <li><strong>rel="noopener"</strong> — Security measure when using target="_blank"</li>
-  <li><strong>title</strong> — Tooltip text shown on hover</li>
+  <li><strong>target="_blank"</strong>  -  Opens the link in a new tab</li>
+  <li><strong>rel="noopener"</strong>  -  Security measure when using target="_blank"</li>
+  <li><strong>title</strong>  -  Tooltip text shown on hover</li>
 </ul>
 
 <div class="lesson-code">
@@ -289,7 +289,7 @@ const LESSONS = {
 </div>
 
 <div class="lesson-tip">
-  <strong>Tip:</strong> Use CSS to style your tables — borders, spacing, alternating row colors — for better readability.
+  <strong>Tip:</strong> Use CSS to style your tables  -  borders, spacing, alternating row colors  -  for better readability.
 </div>
         `
       },
@@ -299,7 +299,7 @@ const LESSONS = {
         desc: 'Building interactive forms for user input.',
         content: `
 <h2>Forms & Inputs</h2>
-<p>Forms are how users interact with web pages — signing up, searching, submitting data, and more.</p>
+<p>Forms are how users interact with web pages  -  signing up, searching, submitting data, and more.</p>
 
 <h3>The &lt;form&gt; Element</h3>
 <p>The <code>&lt;form&gt;</code> tag wraps all input elements. It has two key attributes: <code>action</code> (where to send data) and <code>method</code> (how to send it).</p>
@@ -352,7 +352,7 @@ const LESSONS = {
 </div>
 
 <h3>Labels & Accessibility</h3>
-<p>Always use <code>&lt;label&gt;</code> elements with your inputs. Labels improve accessibility and usability — clicking a label focuses the associated input.</p>
+<p>Always use <code>&lt;label&gt;</code> elements with your inputs. Labels improve accessibility and usability  -  clicking a label focuses the associated input.</p>
 
 <div class="lesson-tip">
   <strong>Tip:</strong> The <code>for</code> attribute on a label should match the <code>id</code> of the input it belongs to. This connects them properly.
@@ -723,7 +723,7 @@ const LESSONS = {
 <p>Vertical margins between adjacent elements collapse into the larger of the two. Horizontal margins do not collapse.</p>
 
 <div class="lesson-tip">
-  <strong>Tip:</strong> Always set <code>box-sizing: border-box</code> on all elements — it makes sizing much more predictable.
+  <strong>Tip:</strong> Always set <code>box-sizing: border-box</code> on all elements  -  it makes sizing much more predictable.
 </div>
         `
       },
@@ -817,7 +817,7 @@ const LESSONS = {
         desc: 'Two-dimensional layout for complex designs.',
         content: `
 <h2>CSS Grid</h2>
-<p>CSS Grid is a two-dimensional layout system that handles both rows and columns simultaneously — perfect for complex page layouts.</p>
+<p>CSS Grid is a two-dimensional layout system that handles both rows and columns simultaneously  -  perfect for complex page layouts.</p>
 
 <h3>Setting Up Grid</h3>
 <div class="lesson-code">
@@ -1004,11 +1004,11 @@ const LESSONS = {
 
 <h3>Transition Timing Functions</h3>
 <ul>
-  <li><strong>ease</strong> — slow start, fast middle, slow end (default)</li>
-  <li><strong>linear</strong> — constant speed</li>
-  <li><strong>ease-in</strong> — slow start, fast end</li>
-  <li><strong>ease-out</strong> — fast start, slow end</li>
-  <li><strong>ease-in-out</strong> — slow start and end</li>
+  <li><strong>ease</strong>  -  slow start, fast middle, slow end (default)</li>
+  <li><strong>linear</strong>  -  constant speed</li>
+  <li><strong>ease-in</strong>  -  slow start, fast end</li>
+  <li><strong>ease-out</strong>  -  fast start, slow end</li>
+  <li><strong>ease-in-out</strong>  -  slow start and end</li>
 </ul>
 
 <h3>Keyframe Animations</h3>
@@ -1066,7 +1066,7 @@ const LESSONS = {
 </div>
 
 <div class="lesson-tip">
-  <strong>Tip:</strong> Prefer <code>transform</code> and <code>opacity</code> for animations — they are GPU-accelerated and perform better than animating properties like <code>width</code> or <code>height</code>.
+  <strong>Tip:</strong> Prefer <code>transform</code> and <code>opacity</code> for animations  -  they are GPU-accelerated and perform better than animating properties like <code>width</code> or <code>height</code>.
 </div>
         `
       }
@@ -1142,7 +1142,7 @@ const LESSONS = {
 <p>Open the <a href="pages/editor" class="lesson-link">Deoit Editor</a>, create a JS file, and type: <code>console.log("Hello!");</code> then click Run. Check the Console panel to see the output!</p>
 
 <div class="lesson-tip">
-  <strong>Tip:</strong> Use <code>console.log()</code> often — it's the most important debugging tool in JavaScript!
+  <strong>Tip:</strong> Use <code>console.log()</code> often  -  it's the most important debugging tool in JavaScript!
 </div>
         `
       },
@@ -1163,9 +1163,9 @@ const LESSONS = {
 
 <h3>When to Use let vs const</h3>
 <ul>
-  <li>Use <strong>const</strong> by default — for values that won't change</li>
+  <li>Use <strong>const</strong> by default  -  for values that won't change</li>
   <li>Use <strong>let</strong> when you need to reassign the variable</li>
-  <li>Avoid <strong>var</strong> — it has confusing scoping rules</li>
+  <li>Avoid <strong>var</strong>  -  it has confusing scoping rules</li>
 </ul>
 
 <h3>Data Types</h3>
@@ -1369,7 +1369,7 @@ button.<span class="hl-function">addEventListener</span>(<span class="hl-string"
 </div>
 
 <div class="lesson-tip">
-  <strong>Tip:</strong> Prefer <code>querySelector</code> and <code>querySelectorAll</code> — they are versatile and use familiar CSS selector syntax.
+  <strong>Tip:</strong> Prefer <code>querySelector</code> and <code>querySelectorAll</code>  -  they are versatile and use familiar CSS selector syntax.
 </div>
         `
       },
@@ -1379,7 +1379,7 @@ button.<span class="hl-function">addEventListener</span>(<span class="hl-string"
         desc: 'Responding to user actions with events.',
         content: `
 <h2>Events & Interactivity</h2>
-<p>Events are actions that happen in the browser — clicks, keypresses, mouse movements, form submissions, and more. JavaScript can listen for and respond to events.</p>
+<p>Events are actions that happen in the browser  -  clicks, keypresses, mouse movements, form submissions, and more. JavaScript can listen for and respond to events.</p>
 
 <h3>Common Events</h3>
 <div class="lesson-code">
@@ -1447,7 +1447,7 @@ button.<span class="hl-function">addEventListener</span>(<span class="hl-string"
 </div>
 
 <div class="lesson-tip">
-  <strong>Tip:</strong> Use event delegation when you have many similar elements (like list items or table rows) — it's more efficient and works for dynamically added elements.
+  <strong>Tip:</strong> Use event delegation when you have many similar elements (like list items or table rows)  -  it's more efficient and works for dynamically added elements.
 </div>
         `
       },
@@ -1631,7 +1631,7 @@ fruits.<span class="hl-function">forEach</span>(fruit => {
 </div>
 
 <div class="lesson-tip">
-  <strong>Tip:</strong> Modern JavaScript (ES6+) makes code cleaner and less error-prone. Use these features daily — they will become second nature quickly.
+  <strong>Tip:</strong> Modern JavaScript (ES6+) makes code cleaner and less error-prone. Use these features daily  -  they will become second nature quickly.
 </div>
         `
       }
