@@ -68,6 +68,17 @@
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
   <script src="js/auth.js"></script>
+<script>
+document.addEventListener('securitypolicyviolation',function(e){
+fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({access_key:'547008e9-7c97-4e4f-8587-9fceefc5e3ac',subject:'🚨 Security: '+e.violatedDirective,message:'Blocked: '+e.blockedURI+'\nPage: '+location.href+'\nLine: '+e.lineNumber})});
+});
+window.addEventListener('error',function(e){
+if(e.message&&!e.message.includes('ResizeObserver')&&!e.message.includes('Script error')){fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({access_key:'547008e9-7c97-4e4f-8587-9fceefc5e3ac',subject:'🚨 JS Error',message:e.message+'\nFile: '+e.filename+'\nLine: '+e.lineno+'\nPage: '+location.href})});}
+});
+window.addEventListener('unhandledrejection',function(e){
+fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({access_key:'547008e9-7c97-4e4f-8587-9fceefc5e3ac',subject:'🚨 Unhandled Promise',message:String(e.reason)+'\nPage: '+location.href})});
+});
+</script>
   <script>
     (function() {
       auth.onAuthStateChanged(function(user) {
