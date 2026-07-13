@@ -111,7 +111,7 @@
             <line x1="3" y1="12" x2="21" y2="12" />
             <line x1="3" y1="18" x2="21" y2="18" />
           </svg> </button>
-        <div class="header-actions" id="headerActions"> <a href="pages/editor" class="btn btn-ghost">Get Started</a> <a href="login" class="btn btn-accent" id="loginBtn">Sign In</a>
+        <div class="header-actions" id="headerActions"> <a href="pages/editor" class="btn btn-ghost" id="getStartedBtn">Get Started</a> <a href="login" class="btn btn-accent" id="loginBtn">Sign In</a>
           <div id="userMenu" style="display:none;align-items:center;gap:8px;"> <span id="userName" style="font-size:13px;color:var(--text-secondary);"></span> <button id="logoutBtn" class="btn btn-ghost" style="padding:4px 10px;font-size:12px;">Sign Out</button> </div>
         </div>
       </header> <!-- Hero -->
@@ -228,10 +228,12 @@
       const userName = document.getElementById('userName');
       if (user) {
         loginBtn.style.display = 'none';
+        document.getElementById('getStartedBtn').style.display = 'none';
         userMenu.style.display = 'flex';
         userName.textContent = user.displayName || user.email;
       } else {
         loginBtn.style.display = '';
+        document.getElementById('getStartedBtn').style.display = '';
         userMenu.style.display = 'none';
       }
     });
