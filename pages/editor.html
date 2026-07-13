@@ -85,6 +85,9 @@
   <div class="editor-app"> <!-- Toolbar -->
     <header class="toolbar">
       <div class="toolbar-left">
+        <button class="sidebar-toggle" id="sidebarToggle" title="Toggle file explorer" aria-label="Toggle file explorer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
         <div class="toolbar-logo"> <img src="../logo.png" alt="Deoit" style="width:20px;height:20px;border-radius:3px;"> <span><span class="accent">Deoit</span></span> </div>
       </div>
       <div class="toolbar-center"> <button class="toolbar-btn" data-action="home" title="Home"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -141,7 +144,8 @@
         </div>
       </div>
     </header> <!-- Body -->
-    <div class="editor-body"> <!-- File Sidebar -->
+    <div class="editor-body"> <!-- Sidebar Overlay (mobile) -->
+      <div class="sidebar-overlay-editor" id="sidebarOverlay"></div> <!-- File Sidebar -->
       <aside class="file-sidebar" id="fileSidebar">
         <div class="sidebar-header"> <span>Explorer</span>
           <div class="sidebar-header-actions"> <button data-action="new-file" title="New File">+</button> <button data-action="new-folder" title="New Folder">&#128193;</button> </div>

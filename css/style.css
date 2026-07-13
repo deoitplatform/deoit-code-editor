@@ -38,7 +38,7 @@ a:hover { color: var(--accent); }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-.app-layout { display: flex; min-height: 100vh; }
+.app-layout { display: flex; min-height: 100vh; min-height: 100dvh; }
 
 /* ─── SIDEBAR ─── */
 .sidebar {
@@ -344,4 +344,16 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .sidebar-link:focus-v
   .editor-showcase { padding: 32px 12px; }
   .editor-showcase-wrapper { gap: 24px; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .code-demo-tab { min-height: 44px; padding: 10px 14px; }
 }
+
+/* ─── REDUCED MOTION ─── */
+@media (prefers-reduced-motion: reduce) {
+  .typing-cursor { animation: none; }
+  .feature-card { transition: none; }
+  .feature-card:hover { transform: none; }
+  .btn { transition: none; }
+}
+
+/* ─── SAFE AREA ─── */
+.header-bar { padding-left: max(32px, env(safe-area-inset-left)); padding-right: max(32px, env(safe-area-inset-right)); }

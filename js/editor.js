@@ -1907,5 +1907,29 @@ function setupResize() {
 window.addEventListener('load', () => {
   init();
   setupDelegation();
+  setupSidebarToggle();
   checkAuth();
 });
+
+function setupSidebarToggle() {
+  const toggle = document.getElementById('sidebarToggle');
+  const sidebar = document.getElementById('fileSidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  if (!toggle || !sidebar || !overlay) return;
+
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('show');
+  }
+
+  toggle.addEventListener('click', () => {
+    const isOpen = sidebar.classList.toggle('open');
+    overlay.classList.toggle('show', isOpen);
+  });
+
+  overlay.addEventListener('click', closeSidebar);
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeSidebar();
+  });
+}
