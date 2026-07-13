@@ -3,12 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.getElementById('sidebarOverlay');
   const toggleBtn = document.getElementById('menuToggle');
 
-  window.toggleSidebar = function() {
+  function toggleSidebar() {
     if (!sidebar) return;
     sidebar.classList.toggle('open');
     if (overlay) overlay.classList.toggle('show');
     document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : '';
-  };
+  }
+  if (overlay) overlay.addEventListener('click', toggleSidebar);
+  if (toggleBtn) toggleBtn.addEventListener('click', toggleSidebar);
 
   // Close sidebar on link click (mobile)
   document.querySelectorAll('.sidebar-link').forEach(link => {

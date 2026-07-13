@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://www.googleapis.com; frame-ancestors 'none'">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="theme-color" content="#0d0d0e">
   <meta name="color-scheme" content="dark">
@@ -88,7 +89,7 @@
       navigator.serviceWorker.register('sw.js').catch(function() {});
     }
   </script>
-
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="50aac514-55b3-446d-a8f5-d9540ebd7792"></script>
 </body>
 
 </html>

@@ -195,10 +195,10 @@ function save() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(fileSys
 function load() { try { const s=localStorage.getItem(STORAGE_KEY); if(s) {const p=JSON.parse(s); if(p&&p.type==='folder') return p;} } catch(e){} return null; }
 function loadSizes() {
   try {
-    const sw = localStorage.getItem(SIDEBAR_KEY);
-    const ch = localStorage.getItem(CONSOLE_KEY);
-    if (sw) document.documentElement.style.setProperty('--sidebar-w', sw + 'px');
-    if (ch) document.documentElement.style.setProperty('--console-h', ch + 'px');
+    const sw = parseFloat(localStorage.getItem(SIDEBAR_KEY));
+    const ch = parseFloat(localStorage.getItem(CONSOLE_KEY));
+    if (sw > 0 && sw <= 600) document.documentElement.style.setProperty('--sidebar-w', sw + 'px');
+    if (ch > 0 && ch <= 600) document.documentElement.style.setProperty('--console-h', ch + 'px');
   } catch(e) {}
 }
 
@@ -637,7 +637,8 @@ function executeRun(htmlId) {
   const html = htmlId ? (findById(fileSystem, htmlId)?.content || '') : '';
   const css = activeCssId ? (findById(fileSystem, activeCssId)?.content || '') : '';
   const js = activeJsId ? (findById(fileSystem, activeJsId)?.content || '') : '';
-  const bridge = '<script>!function(){function f(l){return function(){parent.postMessage({type:"deoit_console",level:l,args:Array.from(arguments).map(function(v){try{return typeof v==="object"?JSON.stringify(v,function(k,vv){if(typeof vv==="function")return"[Function]";return vv}):String(v)}catch(e){return String(v)}})},\"*\")}}window.console={log:f("log"),warn:f("warn"),error:f("error"),info:f("info"),clear:function(){parent.postMessage({type:"deoit_console",level:"clear"},\"*\")}};window.onerror=function(m){parent.postMessage({type:"deoit_console",level:"error",args:[String(m)]},\"*\")}}();<\/script>';
+  const origin = window.location.origin;
+  const bridge = '<script>!function(){function f(l){return function(){parent.postMessage({type:"deoit_console",level:l,args:Array.from(arguments).map(function(v){try{return typeof v==="object"?JSON.stringify(v,function(k,vv){if(typeof vv==="function")return"[Function]";return vv}):String(v)}catch(e){return String(v)}})},\"'+origin+'\")}}window.console={log:f("log"),warn:f("warn"),error:f("error"),info:f("info"),clear:function(){parent.postMessage({type:"deoit_console",level:"clear"},\"'+origin+'\")}};window.onerror=function(m){parent.postMessage({type:"deoit_console",level:"error",args:[String(m)]},\"'+origin+'\")}}();<\/script>';
   const doc = `<!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <style>${css}</style></head>
@@ -1797,12 +1798,23 @@ function exportProject() {
   URL.revokeObjectURL(url);
 }
 
+function isValidNode(n) {
+  if (!n || typeof n.id !== 'string' || typeof n.name !== 'string') return false;
+  if (n.type === 'folder') {
+    if (!Array.isArray(n.children)) return false;
+    for (const c of n.children) { if (!isValidNode(c)) return false; }
+    return true;
+  }
+  return n.type === 'file' && typeof n.content === 'string';
+}
+
 function importProject(file) {
   const reader = new FileReader();
   reader.onload = function(e) {
     try {
       const data = JSON.parse(e.target.result);
       if (!data || data.type !== 'folder') { alert('Invalid project file.'); return; }
+      if (!isValidNode(data)) { alert('Project file contains invalid data.'); return; }
       if (!confirm('Import will replace your current project. Continue?')) return;
       fileSystem = data;
       localStorage.removeItem(STORAGE_KEY);
