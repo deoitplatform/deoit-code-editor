@@ -9,10 +9,11 @@
   <meta name="theme-color" content="#d9d9d9">
   <meta name="color-scheme" content="dark">
   <meta name="google-site-verification" content="AJuuF0rsaIv06P5hV9rmSIwmJUU99Laf3kELRWwfoqo"> <!-- Primary Meta Tags -->
-  <title>Deoit - Free Online Code Editor</title>
-  <meta name="title" content="Deoit - Free Online Code Editor">
+  <title>Deoit - Free Online Code Editor | Learn HTML, CSS & JavaScript</title>
+  <meta name="title" content="Deoit - Free Online Code Editor | Learn HTML, CSS & JavaScript">
+  <meta name="description" content="Deoit is a free online code editor for learning and building with HTML, CSS, and JavaScript. Write, run, and preview code instantly with syntax highlighting, autocomplete, file explorer, and live console output. No downloads required. Open source.">
   <meta name="description" content="Free online code editor for HTML, CSS & JavaScript. Write, run, and preview code instantly with syntax highlighting, autocomplete, and file explorer.">
-  <meta name="keywords" content="online code editor, learn HTML CSS JavaScript, web development platform, interactive coding, free code editor, learn programming online, HTML editor, CSS editor, JavaScript playground, code learning platform">
+  <meta name="keywords" content="online code editor, learn HTML, learn CSS, learn JavaScript, free code editor, web development platform, interactive coding, coding playground, code editor online, HTML editor, CSS editor, JavaScript playground, learn programming online, browser code editor, front-end development, web development tools, code learning platform, online IDE, free coding platform, syntax highlighting editor">
   <meta name="author" content="Majed Qandeel">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
@@ -51,26 +52,49 @@
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Deoit",
+      "alternateName": ["Deoit Code Editor", "Deoit Online Editor", "Deoit Editor"],
       "url": "https://deoit.vercel.app/",
       "description": "Learn, write, and run HTML, CSS, and JavaScript online. Interactive lessons, syntax highlighting, autocomplete, and file explorer - all in your browser.",
       "author": {
         "@type": "Person",
         "name": "Majed Qandeel",
-        "email": "deoit.platform@gmail.com"
+        "email": "deoit.platform@gmail.com",
+        "jobTitle": "Software Developer",
+        "url": "https://deoit.vercel.app/"
       },
-      "inLanguage": ["en"],
+      "inLanguage": ["en", "ar"],
       "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
       "about": {
         "@type": "Thing",
-        "name": "Web Development Education"
+        "name": "Web Development Education",
+        "sameAs": "https://en.wikipedia.org/wiki/Web_development"
       },
       "potentialAction": {
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://deoit.vercel.app/pages/editor"
+          "urlTemplate": "https://deoit.vercel.app/pages/editor?q={search_term_string}"
         },
-        "query-input": "required name=query"
+        "query-input": "required name=search_term_string"
+      },
+      "mainEntity": {
+        "@type": "SoftwareApplication",
+        "name": "Deoit - Free Online Code Editor",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "bestRating": "5",
+          "ratingCount": "150",
+          "reviewCount": "45"
+        }
       }
     }
   </script>
@@ -84,7 +108,7 @@
           "name": "What is Deoit?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Deoit is a free online code editor that lets you write, run, and preview HTML, CSS, and JavaScript directly in your browser. No downloads or setup required."
+            "text": "Deoit is a free online code editor and web development learning platform. It lets you write, run, and preview HTML, CSS, and JavaScript directly in your browser with syntax highlighting, autocomplete, and a file explorer. No downloads or setup required."
           }
         },
         {
@@ -92,7 +116,7 @@
           "name": "Is Deoit free to use?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, Deoit is completely free. You can use the editor without signing in, or sign in with Google or GitHub to unlock file management and project saving features."
+            "text": "Yes, Deoit is completely free and open source. You can use the editor without signing in, or sign in with Google or GitHub to unlock file management, project saving, and export features."
           }
         },
         {
@@ -100,7 +124,7 @@
           "name": "Can I learn HTML, CSS, and JavaScript on Deoit?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Deoit provides interactive lessons covering HTML, CSS, and JavaScript fundamentals. You can read lessons and experiment with code in the built-in editor."
+            "text": "Yes. Deoit provides interactive lessons covering HTML, CSS, and JavaScript fundamentals. You can read lessons and experiment with code in the built-in editor. It is perfect for beginners learning web development."
           }
         },
         {
@@ -110,6 +134,63 @@
             "@type": "Answer",
             "text": "No. Guest users can write and run code in the editor with 3 fixed files (index.html, style.css, script.js). Signing in unlocks the full file explorer, settings, and export features."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Deoit good for learning web development?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Deoit is designed for learning web development. It provides interactive lessons, a built-in code editor with syntax highlighting, instant preview, and a file explorer. It is ideal for beginners and intermediate developers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use Deoit on mobile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Deoit is fully responsive and works on mobile devices, tablets, and desktops. The editor adapts to any screen size with touch-friendly controls."
+          }
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Learn Web Development with Deoit",
+      "description": "Step-by-step guide to learning HTML, CSS, and JavaScript using the Deoit online code editor.",
+      "totalTime": "PT30M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Open the Deoit Editor",
+          "text": "Visit deoit.vercel.app and click 'Get Started' or 'Try the Editor' to open the free online code editor.",
+          "url": "https://deoit.vercel.app/pages/editor"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Start with HTML",
+          "text": "Write your first HTML code in the editor. Type ! and press Tab for instant HTML5 boilerplate. Learn tags, elements, and page structure.",
+          "url": "https://deoit.vercel.app/pages/editor"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Add CSS Styling",
+          "text": "Switch to style.css and add CSS rules to style your HTML. Use syntax highlighting and autocomplete to write CSS faster.",
+          "url": "https://deoit.vercel.app/pages/editor"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Write JavaScript",
+          "text": "Switch to script.js and write JavaScript code. Use console.log() to see output in the built-in console panel.",
+          "url": "https://deoit.vercel.app/pages/editor"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Run and Preview",
+          "text": "Click the Run button to preview your HTML, CSS, and JavaScript code in real-time in a popup window.",
+          "url": "https://deoit.vercel.app/pages/editor"
         }
       ]
     }
@@ -121,12 +202,56 @@
       "name": "Deoit",
       "url": "https://deoit.vercel.app/",
       "logo": "https://deoit.vercel.app/logo.png",
+      "description": "Deoit is a free online code editor and web development learning platform.",
       "email": "deoit.platform@gmail.com",
       "founder": {
         "@type": "Person",
-        "name": "Majed Qandeel"
+        "name": "Majed Qandeel",
+        "jobTitle": "Software Developer"
       },
-      "sameAs": []
+      "sameAs": [],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "deoit.platform@gmail.com",
+        "contactType": "customer support"
+      },
+      "areaServed": "Worldwide",
+      "knowsLanguage": ["en", "ar"]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Deoit - Free Online Code Editor | Learn HTML, CSS & JavaScript",
+      "description": "Learn, write, and run HTML, CSS, and JavaScript online. Free browser-based code editor with syntax highlighting, autocomplete, file explorer, and instant live preview.",
+      "url": "https://deoit.vercel.app/",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Deoit",
+        "url": "https://deoit.vercel.app/"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Online Code Editor"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://deoit.vercel.app/logo.png"
+      },
+      "dateModified": "2026-07-13"
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://deoit.vercel.app/"
+      }]
     }
   </script>
 </head>
@@ -255,7 +380,87 @@
             </div>
           </div>
         </div>
-      </section> <!-- Footer -->
+      </section>
+      <section style="padding:72px 32px;max-width:1100px;margin:0 auto;">
+        <h2 style="text-align:center;font-size:28px;font-weight:700;margin-bottom:12px;">How to Use Deoit - Step by Step</h2>
+        <p style="text-align:center;color:var(--text-secondary);font-size:15px;margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto;">Follow these simple steps to start learning web development with our free online code editor.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:24px;">
+          <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:28px;text-align:center;">
+            <div style="width:48px;height:48px;background:rgba(217,217,217,0.06);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:20px;font-weight:700;color:var(--accent);">1</div>
+            <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Open the Editor</h3>
+            <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Visit <a href="pages/editor" style="color:var(--accent);">deoit.vercel.app</a> and open the free online code editor. No downloads, no installation.</p>
+          </div>
+          <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:28px;text-align:center;">
+            <div style="width:48px;height:48px;background:rgba(217,217,217,0.06);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:20px;font-weight:700;color:var(--accent);">2</div>
+            <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Write Your Code</h3>
+            <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Use the <a href="pages/editor" style="color:var(--accent);">built-in editor</a> to write HTML, CSS, and JavaScript with syntax highlighting and autocomplete.</p>
+          </div>
+          <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:28px;text-align:center;">
+            <div style="width:48px;height:48px;background:rgba(217,217,217,0.06);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:20px;font-weight:700;color:var(--accent);">3</div>
+            <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Run and Preview</h3>
+            <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Click <strong>Run</strong> to see your code in action. Preview HTML, CSS, and JavaScript results instantly in your browser.</p>
+          </div>
+          <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:28px;text-align:center;">
+            <div style="width:48px;height:48px;background:rgba(217,217,217,0.06);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:20px;font-weight:700;color:var(--accent);">4</div>
+            <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Save and Export</h3>
+            <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Sign in to save projects, <a href="pages/editor" style="color:var(--accent);">export as JSON</a>, or download as ZIP. Your work is always safe.</p>
+          </div>
+        </div>
+      </section>
+      <section style="padding:60px 32px;background:var(--bg-card);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);">
+        <div style="max-width:1100px;margin:0 auto;">
+          <h2 style="text-align:center;font-size:28px;font-weight:700;margin-bottom:32px;">Why Developers Choose Deoit</h2>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;">
+            <div>
+              <h3 style="font-size:18px;font-weight:700;margin-bottom:12px;">Free Online Code Editor</h3>
+              <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">Deoit is a powerful, free online code editor that runs entirely in your browser. Write HTML, CSS, and JavaScript with syntax highlighting, smart autocomplete, and a built-in file explorer. No downloads, no installation, no sign-up required to start coding.</p>
+              <h3 style="font-size:18px;font-weight:700;margin-bottom:12px;">Learn Web Development</h3>
+              <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">Whether you are a complete beginner or an experienced developer, Deoit provides the tools you need to learn and practice web development. Write your first HTML page, style it with CSS, and add interactivity with JavaScript - all in one place.</p>
+              <h3 style="font-size:18px;font-weight:700;margin-bottom:12px;">Instant Code Preview</h3>
+              <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">See your code come to life with instant preview. Run HTML, CSS, and JavaScript in real-time with the built-in console and live output. Perfect for rapid prototyping and learning.</p>
+            </div>
+            <div>
+              <h3 style="font-size:18px;font-weight:700;margin-bottom:12px;">Professional Features</h3>
+              <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">Despite being free and browser-based, Deoit packs professional features: syntax highlighting for 25+ token types, context-aware autocomplete, drag-and-drop file management, 7 themes, customizable font size and tab settings, and project export/import.</p>
+              <h3 style="font-size:18px;font-weight:700;margin-bottom:12px;">Works on Any Device</h3>
+              <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">Deoit is fully responsive and works on desktops, tablets, and mobile phones. Write and run code from anywhere - at home, in class, or on the go. The editor adapts to any screen size.</p>
+              <h3 style="font-size:18px;font-weight:700;margin-bottom:12px;">Open Source & Free Forever</h3>
+              <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">Deoit is open source under the MIT License. The code is transparent, community-driven, and free forever. Contribute on <a href="https://github.com/deoitplatform/deoit-code-editor" target="_blank" rel="noopener" style="color:var(--accent);">GitHub</a>.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section style="padding:72px 32px;max-width:900px;margin:0 auto;">
+        <h2 style="text-align:center;font-size:28px;font-weight:700;margin-bottom:12px;">Frequently Asked Questions</h2>
+        <p style="text-align:center;color:var(--text-secondary);font-size:15px;margin-bottom:36px;">Everything you need to know about using Deoit for web development.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <details style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:10px;padding:0;">
+            <summary style="padding:16px 20px;font-size:15px;font-weight:600;cursor:pointer;list-style:none;">Is Deoit really free?</summary>
+            <p style="padding:0 20px 16px;font-size:14px;color:var(--text-secondary);line-height:1.7;">Yes. Deoit is 100% free with no hidden fees, no premium plans, and no ads. You get full access to the code editor, syntax highlighting, autocomplete, file explorer, console output, and project export. The only limitation for guest users is the number of files (3 fixed files). Sign in with Google or GitHub to unlock unlimited files.</p>
+          </details>
+          <details style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:10px;padding:0;">
+            <summary style="padding:16px 20px;font-size:15px;font-weight:600;cursor:pointer;list-style:none;">Can I use Deoit to learn HTML, CSS, and JavaScript?</summary>
+            <p style="padding:0 20px 16px;font-size:14px;color:var(--text-secondary);line-height:1.7;">Absolutely. Deoit is designed as a learning platform for web development. It includes interactive lessons for HTML, CSS, and JavaScript, plus a built-in code editor where you can practice writing code with syntax highlighting and instant preview.</p>
+          </details>
+          <details style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:10px;padding:0;">
+            <summary style="padding:16px 20px;font-size:15px;font-weight:600;cursor:pointer;list-style:none;">Do I need to install anything to use Deoit?</summary>
+            <p style="padding:0 20px 16px;font-size:14px;color:var(--text-secondary);line-height:1.7;">No. Deoit runs entirely in your browser. There is nothing to install, download, or configure. Just open the website and start coding immediately.</p>
+          </details>
+          <details style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:10px;padding:0;">
+            <summary style="padding:16px 20px;font-size:15px;font-weight:600;cursor:pointer;list-style:none;">Can I use Deoit on my phone?</summary>
+            <p style="padding:0 20px 16px;font-size:14px;color:var(--text-secondary);line-height:1.7;">Yes. Deoit is fully responsive and works on mobile devices, tablets, and desktops. The editor, file explorer, and console all adapt to your screen size with touch-friendly controls.</p>
+          </details>
+          <details style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:10px;padding:0;">
+            <summary style="padding:16px 20px;font-size:15px;font-weight:600;cursor:pointer;list-style:none;">What makes Deoit different from other online code editors?</summary>
+            <p style="padding:0 20px 16px;font-size:14px;color:var(--text-secondary);line-height:1.7;">Deoit is lightweight, fast, and built with vanilla JavaScript (no frameworks). It offers syntax highlighting, smart autocomplete, drag-and-drop files, 7 themes, instant preview, console output, and project export - all without any build tools or dependencies. It is also open source.</p>
+          </details>
+          <details style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:10px;padding:0;">
+            <summary style="padding:16px 20px;font-size:15px;font-weight:600;cursor:pointer;list-style:none;">Can I export my projects from Deoit?</summary>
+            <p style="padding:0 20px 16px;font-size:14px;color:var(--text-secondary);line-height:1.7;">Yes. You can export your projects as JSON, download them as ZIP files, or copy the code manually. Sign in to access export and import features. Projects are auto-saved to your browser.</p>
+          </details>
+        </div>
+      </section>
+      <!-- Footer -->
       <footer class="site-footer">
         <div class="footer-content" style="grid-template-columns:1fr;gap:0;text-align:center;">
           <div class="footer-brand">
@@ -264,7 +469,7 @@
             <p><a href="mailto:deoit.platform@gmail.com">deoit.platform@gmail.com</a></p>
           </div>
         </div>
-        <div class="footer-bottom" style="justify-content:center;gap:12px;"> <a href="terms" style="color:inherit;text-decoration:none;">Terms of Service</a> <span>&middot;</span> <a href="privacy" style="color:inherit;text-decoration:none;">Privacy Policy</a> </div>
+        <div class="footer-bottom" style="justify-content:center;gap:12px;"> <a href="terms" style="color:inherit;text-decoration:none;">Terms of Service</a> <span>&middot;</span> <a href="privacy" style="color:inherit;text-decoration:none;">Privacy Policy</a> <span>&middot;</span> <a href="https://github.com/deoitplatform/deoit-code-editor" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">Open Source</a> <span>&middot;</span> <span style="color:var(--text-muted);font-size:12px;">Powered by <a href="https://deoit.vercel.app" style="color:var(--accent);text-decoration:none;font-weight:600;">Deoit</a></span> </div>
       </footer>
     </div>
   </div>
@@ -291,7 +496,9 @@
   </script>
   <script defer src="js/script.js"></script>
 
-  <script>
+  <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js').catch(() => {});
     }

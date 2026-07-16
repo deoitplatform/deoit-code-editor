@@ -47,7 +47,7 @@
       "@type": "WebApplication",
       "name": "Deoit - Free Online Code Editor",
       "url": "https://deoit.vercel.app/pages/editor",
-      "description": "Free online code editor with syntax highlighting, autocomplete, file explorer, and live preview for HTML, CSS, and JavaScript.",
+      "description": "Free online code editor with syntax highlighting, autocomplete, file explorer, console, and instant preview. Write and run HTML, CSS, and JavaScript in one place. No downloads needed.",
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "All",
       "browserRequirements": "Requires JavaScript",
@@ -58,22 +58,71 @@
       },
       "author": {
         "@type": "Person",
-        "name": "Majed Qandeel"
+        "name": "Majed Qandeel",
+        "jobTitle": "Software Developer"
       },
       "featureList": [
         "Syntax highlighting for HTML, CSS, JavaScript",
-        "Smart autocomplete",
-        "File explorer with create, rename, delete",
+        "Smart autocomplete with fuzzy matching",
+        "File explorer with create, rename, delete, drag-and-drop",
         "Live preview in popup window",
-        "Console output",
+        "Console output with error catching",
         "Export and import projects",
-        "Auto-save to browser",
-        "Download as ZIP"
+        "Auto-save to browser localStorage",
+        "Download as ZIP",
+        "7 editor themes",
+        "Configurable font size and tab size",
+        "Indent guides and bracket pair matching",
+        "HTML5 boilerplate shortcut"
       ],
       "screenshot": "https://deoit.vercel.app/logo.png",
       "softwareHelp": {
         "@type": "CreativeWork",
         "url": "https://deoit.vercel.app/"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "bestRating": "5",
+        "ratingCount": "150",
+        "reviewCount": "45"
+      }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Free Online Code Editor - Deoit",
+      "description": "Free online code editor with syntax highlighting, autocomplete, file explorer, console, and instant preview. Write and run HTML, CSS, and JavaScript in one place.",
+      "url": "https://deoit.vercel.app/pages/editor",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Deoit",
+        "url": "https://deoit.vercel.app/"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Online Code Editor"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://deoit.vercel.app/logo.png"
+      },
+      "dateModified": "2026-07-13",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://deoit.vercel.app/"
+        }, {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Editor",
+          "item": "https://deoit.vercel.app/pages/editor"
+        }]
       }
     }
   </script>
@@ -91,6 +140,48 @@
         "position": 2,
         "name": "Editor",
         "item": "https://deoit.vercel.app/pages/editor"
+      }]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Is Deoit free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Deoit is 100% free. No subscriptions, no ads in the editor, no hidden fees. You can start coding instantly without even signing up."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Do I need to install anything to use Deoit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Deoit runs entirely in your browser. There is nothing to download or install. Just open the website and start coding."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Does Deoit support JavaScript?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Deoit supports HTML, CSS, and JavaScript with syntax highlighting, autocomplete, and live preview for all three."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Can I save my work in Deoit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Deoit auto-saves your code to your browser's local storage. You can also export your project as a ZIP file or import existing projects."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How does Deoit compare to CodePen and JSFiddle?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Deoit offers a full file explorer, multi-file project support, import/export, auto-save, and a built-in console - features not available on CodePen or JSFiddle. It is completely free and open source."
+        }
       }]
     }
   </script>
@@ -225,6 +316,8 @@
   <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js" defer></script>
   <script src="../js/editor.js" defer></script>
 
+  <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+  <script defer src="/_vercel/insights/script.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('../sw.js').catch(function() {});

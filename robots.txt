@@ -5,6 +5,8 @@ Allow: /privacy
 Allow: /terms
 Disallow: /login
 Disallow: /404
+Disallow: /sw.js
+Disallow: /manifest.json
 
 User-agent: GPTBot
 Disallow: /
@@ -16,6 +18,12 @@ User-agent: CCBot
 Disallow: /
 
 User-agent: Google-Extended
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Bytespider
 Disallow: /
 
 Sitemap: https://deoit.vercel.app/sitemap.xml

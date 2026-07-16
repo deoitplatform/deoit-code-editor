@@ -36,6 +36,21 @@
   <link rel="preconnect" href="https://www.gstatic.com">
   <link rel="preconnect" href="https://apis.google.com"> <!-- Styles -->
   <link rel="stylesheet" href="css/login.css"> <!-- Frame buster -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Sign In - Deoit",
+      "description": "Sign in to Deoit with Google or GitHub to save projects, access all lessons, and unlock the full editor experience.",
+      "url": "https://deoit.vercel.app/login",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Deoit",
+        "url": "https://deoit.vercel.app/"
+      },
+      "dateModified": "2026-07-13"
+    }
+  </script>
   <script>
     if (top !== self) {
       top.location.href = self.location.href
@@ -79,9 +94,11 @@ window.addEventListener('unhandledrejection',function(e){
 fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({access_key:'547008e9-7c97-4e4f-8587-9fceefc5e3ac',subject:'🚨 Unhandled Promise',message:String(e.reason)+'\nPage: '+location.href})});
 });
 </script>
+  <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+  <script defer src="/_vercel/insights/script.js"></script>
   <script>
-    (function() {
-      auth.onAuthStateChanged(function(user) {
+      (function() {
+        auth.onAuthStateChanged(function(user) {
         if (user) window.location.replace('pages/editor');
       });
       var bg = document.getElementById('btnGoogle');
