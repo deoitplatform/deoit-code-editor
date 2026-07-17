@@ -9,11 +9,13 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
+auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 const githubProvider = new firebase.auth.GithubAuthProvider();
 
-function signInGoogle() { return auth.signInWithPopup(googleProvider); }
-function signInGithub() { return auth.signInWithPopup(githubProvider); }
+function signInGoogle() { return auth.signInWithRedirect(googleProvider); }
+function signInGithub() { return auth.signInWithRedirect(githubProvider); }
 function signOut() { return auth.signOut(); }
 function onAuth(cb) { auth.onAuthStateChanged(cb); }
 function getUser() { return auth.currentUser; }

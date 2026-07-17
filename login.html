@@ -142,6 +142,18 @@
         overlay.style.display = 'flex';
       }
 
+      auth.getRedirectResult().then(function(result) {
+        if (result && result.user) {
+          showLoading('Signed in! Redirecting...');
+          window.location.href = 'pages/editor';
+        }
+      }).catch(function(err) {
+        console.error('Redirect result error:', err);
+        overlay.style.display = 'none';
+        var btns = document.querySelectorAll('.auth-btn');
+        btns.forEach(function(b) { b.classList.remove('loading'); b.disabled = false; });
+      });
+
       auth.onAuthStateChanged(function(user) {
         if (user) { showLoading('Welcome back! Redirecting...'); window.location.href = 'pages/editor'; }
       });
@@ -150,13 +162,10 @@
       var btnGithub = document.getElementById('btnGithub');
 
       function doSignIn(provider, btn, name) {
-        showLoading('Connecting to ' + name + '...');
+        showLoading('Redirecting to ' + name + '...');
         btn.classList.add('loading');
         btn.disabled = true;
-        provider().then(function() {
-          showLoading('Signed in! Loading editor...');
-          window.location.href = 'pages/editor';
-        }).catch(function(err) {
+        provider().catch(function(err) {
           console.error('Sign-in error:', err);
           overlay.style.display = 'none';
           btn.classList.remove('loading');
