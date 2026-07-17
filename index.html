@@ -477,9 +477,6 @@
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
   <script src="js/auth.js"></script>
   <script defer>
-    auth.getRedirectResult().then(function(result) {
-      if (result && result.user) { window.location.href = 'pages/editor'; }
-    }).catch(function(err) { console.error('Redirect error:', err); });
     firebase.auth().onAuthStateChanged(user => {
       const loginBtn = document.getElementById('loginBtn');
       const userMenu = document.getElementById('userMenu');

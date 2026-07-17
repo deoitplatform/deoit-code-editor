@@ -109,12 +109,6 @@ fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':
         var loadingText = document.getElementById('loadingText');
         function showLoading(msg) { loadingText.textContent = msg || 'Signing in...'; overlay.style.display = 'flex'; }
 
-        auth.getRedirectResult().then(function(result) {
-          if (result && result.user) { showLoading('Redirect successful, loading editor...'); window.location.replace('pages/editor'); }
-        }).catch(function(err) {
-          console.error('Redirect result error:', err);
-          overlay.style.display = 'none';
-        });
         auth.onAuthStateChanged(function(user) {
           if (user) { showLoading('Welcome! Loading editor...'); window.location.replace('pages/editor'); }
         });
@@ -123,7 +117,9 @@ fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':
         function doSignIn(provider, btn, name) {
           showLoading('Connecting to ' + name + '...');
           btn.classList.add('loading'); btn.disabled = true;
-          provider().catch(function(err) {
+          provider().then(function() {
+            showLoading('Signed in! Loading editor...');
+          }).catch(function(err) {
             console.error('Sign-in error:', err);
             overlay.style.display = 'none';
             btn.classList.remove('loading'); btn.disabled = false;
