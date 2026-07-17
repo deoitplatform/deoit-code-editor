@@ -44,8 +44,7 @@
   <link rel="preload" href="js/auth.js" as="script" fetchpriority="low"> <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://www.gstatic.com">
-  <link rel="preconnect" href="https://apis.google.com"> <!-- Styles -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net"> <!-- Styles -->
   <link rel="stylesheet" href="css/style.css"> <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
     {
@@ -473,11 +472,10 @@
       </footer>
     </div>
   </div>
-  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/auth.js"></script>
   <script defer>
-    firebase.auth().onAuthStateChanged(user => {
+    onAuth(function(user) {
       const loginBtn = document.getElementById('loginBtn');
       const userMenu = document.getElementById('userMenu');
       const userName = document.getElementById('userName');
@@ -485,7 +483,7 @@
         loginBtn.style.display = 'none';
         document.getElementById('getStartedBtn').style.display = 'none';
         userMenu.style.display = 'flex';
-        userName.textContent = user.displayName || user.email;
+        userName.textContent = (user.user_metadata && user.user_metadata.full_name) || user.email;
       } else {
         loginBtn.style.display = '';
         document.getElementById('getStartedBtn').style.display = '';

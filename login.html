@@ -30,7 +30,7 @@
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
   <link rel="manifest" href="manifest.json">
-  <link rel="preconnect" href="https://www.gstatic.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="css/login.css">
   <script type="application/ld+json">
     {
@@ -129,8 +129,7 @@
     </div>
   </div>
 
-  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/auth.js"></script>
   <script>
     (function() {
@@ -142,19 +141,7 @@
         overlay.style.display = 'flex';
       }
 
-      auth.getRedirectResult().then(function(result) {
-        if (result && result.user) {
-          showLoading('Signed in! Redirecting...');
-          window.location.href = 'pages/editor';
-        }
-      }).catch(function(err) {
-        console.error('Redirect result error:', err);
-        overlay.style.display = 'none';
-        var btns = document.querySelectorAll('.auth-btn');
-        btns.forEach(function(b) { b.classList.remove('loading'); b.disabled = false; });
-      });
-
-      auth.onAuthStateChanged(function(user) {
+      onAuth(function(user) {
         if (user) { showLoading('Welcome back! Redirecting...'); window.location.href = 'pages/editor'; }
       });
 
@@ -165,12 +152,20 @@
         showLoading('Redirecting to ' + name + '...');
         btn.classList.add('loading');
         btn.disabled = true;
-        provider().catch(function(err) {
+        provider().then(function(err) {
+          if (err && err.error) {
+            console.error('Sign-in error:', err.error);
+            overlay.style.display = 'none';
+            btn.classList.remove('loading');
+            btn.disabled = false;
+            alert('Sign-in failed: ' + (err.error.message || 'Unknown error'));
+          }
+        }).catch(function(err) {
           console.error('Sign-in error:', err);
           overlay.style.display = 'none';
           btn.classList.remove('loading');
           btn.disabled = false;
-          alert('Sign-in failed (' + (err.code || 'unknown') + '): ' + (err.message || 'Unknown error'));
+          alert('Sign-in failed: ' + (err.message || 'Unknown error'));
         });
       }
 

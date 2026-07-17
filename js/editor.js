@@ -10,7 +10,7 @@ function stringToColor(s) {
 }
 
 function checkAuth() {
-  firebase.auth().onAuthStateChanged(user => {
+  onAuth(function(user) {
     const loggedOut = !user;
     document.body.classList.toggle('logged-out', loggedOut);
     const avatar = document.getElementById('userAvatar');
@@ -24,11 +24,11 @@ function checkAuth() {
       if (avatarIcon) avatarIcon.hidden = true;
       if (avatarLetter) {
         avatarLetter.hidden = false;
-        const name = user.displayName || user.email || 'U';
+        const name = (user.user_metadata && user.user_metadata.full_name) || user.email || 'U';
         avatarLetter.textContent = name.charAt(0).toUpperCase();
         avatarLetter.style.background = stringToColor(name);
       }
-      dropdownName.textContent = user.displayName || 'User';
+      dropdownName.textContent = (user.user_metadata && user.user_metadata.full_name) || 'User';
       dropdownEmail.textContent = user.email || '';
       renderTree(); renderTabs(); save();
     } else {
@@ -45,7 +45,7 @@ document.addEventListener('click', function(e) {
   var wrap = document.getElementById('userMenuWrap');
   var dropdown = document.getElementById('userDropdown');
   if (!wrap || !dropdown) return;
-  if (wrap.contains(e.target) && !firebase.auth().currentUser) {
+  if (wrap.contains(e.target) && !getUser()) {
     window.location.href = '../login';
     return;
   }
@@ -225,7 +225,7 @@ function getIcon(name, isFolder, expanded) {
 
 // ─── TREE ───
 function renderTree() {
-  if (!firebase.auth().currentUser) {
+  if (!getUser()) {
     fileTree.innerHTML = '';
     if (fileSystem && fileSystem.children) {
       fileSystem.children.filter(c => c.type === 'file' && c.id !== 'f_utils').forEach(c => {
@@ -854,7 +854,7 @@ function doRename(id) {
 // ─── CONTEXT MENU ───
 let ctxId = null;
 function showCtx(x, y, id) {
-  if (!firebase.auth().currentUser) return;
+  if (!getUser()) return;
   ctxId = id;
   const file = findById(fileSystem, id);
   if (!file) return;
@@ -1226,7 +1226,7 @@ function init() {
 }
 
 // ─── EVENT DELEGATION (CSP-safe) ───
-function requireAuth() { if (!firebase.auth().currentUser) { window.location.href = '../login'; return false; } return true; }
+function requireAuth() { if (!getUser()) { window.location.href = '../login'; return false; } return true; }
 
 function setupDelegation() {
   document.querySelector('.toolbar')?.addEventListener('click', e => {
