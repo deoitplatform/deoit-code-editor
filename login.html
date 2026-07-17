@@ -117,8 +117,13 @@ fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':
         function doSignIn(provider, btn, name) {
           showLoading('Connecting to ' + name + '...');
           btn.classList.add('loading'); btn.disabled = true;
-          provider().then(function() {
-            showLoading('Signed in! Loading editor...');
+          provider().then(function(result) {
+            showLoading('Signed in! Redirecting to editor...');
+            if (result && result.user) {
+              window.location.href = 'pages/editor';
+            } else {
+              window.location.href = 'pages/editor';
+            }
           }).catch(function(err) {
             console.error('Sign-in error:', err);
             overlay.style.display = 'none';
