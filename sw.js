@@ -1,4 +1,4 @@
-const CACHE = 'deoit-v15';
+const CACHE = 'deoit-v16';
 const PRECACHE_URLS = [
   '/',
   '/index',
@@ -35,6 +35,7 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
+  if (event.request.url.indexOf(self.location.origin) !== 0) return;
   if (event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html')) {
     event.respondWith(fetch(event.request).catch(() => caches.match(event.request)).then(response => {
       const clone = response.clone();
