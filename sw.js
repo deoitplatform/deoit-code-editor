@@ -35,6 +35,14 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
+  if (event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html')) {
+    event.respondWith(fetch(event.request).catch(() => caches.match(event.request)).then(response => {
+      const clone = response.clone();
+      caches.open(CACHE).then(cache => cache.put(event.request, clone));
+      return response;
+    }));
+    return;
+  }
   event.respondWith(
     caches.match(event.request).then(cached => {
       const fetchPromise = fetch(event.request).then(response => {
