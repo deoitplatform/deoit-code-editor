@@ -20,10 +20,8 @@
   <img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white" alt="HTML5">
   <img src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white" alt="CSS3">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black" alt="JavaScript">
-  <img src="https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=black" alt="Firebase">
   <img src="https://img.shields.io/badge/Vercel-000000?logo=vercel&logoColor=white" alt="Vercel">
   <img src="https://img.shields.io/badge/PWA-5A0FC8?logo=pwa&logoColor=white" alt="PWA">
-  <img src="https://img.shields.io/badge/License-MIT%20with%20Attribution-blue" alt="License">
 </p>
 
 ---
@@ -236,27 +234,6 @@ The project is deployed on Vercel with `cleanUrls: true` and `trailingSlash: fal
 ## Credits
 
 Built by **Majed Qandeel** — [deoit.platform@gmail.com](mailto:deoit.platform@gmail.com)
-
----
-
-## Open Source
-
-Deoit is open source under the **MIT License with Attribution Requirement**.
-
-You are free to:
-- Use, modify, and distribute this code
-- Build commercial and non-commercial projects on top of it
-- Use it for personal learning without any restrictions
-
-**Attribution Requirement:**
-Any website or web application built using Deoit (in production) must include
-a visible attribution in the footer or credits section, such as:
-
-```html
-<a href="https://deoit.vercel.app">Powered by Deoit</a>
-```
-
-See [LICENSE](LICENSE) for full details.
 
 ---
 
