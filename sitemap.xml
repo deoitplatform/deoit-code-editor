@@ -44,4 +44,12 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://deoit.vercel.app/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.vercel.app/privacy"/>
   </url>
+  <url>
+    <loc>https://deoit.vercel.app/learn</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.vercel.app/learn"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.vercel.app/learn"/>
+  </url>
 </urlset>
