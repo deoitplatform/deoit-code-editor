@@ -1,12 +1,20 @@
 User-agent: *
 Allow: /
 Allow: /pages/editor
+Allow: /learn
+Allow: /learn-html.html
+Allow: /learn-css.html
+Allow: /learn-js.html
+Allow: /learn-react.html
+Allow: /learn-node.html
+Allow: /learn-tools.html
 Allow: /privacy
 Allow: /terms
 Disallow: /login
 Disallow: /404
 Disallow: /sw.js
 Disallow: /manifest.json
+Disallow: /admin
 
 User-agent: GPTBot
 Disallow: /
@@ -24,6 +32,9 @@ User-agent: anthropic-ai
 Disallow: /
 
 User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
 Disallow: /
 
 Sitemap: https://deoit.vercel.app/sitemap.xml

@@ -199,6 +199,24 @@ a{color:inherit;text-decoration:none}
 .l-footer a{color:var(--text-secondary);transition:color .2s}
 .l-footer a:hover{color:var(--text-primary)}
 
+/* ═══ SEO CONTENT ═══ */
+.l-seo-content{max-width:900px;margin:0 auto;padding:0 24px 60px}
+.l-seo-content h2{color:var(--text-primary);font-size:1.5rem;margin:40px 0 16px;letter-spacing:-0.02em}
+.l-seo-content>p{color:var(--text-secondary);line-height:1.7;margin-bottom:24px;font-size:15px}
+.l-seo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin:16px 0 32px}
+.l-seo-item{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:20px}
+.l-seo-item h3{color:var(--text-primary);font-size:1rem;margin-bottom:8px}
+.l-seo-item p{color:var(--text-secondary);font-size:13px;line-height:1.6;margin-bottom:12px}
+.l-seo-item a{color:var(--accent);font-size:13px;font-weight:600;text-decoration:none}
+.l-seo-item a:hover{color:var(--accent-hover)}
+.l-faq{display:flex;flex-direction:column;gap:8px;margin:16px 0}
+.l-faq details{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-xs);overflow:hidden}
+.l-faq summary{padding:14px 16px;cursor:pointer;color:var(--text-primary);font-weight:500;font-size:14px;list-style:none}
+.l-faq summary::-webkit-details-marker{display:none}
+.l-faq summary::before{content:'+ ';color:var(--accent);font-weight:700}
+.l-faq details[open] summary::before{content:'- '}
+.l-faq details p{padding:0 16px 14px;color:var(--text-secondary);font-size:13px;line-height:1.7}
+
 /* ═══ MOBILE ═══ */
 @media(max-width:900px){
   .l-nav{padding:0 16px}
