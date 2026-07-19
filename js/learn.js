@@ -393,7 +393,7 @@ function renderTabs(){
   var h='';
   SECTIONS.forEach(function(s,i){
     var on=i===activeSection?' on':'';
-    h+='<div class="l-tab'+on+'" onclick="window._tab('+i+')"><span class="dot" style="background:'+s.c+'"></span>'+s.t+'<span class="cnt">'+s.items.length+'</span></div>';
+    h+='<div class="l-tab'+on+'" onclick="window._tab('+i+')"><span class="dot" style="background:'+s.c+'"></span>'+s.t+'</div>';
   });
   tabsEl.innerHTML=h;
 }
@@ -404,7 +404,7 @@ function renderLessons(idx){
   contentEl.style.display='none';
   lessonsWrap.style.display='block';
   var s=SECTIONS[idx];
-  lessonsTitle.textContent=s.t+' ('+s.items.length+' lessons)';
+  lessonsTitle.textContent=s.t;
   var h='';
   s.items.forEach(function(it,i){
     var on=activeLesson===it.id?' on':'';
@@ -415,7 +415,6 @@ function renderLessons(idx){
   });
   lessonList.innerHTML=h;
   renderTabs();
-  lessonsWrap.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 function renderLesson(id){
