@@ -599,7 +599,14 @@ function saveRunConfig(cfg) {
 let runConfig = loadRunConfig();
 
 function getHtmlFiles() {
-  return openFiles.filter(f => f.lang === 'html');
+  const tabFiles = openFiles.filter(f => f.lang === 'html');
+  if (tabFiles.length > 0) return tabFiles;
+  const fsId = findFirstFile(fileSystem, 'html');
+  if (fsId) {
+    const f = findById(fileSystem, fsId);
+    if (f) return [{ id: fsId, name: f.name, lang: 'html' }];
+  }
+  return [];
 }
 
 function addConsoleEntry(level, args) {
@@ -651,7 +658,7 @@ ${bridge}
   if (!iframe) {
     iframe = document.createElement('iframe');
     iframe.id = 'previewFrame';
-    iframe.sandbox = 'allow-scripts';
+    iframe.sandbox = 'allow-scripts allow-forms';
     iframe.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;border:none;z-index:9999;background:#fff;';
     const closeBtn = document.createElement('button');
     closeBtn.textContent = 'Close Preview';
@@ -860,7 +867,7 @@ function showCtx(x, y, id) {
   if (!file) return;
   const isFolder = file.type === 'folder', isRoot = id === 'root';
   let h = '';
-  if (isFolder && !isRoot) { h += `<div class="context-menu-item" data-action="new-file" data-id="${escAttr(id)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg> New File</div><div class="context-menu-item" data-action="new-folder" data-id="${escAttr(id)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> New Folder</div><div class="context-menu-sep"></div>`; }
+  if (isFolder) { h += `<div class="context-menu-item" data-action="new-file" data-id="${escAttr(id)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg> New File</div><div class="context-menu-item" data-action="new-folder" data-id="${escAttr(id)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> New Folder</div><div class="context-menu-sep"></div>`; }
   if (!isRoot) { h += `<div class="context-menu-item" data-action="rename" data-id="${escAttr(id)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Rename</div><div class="context-menu-item danger" data-action="delete" data-id="${escAttr(id)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg> Delete</div>`; }
   contextMenu.innerHTML = h;
   contextMenu.style.left = x + 'px'; contextMenu.style.top = y + 'px';
