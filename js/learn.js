@@ -1,849 +1,397 @@
 (function(){
-const SECTIONS = [
-  {
-    title: 'HTML', items: [
-      { id:'html-intro', label:'Introduction to HTML' },
-      { id:'html-elements', label:'HTML Elements & Tags' },
-      { id:'html-forms', label:'Forms & Inputs' },
-      { id:'html-semantics', label:'Semantic HTML' },
-    ]
-  },
-  {
-    title: 'CSS', items: [
-      { id:'css-intro', label:'Introduction to CSS' },
-      { id:'css-selectors', label:'Selectors & Specificity' },
-      { id:'css-flexbox', label:'Flexbox Layout' },
-      { id:'css-grid', label:'CSS Grid' },
-      { id:'css-responsive', label:'Responsive Design' },
-    ]
-  },
-  {
-    title: 'JavaScript', items: [
-      { id:'js-intro', label:'Introduction to JavaScript' },
-      { id:'js-variables', label:'Variables & Data Types' },
-      { id:'js-functions', label:'Functions' },
-      { id:'js-dom', label:'DOM Manipulation' },
-      { id:'js-events', label:'Events' },
-      { id:'js-async', label:'Async JavaScript' },
-      { id:'js-fetch', label:'Fetch API' },
-    ]
-  },
-  {
-    title: 'React', items: [
-      { id:'react-intro', label:'Introduction to React' },
-      { id:'react-components', label:'Components & Props' },
-      { id:'react-state', label:'State & Hooks' },
-    ]
-  },
-  {
-    title: 'Node.js', items: [
-      { id:'node-intro', label:'Introduction to Node.js' },
-      { id:'node-express', label:'Express.js Basics' },
-    ]
-  },
-  {
-    title: 'Tools', items: [
-      { id:'git-intro', label:'Git Basics' },
-      { id:'npm-intro', label:'npm & Package Manager' },
-      { id:'terminal-intro', label:'Terminal Basics' },
-    ]
-  }
+var SECTIONS=[
+{t:'Getting Started',items:[
+  {id:'intro',l:'Introduction'},
+  {id:'html-intro',l:'What is HTML'},
+  {id:'css-intro',l:'What is CSS'},
+  {id:'js-intro',l:'What is JavaScript'}
+]},
+{t:'HTML',items:[
+  {id:'html-edit',l:'HTML Editors'},
+  {id:'html-basics',l:'HTML Basics'},
+  {id:'html-elements',l:'HTML Elements'},
+  {id:'html-attributes',l:'HTML Attributes'},
+  {id:'html-headings',l:'HTML Headings'},
+  {id:'html-paragraphs',l:'HTML Paragraphs'},
+  {id:'html-links',l:'HTML Links'},
+  {id:'html-images',l:'HTML Images'},
+  {id:'html-forms',l:'HTML Forms'},
+  {id:'html-tables',l:'HTML Tables'},
+  {id:'html-lists',l:'HTML Lists'},
+  {id:'html-semantics',l:'Semantic HTML'}
+]},
+{t:'CSS',items:[
+  {id:'css-intro2',l:'CSS Introduction'},
+  {id:'css-syntax',l:'CSS Syntax'},
+  {id:'css-selectors',l:'CSS Selectors'},
+  {id:'css-colors',l:'CSS Colors'},
+  {id:'css-background',l:'CSS Background'},
+  {id:'css-boxmodel',l:'Box Model'},
+  {id:'css-margin',l:'Margin & Padding'},
+  {id:'css-flexbox',l:'Flexbox'},
+  {id:'css-grid',l:'CSS Grid'},
+  {id:'css-responsive',l:'Responsive Design'}
+]},
+{t:'JavaScript',items:[
+  {id:'js-intro2',l:'JS Introduction'},
+  {id:'js-variables',l:'Variables'},
+  {id:'js-datatypes',l:'Data Types'},
+  {id:'js-operators',l:'Operators'},
+  {id:'js-functions',l:'Functions'},
+  {id:'js-conditions',l:'Conditions'},
+  {id:'js-loops',l:'Loops'},
+  {id:'js-arrays',l:'Arrays'},
+  {id:'js-objects',l:'Objects'},
+  {id:'js-dom',l:'DOM Manipulation'},
+  {id:'js-events',l:'Events'},
+  {id:'js-async',l:'Async/Await'},
+  {id:'js-fetch',l:'Fetch API'}
+]},
+{t:'React',items:[
+  {id:'react-intro',l:'React Intro'},
+  {id:'react-jsx',l:'JSX'},
+  {id:'react-components',l:'Components'},
+  {id:'react-props',l:'Props'},
+  {id:'react-state',l:'State'},
+  {id:'react-hooks',l:'Hooks'}
+]},
+{t:'Node.js',items:[
+  {id:'node-intro',l:'Node.js Intro'},
+  {id:'node-npm',l:'npm'},
+  {id:'node-express',l:'Express.js'}
+]},
+{t:'Tools',items:[
+  {id:'git-basics',l:'Git Basics'},
+  {id:'terminal',l:'Terminal'}
+]}
 ];
 
-const ARTICLES = {
-'html-intro': {
-  title:'Introduction to HTML', cat:'HTML',
-  content:`
-<p>HTML (HyperText Markup Language) is the standard language for creating web pages. Every website you visit is built with HTML at its core.</p>
-<h2>How the Web Works</h2>
-<p>When you type a URL in your browser, it sends a request to a server. The server responds with HTML files, which the browser reads and renders into a visual page.</p>
-<h2>Your First HTML Document</h2>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;My Page&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h1&gt;Hello, World!&lt;/h1&gt;
-  &lt;p&gt;This is my first web page.&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<h3>Key Tags</h3>
-<table><tr><th>Tag</th><th>Purpose</th></tr>
-<tr><td><code>&lt;!DOCTYPE html&gt;</code></td><td>Declares HTML5 document type</td></tr>
-<tr><td><code>&lt;html&gt;</code></td><td>Root element of the page</td></tr>
-<tr><td><code>&lt;head&gt;</code></td><td>Contains meta information</td></tr>
-<tr><td><code>&lt;body&gt;</code></td><td>Contains visible content</td></tr>
-</table>
-<div class="tip"><strong>Tip:</strong> Open the Deoit editor and try writing this code yourself!</div>`
-},
-
-'html-elements': {
-  title:'HTML Elements & Tags', cat:'HTML',
-  content:`
-<p>HTML elements are the building blocks of a web page. Each element is defined by a start tag, content, and an end tag.</p>
-<h2>Headings</h2>
-<pre><code>&lt;h1&gt;Main Heading&lt;/h1&gt;
-&lt;h2&gt;Sub Heading&lt;/h2&gt;
-&lt;h3&gt;Section Heading&lt;/h3&gt;
-&lt;h4&gt;Minor Heading&lt;/h4&gt;</code></pre>
-<h2>Paragraphs & Text</h2>
-<pre><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;
-&lt;strong&gt;Bold text&lt;/strong&gt;
-&lt;em&gt;Italic text&lt;/em&gt;
-&lt;a href="https://example.com"&gt;Link&lt;/a&gt;</code></pre>
-<h2>Lists</h2>
-<pre><code>&lt;ul&gt;
-  &lt;li&gt;Unordered item&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Ordered item&lt;/li&gt;
-&lt;/ol&gt;</code></pre>
-<h2>Images</h2>
-<pre><code>&lt;img src="photo.jpg" alt="Description" width="300"&gt;</code></pre>
-<div class="note"><strong>Note:</strong> Always include the <code>alt</code> attribute on images for accessibility.</div>`
-},
-
-'html-forms': {
-  title:'Forms & Inputs', cat:'HTML',
-  content:`
-<p>Forms allow users to submit data. They are essential for login pages, search bars, and contact forms.</p>
-<h2>Basic Form</h2>
-<pre><code>&lt;form action="/submit" method="POST"&gt;
-  &lt;label for="name"&gt;Name:&lt;/label&gt;
-  &lt;input type="text" id="name" name="name" required&gt;
-
-  &lt;label for="email"&gt;Email:&lt;/label&gt;
-  &lt;input type="email" id="email" name="email" required&gt;
-
-  &lt;button type="submit"&gt;Send&lt;/button&gt;
-&lt;/form&gt;</code></pre>
-<h2>Input Types</h2>
-<table><tr><th>Type</th><th>Use</th></tr>
-<tr><td><code>text</code></td><td>Single-line text</td></tr>
-<tr><td><code>email</code></td><td>Email with validation</td></tr>
-<tr><td><code>password</code></td><td>Hidden characters</td></tr>
-<tr><td><code>number</code></td><td>Numeric input</td></tr>
-<tr><td><code>checkbox</code></td><td>Multiple choice</td></tr>
-<tr><td><code>radio</code></td><td>Single choice</td></tr>
-<tr><td><code>file</code></td><td>File upload</td></tr>
-</table>`
-},
-
-'html-semantics': {
-  title:'Semantic HTML', cat:'HTML',
-  content:`
-<p>Semantic HTML uses meaningful tag names that describe the content, making your code more readable and accessible.</p>
-<h2>Why Use Semantics?</h2>
-<ul>
-  <li>Screen readers can navigate your page better</li>
-  <li>Search engines understand your content structure</li>
-  <li>Code is easier to read and maintain</li>
-</ul>
-<h2>Semantic Tags</h2>
-<table><tr><th>Tag</th><th>Purpose</th></tr>
-<tr><td><code>&lt;header&gt;</code></td><td>Page or section header</td></tr>
-<tr><td><code>&lt;nav&gt;</code></td><td>Navigation links</td></tr>
-<tr><td><code>&lt;main&gt;</code></td><td>Main content of the page</td></tr>
-<tr><td><code>&lt;section&gt;</code></td><td>Thematic grouping of content</td></tr>
-<tr><td><code>&lt;article&gt;</code></td><td>Self-contained content</td></tr>
-<tr><td><code>&lt;aside&gt;</code></td><td>Side content or tangential content</td></tr>
-<tr><td><code>&lt;footer&gt;</code></td><td>Page or section footer</td></tr>
-</table>
-<pre><code>&lt;article&gt;
-  &lt;h2&gt;Blog Post Title&lt;/h2&gt;
-  &lt;p&gt;Post content here...&lt;/p&gt;
-&lt;/article&gt;</code></pre>`
-},
-
-'css-intro': {
-  title:'Introduction to CSS', cat:'CSS',
-  content:`
-<p>CSS (Cascading Style Sheets) controls the visual presentation of HTML elements. It handles colors, layouts, fonts, spacing, and animations.</p>
-<h2>Three Ways to Add CSS</h2>
-<h3>1. External (Recommended)</h3>
-<pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
-<h3>2. Internal</h3>
-<pre><code>&lt;style&gt;
-  body { background: #0d0d0d; }
-&lt;/style&gt;</code></pre>
-<h3>3. Inline</h3>
-<pre><code>&lt;p style="color: red;"&gt;Red text&lt;/p&gt;</code></pre>
-<h2>Basic Syntax</h2>
-<pre><code>selector {
-  property: value;
+function A(id,t,cat,intro,content){
+  return{id:id,title:t,cat:cat,intro:intro||'',content:content||''};
 }
+var H='<pre><code>',E='</code></pre>',C='class="';
 
-h1 {
-  color: #d9d9d9;
-  font-size: 24px;
-  margin-bottom: 12px;
-}</code></pre>`
-},
+var D={};
 
-'css-selectors': {
-  title:'Selectors & Specificity', cat:'CSS',
-  content:`
-<p>Selectors determine which HTML elements a CSS rule applies to.</p>
-<h2>Common Selectors</h2>
-<pre><code>/* Element */
-p { color: white; }
+D.intro=A('intro','Introduction','Getting Started',
+'Welcome to Deoit Learn. This platform teaches you web development from scratch with hands-on examples.',
+'<h2>What You Will Learn</h2><ul><li><strong>HTML</strong> - The structure of web pages</li><li><strong>CSS</strong> - The styling and layout</li><li><strong>JavaScript</strong> - The interactivity and logic</li><li><strong>React</strong> - Modern UI frameworks</li><li><strong>Node.js</strong> - Server-side JavaScript</li></ul><h2>How It Works</h2><p>Each lesson includes explanations and code examples. Click <strong>"Try it Yourself"</strong> to run the code in the Deoit editor.</p><div class="tip"><strong>Tip:</strong> Follow the lessons in order for the best learning experience. Start with HTML, then CSS, then JavaScript.</div><h2>Prerequisites</h2><p>You need <strong>zero programming experience</strong>. All you need is a web browser and a willingness to learn.</p>');
 
-/* Class */
-.card { padding: 20px; }
+D['html-intro']=A('html-intro','What is HTML','HTML',
+'HTML stands for HyperText Markup Language. It is the standard language for creating web pages.',
+'<p>HTML describes the structure of a web page using elements and tags.</p>'+H+'<!DOCTYPE html>\n<html>\n<head>\n  <title>My Page</title>\n</head>\n<body>\n  <h1>Hello World</h1>\n  <p>This is a paragraph.</p>\n</body>\n</html>'+E+'<h2>How the Web Works</h2><ol><li>You type a URL in the browser</li><li>Browser sends a request to a server</li><li>Server responds with HTML files</li><li>Browser renders the page</li></ol><div class="tip"><strong>Tip:</strong> Open the Deoit editor and try writing your first HTML page!</div>');
 
-/* ID */
-#header { background: #111; }
+D['html-edit']=A('html-edit','HTML Editors','HTML',
+'A text editor is where you write your HTML code. Popular editors include VS Code, Sublime Text, and the Deoit online editor.',
+'<p>You can use any text editor to write HTML. The file must have a <code>.html</code> extension.</p>'+H+'<!-- Save this as index.html -->\n<!DOCTYPE html>\n<html>\n<body>\n  <h1>My First Page</h1>\n  <p>Open this file in a browser.</p>\n</body>\n</html>'+E+'<h2>Using Deoit</h2><p>The easiest way to start is with the <a href="pages/editor">Deoit editor</a>. No installation needed - just open and start coding.</p>');
 
-/* Descendant */
-.sidebar a { color: blue; }
+D['html-basics']=A('html-basics','HTML Basics','HTML',
+'HTML documents are files that end with .html or .htm. They can be viewed in any web browser.',
+'<h2>HTML Document Structure</h2>'+H+'<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n  <title>Page Title</title>\n</head>\n<body>\n  <h1>My Heading</h1>\n  <p>My paragraph.</p>\n</body>\n</html>'+E+'<h2>Key Elements</h2><ul><li><code>&lt;!DOCTYPE html&gt;</code> - Declares HTML5</li><li><code>&lt;html&gt;</code> - Root element</li><li><code>&lt;head&gt;</code> - Meta information</li><li><code>&lt;body&gt;</code> - Visible content</li></ul>');
 
-/* Child */
-.nav > li { display: inline; }
+D['html-elements']=A('html-elements','HTML Elements','HTML',
+'An HTML element is defined by a start tag, content, and an end tag.',
+H+'<!-- Element structure -->\n<tagname>Content</tagname>\n\n<!-- Examples -->\n<h1>This is a heading</h1>\n<p>This is a paragraph</p>\n<a href="https://example.com">This is a link</a>\n<img src="photo.jpg" alt="Photo">'+E+'<h2>Nested Elements</h2>'+H+'<div>\n  <h2>Title</h2>\n  <p>Paragraph inside a div.</p>\n</div>'+E+'<div class="note"><strong>Note:</strong> Some elements are self-closing like <code>&lt;img&gt;</code> and <code>&lt;br&gt;</code>.</div>');
 
-/* Pseudo-class */
-a:hover { color: red; }
-button:disabled { opacity: 0.5; }
+D['html-attributes']=A('html-attributes','HTML Attributes','HTML',
+'Attributes provide additional information about HTML elements.',
+'<h2>Common Attributes</h2>'+H+'<!-- href attribute -->\n<a href="https://google.com">Google</a>\n\n<!-- src attribute -->\n<img src="logo.png" alt="Logo">\n\n<!-- class attribute -->\n<div class="container">Content</div>\n\n<!-- id attribute -->\n<div id="main">Main content</div>\n\n<!-- style attribute -->\n<p style="color: red;">Red text</p>'+E+'<table><tr><th>Attribute</th><th>Purpose</th></tr><tr><td><code>href</code></td><td>Link URL</td></tr><tr><td><code>src</code></td><td>Image/source URL</td></tr><tr><td><code>alt</code></td><td>Image description</td></tr><tr><td><code>class</code></td><td>CSS class name</td></tr><tr><td><code>id</code></td><td>Unique identifier</td></tr></table>');
 
-/* Attribute */
-input[type="email"] { border: 1px solid red; }</code></pre>
-<h2>Specificity</h2>
-<p>When multiple rules target the same element, specificity determines which wins:</p>
-<ol>
-  <li><code>!important</code> (avoid using)</li>
-  <li>Inline styles (<code>style="..."</code>)</li>
-  <li>ID selectors (<code>#id</code>)</li>
-  <li>Class / attribute / pseudo-class (`.class`)</li>
-  <li>Element / pseudo-element (<code>div</code>, <code>::before</code>)</li>
-</ol>
-<div class="tip"><strong>Tip:</strong> Keep specificity low. Use classes instead of IDs for styling.</div>`
-},
+D['html-headings']=A('html-headings','HTML Headings','HTML',
+'HTML headings are defined with the <h1> to <h6> tags.',
+H+'<h1>Heading 1</h1>\n<h2>Heading 2</h2>\n<h3>Heading 3</h3>\n<h4>Heading 4</h4>\n<h5>Heading 5</h5>\n<h6>Heading 6</h6>'+E+'<h2>Best Practices</h2><ul><li>Use <code>&lt;h1&gt;</code> for the main title (one per page)</li><li>Use <code>&lt;h2&gt;</code> for sections</li><li>Use <code>&lt;h3&gt;</code> for sub-sections</li><li>Don\'t skip heading levels (h1 to h3)</li></ul><div class="tip"><strong>Tip:</strong> Headings are important for SEO and accessibility.</div>');
 
-'css-flexbox': {
-  title:'Flexbox Layout', cat:'CSS',
-  content:`
-<p>Flexbox is a one-dimensional layout system for arranging items in rows or columns.</p>
-<h2>Container Properties</h2>
-<pre><code>.container {
-  display: flex;
-  justify-content: space-between;  /* horizontal */
-  align-items: center;             /* vertical */
-  gap: 16px;                       /* space between items */
-  flex-wrap: wrap;                 /* wrap to next line */
-}</code></pre>
-<h2>Item Properties</h2>
-<pre><code>.item {
-  flex: 1;            /* grow to fill space */
-  flex-shrink: 0;     /* don't shrink */
-  flex-basis: 200px;  /* initial width */
-  align-self: flex-end; /* override container align */
-}</code></pre>
-<h2>Common Patterns</h2>
-<pre><code>/* Center anything */
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+D['html-paragraphs']=A('html-paragraphs','HTML Paragraphs','HTML',
+'The HTML <p> element defines a paragraph.',
+H+'<p>This is a paragraph.</p>\n<p>This is another paragraph.</p>\n\n<!-- Line break -->\n<p>Line one.<br>Line two.</p>\n\n<!-- Horizontal rule -->\n<hr>\n\n<!-- Preformatted text -->\n<pre>\n  This text preserves\n  spaces and line breaks.\n</pre>'+E+'<div class="note"><strong>Note:</strong> Browsers automatically add a single blank line before and after paragraphs.</div>');
 
-/* Space items evenly */
-.spread {
-  display: flex;
-  justify-content: space-between;
-}
+D['html-links']=A('html-links','HTML Links','HTML',
+'HTML links are defined with the <a> tag. The href attribute specifies the destination URL.',
+H+'<!-- Basic link -->\n<a href="https://google.com">Visit Google</a>\n\n<!-- Open in new tab -->\n<a href="https://google.com" target="_blank">\n  Open in new tab\n</a>\n\n<!-- Link to email -->\n<a href="mailto:test@test.com">Send Email</a>\n\n<!-- Page link -->\n<a href="about.html">About Page</a>'+E+'<h2>Link Attributes</h2><table><tr><th>Attribute</th><th>Description</th></tr><tr><td><code>href</code></td><td>URL of the link</td></tr><tr><td><code>target</code></td><td>Where to open (_blank = new tab)</td></tr><tr><td><code>title</code></td><td>Tooltip text</td></tr></table>');
 
-/* Stack with gap */
-.stack {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}</code></pre>`
-},
+D['html-images']=A('html-images','HTML Images','HTML',
+'HTML images are defined with the <img> tag. It is self-closing.',
+H+'<!-- Basic image -->\n<img src="photo.jpg" alt="Description">\n\n<!-- With size -->\n<img src="logo.png" alt="Logo" width="200" height="100">\n\n<!-- Responsive image -->\n<img src="pic.jpg" alt="Photo"\n     style="max-width: 100%; height: auto;">'+E+'<h2>Image Attributes</h2><table><tr><th>Attribute</th><th>Description</th></tr><tr><td><code>src</code></td><td>Path to image</td></tr><tr><td><code>alt</code></td><td>Text if image fails to load</td></tr><tr><td><code>width</code></td><td>Width in pixels</td></tr><tr><td><code>height</code></td><td>Height in pixels</td></tr></table><div class="warn"><strong>Important:</strong> Always include the <code>alt</code> attribute for accessibility.</div>');
 
-'css-grid': {
-  title:'CSS Grid', cat:'CSS',
-  content:`
-<p>CSS Grid is a two-dimensional layout system for creating complex page layouts.</p>
-<h2>Basic Grid</h2>
-<pre><code>.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}</code></pre>
-<h2>Responsive Grid</h2>
-<pre><code>.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-}</code></pre>
-<h2>Named Areas</h2>
-<pre><code>.layout {
-  display: grid;
-  grid-template-areas:
-    "header header"
-    "sidebar main"
-    "footer footer";
-  grid-template-columns: 250px 1fr;
-}
-.header  { grid-area: header; }
-.sidebar { grid-area: sidebar; }
-.main    { grid-area: main; }
-.footer  { grid-area: footer; }</code></pre>
-<div class="note"><strong>Note:</strong> Use Flexbox for one-dimensional layouts (row OR column). Use Grid for two-dimensional layouts (rows AND columns).</div>`
-},
+D['html-forms']=A('html-forms','HTML Forms','HTML',
+'HTML forms are used to collect user input. The <form> element wraps input fields.',
+H+'<form action="/submit" method="POST">\n  <label for="name">Name:</label>\n  <input type="text" id="name" name="name" required>\n\n  <label for="email">Email:</label>\n  <input type="email" id="email" name="email" required>\n\n  <label for="pass">Password:</label>\n  <input type="password" id="pass" name="pass">\n\n  <select name="role">\n    <option value="user">User</option>\n    <option value="admin">Admin</option>\n  </select>\n\n  <textarea name="msg" rows="4"></textarea>\n\n  <input type="checkbox" id="agree">\n  <label for="agree">I agree</label>\n\n  <button type="submit">Submit</button>\n</form>'+E+'<h2>Input Types</h2><table><tr><th>Type</th><th>Purpose</th></tr><tr><td><code>text</code></td><td>Single-line text</td></tr><tr><td><code>email</code></td><td>Email validation</td></tr><tr><td><code>password</code></td><td>Hidden text</td></tr><tr><td><code>number</code></td><td>Numbers only</td></tr><tr><td><code>checkbox</code></td><td>Toggle option</td></tr><tr><td><code>radio</code></td><td>Single choice</td></tr><tr><td><code>file</code></td><td>File upload</td></tr><tr><td><code>date</code></td><td>Date picker</td></tr></table>');
 
-'css-responsive': {
-  title:'Responsive Design', cat:'CSS',
-  content:`
-<p>Responsive design ensures your website looks good on all screen sizes.</p>
-<h2>Viewport Meta Tag</h2>
-<pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
-<h2>Media Queries</h2>
-<pre><code>/* Mobile first */
-.container { padding: 16px; }
+D['html-tables']=A('html-tables','HTML Tables','HTML',
+'HTML tables are defined with <table>, <tr> (row), <th> (header), and <td> (data) tags.',
+H+'<table>\n  <thead>\n    <tr>\n      <th>Name</th>\n      <th>Age</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Majed</td>\n      <td>25</td>\n    </tr>\n    <tr>\n      <td>Ali</td>\n      <td>30</td>\n    </tr>\n  </tbody>\n</table>'+E+'<h2>Table Attributes</h2><ul><li><code>&lt;thead&gt;</code> - Table header group</li><li><code>&lt;tbody&gt;</code> - Table body</li><li><code>&lt;tfoot&gt;</code> - Table footer</li><li><code>colspan</code> - Span columns</li><li><code>rowspan</code> - Span rows</li></ul>');
 
-@media (min-width: 768px) {
-  .container { padding: 32px; }
-}
+D['html-lists']=A('html-lists','HTML Lists','HTML',
+'HTML lists allow you to group related items together.',
+'<h2>Unordered List</h2>'+H+'<ul>\n  <li>Item 1</li>\n  <li>Item 2</li>\n  <li>Item 3</li>\n</ul>'+E+'<h2>Ordered List</h2>'+H+'<ol>\n  <li>First</li>\n  <li>Second</li>\n  <li>Third</li>\n</ol>'+E+'<h2>Description List</h2>'+H+'<dl>\n  <dt>HTML</dt>\n  <dd>HyperText Markup Language</dd>\n  <dt>CSS</dt>\n  <dd>Cascading Style Sheets</dd>\n</dl>'+E+'<div class="tip"><strong>Tip:</strong> Use <code>type="a"</code> or <code>type="1"</code> to change ordered list numbering.</div>');
 
-@media (min-width: 1024px) {
-  .container { padding: 48px; max-width: 1200px; }
-}</code></pre>
-<h2>Fluid Typography</h2>
-<pre><code>h1 {
-  font-size: clamp(24px, 5vw, 44px);
-}</code></pre>
-<h2>Responsive Images</h2>
-<pre><code>img {
-  max-width: 100%;
-  height: auto;
-}</code></pre>
-<div class="tip"><strong>Tip:</strong> Design mobile-first. Start with small screens and add breakpoints for larger ones.</div>`
-},
+D['html-semantics']=A('html-semantics','Semantic HTML','HTML',
+'Semantic elements clearly describe their meaning to both the browser and developer.',
+'<h2>Why Use Semantics?</h2><ul><li>Better accessibility for screen readers</li><li>Improved SEO rankings</li><li>Clearer, more maintainable code</li></ul>'+H+'<!-- Semantic structure -->\n<header>\n  <nav>Menu</nav>\n</header>\n\n<main>\n  <article>\n    <h2>Blog Post</h2>\n    <p>Content here...</p>\n  </article>\n  <aside>Sidebar</aside>\n</main>\n\n<footer>\n  <p>Copyright 2026</p>\n</footer>'+E+'<table><tr><th>Tag</th><th>Purpose</th></tr><tr><td><code>&lt;header&gt;</code></td><td>Page/section header</td></tr><tr><td><code>&lt;nav&gt;</code></td><td>Navigation</td></tr><tr><td><code>&lt;main&gt;</code></td><td>Main content</td></tr><tr><td><code>&lt;article&gt;</code></td><td>Self-contained content</td></tr><tr><td><code>&lt;section&gt;</code></td><td>Thematic grouping</td></tr><tr><td><code>&lt;aside&gt;</code></td><td>Side content</td></tr><tr><td><code>&lt;footer&gt;</code></td><td>Page/section footer</td></tr></table>');
 
-'js-intro': {
-  title:'Introduction to JavaScript', cat:'JavaScript',
-  content:`
-<p>JavaScript is the programming language of the web. It makes web pages interactive and dynamic.</p>
-<h2>Your First Script</h2>
-<pre><code>&lt;script&gt;
-  console.log("Hello, World!");
-  alert("Welcome to JavaScript!");
-&lt;/script&gt;</code></pre>
-<h2>Adding JS to HTML</h2>
-<pre><code>&lt;!-- External file --&gt;
-&lt;script src="app.js"&gt;&lt;/script&gt;
+// CSS
+D['css-intro']=A('css-intro','What is CSS','CSS',
+'CSS (Cascading Style Sheets) controls how HTML elements look on screen.',
+'<p>CSS handles colors, layouts, fonts, spacing, animations, and responsive design.</p>'+H+'<!-- 3 ways to add CSS -->\n\n<!-- 1. External (best) -->\n<link rel="stylesheet" href="style.css">\n\n<!-- 2. Internal -->\n<style>\n  body { background: #0d0d0d; }\n</style>\n\n<!-- 3. Inline -->\n<p style="color: red;">Red</p>'+E+'<h2>CSS Syntax</h2>'+H+'selector {\n  property: value;\n}\n\nh1 {\n  color: #d9d9d9;\n  font-size: 24px;\n  margin-bottom: 12px;\n}'+E);
 
-&lt;!-- Internal --&gt;
-&lt;script&gt;
-  const x = 10;
-&lt;/script&gt;</code></pre>
-<h2>Console Methods</h2>
-<pre><code>console.log("Info");
-console.warn("Warning");
-console.error("Error");
-console.table([{a:1},{a:2}]);</code></pre>`
-},
+D['css-intro2']=A('css-intro2','CSS Introduction','CSS',
+'CSS is the language for styling web pages. It controls layout, colors, fonts, and responsive design.',
+'<p>CSS works alongside HTML. HTML provides structure, CSS provides style.</p>'+H+'/* selector */\nh1 {\n  color: white;\n  font-size: 28px;\n  text-align: center;\n}\n\n/* class */\n.card {\n  background: #141414;\n  padding: 20px;\n  border-radius: 12px;\n}\n\n/* id */\n#header {\n  position: sticky;\n  top: 0;\n}'+E+'<h2>CSS Selectors</h2><table><tr><th>Selector</th><th>Example</th></tr><tr><td>Element</td><td><code>p { }</code></td></tr><tr><td>Class</td><td><code>.card { }</code></td></tr><tr><td>ID</td><td><code>#main { }</code></td></tr><tr><td>Attribute</td><td><code>input[type="text"] { }</code></td></tr></table>');
 
-'js-variables': {
-  title:'Variables & Data Types', cat:'JavaScript',
-  content:`
-<p>Variables store data values. In modern JavaScript, use <code>const</code> and <code>let</code>.</p>
-<h2>Declaring Variables</h2>
-<pre><code>const name = "Deoit";      // cannot reassign
-let score = 0;              // can reassign
-score = 10;                 // OK
+D['css-syntax']=A('css-syntax','CSS Syntax','CSS',
+'CSS rules consist of a selector and a declaration block.',
+H+'/* Basic syntax */\nselector {\n  property: value;\n}\n\n/* Multiple properties */\nh1 {\n  color: white;\n  font-size: 28px;\n  margin-bottom: 12px;\n  font-weight: 800;\n}\n\n/* Class selector */\n.card {\n  background: #141414;\n  padding: 20px;\n  border-radius: 12px;\n  border: 1px solid #2a2a2a;\n}\n\n/* ID selector */\n#header {\n  position: sticky;\n  top: 0;\n  z-index: 100;\n}'+E+'<div class="note"><strong>Note:</strong> CSS properties are separated by semicolons <code>;</code>.</div>');
 
-// Don't use var (old way)</code></pre>
-<h2>Data Types</h2>
-<pre><code>// String
-const text = "Hello";
+D['css-selectors']=A('css-selectors','CSS Selectors','CSS',
+'Selectors determine which elements a CSS rule applies to.',
+H+'/* Element */\np { color: white; }\n\n/* Class */\n.card { padding: 20px; }\n\n/* ID */\n#header { background: #111; }\n\n/* Descendant */\n.sidebar a { color: blue; }\n\n/* Child */\n.nav > li { display: inline; }\n\n/* Pseudo-class */\na:hover { color: red; }\nbutton:disabled { opacity: 0.5; }\n\n/* Attribute */\ninput[type="email"] { border: red; }\n\n/* Multiple */\n.card, .box { padding: 10px; }'+E+'<h2>Specificity</h2><ol><li><code>!important</code> (avoid)</li><li>Inline styles <code>style="..."</code></li><li>ID <code>#id</code></li><li>Class <code>.class</code></li><li>Element <code>div</code></li></ol><div class="tip"><strong>Tip:</strong> Use classes for styling. IDs are better for JavaScript.</div>');
 
-// Number
-const age = 25;
-const pi = 3.14;
+D['css-colors']=A('css-colors','CSS Colors','CSS',
+'CSS supports colors in HEX, RGB, RGBA, HSL, and named formats.',
+H+'/* Named */\np { color: red; }\n\n/* HEX */\np { color: #d9d9d9; }\n\n/* RGB */\np { color: rgb(217, 217, 217); }\n\n/* RGBA (with alpha/transparency) */\np { color: rgba(217, 217, 217, 0.5); }\n\n/* HSL */\np { color: hsl(0, 0%, 85%); }\n\n/* Common colors */\n.accent { color: #d9d9d9; }\n.html  { color: #e06c75; }\n.css   { color: #61afef; }\n.js    { color: #e5c07b; }'+E+'<div class="tip"><strong>Tip:</strong> Use CSS custom properties for colors: <code>--accent: #d9d9d9;</code></div>');
 
-// Boolean
-const isActive = true;
+D['css-background']=A('css-background','CSS Background','CSS',
+'CSS background properties control colors, images, and gradients behind elements.',
+H+'body {\n  background-color: #0d0d0d;\n  background-image: url("bg.jpg");\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n\n/* Gradient */\n.hero {\n  background: linear-gradient(135deg, #141414, #0d0d0d);\n}\n\n/* Radial gradient */\n.glow {\n  background: radial-gradient(circle, #61afef22, transparent);\n}'+E);
 
-// Null
-const empty = null;
+D['css-boxmodel']=A('css-boxmodel','CSS Box Model','CSS',
+'Every HTML element is a box. The box model consists of content, padding, border, and margin.',
+H+'/* Box model */\n.box {\n  width: 200px;           /* content width */\n  padding: 20px;          /* inside border */\n  border: 1px solid #2a2a2a;\n  margin: 16px;           /* outside border */\n}\n\n/* box-sizing: include padding/border in width */\n*, *::before, *::after {\n  box-sizing: border-box;\n}'+E+'<h2>Visual</h2><pre style="background:#1a1a1a;color:var(--text-secondary);padding:12px;text-align:center;font-family:var(--font-mono);font-size:12px;border:1px solid var(--border-subtle)">┌─────────── margin ──────────┐<br>│  ┌────── border ──────┐    │<br>│  │  ┌── padding ──┐  │    │<br>│  │  │  ┌─content─┐│  │    │<br>│  │  │  │  Hello  ││  │    │<br>│  │  │  └─────────┘│  │    │<br>│  │  └─────────────┘  │    │<br>│  └───────────────────┘    │<br>└───────────────────────────┘</pre>');
 
-// Undefined
-let x;  // x is undefined
+D['css-margin']=A('css-margin','Margin &amp; Padding','CSS',
+'Margin is space outside the border. Padding is space inside the border.',
+H+'/* Margin (outside) */\n.box {\n  margin-top: 10px;\n  margin-right: 20px;\n  margin-bottom: 10px;\n  margin-left: 20px;\n\n  /* Shorthand */\n  margin: 10px 20px;           /* top/bottom left/right */\n  margin: 10px 20px 10px;      /* top left/right bottom */\n  margin: 10px 20px 10px 20px; /* top right bottom left */\n}\n\n/* Padding (inside) */\n.card {\n  padding: 20px;\n  padding: 20px 16px;\n}\n\n/* Center block */\n.center {\n  margin: 0 auto;\n  max-width: 800px;\n}'+E);
 
-// Array
-const colors = ["red", "blue", "green"];
+D['css-flexbox']=A('css-flexbox','Flexbox','CSS',
+'Flexbox is a one-dimensional layout system for arranging items in a row or column.',
+H+'/* Container */\n.container {\n  display: flex;\n  justify-content: space-between; /* main axis */\n  align-items: center;            /* cross axis */\n  gap: 16px;                      /* space between */\n  flex-wrap: wrap;                /* wrap items */\n}\n\n/* Item */\n.item {\n  flex: 1;            /* grow equally */\n  flex: 0 0 200px;    /* fixed width */\n  align-self: end;    /* override align */\n}'+E+'<h2>Common Patterns</h2>'+H+'/* Center anything */\n.center {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n/* Navbar */\n.navbar {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n/* Grid of cards */\n.grid {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 16px;\n}\n.grid > * {\n  flex: 1 1 250px;\n}'+E);
 
-// Object
-const user = { name: "Majed", age: 25 };</code></pre>
-<h2>Type Checking</h2>
-<pre><code>typeof "hello"   // "string"
-typeof 42        // "number"
-typeof true      // "boolean"
-typeof null      // "object" (bug in JS)
-typeof undefined // "undefined"</code></pre>`
-},
+D['css-grid']=A('css-grid','CSS Grid','CSS',
+'CSS Grid is a two-dimensional layout system for rows AND columns.',
+H+'/* Basic grid */\n.grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 20px;\n}\n\n/* Responsive grid */\n.grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));\n  gap: 20px;\n}'+E+'<h2>Named Grid Areas</h2>'+H+'.layout {\n  display: grid;\n  grid-template-areas:\n    "header header"\n    "sidebar main"\n    "footer footer";\n  grid-template-columns: 250px 1fr;\n  gap: 16px;\n}\n.header  { grid-area: header; }\n.sidebar { grid-area: sidebar; }\n.main    { grid-area: main; }\n.footer  { grid-area: footer; }'+E+'<div class="note"><strong>Note:</strong> Use Flexbox for 1D (row OR column). Use Grid for 2D (rows AND columns).</div>');
 
-'js-functions': {
-  title:'Functions', cat:'JavaScript',
-  content:`
-<p>Functions are reusable blocks of code that perform a specific task.</p>
-<h2>Function Declaration</h2>
-<pre><code>function greet(name) {
-  return "Hello, " + name + "!";
-}
+D['css-responsive']=A('css-responsive','Responsive Design','CSS',
+'Responsive design makes your website work on all screen sizes.',
+H+'<!-- Required in HTML -->\n<meta name="viewport"\n  content="width=device-width, initial-scale=1.0">'+E+'<h2>Media Queries</h2>'+H+'/* Mobile first */\n.container {\n  padding: 16px;\n}\n\n@media (min-width: 768px) {\n  .container {\n    padding: 32px;\n    max-width: 720px;\n    margin: 0 auto;\n  }\n}\n\n@media (min-width: 1024px) {\n  .container {\n    padding: 48px;\n    max-width: 960px;\n  }\n}'+E+'<h2>Fluid Typography</h2>'+H+'h1 {\n  font-size: clamp(24px, 5vw, 44px);\n}'+E+'<div class="tip"><strong>Tip:</strong> Start with mobile design, then add breakpoints for larger screens.</div>');
 
-console.log(greet("Majed"));</code></pre>
-<h2>Arrow Functions</h2>
-<pre><code>const greet = (name) => {
-  return "Hello, " + name + "!";
-};
+// JavaScript
+D['js-intro']=A('js-intro','What is JavaScript','JavaScript',
+'JavaScript is the programming language of the web. It makes pages interactive.',
+'<p>JavaScript can update content, validate forms, animate elements, and communicate with servers.</p>'+H+'<!-- External file -->\n<script src="app.js"></script>\n\n<!-- Internal -->\n<script>\n  console.log("Hello, World!");\n  document.title = "New Title";\n</script>'+E+'<h2>Console</h2>'+H+'console.log("Info");\nconsole.warn("Warning");\nconsole.error("Error");\nconsole.table([{a:1},{a:2}]);'+E+'<div class="tip"><strong>Tip:</strong> Open browser DevTools (F12) to see console output.</div>');
 
-// Short form (single expression)
-const add = (a, b) => a + b;
+D['js-intro2']=A('js-intro2','JavaScript Introduction','JavaScript',
+'JavaScript adds interactivity to websites. It runs in the browser and on servers (Node.js).',
+'<h2>What Can JavaScript Do?</h2><ul><li>Change HTML content and attributes</li><li>Change CSS styles</li><li>React to user events (clicks, typing)</li><li>Send data to servers</li><li>Store data in the browser</li></ul>'+H+'// Change HTML\ndocument.getElementById("demo").innerHTML = "New text";\n\n// Change CSS\ndocument.body.style.background = "black";\n\n// React to clicks\ndocument.getElementById("btn").onclick = function() {\n  alert("Clicked!");\n};'+E);
 
-console.log(add(5, 3)); // 8</code></pre>
-<h2>Parameters & Defaults</h2>
-<pre><code>function createUser(name, role = "user") {
-  return { name, role };
-}
+D['js-variables']=A('js-variables','Variables','JavaScript',
+'Variables store data. Use const for constants and let for values that change.',
+H+'// const - cannot reassign\nconst name = "Deoit";\nconst PI = 3.14159;\n\n// let - can reassign\nlet score = 0;\nscore = 10; // OK\n\n// Don\'t use var (old way)\n\n// Multiple declarations\nlet x = 1, y = 2, z = 3;'+E+'<h2>Naming Rules</h2><ul><li>Start with letter, underscore, or $</li><li>Case sensitive (<code>name</code> != <code>Name</code>)</li><li>No reserved words (if, for, while)</li><li>Use camelCase: <code>myVariable</code></li></ul><div class="warn"><strong>Important:</strong> Always use <code>const</code> by default. Only use <code>let</code> when you need to reassign.</div>');
 
-createUser("Majed");        // { name: "Majed", role: "user" }
-createUser("Ali", "admin"); // { name: "Ali", role: "admin" }</code></pre>
-<h2>Functions as Values</h2>
-<pre><code>const numbers = [1, 2, 3, 4, 5];
+D['js-datatypes']=A('js-datatypes','Data Types','JavaScript',
+'JavaScript has 8 data types. The main ones are String, Number, Boolean, Array, and Object.',
+H+'// Primitive types\nconst text = "Hello";      // String\nconst num = 42;            // Number\nconst pi = 3.14;           // Number\nconst flag = true;         // Boolean\nconst empty = null;        // Null\nlet x;                     // Undefined\nconst id = Symbol("id");   // Symbol\nconst big = 123n;          // BigInt\n\n// Reference types\nconst arr = [1, 2, 3];     // Array\nconst obj = {              // Object\n  name: "Majed",\n  age: 25\n};\n\n// Check type\ntypeof "hello"   // "string"\ntypeof 42        // "number"\ntypeof true      // "boolean"\nArray.isArray([]) // true'+E);
 
-const doubled = numbers.map(n => n * 2);
-// [2, 4, 6, 8, 10]
+D['js-operators']=A('js-operators','Operators','JavaScript',
+'Operators perform operations on values.',
+H+'// Arithmetic\n5 + 3    // 8\n5 - 3    // 2\n5 * 3    // 15\n5 / 3    // 1.666\n5 % 3    // 2 (remainder)\n5 ** 3   // 125 (power)\n\n// Assignment\nlet x = 10;\nx += 5;   // x = 15\nx -= 3;   // x = 12\nx *= 2;   // x = 24\n\n// Comparison\n5 == "5"   // true (loose)\n5 === "5"  // false (strict)\n5 != "5"   // false\n5 !== "5"  // true\n\n// Logical\ntrue && false  // false (AND)\ntrue || false  // true  (OR)\n!true          // false (NOT)'+E+'<div class="warn"><strong>Important:</strong> Always use <code>===</code> (strict equality) instead of <code>==</code>.</div>');
 
-const evens = numbers.filter(n => n % 2 === 0);
-// [2, 4]</code></pre>`
-},
+D['js-functions']=A('js-functions','Functions','JavaScript',
+'Functions are reusable blocks of code.',
+H+'// Declaration\nfunction greet(name) {\n  return "Hello, " + name;\n}\n\n// Arrow function\nconst greet = (name) => "Hello, " + name;\n\n// Default parameters\nfunction createUser(name, role = "user") {\n  return { name, role };\n}\ncreateUser("Majed"); // {name:"Majed", role:"user"}\n\n// Higher-order functions\nconst nums = [1, 2, 3, 4, 5];\nconst doubled = nums.map(n => n * 2);\nconst evens = nums.filter(n => n % 2 === 0);\nconst sum = nums.reduce((a, b) => a + b, 0);'+E);
 
-'js-dom': {
-  title:'DOM Manipulation', cat:'JavaScript',
-  content:`
-<p>The DOM (Document Object Model) is a tree of HTML elements that JavaScript can read and modify.</p>
-<h2>Selecting Elements</h2>
-<pre><code>const el = document.getElementById("myId");
-const cards = document.querySelectorAll(".card");
-const first = document.querySelector(".card");</code></pre>
-<h2>Changing Content</h2>
-<pre><code>el.textContent = "New text";
-el.innerHTML = "&lt;strong&gt;Bold&lt;/strong&gt;";
-el.setAttribute("href", "https://example.com");</code></pre>
-<h2>Changing Styles</h2>
-<pre><code>el.style.color = "red";
-el.style.fontSize = "18px";
-el.classList.add("active");
-el.classList.remove("hidden");
-el.classList.toggle("visible");</code></pre>
-<h2>Creating Elements</h2>
-<pre><code>const div = document.createElement("div");
-div.textContent = "I am new!";
-document.body.appendChild(div);</code></pre>
-<h2>Removing Elements</h2>
-<pre><code>el.remove();</code></pre>`
-},
+D['js-conditions']=A('js-conditions','Conditions','JavaScript',
+'Conditions make decisions based on different outcomes.',
+H+'// if / else\nconst age = 18;\n\nif (age >= 18) {\n  console.log("Adult");\n} else if (age >= 13) {\n  console.log("Teen");\n} else {\n  console.log("Child");\n}\n\n// Ternary operator\nconst status = age >= 18 ? "Adult" : "Minor";\n\n// Switch\nconst day = "Monday";\nswitch (day) {\n  case "Monday":\n    console.log("Start of week");\n    break;\n  case "Friday":\n    console.log("Almost weekend");\n    break;\n  default:\n    console.log("Regular day");\n}'+E);
 
-'js-events': {
-  title:'Events', cat:'JavaScript',
-  content:`
-<p>Events let you respond to user actions like clicks, key presses, and form submissions.</p>
-<h2>Click Events</h2>
-<pre><code>const btn = document.getElementById("myBtn");
+D['js-loops']=A('js-loops','Loops','JavaScript',
+'Loops repeat code multiple times.',
+H+'// for loop\nfor (let i = 0; i < 5; i++) {\n  console.log(i);\n}\n\n// while loop\nlet i = 0;\nwhile (i < 5) {\n  console.log(i);\n  i++;\n}\n\n// for...of (arrays)\nconst colors = ["red", "blue", "green"];\nfor (const color of colors) {\n  console.log(color);\n}\n\n// for...in (objects)\nconst user = { name: "Majed", age: 25 };\nfor (const key in user) {\n  console.log(key, user[key]);\n}\n\n// forEach\ncolors.forEach((color, index) => {\n  console.log(index, color);\n});'+E);
 
-btn.addEventListener("click", function() {
-  alert("Clicked!");
-});</code></pre>
-<h2>Form Events</h2>
-<pre><code>const form = document.getElementById("myForm");
+D['js-arrays']=A('js-arrays','Arrays','JavaScript',
+'Arrays store multiple values in a single variable.',
+H+'const fruits = ["apple", "banana", "cherry"];\n\n// Access\nfruits[0];        // "apple"\nfruits.length;    // 3\n\n// Add/Remove\nfruits.push("date");       // add to end\nfruits.pop();              // remove last\nfruits.unshift("fig");     // add to start\nfruits.shift();            // remove first\n\n// Methods\nfruits.includes("apple");  // true\nfruits.indexOf("banana");  // 1\nfruits.join(", ");         // "apple, banana"\nfruits.slice(1, 3);        // ["banana", "cherry"]\nfruits.splice(1, 1);       // remove 1 at index 1\n\n// Spread\nconst arr1 = [1, 2];\nconst arr2 = [3, 4];\nconst merged = [...arr1, ...arr2]; // [1,2,3,4]'+E);
 
-form.addEventListener("submit", function(e) {
-  e.preventDefault(); // stop page reload
-  const data = new FormData(form);
-  console.log(data.get("email"));
-});</code></pre>
-<h2>Keyboard Events</h2>
-<pre><code>document.addEventListener("keydown", function(e) {
-  if (e.key === "Escape") {
-    modal.close();
-  }
-});</code></pre>
-<h2>Common Events</h2>
-<table><tr><th>Event</th><th>Fires When</th></tr>
-<tr><td><code>click</code></td><td>Element is clicked</td></tr>
-<tr><td><code>submit</code></td><td>Form is submitted</td></tr>
-<tr><td><code>keydown</code></td><td>Key is pressed</td></tr>
-<tr><td><code>input</code></td><td>Input value changes</td></tr>
-<tr><td><code>load</code></td><td>Page finishes loading</td></tr>
-</table>`
-},
+D['js-objects']=A('js-objects','Objects','JavaScript',
+'Objects store data as key-value pairs.',
+H+'const user = {\n  name: "Majed",\n  age: 25,\n  greet() {\n    return `Hello, ${this.name}`;\n  }\n};\n\n// Access\nuser.name;          // "Majed"\nuser["age"];        // 25\nuser.greet();       // "Hello, Majed"\n\n// Modify\nuser.email = "m@m.com";\ndelete user.age;\n\n// Destructuring\nconst { name, age } = user;\n\n// Spread\nconst updated = { ...user, age: 26 };\n\n// Methods\nObject.keys(user);    // ["name", "greet"]\nObject.values(user);  // ["Majed", fn]\nObject.entries(user); // [["name","Majed"]...]'+E);
 
-'js-async': {
-  title:'Async JavaScript', cat:'JavaScript',
-  content:`
-<p>Asynchronous code lets you run long tasks (like fetching data) without blocking the rest of your code.</p>
-<h2>Callbacks (Old Way)</h2>
-<pre><code>setTimeout(function() {
-  console.log("After 1 second");
-}, 1000);</code></pre>
-<h2>Promises</h2>
-<pre><code>const promise = new Promise((resolve, reject) => {
-  setTimeout(() => resolve("Done!"), 1000);
+D['js-dom']=A('js-dom','DOM Manipulation','JavaScript',
+'The DOM is a tree of HTML elements that JavaScript can read and modify.',
+H+'// Select elements\nconst el = document.getElementById("myId");\nconst items = document.querySelectorAll(".item");\nconst first = document.querySelector(".item");\n\n// Change content\nel.textContent = "New text";\nel.innerHTML = "<strong>Bold</strong>";\n\n// Change attributes\nel.setAttribute("href", "https://example.com");\nel.src = "new.png";\nel.id = "newId";\n\n// Change styles\nel.style.color = "red";\nel.style.fontSize = "18px";\n\n// Classes\nel.classList.add("active");\nel.classList.remove("hidden");\nel.classList.toggle("visible");\nel.classList.contains("active"); // true\n\n// Create/Remove\nconst div = document.createElement("div");\ndiv.textContent = "New!";\ndocument.body.appendChild(div);\nel.remove();'+E);
+
+D['js-events']=A('js-events','Events','JavaScript',
+'Events let you respond to user actions.',
+H+'// Click\ndocument.getElementById("btn")\n  .addEventListener("click", () => {\n    alert("Clicked!");\n  });\n\n// Form submit\ndocument.getElementById("form")\n  .addEventListener("submit", (e) => {\n    e.preventDefault();\n    const data = new FormData(e.target);\n    console.log(data.get("email"));\n  });\n\n// Keyboard\ndocument.addEventListener("keydown", (e) => {\n  if (e.key === "Escape") closeModal();\n});\n\n// Input change\ndocument.getElementById("search")\n  .addEventListener("input", (e) => {\n    filter(e.target.value);\n  });'+E+'<h2>Common Events</h2><table><tr><th>Event</th><th>Fires When</th></tr><tr><td><code>click</code></td><td>Element clicked</td></tr><tr><td><code>submit</code></td><td>Form submitted</td></tr><tr><td><code>keydown</code></td><td>Key pressed</td></tr><tr><td><code>input</code></td><td>Input value changes</td></tr><tr><td><code>load</code></td><td>Page loaded</td></tr></table>');
+
+D['js-async']=A('js-async','Async/Await','JavaScript',
+'Async code runs long tasks without blocking the rest of your code.',
+H+'// Promise\nconst promise = new Promise((resolve, reject) => {\n  setTimeout(() => resolve("Done!"), 1000);\n});\npromise.then(r => console.log(r));\n\n// Async/Await\nasync function getData() {\n  try {\n    const res = await fetch("/api/data");\n    const data = await res.json();\n    console.log(data);\n  } catch (err) {\n    console.error("Error:", err);\n  }\n}\n\ngetData();'+E+'<div class="note"><strong>Note:</strong> <code>await</code> pauses execution until the Promise resolves. It only works inside <code>async</code> functions.</div>');
+
+D['js-fetch']=A('js-fetch','Fetch API','JavaScript',
+'The Fetch API makes HTTP requests to servers and APIs.',
+H+'// GET\nconst res = await fetch("https://api.example.com/users");\nconst users = await res.json();\nconsole.log(users);\n\n// POST\nconst res = await fetch("https://api.example.com/users", {\n  method: "POST",\n  headers: { "Content-Type": "application/json" },\n  body: JSON.stringify({ name: "Majed" })\n});\n\n// Error handling\nconst res = await fetch("/api");\nif (!res.ok) throw new Error(res.statusText);'+E);
+
+// React
+D['react-intro']=A('react-intro','Introduction to React','React',
+'React is a JavaScript library for building user interfaces, created by Meta.',
+'<h2>Why React?</h2><ul><li>Component-based: build UI from reusable pieces</li><li>Virtual DOM for fast performance</li><li>Large ecosystem and community</li><li>Used by Facebook, Instagram, Netflix, Airbnb</li></ul>'+H+'// Install\n// npx create-react-app my-app\n\n// App.js\nfunction App() {\n  return (\n    <div>\n      <h1>Hello, React!</h1>\n    </div>\n  );\n}\n\nexport default App;'+E);
+
+D['react-jsx']=A('react-jsx','JSX','React',
+'JSX is a syntax extension that looks like HTML but compiles to JavaScript.',
+H+'// JSX expression\nconst name = "Majed";\nconst element = <h1>Hello, {name}!</h1>;\n\n// Conditional\nconst greeting = isLoggedIn\n  ? <h1>Welcome back!</h1>\n  : <h1>Please sign in.</h1>;\n\n// List rendering\nconst items = ["HTML", "CSS", "JS"];\nconst list = (\n  <ul>\n    {items.map((item, i) => (\n      <li key={i}>{item}</li>\n    ))}\n  </ul>\n);'+E+'<div class="note"><strong>Note:</strong> JSX must have one parent element. Use <code>&lt;Fragment&gt;</code> or <code>&lt;&gt;</code> to wrap multiple elements.</div>');
+
+D['react-components']=A('react-components','Components','React',
+'Components are reusable pieces of UI. They are functions that return JSX.',
+H+'// Function component\nfunction Button({ text, onClick }) {\n  return (\n    <button onClick={onClick}>\n      {text}\n    </button>\n  );\n}\n\n// Using it\nfunction App() {\n  return (\n    <div>\n      <Button text="Click me" onClick={() => alert("Hi")} />\n    </div>\n  );\n}'+E+'<div class="tip"><strong>Tip:</strong> Components start with a capital letter (<code>Button</code>, not <code>button</code>).</div>');
+
+D['react-props']=A('react-props','Props','React',
+'Props are inputs to components. They pass data from parent to child.',
+H+'// Parent passes props\nfunction App() {\n  return (\n    <Card\n      title="Hello"\n      description="World"\n      count={42}\n    />\n  );\n}\n\n// Child receives props\nfunction Card({ title, description, count }) {\n  return (\n    <div className="card">\n      <h3>{title}</h3>\n      <p>{description}</p>\n      <span>{count}</span>\n    </div>\n  );\n}\n\n// Children prop\nfunction Container({ children }) {\n  return <div className="container">{children}</div>;\n}'+E);
+
+D['react-state']=A('react-state','State','React',
+'State is data that changes over time. The useState hook manages state in components.',
+H+'import { useState } from "react";\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div>\n      <p>Count: {count}</p>\n      <button onClick={() => setCount(count + 1)}>+1</button>\n      <button onClick={() => setCount(count - 1)}>-1</button>\n    </div>\n  );\n}\n\n// Object state\nfunction User() {\n  const [user, setUser] = useState({ name: "", email: "" });\n\n  return (\n    <input\n      value={user.name}\n      onChange={e => setUser({ ...user, name: e.target.value })}\n    />\n  );\n}'+E);
+
+D['react-hooks']=A('react-hooks','Hooks','React',
+'Hooks let you use state and other React features in function components.',
+H+'import { useState, useEffect, useRef } from "react";\n\n// useState - manage state\nconst [count, setCount] = useState(0);\n\n// useEffect - side effects\nuseEffect(() => {\n  document.title = `Count: ${count}`;\n}, [count]); // runs when count changes\n\n// useRef - reference DOM elements\nfunction Input() {\n  const ref = useRef(null);\n  return (\n    <input ref={ref} />\n    <button onClick={() => ref.current.focus()}>\n      Focus\n    </button>\n  );\n}'+E+'<h2>Rules of Hooks</h2><ol><li>Only call hooks at the top level</li><li>Only call hooks in React functions</li></ol>');
+
+// Node.js
+D['node-intro']=A('node-intro','Introduction to Node.js','Node.js',
+'Node.js lets you run JavaScript on the server instead of just in the browser.',
+'<h2>What is Node.js?</h2><p>Node.js is a JavaScript runtime built on Chrome\'s V8 engine. It\'s used for APIs, web servers, CLI tools, and more.</p>'+H+'// Install Node.js from nodejs.org\n\n// app.js\nimport { createServer } from "http";\n\nconst server = createServer((req, res) => {\n  res.writeHead(200, { "Content-Type": "application/json" });\n  res.end(JSON.stringify({ message: "Hello!" }));\n});\n\nserver.listen(3000, () => {\n  console.log("Server running on port 3000");\n});'+E+'<h2>Common Commands</h2>'+H+'node app.js           # run script\nnode -v               # check version\nnpm init -y           # create package.json\nnpm install express   # install package'+E);
+
+D['node-npm']=A('node-npm','npm','Node.js',
+'npm (Node Package Manager) manages JavaScript packages and dependencies.',
+H+'// Initialize project\nnpm init -y\n\n// Install packages\nnpm install express\nnpm install -D nodemon    // dev dependency\nnpm uninstall express\n\n// package.json\n{\n  "name": "my-app",\n  "scripts": {\n    "start": "node app.js",\n    "dev": "nodemon app.js"\n  },\n  "dependencies": {\n    "express": "^4.18.0"\n  }\n}\n\n// Run scripts\nnpm start\nnpm run dev'+E);
+
+D['node-express']=A('node-express','Express.js','Node.js',
+'Express.js is the most popular web framework for Node.js.',
+H+'import express from "express";\nconst app = express();\n\n// Parse JSON\napp.use(express.json());\n\n// GET\napp.get("/", (req, res) => {\n  res.json({ message: "Hello!" });\n});\n\n// GET with params\napp.get("/users/:id", (req, res) => {\n  res.json({ id: req.params.id });\n});\n\n// POST\napp.post("/users", (req, res) => {\n  const { name } = req.body;\n  res.json({ name, created: true });\n});\n\n// Start server\napp.listen(3000, () => {\n  console.log("Running on port 3000");\n});'+E);
+
+// Tools
+D['git-basics']=A('git-basics','Git Basics','Tools',
+'Git is a version control system for tracking code changes.',
+H+'# Setup\ngit init\ngit add .\ngit commit -m "Initial commit"\n\n# Check status\ngit status\ngit log --oneline\n\n# Branching\ngit branch feature\ngit checkout feature\ngit checkout -b feature   # create + switch\ngit merge feature\n\n# Remote\ngit remote add origin URL\ngit push -u origin main\ngit pull origin main'+E);
+
+D['terminal']=A('terminal','Terminal Basics','Tools',
+'The terminal is a text-based interface for your computer.',
+H+'# Navigation\ncd folder        # change directory\ncd ..           # go up\ncd ~/Desktop    # go to Desktop\npwd             # print path\n\n# Files\nls / dir        # list files\nmkdir name      # create folder\ntouch file.txt  # create file\nrm file.txt     # delete file\ncp src dest     # copy\nmv src dest     # move/rename\n\n# Clear\nclear / cls'+E+'<div class="tip"><strong>Tip:</strong> Press Tab to autocomplete file names.</div>');
 });
 
-promise.then(result => console.log(result));</code></pre>
-<h2>Async/Await</h2>
-<pre><code>async function loadData() {
-  try {
-    const response = await fetch("https://api.example.com/data");
-    const data = await response.json();
-    console.log(data);
-  } catch (error) {
-    console.error("Failed:", error);
-  }
-}
+// All lesson IDs in order
+var ALL_IDS=[];
+SECTIONS.forEach(function(s){s.items.forEach(function(it){ALL_IDS.push(it.id)})});
 
-loadData();</code></pre>
-<div class="note"><strong>Note:</strong> <code>await</code> only works inside <code>async</code> functions.</div>`
-},
+var nav=document.getElementById('nav');
+var article=document.getElementById('article');
+var breadcrumb=document.getElementById('breadcrumb');
+var side=document.getElementById('side');
+var ov=document.getElementById('ov');
+var mobBtn=document.getElementById('mobBtn');
+var searchInput=document.getElementById('searchInput');
 
-'js-fetch': {
-  title:'Fetch API', cat:'JavaScript',
-  content:`
-<p>The Fetch API lets you make HTTP requests to servers and APIs.</p>
-<h2>GET Request</h2>
-<pre><code>fetch("https://api.example.com/users")
-  .then(res => res.json())
-  .then(data => console.log(data))
-  .catch(err => console.error(err));</code></pre>
-<h2>POST Request</h2>
-<pre><code>fetch("https://api.example.com/users", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ name: "Majed", email: "test@test.com" })
-})
-.then(res => res.json())
-.then(data => console.log(data));</code></pre>
-<h2>With Async/Await</h2>
-<pre><code>async function getUsers() {
-  const res = await fetch("https://api.example.com/users");
-  if (!res.ok) throw new Error("Failed");
-  const users = await res.json();
-  return users;
-}</code></pre>`
-},
-
-'react-intro': {
-  title:'Introduction to React', cat:'React',
-  content:`
-<p>React is a JavaScript library for building user interfaces. It lets you create reusable UI components.</p>
-<h2>Why React?</h2>
-<ul>
-  <li>Component-based architecture</li>
-  <li>Virtual DOM for fast updates</li>
-  <li>Large ecosystem and community</li>
-  <li>Used by Facebook, Instagram, Netflix</li>
-</ul>
-<h2>Setup</h2>
-<pre><code>npx create-react-app my-app
-cd my-app
-npm start</code></pre>
-<h2>First Component</h2>
-<pre><code>function App() {
-  return (
-    &lt;div&gt;
-      &lt;h1&gt;Hello, React!&lt;/h1&gt;
-      &lt;p&gt;This is my first component.&lt;/p&gt;
-    &lt;/div&gt;
-  );
-}
-
-export default App;</code></pre>
-<div class="note"><strong>Note:</strong> React uses JSX, which looks like HTML but is actually JavaScript.</div>`
-},
-
-'react-components': {
-  title:'Components & Props', cat:'React',
-  content:`
-<p>Components are reusable pieces of UI. Props are inputs to components.</p>
-<h2>Creating a Component</h2>
-<pre><code>function Card({ title, description }) {
-  return (
-    &lt;div className="card"&gt;
-      &lt;h3&gt;{title}&lt;/h3&gt;
-      &lt;p&gt;{description}&lt;/p&gt;
-    &lt;/div&gt;
-  );
-}</code></pre>
-<h2>Using Components</h2>
-<pre><code>function App() {
-  return (
-    &lt;div&gt;
-      &lt;Card title="First" description="Hello" /&gt;
-      &lt;Card title="Second" description="World" /&gt;
-    &lt;/div&gt;
-  );
-}</code></pre>
-<h2>Children Props</h2>
-<pre><code>function Container({ children }) {
-  return &lt;div className="container"&gt;{children}&lt;/div&gt;;
-}
-
-function App() {
-  return (
-    &lt;Container&gt;
-      &lt;p&gt;This is inside the container&lt;/p&gt;
-    &lt;/Container&gt;
-  );
-}</code></pre>`
-},
-
-'react-state': {
-  title:'State & Hooks', cat:'React',
-  content:`
-<p>State lets components remember and update data. Hooks are special functions for state and side effects.</p>
-<h2>useState</h2>
-<pre><code>import { useState } from "react";
-
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  return (
-    &lt;div&gt;
-      &lt;p&gt;Count: {count}&lt;/p&gt;
-      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
-        +1
-      &lt;/button&gt;
-    &lt;/div&gt;
-  );
-}</code></pre>
-<h2>useEffect</h2>
-<pre><code>import { useEffect, useState } from "react";
-
-function Users() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    fetch("https://api.example.com/users")
-      .then(res => res.json())
-      .then(data => setUsers(data));
-  }, []); // empty array = run once
-
-  return (
-    &lt;ul&gt;
-      {users.map(u =&gt; &lt;li key={u.id}&gt;{u.name}&lt;/li&gt;)}
-    &lt;/ul&gt;
-  );
-}</code></pre>`
-},
-
-'node-intro': {
-  title:'Introduction to Node.js', cat:'Node.js',
-  content:`
-<p>Node.js lets you run JavaScript on the server. It's used for building APIs, web servers, and CLI tools.</p>
-<h2>Install Node.js</h2>
-<p>Download from <a href="https://nodejs.org" target="_blank">nodejs.org</a>. The LTS version is recommended.</p>
-<h2>First Script</h2>
-<pre><code>// app.js
-console.log("Hello from Node.js!");
-
-// Run: node app.js</code></pre>
-<h2>Working with Files</h2>
-<pre><code>const fs = require("fs");
-
-fs.writeFileSync("hello.txt", "Hello World!");
-const content = fs.readFileSync("hello.txt", "utf-8");
-console.log(content);</code></pre>
-<h2>Modules</h2>
-<pre><code>// math.js
-export function add(a, b) { return a + b; }
-export function sub(a, b) { return a - b; }
-
-// app.js
-import { add, sub } from "./math.js";
-console.log(add(5, 3));</code></pre>`
-},
-
-'node-express': {
-  title:'Express.js Basics', cat:'Node.js',
-  content:`
-<p>Express.js is the most popular web framework for Node.js. It makes building APIs and web servers easy.</p>
-<h2>Setup</h2>
-<pre><code>mkdir my-api && cd my-api
-npm init -y
-npm install express</code></pre>
-<h2>Basic Server</h2>
-<pre><code>import express from "express";
-const app = express();
-
-app.get("/", (req, res) => {
-  res.json({ message: "Hello, API!" });
-});
-
-app.get("/users", (req, res) => {
-  res.json([
-    { id: 1, name: "Majed" },
-    { id: 2, name: "Ali" }
-  ]);
-});
-
-app.listen(3000, () => {
-  console.log("Server running on port 3000");
-});</code></pre>
-<h2>POST Routes</h2>
-<pre><code>app.use(express.json());
-
-app.post("/users", (req, res) => {
-  const { name, email } = req.body;
-  res.json({ id: 3, name, email });
-});</code></pre>`
-},
-
-'git-intro': {
-  title:'Git Basics', cat:'Tools',
-  content:`
-<p>Git is a version control system for tracking changes in code.</p>
-<h2>Setup</h2>
-<pre><code>git init                  # start new repo
-git add .                 # stage all changes
-git commit -m "message"   # save changes
-git status                # check status
-git log --oneline         # view history</code></pre>
-<h2>Branching</h2>
-<pre><code>git branch feature       # create branch
-git checkout feature      # switch to branch
-git checkout -b feature   # create and switch
-git merge feature         # merge branch</code></pre>
-<h2>Remote</h2>
-<pre><code>git remote add origin https://github.com/user/repo.git
-git push -u origin main
-git pull origin main</code></pre>`
-},
-
-'npm-intro': {
-  title:'npm & Package Manager', cat:'Tools',
-  content:`
-<p>npm (Node Package Manager) manages JavaScript packages and dependencies.</p>
-<h2>Basic Commands</h2>
-<pre><code>npm init -y                 # create package.json
-npm install express          # add package
-npm install -D nodemon       # add dev dependency
-npm uninstall express        # remove package
-npm update                   # update packages</code></pre>
-<h2>package.json</h2>
-<pre><code>{
-  "name": "my-app",
-  "version": "1.0.0",
-  "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
-  },
-  "dependencies": {
-    "express": "^4.18.0"
-  }
-}</code></pre>
-<h2>npx</h2>
-<pre><code>npx create-react-app my-app  # run package without installing</code></pre>`
-},
-
-'terminal-intro': {
-  title:'Terminal Basics', cat:'Tools',
-  content:`
-<p>The terminal (command line) is a text-based way to interact with your computer.</p>
-<h2>Common Commands</h2>
-<table><tr><th>Command</th><th>Action</th></tr>
-<tr><td><code>cd folder</code></td><td>Change directory</td></tr>
-<tr><td><code>ls</code> / <code>dir</code></td><td>List files</td></tr>
-<tr><td><code>mkdir name</code></td><td>Create folder</td></tr>
-<tr><td><code>touch file.txt</code></td><td>Create file</td></tr>
-<tr><td><code>rm file.txt</code></td><td>Delete file</td></tr>
-<tr><td><code>pwd</code></td><td>Print working directory</td></tr>
-<tr><td><code>clear</code></td><td>Clear screen</td></tr>
-</table>
-<h2>Navigating</h2>
-<pre><code>cd ..              # go up one folder
-cd ~/Desktop       # go to Desktop
-cd ../..           # go up two folders</code></pre>
-<div class="tip"><strong>Tip:</strong> Press Tab to autocomplete file and folder names.</div>`
-}
-};
-
-// -- Render --
-const nav = document.getElementById('nav');
-const main = document.getElementById('main');
-const side = document.getElementById('side');
-const ov = document.getElementById('ov');
-const mobBtn = document.getElementById('mobBtn');
-
-function buildNav(){
-  let html = '';
-  SECTIONS.forEach(s => {
-    html += '<div class="nav-g"><div class="nav-g-t">'+s.title+'</div>';
-    s.items.forEach(it => {
-      html += '<a class="nav-a" data-id="'+it.id+'" href="#'+it.id+'">'+it.label+'</a>';
+function buildNav(filter){
+  var html='';
+  var f=(filter||'').toLowerCase();
+  SECTIONS.forEach(function(s){
+    var items='';
+    var hasMatch=false;
+    s.items.forEach(function(it){
+      if(f && it.l.toLowerCase().indexOf(f)===-1) return;
+      hasMatch=true;
+      var cls='nav-link'+(currentId===it.id?' on':'');
+      items+='<a class="'+cls+'" data-id="'+it.id+'" href="#'+it.id+'">'+it.l+'</a>';
     });
-    html += '</div>';
+    if(!hasMatch && f) return;
+    html+='<div class="nav-sec'+(f?'':'')+'"><div class="nav-sec-t" onclick="this.parentElement.classList.toggle(\'closed\')">'+s.t+' <span class="arr">&#9662;</span></div><div class="nav-links">'+items+'</div></div>';
   });
-  nav.innerHTML = html;
-  nav.querySelectorAll('.nav-a').forEach(a => {
-    a.addEventListener('click', e => {
+  nav.innerHTML=html;
+  nav.querySelectorAll('.nav-link').forEach(function(a){
+    a.addEventListener('click',function(e){
       e.preventDefault();
-      render(a.dataset.id);
-      side.classList.remove('open');
-      ov.classList.remove('show');
+      navigate(a.dataset.id);
+      closeSidebar();
     });
   });
 }
 
-function render(id){
-  const art = ARTICLES[id];
-  if(!art){
-    renderHome();
-    return;
-  }
-  nav.querySelectorAll('.nav-a').forEach(a => a.classList.toggle('on', a.dataset.id===id));
-  main.innerHTML = '<a class="nav-a" href="#" style="display:inline-flex;align-items:center;gap:4px;margin-bottom:20px;padding:0;border:0;font-size:13px;color:var(--text-secondary);" onclick="event.preventDefault();window._learnHome()">&larr; All Topics</a>'
-    + '<h1>'+art.title+'</h1>'
-    + '<div class="sub">'+art.cat+'</div>'
-    + art.content;
+function navigate(id){
+  if(!D[id]) return;
+  currentId=id;
+  location.hash=id;
+  buildNav(searchInput.value);
+  renderArticle(id);
+  closeSidebar();
   window.scrollTo(0,0);
+}
+
+function renderArticle(id){
+  var d=D[id];
+  var idx=ALL_IDS.indexOf(id);
+  var prev=idx>0?ALL_IDS[idx-1]:null;
+  var next=idx<ALL_IDS.length-1?ALL_IDS[idx+1]:null;
+  var cat=d.cat;
+
+  breadcrumb.innerHTML='<a href="#home">Home</a><span>›</span>'+cat+'<span>›</span>'+d.title;
+
+  var html='<h1>'+d.title+'</h1>';
+  html+='<div class="intro">'+d.intro+'</div>';
+  html+=d.content;
+
+  // Nav buttons
+  html+='<div class="nav-btns">';
+  if(prev){
+    html+='<a class="nav-btn prev" href="#'+prev+'" onclick="event.preventDefault();window._lnav(\''+prev+'\')"><span class="label">← Previous</span><span class="title">'+D[prev].title+'</span></a>';
+  }else{
+    html+='<div></div>';
+  }
+  if(next){
+    html+='<a class="nav-btn next" href="#'+next+'" onclick="event.preventDefault();window._lnav(\''+next+'\')"><span class="label">Next →</span><span class="title">'+D[next].title+'</span></a>';
+  }
+  html+='</div>';
+
+  article.innerHTML=html;
 }
 
 function renderHome(){
-  nav.querySelectorAll('.nav-a').forEach(a => a.classList.remove('on'));
-  let cards = '';
-  SECTIONS.forEach(s => {
-    s.items.forEach(it => {
-      const art = ARTICLES[it.id];
-      if(!art) return;
-      const tagClass = s.title==='HTML'?'t-html':s.title==='CSS'?'t-css':s.title==='JavaScript'?'t-js':s.title==='React'?'t-react':s.title==='Node.js'?'t-node':'t-tools';
-      cards += '<a class="card" data-id="'+it.id+'"><h3>'+art.title+'</h3><p>'+s.title+'</p><span class="tag '+tagClass+'">'+s.title+'</span></a>';
-    });
+  currentId='home';
+  breadcrumb.innerHTML='Home';
+  buildNav(searchInput.value);
+
+  var html='<div class="home-hero"><h1>Learn <span>Web Development</span></h1><p>Master HTML, CSS, JavaScript, React, and Node.js with hands-on examples and exercises.</p></div>';
+  html+='<div class="cat-grid">';
+  var icons={HTML:'&#128196;',CSS:'&#127912;',JavaScript:'&#9889;',React:'&#9883;',Node:'&#128230;',Tools:'&#128295;','Getting Started':'&#128640;'};
+  SECTIONS.forEach(function(s){
+    html+='<div class="cat-card" onclick="window._lnav(\''+s.items[0].id+'\')"><div class="icon">'+(icons[s.t]||'&#128187;')+'</div><h3>'+s.t+'</h3><p>'+s.items.length+' lessons</p></div>';
   });
-  main.innerHTML = '<h1>Learn Web Development</h1><div class="sub">Comprehensive tutorials from basics to advanced. Pick a topic to start learning.</div><div class="card-grid">'+cards+'</div>';
-  main.querySelectorAll('.card').forEach(c => {
-    c.addEventListener('click', () => render(c.dataset.id));
-  });
+  html+='</div>';
+  article.innerHTML=html;
   window.scrollTo(0,0);
 }
 
-window._learnHome = renderHome;
+function closeSidebar(){
+  side.classList.remove('open');
+  ov.classList.remove('show');
+}
 
-mobBtn.addEventListener('click', () => {
+// Events
+mobBtn.addEventListener('click',function(){
   side.classList.toggle('open');
   ov.classList.toggle('show');
 });
-ov.addEventListener('click', () => {
-  side.classList.remove('open');
-  ov.classList.remove('show');
-});
+ov.addEventListener('click',closeSidebar);
+searchInput.addEventListener('input',function(){buildNav(this.searchInput?this.value:searchInput.value)});
 
-buildNav();
-const hash = location.hash.slice(1);
-if(hash && ARTICLES[hash]) render(hash); else renderHome();
+window._lnav=navigate;
+
+// Init
+var currentId='home';
+var hash=location.hash.slice(1);
+if(hash && D[hash]) navigate(hash); else renderHome();
+
+window.addEventListener('hashchange',function(){
+  var h=location.hash.slice(1);
+  if(h && D[h]) navigate(h);
+});
 })();
