@@ -70,7 +70,7 @@ var ALL_IDS=[];
 SECTIONS.forEach(function(s){s.items.forEach(function(it){ALL_IDS.push(it.id)})});
 
 function makeEx(title,code){
-  return '<div class="learn-example"><div class="learn-ex-head"><div class="ex-dots"><i></i><i></i><i></i></div><span class="ex-label">'+title+'</span><button class="learn-ex-try" onclick="window._learnTry(this)">Try it Yourself</button></div><div class="learn-ex-body"><pre><code>'+escH(code)+'</code></pre></div></div>';
+  return '<div class="l-ex"><div class="l-ex-top"><div class="l-ex-dots"><span></span><span></span><span></span></div><span class="l-ex-title">'+title+'</span><button class="l-ex-btn" onclick="window._learnTry(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>Try it</button></div><div class="l-ex-body"><pre><code>'+escH(code)+'</code></pre></div></div>';
 }
 function escH(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
@@ -90,7 +90,7 @@ D.intro={
   '<h2>How It Works</h2>'+
   '<p>Each lesson explains a concept and shows you code. Click <strong>"Try it Yourself"</strong> to run that code in the Deoit editor instantly.</p>'+
   makeEx('Hello World', '<!DOCTYPE html>\n<html>\n<body>\n  <h1>Hello, World!</h1>\n  <p>Welcome to Deoit Learn.</p>\n</body>\n</html>')+
-  '<div class="learn-tip"><strong>Tip:</strong> Follow the lessons in order — start with HTML, then CSS, then JavaScript.</div>'+
+  '<div class="l-tip"><b>Tip:</b> Follow the lessons in order — start with HTML, then CSS, then JavaScript.</div>'+
   '<h2>Prerequisites</h2>'+
   '<p>You need <strong>zero programming experience</strong>. All you need is a web browser and a willingness to learn.</p>'
 };
@@ -106,7 +106,7 @@ D['html-intro']={
   '<li>The server responds with HTML files</li>'+
   '<li>The browser renders the page on your screen</li>'+
   '</ol>'+
-  '<div class="learn-tip"><strong>Tip:</strong> Open the <a href="pages/editor">Deoit editor</a> and try writing your first HTML page!</div>'
+  '<div class="l-tip"><b>Tip:</b> Open the <a href="pages/editor">Deoit editor</a> and try writing your first HTML page!</div>'
 };
 
 D['html-edit']={
@@ -115,7 +115,7 @@ D['html-edit']={
   content:'<p>You can write HTML in any text editor. Save the file with a <code>.html</code> extension and open it in your browser.</p>'+
   makeEx('Simple HTML File','<!-- Save as index.html -->\n<!DOCTYPE html>\n<html>\n<body>\n  <h1>My First Page</h1>\n  <p>Open this file in a browser.</p>\n</body>\n</html>')+
   '<h2>Using Deoit</h2><p>The fastest way to start coding is the <a href="pages/editor">Deoit online editor</a>. No downloads or installation — just open your browser and start building.</p>'+
-  '<div class="learn-note"><strong>Note:</strong> The Deoit editor shows your output live as you type, which makes learning much faster.</div>'
+  '<div class="l-note"><b>Note:</b> The Deoit editor shows your output live as you type, which makes learning much faster.</div>'
 };
 
 D['html-basics']={
@@ -137,7 +137,7 @@ D['html-elements']={
   content:makeEx('Element Examples','<!-- Each element has a start tag, content, and end tag -->\n<h1>This is a heading</h1>\n<p>This is a paragraph</p>\n<a href="https://example.com">This is a link</a>')+
   '<h2>Nested Elements</h2>'+
   makeEx('Nesting Elements','<div>\n  <h2>Title</h2>\n  <p>Paragraph inside a div.</p>\n</div>')+
-  '<div class="learn-note"><strong>Note:</strong> Some elements are self-closing — they have no content or end tag, like <code>&lt;img&gt;</code> and <code>&lt;br&gt;</code>.</div>'
+  '<div class="l-note"><b>Note:</b> Some elements are self-closing — they have no content or end tag, like <code>&lt;img&gt;</code> and <code>&lt;br&gt;</code>.</div>'
 };
 
 D['html-attributes']={
@@ -163,14 +163,14 @@ D['html-headings']={
   '<li>Use <code>&lt;h3&gt;</code> for sub-sections</li>'+
   '<li>Don\'t skip heading levels (e.g., don\'t jump from h1 to h3)</li>'+
   '</ul>'+
-  '<div class="learn-tip"><strong>Tip:</strong> Headings improve SEO and make your content accessible to screen readers.</div>'
+  '<div class="l-tip"><b>Tip:</b> Headings improve SEO and make your content accessible to screen readers.</div>'
 };
 
 D['html-paragraphs']={
   id:'html-paragraphs',title:'HTML Paragraphs',cat:'HTML',intro:'The <p> element defines a paragraph of text. Browsers add space around paragraphs automatically.',
   tryCode:'<!DOCTYPE html>\n<html>\n<body>\n  <p>This is a paragraph.</p>\n  <p>This is another paragraph.</p>\n  <p>Line one.<br>Line two (with a break).</p>\n  <hr>\n  <pre>\n    This text preserves\n    spaces and line breaks.\n  </pre>\n</body>\n</html>',
   content:makeEx('Paragraphs and Text','<p>This is a paragraph.</p>\n<p>This is another paragraph.</p>\n\n<!-- Line break -->\n<p>Line one.<br>Line two.</p>\n\n<!-- Horizontal rule -->\n<hr>\n\n<!-- Preformatted text -->\n<pre>\n  This text preserves\n  spaces and line breaks.\n</pre>')+
-  '<div class="learn-note"><strong>Note:</strong> Browsers add a single blank line before and after each paragraph.</div>'
+  '<div class="l-note"><b>Note:</b> Browsers add a single blank line before and after each paragraph.</div>'
 };
 
 D['html-links']={
@@ -194,7 +194,7 @@ D['html-images']={
   '<tr><td><code>alt</code></td><td>Text shown if image fails to load</td></tr>'+
   '<tr><td><code>width</code></td><td>Width in pixels</td></tr>'+
   '<tr><td><code>height</code></td><td>Height in pixels</td></tr></table>'+
-  '<div class="learn-warn"><strong>Important:</strong> Always include the <code>alt</code> attribute — it\'s essential for accessibility.</div>'
+  '<div class="l-warn"><b>Important:</b> Always include the <code>alt</code> attribute — it\'s essential for accessibility.</div>'
 };
 
 D['html-forms']={
@@ -234,7 +234,7 @@ D['html-lists']={
   makeEx('Ordered List','<ol>\n  <li>First</li>\n  <li>Second</li>\n  <li>Third</li>\n</ol>')+
   '<h2>Description List</h2>'+
   makeEx('Description List','<dl>\n  <dt>HTML</dt>\n  <dd>HyperText Markup Language</dd>\n  <dt>CSS</dt>\n  <dd>Cascading Style Sheets</dd>\n</dl>')+
-  '<div class="learn-tip"><strong>Tip:</strong> Use <code>type="a"</code> on <code>&lt;ol&gt;</code> to get lettered lists.</div>'
+  '<div class="l-tip"><b>Tip:</b> Use <code>type="a"</code> on <code>&lt;ol&gt;</code> to get lettered lists.</div>'
 };
 
 D['html-semantics']={
@@ -281,7 +281,7 @@ D['css-syntax']={
   id:'css-syntax',title:'CSS Syntax',cat:'CSS',intro:'A CSS rule consists of a selector and a declaration block. Properties are separated by semicolons.',
   tryCode:'<!DOCTYPE html>\n<html>\n<body style="background:#0d0d0d;color:#d9d9d9;font-family:sans-serif;text-align:center;padding:4rem">\n  <h1 style="color:#e06c75;font-size:36px;margin-bottom:8px">Styled Heading</h1>\n  <p style="color:#8a8a8a;font-size:16px">A paragraph with custom styles.</p>\n  <div style="background:#141414;padding:20px;border-radius:12px;border:1px solid #2a2a2a;margin-top:20px;display:inline-block">A styled card</div>\n</body>\n</html>',
   content:makeEx('CSS Syntax Basics','/* Basic syntax */\nselector {\n  property: value;\n}\n\n/* Multiple properties */\nh1 {\n  color: white;\n  font-size: 28px;\n  margin-bottom: 12px;\n  font-weight: 800;\n}\n\n/* Class selector */\n.card {\n  background: #141414;\n  padding: 20px;\n  border-radius: 12px;\n  border: 1px solid #2a2a2a;\n}')+
-  '<div class="learn-note"><strong>Note:</strong> Each property-value pair is separated by a semicolon <code>;</code>.</div>'
+  '<div class="l-note"><b>Note:</b> Each property-value pair is separated by a semicolon <code>;</code>.</div>'
 };
 
 D['css-selectors']={
@@ -294,14 +294,14 @@ D['css-selectors']={
   '<li>ID selectors <code>#id</code></li>'+
   '<li>Class selectors <code>.class</code></li>'+
   '<li>Element selectors <code>div</code></li></ol>'+
-  '<div class="learn-tip"><strong>Tip:</strong> Use classes for styling. IDs are better for JavaScript.</div>'
+  '<div class="l-tip"><b>Tip:</b> Use classes for styling. IDs are better for JavaScript.</div>'
 };
 
 D['css-colors']={
   id:'css-colors',title:'CSS Colors',cat:'CSS',intro:'CSS supports multiple color formats: HEX, RGB, RGBA, HSL, and named colors.',
   tryCode:'<!DOCTYPE html>\n<html>\n<body style="background:#0d0d0d;font-family:sans-serif;padding:2rem">\n  <div style="display:flex;gap:12px;flex-wrap:wrap">\n    <div style="width:120px;height:80px;background:#e06c75;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:12px">#e06c75</div>\n    <div style="width:120px;height:80px;background:#61afef;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:12px">#61afef</div>\n    <div style="width:120px;height:80px;background:#e5c07b;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#111;font-size:12px">#e5c07b</div>\n    <div style="width:120px;height:80px;background:#98c379;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#111;font-size:12px">#98c379</div>\n    <div style="width:120px;height:80px;background:#c678dd;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:12px">#c678dd</div>\n  </div>\n</body>\n</html>',
   content:makeEx('Color Formats','/* Named */\np { color: red; }\n\n/* HEX */\np { color: #d9d9d9; }\n\n/* RGB */\np { color: rgb(217, 217, 217); }\n\n/* RGBA (with transparency) */\np { color: rgba(217, 217, 217, 0.5); }\n\n/* HSL */\np { color: hsl(0, 0%, 85%); }\n\n/* Deoit palette */\n.html  { color: #e06c75; }\n.css   { color: #61afef; }\n.js    { color: #e5c07b; }')+
-  '<div class="learn-tip"><strong>Tip:</strong> Use CSS custom properties for consistent colors: <code>--accent: #d9d9d9;</code></div>'
+  '<div class="l-tip"><b>Tip:</b> Use CSS custom properties for consistent colors: <code>--accent: #d9d9d9;</code></div>'
 };
 
 D['css-background']={
@@ -335,7 +335,7 @@ D['css-flexbox']={
   id:'css-flexbox',title:'Flexbox',cat:'CSS',intro:'Flexbox is a one-dimensional layout system for arranging items in a row or column.',
   tryCode:'<!DOCTYPE html>\n<html>\n<head><style>\n  body { background: #0d0d0d; color: #d9d9d9; font-family: sans-serif; padding: 2rem; }\n  .container { display: flex; gap: 16px; justify-content: space-between; align-items: center; padding: 20px; background: #141414; border-radius: 12px; border: 1px solid #2a2a2a; margin-bottom: 16px; }\n  .item { background: #1a1a1a; padding: 16px 24px; border-radius: 8px; border: 1px solid #2a2a2a; }\n  .center { display: flex; justify-content: center; align-items: center; padding: 40px; background: #141414; border-radius: 12px; border: 1px solid #2a2a2a; }\n</style></head>\n<body>\n  <div class="container">\n    <div class="item">Left</div>\n    <div class="item">Center</div>\n    <div class="item">Right</div>\n  </div>\n  <div class="center">Centered Content</div>\n</body>\n</html>',
   content:makeEx('Flexbox Layout','/* Container */\n.container {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: 16px;\n  flex-wrap: wrap;\n}\n\n/* Item */\n.item {\n  flex: 1;\n}\n\n/* Center anything */\n.center {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n/* Navbar */\n.navbar {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}')+
-  '<div class="learn-tip"><strong>Tip:</strong> Flexbox is great for one-dimensional layouts (a single row or column).</div>'
+  '<div class="l-tip"><b>Tip:</b> Flexbox is great for one-dimensional layouts (a single row or column).</div>'
 };
 
 D['css-grid']={
@@ -344,7 +344,7 @@ D['css-grid']={
   content:makeEx('CSS Grid Layout','/* Basic grid */\n.grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 20px;\n}\n\n/* Responsive grid */\n.grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));\n  gap: 20px;\n}')+
   '<h2>Named Grid Areas</h2>'+
   makeEx('Grid Template Areas','.layout {\n  display: grid;\n  grid-template-areas:\n    "header header"\n    "sidebar main"\n    "footer footer";\n  grid-template-columns: 250px 1fr;\n  gap: 16px;\n}\n\n.header  { grid-area: header; }\n.sidebar { grid-area: sidebar; }\n.main    { grid-area: main; }\n.footer  { grid-area: footer; }')+
-  '<div class="learn-note"><strong>Note:</strong> Use Flexbox for 1D (row OR column). Use Grid for 2D (rows AND columns).</div>'
+  '<div class="l-note"><b>Note:</b> Use Flexbox for 1D (row OR column). Use Grid for 2D (rows AND columns).</div>'
 };
 
 D['css-responsive']={
@@ -356,7 +356,7 @@ D['css-responsive']={
   makeEx('Media Queries','/* Mobile first */\n.container {\n  padding: 16px;\n}\n\n@media (min-width: 768px) {\n  .container {\n    padding: 32px;\n    max-width: 720px;\n    margin: 0 auto;\n  }\n}\n\n@media (min-width: 1024px) {\n  .container {\n    padding: 48px;\n    max-width: 960px;\n  }\n}')+
   '<h2>Fluid Typography</h2>'+
   makeEx('clamp() for Font Sizes','h1 {\n  font-size: clamp(24px, 5vw, 44px);\n}')+
-  '<div class="learn-tip"><strong>Tip:</strong> Design for mobile first, then add breakpoints for larger screens.</div>'
+  '<div class="l-tip"><b>Tip:</b> Design for mobile first, then add breakpoints for larger screens.</div>'
 };
 
 // ─── JavaScript ───
@@ -368,7 +368,7 @@ D['js-intro']={
   makeEx('Adding JavaScript to HTML','<!-- External file -->\n<script src="app.js"><\/script>\n\n<!-- Internal script -->\n<script>\n  console.log("Hello, World!");\n  document.title = "New Title";\n<\/script>')+
   '<h2>Browser Console</h2>'+
   makeEx('Console Methods','console.log("Info message");\nconsole.warn("Warning message");\nconsole.error("Error message");\nconsole.table([{a:1},{a:2}]);')+
-  '<div class="learn-tip"><strong>Tip:</strong> Open DevTools (F12) in your browser to see console output.</div>'
+  '<div class="l-tip"><b>Tip:</b> Open DevTools (F12) in your browser to see console output.</div>'
 };
 
 D['js-intro2']={
@@ -392,7 +392,7 @@ D['js-variables']={
   '<li>Case sensitive — <code>name</code> and <code>Name</code> are different</li>'+
   '<li>No reserved words (if, for, while, etc.)</li>'+
   '<li>Use camelCase: <code>myVariable</code></li></ul>'+
-  '<div class="learn-warn"><strong>Important:</strong> Always use <code>const</code> by default. Only use <code>let</code> when you need to reassign.</div>'
+  '<div class="l-warn"><b>Important:</b> Always use <code>const</code> by default. Only use <code>let</code> when you need to reassign.</div>'
 };
 
 D['js-datatypes']={
@@ -405,7 +405,7 @@ D['js-operators']={
   id:'js-operators',title:'Operators',cat:'JavaScript',intro:'Operators perform operations on values — arithmetic, assignment, comparison, and logic.',
   tryCode:'<!DOCTYPE html>\n<html>\n<body style="background:#0d0d0d;color:#d9d9d9;font-family:sans-serif;padding:2rem">\n  <h2>Operator Examples</h2>\n  <p id="out">Click to calculate</p>\n  <button onclick="showOps()">Show Operations</button>\n  <script>\n    function showOps() {\n      const a = 10, b = 3;\n      document.getElementById("out").innerHTML =\n        a + " + " + b + " = " + (a+b) + "<br>" +\n        a + " - " + b + " = " + (a-b) + "<br>" +\n        a + " * " + b + " = " + (a*b) + "<br>" +\n        a + " / " + b + " = " + (a/b).toFixed(2) + "<br>" +\n        a + " % " + b + " = " + (a%b) + "<br>" +\n        a + " ** " + b + " = " + (a**b);\n    }\n  <\/script>\n</body>\n</html>',
   content:makeEx('Operators','// Arithmetic\n5 + 3    // 8\n5 - 3    // 2\n5 * 3    // 15\n5 / 3    // 1.666\n5 % 3    // 2 (remainder)\n5 ** 3   // 125 (power)\n\n// Assignment\nlet x = 10;\nx += 5;   // x = 15\nx -= 3;   // x = 12\nx *= 2;   // x = 24\n\n// Comparison\n5 == "5"   // true  (loose)\n5 === "5"  // false (strict)\n5 != "5"   // false\n5 !== "5"  // true\n\n// Logical\ntrue && false  // false (AND)\ntrue || false  // true  (OR)\n!true          // false (NOT)')+
-  '<div class="learn-warn"><strong>Important:</strong> Always use <code>===</code> (strict equality) instead of <code>==</code>.</div>'
+  '<div class="l-warn"><b>Important:</b> Always use <code>===</code> (strict equality) instead of <code>==</code>.</div>'
 };
 
 D['js-functions']={
@@ -462,7 +462,7 @@ D['js-async']={
   id:'js-async',title:'Async/Await',cat:'JavaScript',intro:'Asynchronous code lets you run long operations (like fetching data) without freezing the page.',
   tryCode:'<!DOCTYPE html>\n<html>\n<body style="background:#0d0d0d;color:#d9d9d9;font-family:sans-serif;padding:2rem">\n  <h2>Async Demo</h2>\n  <p id="status">Waiting...</p>\n  <button onclick="runAsync()">Start</button>\n  <pre id="out" style="background:#141414;padding:16px;border-radius:8px;border:1px solid #2a2a2a;margin-top:12px"></pre>\n  <script>\n    async function runAsync() {\n      document.getElementById("status").textContent = "Loading...";\n      const data = await new Promise(resolve => {\n        setTimeout(() => resolve("Data loaded!"), 1500);\n      });\n      document.getElementById("status").textContent = "Done!";\n      document.getElementById("out").textContent = data;\n    }\n  <\/script>\n</body>\n</html>',
   content:makeEx('Async/Await','// Promise\nconst promise = new Promise((resolve, reject) => {\n  setTimeout(() => resolve("Done!"), 1000);\n});\npromise.then(r => console.log(r));\n\n// Async/Await\nasync function getData() {\n  try {\n    const res = await fetch("/api/data");\n    const data = await res.json();\n    console.log(data);\n  } catch (err) {\n    console.error("Error:", err);\n  }\n}\n\ngetData();')+
-  '<div class="learn-note"><strong>Note:</strong> <code>await</code> pauses execution until the Promise resolves. It only works inside <code>async</code> functions.</div>'
+  '<div class="l-note"><b>Note:</b> <code>await</code> pauses execution until the Promise resolves. It only works inside <code>async</code> functions.</div>'
 };
 
 D['js-fetch']={
@@ -488,14 +488,14 @@ D['react-jsx']={
   id:'react-jsx',title:'JSX',cat:'React',intro:'JSX is a syntax extension that looks like HTML but compiles to JavaScript function calls.',
   tryCode:null,
   content:makeEx('JSX Examples','// JSX expression\nconst name = "Majed";\nconst element = <h1>Hello, {name}!</h1>;\n\n// Conditional rendering\nconst greeting = isLoggedIn\n  ? <h1>Welcome back!</h1>\n  : <h1>Please sign in.</h1>;\n\n// List rendering\nconst items = ["HTML", "CSS", "JS"];\nconst list = (\n  <ul>\n    {items.map((item, i) => (\n      <li key={i}>{item}</li>\n    ))}\n  </ul>\n);')+
-  '<div class="learn-note"><strong>Note:</strong> JSX must return a single parent element. Use <code>&lt;&gt;...&lt;/&gt;</code> (Fragment) to wrap multiple elements.</div>'
+  '<div class="l-note"><b>Note:</b> JSX must return a single parent element. Use <code>&lt;&gt;...&lt;/&gt;</code> (Fragment) to wrap multiple elements.</div>'
 };
 
 D['react-components']={
   id:'react-components',title:'Components',cat:'React',intro:'Components are reusable pieces of UI. In React, they are functions that return JSX.',
   tryCode:null,
   content:makeEx('Component Example','// Function component\nfunction Button({ text, onClick }) {\n  return (\n    <button onClick={onClick}>\n      {text}\n    </button>\n  );\n}\n\n// Using the component\nfunction App() {\n  return (\n    <div>\n      <Button text="Click me" onClick={() => alert("Hi")} />\n    </div>\n  );\n}')+
-  '<div class="learn-tip"><strong>Tip:</strong> Component names must start with a capital letter (<code>Button</code>, not <code>button</code>).</div>'
+  '<div class="l-tip"><b>Tip:</b> Component names must start with a capital letter (<code>Button</code>, not <code>button</code>).</div>'
 };
 
 D['react-props']={
@@ -557,7 +557,7 @@ D['terminal']={
   id:'terminal',title:'Terminal Basics',cat:'Tools',intro:'The terminal is a text-based interface for running commands on your computer.',
   tryCode:null,
   content:makeEx('Navigation Commands','# Change directory\ncd folder\ncd ..\ncd ~/Desktop\npwd\n\n# List files\nls          # Mac/Linux\ndir         # Windows\n\n# Create / Delete\nmkdir name\ntouch file.txt\nrm file.txt\ncp src dest\nmv src dest     # move or rename\n\n# Clear terminal\nclear         # Mac/Linux\ncls           # Windows')+
-  '<div class="learn-tip"><strong>Tip:</strong> Press Tab to autocomplete file and folder names.</div>'
+  '<div class="l-tip"><b>Tip:</b> Press Tab to autocomplete file and folder names.</div>'
 };
 
 // ─── APP LOGIC ───
@@ -574,21 +574,21 @@ var currentId='home';
 function buildNav(filter){
   var html='';
   var f=(filter||'').toLowerCase();
-  var secColors={'Getting Started':'var(--green)',HTML:'var(--accent-html)',CSS:'var(--accent-css)',JavaScript:'var(--accent-js)',React:'var(--accent-react)','Node.js':'var(--accent-node)',Tools:'var(--purple)'};
+  var secColors={'Getting Started':'var(--c-green)',HTML:'var(--c-html)',CSS:'var(--c-css)',JavaScript:'var(--c-js)',React:'var(--c-react)','Node.js':'var(--c-node)',Tools:'var(--c-purple)'};
   SECTIONS.forEach(function(s){
     var items='';
     var hasMatch=false;
     s.items.forEach(function(it){
       if(f && it.l.toLowerCase().indexOf(f)===-1) return;
       hasMatch=true;
-      var cls='learn-sb-link'+(currentId===it.id?' on':'');
+      var cls='l-sb-item'+(currentId===it.id?' on':'');
       items+='<a class="'+cls+'" data-id="'+it.id+'" href="#'+it.id+'">'+it.l+'</a>';
     });
     if(!hasMatch && f) return;
-    html+='<div class="learn-sb-sec"><div class="learn-sb-sec-t" onclick="this.parentElement.classList.toggle(\'closed\')"><span class="dot" style="background:'+(secColors[s.t]||'var(--tx3)')+'"></span>'+s.t+' <span class="arr">&#9662;</span></div><div class="learn-sb-links">'+items+'</div></div>';
+    html+='<div class="l-sb-group"><div class="l-sb-group-t" onclick="this.parentElement.classList.toggle(\'closed\')"><span class="dot" style="background:'+(secColors[s.t]||'var(--c-text4)')+'"></span>'+s.t+' <span class="chev">&#9662;</span></div><div class="l-sb-group-items">'+items+'</div></div>';
   });
   nav.innerHTML=html;
-  nav.querySelectorAll('.learn-sb-link').forEach(function(a){
+  nav.querySelectorAll('.l-sb-item').forEach(function(a){
     a.addEventListener('click',function(e){
       e.preventDefault();
       navigate(a.dataset.id);
@@ -613,20 +613,20 @@ function renderArticle(id){
   var prev=idx>0?ALL_IDS[idx-1]:null;
   var next=idx<ALL_IDS.length-1?ALL_IDS[idx+1]:null;
 
-  breadcrumb.innerHTML='<a href="#home">Home</a><span>&rsaquo;</span>'+d.cat+'<span>&rsaquo;</span>'+d.title;
+  breadcrumb.innerHTML='<a href="#home">Home</a><span class="s">&rsaquo;</span>'+d.cat+'<span class="s">&rsaquo;</span>'+d.title;
 
   var h='<h1>'+d.title+'</h1>';
-  h+='<div class="intro-text">'+d.intro+'</div>';
+  h+='<div class="l-intro">'+d.intro+'</div>';
   h+=d.content;
 
-  h+='<div class="learn-nav-btns">';
+  h+='<div class="l-navs">';
   if(prev){
-    h+='<a class="learn-nav-btn prev" href="#'+prev+'" onclick="event.preventDefault();window._lnav(\''+prev+'\')"><span class="nb-label">&larr; Previous</span><span class="nb-title">'+D[prev].title+'</span></a>';
+    h+='<a class="l-nav prev" href="#'+prev+'" onclick="event.preventDefault();window._lnav(\''+prev+'\')"><div class="nbl">&larr; Previous</div><div class="nbt">'+D[prev].title+'</div></a>';
   }else{
     h+='<div></div>';
   }
   if(next){
-    h+='<a class="learn-nav-btn nxt" href="#'+next+'" onclick="event.preventDefault();window._lnav(\''+next+'\')"><span class="nb-label">Next &rarr;</span><span class="nb-title">'+D[next].title+'</span></a>';
+    h+='<a class="l-nav nxt" href="#'+next+'" onclick="event.preventDefault();window._lnav(\''+next+'\')"><div class="nbl">Next &rarr;</div><div class="nbt">'+D[next].title+'</div></a>';
   }
   h+='</div>';
 
@@ -638,11 +638,13 @@ function renderHome(){
   breadcrumb.innerHTML='Home';
   buildNav(searchInput.value);
 
-  var h='<div class="learn-home"><h1>Learn <span class="hl">Web Development</span></h1><p class="sub">Master HTML, CSS, JavaScript, React, and Node.js with hands-on examples you can run in the editor.</p></div>';
-  h+='<div class="learn-cats">';
+  var h='<div class="l-home"><div class="badge"><span class="dot"></span> Free Interactive Tutorials</div><h1>Learn <span class="hl">Web Development</span></h1><p class="sub">Master HTML, CSS, JavaScript, React, and Node.js with hands-on examples you can run in the editor.</p></div>';
+  h+='<div class="l-home-grid">';
   var icons={HTML:'&#128196;',CSS:'&#127912;',JavaScript:'&#9889;',React:'&#9883;','Node.js':'&#128230;',Tools:'&#128295;','Getting Started':'&#128640;'};
+  var colorMap={'Getting Started':'start',HTML:'html',CSS:'css',JavaScript:'js',React:'react','Node.js':'node',Tools:'tools'};
+  var descMap={'Getting Started':'Begin your coding journey here',HTML:'Build the structure of web pages',CSS:'Style and layout your pages',JavaScript:'Add interactivity and logic',React:'Build modern user interfaces','Node.js':'Server-side JavaScript','Tools':'Version control and terminal'};
   SECTIONS.forEach(function(s){
-    h+='<div class="learn-cat" onclick="window._lnav(\''+s.items[0].id+'\')"><span class="cat-icon">'+(icons[s.t]||'&#128187;')+'</span><h3>'+s.t+'</h3><p>'+s.items[0].l+'</p><span class="cat-count">'+s.items.length+' lessons</span></div>';
+    h+='<div class="l-home-card" data-c="'+(colorMap[s.t]||'start')+'" onclick="window._lnav(\''+s.items[0].id+'\')"><span class="emoji">'+(icons[s.t]||'&#128187;')+'</span><h3>'+s.t+'</h3><p class="desc">'+(descMap[s.t]||s.items.length+' lessons')+'</p><span class="count">'+s.items.length+' lessons</span></div>';
   });
   h+='</div>';
   article.innerHTML=h;
@@ -656,7 +658,7 @@ function closeSidebar(){
 
 // Try it Yourself
 window._learnTry=function(btn){
-  var codeEl=btn.closest('.learn-example').querySelector('code');
+  var codeEl=btn.closest('.l-ex').querySelector('code');
   if(!codeEl) return;
   var code=codeEl.textContent;
   try{
