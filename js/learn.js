@@ -365,7 +365,7 @@ D['js-intro']={
   id:'js-intro',title:'What is JavaScript',cat:'JavaScript',intro:'JavaScript is the programming language of the web. It makes pages interactive, dynamic, and alive.',
   tryCode:'<!DOCTYPE html>\n<html>\n<body style="background:#0d0d0d;color:#d9d9d9;font-family:sans-serif;text-align:center;padding:4rem">\n  <h1 id="demo">Hello!</h1>\n  <button onclick="document.getElementById(\'demo\').textContent=\'Clicked!\'; document.getElementById(\'demo\').style.color=\'#e5c07b\'">Click Me</button>\n  <script>\n    console.log("Hello from JavaScript!");\n    console.warn("This is a warning");\n    console.error("This is an error");\n  <\/script>\n</body>\n</html>',
   content:'<p>JavaScript can update content, validate forms, animate elements, and communicate with servers — all in the browser.</p>'+
-  makeEx('Adding JavaScript to HTML','<!-- External file -->\n<script src="app.js"></script>\n\n<!-- Internal script -->\n<script>\n  console.log("Hello, World!");\n  document.title = "New Title";\n</script>')+
+  makeEx('Adding JavaScript to HTML','<!-- External file -->\n<script src="app.js"><\/script>\n\n<!-- Internal script -->\n<script>\n  console.log("Hello, World!");\n  document.title = "New Title";\n<\/script>')+
   '<h2>Browser Console</h2>'+
   makeEx('Console Methods','console.log("Info message");\nconsole.warn("Warning message");\nconsole.error("Error message");\nconsole.table([{a:1},{a:2}]);')+
   '<div class="learn-tip"><strong>Tip:</strong> Open DevTools (F12) in your browser to see console output.</div>'
