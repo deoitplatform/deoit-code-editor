@@ -62,7 +62,7 @@ a{color:inherit;text-decoration:none}
   border:1px solid var(--border);cursor:pointer;transition:all .25s;text-decoration:none;display:block;
 }
 .l-card:hover{border-color:var(--border-strong);background:rgba(255,255,255,.04);transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,.3)}
-.l-card-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:16px;font-weight:800;color:#0d0d0d}
+.l-card-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
 .l-card h3{font-size:17px;font-weight:700;margin-bottom:6px;color:var(--text-primary)}
 .l-card p{font-size:13px;color:var(--text-secondary);line-height:1.6}
 .l-card-meta{font-size:11px;color:var(--text-muted);margin-top:12px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;display:block}
