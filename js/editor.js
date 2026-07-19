@@ -1198,7 +1198,27 @@ editorCode.addEventListener('keydown', function(e) {
 
 // ─── INIT ───
 function init() {
-  fileSystem = load() || JSON.parse(JSON.stringify(defaultProject));
+  // Check for code from Learn page "Try it Yourself"
+  try {
+    const tryCode = localStorage.getItem('deoit_try_code');
+    if (tryCode) {
+      const code = JSON.parse(tryCode);
+      localStorage.removeItem('deoit_try_code');
+      fileSystem = {
+        name: 'root', type: 'folder', id: 'root',
+        children: [
+          { id: 'f_html', name: 'index.html', type: 'file', content: code.html || '<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n  <title>Try it</title>\n</head>\n<body>\n  <h1>Hello!</h1>\n</body>\n</html>' },
+          { id: 'f_css', name: 'style.css', type: 'file', content: code.css || '' },
+          { id: 'f_js', name: 'script.js', type: 'file', content: code.js || '' }
+        ]
+      };
+      save();
+    } else {
+      fileSystem = load() || JSON.parse(JSON.stringify(defaultProject));
+    }
+  } catch(e) {
+    fileSystem = load() || JSON.parse(JSON.stringify(defaultProject));
+  }
 
   const initOpen = (id) => {
     const f = findById(fileSystem, id);
