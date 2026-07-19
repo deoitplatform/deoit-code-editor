@@ -4,7 +4,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://deoit.vercel.app/</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://deoit.vercel.app/"/>
@@ -17,16 +17,67 @@
   </url>
   <url>
     <loc>https://deoit.vercel.app/pages/editor</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://deoit.vercel.app/pages/editor"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.vercel.app/pages/editor"/>
-    <image:image>
-      <image:loc>https://deoit.vercel.app/logo.png</image:loc>
-      <image:title>Deoit Code Editor - Write HTML, CSS, JavaScript</image:title>
-      <image:caption>Free online code editor with syntax highlighting and live preview</image:caption>
-    </image:image>
+  </url>
+  <url>
+    <loc>https://deoit.vercel.app/learn</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.vercel.app/learn"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.vercel.app/learn"/>
+  </url>
+  <url>
+    <loc>https://deoit.vercel.app/learn-html.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.vercel.app/learn-html.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.vercel.app/learn-html.html"/>
+  </url>
+  <url>
+    <loc>https://deoit.vercel.app/learn-css.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.vercel.app/learn-css.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.vercel.app/learn-css.html"/>
+  </url>
+  <url>
+    <loc>https://deoit.vercel.app/learn-js.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.vercel.app/learn-js.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.vercel.app/learn-js.html"/>
+  </url>
+  <url>
+    <loc>https://deoit.vercel.app/learn-react.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.vercel.app/learn-react.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.vercel.app/learn-react.html"/>
+  </url>
+  <url>
+    <loc>https://deoit.vercel.app/learn-node.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.vercel.app/learn-node.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.vercel.app/learn-node.html"/>
+  </url>
+  <url>
+    <loc>https://deoit.vercel.app/learn-tools.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.vercel.app/learn-tools.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.vercel.app/learn-tools.html"/>
   </url>
   <url>
     <loc>https://deoit.vercel.app/terms</loc>
@@ -43,13 +94,5 @@
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://deoit.vercel.app/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.vercel.app/privacy"/>
-  </url>
-  <url>
-    <loc>https://deoit.vercel.app/learn</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.vercel.app/learn"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.vercel.app/learn"/>
   </url>
 </urlset>
