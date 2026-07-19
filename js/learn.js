@@ -70,7 +70,7 @@ var ALL_IDS=[];
 SECTIONS.forEach(function(s){s.items.forEach(function(it){ALL_IDS.push(it.id)})});
 
 function makeEx(title,code){
-  return '<div class="learn-example"><div class="learn-example-head"><span>'+title+'</span><button onclick="window._learnTry(this)">Try it Yourself</button></div><div class="learn-example-body"><pre><code>'+escH(code)+'</code></pre></div></div>';
+  return '<div class="learn-example"><div class="learn-ex-head"><div class="ex-dots"><i></i><i></i><i></i></div><span class="ex-label">'+title+'</span><button class="learn-ex-try" onclick="window._learnTry(this)">Try it Yourself</button></div><div class="learn-ex-body"><pre><code>'+escH(code)+'</code></pre></div></div>';
 }
 function escH(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
@@ -574,20 +574,21 @@ var currentId='home';
 function buildNav(filter){
   var html='';
   var f=(filter||'').toLowerCase();
+  var secColors={'Getting Started':'var(--green)',HTML:'var(--accent-html)',CSS:'var(--accent-css)',JavaScript:'var(--accent-js)',React:'var(--accent-react)','Node.js':'var(--accent-node)',Tools:'var(--purple)'};
   SECTIONS.forEach(function(s){
     var items='';
     var hasMatch=false;
     s.items.forEach(function(it){
       if(f && it.l.toLowerCase().indexOf(f)===-1) return;
       hasMatch=true;
-      var cls='learn-nav-link'+(currentId===it.id?' on':'');
+      var cls='learn-sb-link'+(currentId===it.id?' on':'');
       items+='<a class="'+cls+'" data-id="'+it.id+'" href="#'+it.id+'">'+it.l+'</a>';
     });
     if(!hasMatch && f) return;
-    html+='<div class="learn-nav-sec'+(f?'':'')+'"><div class="learn-nav-t" onclick="this.parentElement.classList.toggle(\'closed\')">'+s.t+' <span class="arr">&#9662;</span></div><div class="learn-nav-links">'+items+'</div></div>';
+    html+='<div class="learn-sb-sec"><div class="learn-sb-sec-t" onclick="this.parentElement.classList.toggle(\'closed\')"><span class="dot" style="background:'+(secColors[s.t]||'var(--tx3)')+'"></span>'+s.t+' <span class="arr">&#9662;</span></div><div class="learn-sb-links">'+items+'</div></div>';
   });
   nav.innerHTML=html;
-  nav.querySelectorAll('.learn-nav-link').forEach(function(a){
+  nav.querySelectorAll('.learn-sb-link').forEach(function(a){
     a.addEventListener('click',function(e){
       e.preventDefault();
       navigate(a.dataset.id);
@@ -615,17 +616,17 @@ function renderArticle(id){
   breadcrumb.innerHTML='<a href="#home">Home</a><span>&rsaquo;</span>'+d.cat+'<span>&rsaquo;</span>'+d.title;
 
   var h='<h1>'+d.title+'</h1>';
-  h+='<div class="intro">'+d.intro+'</div>';
+  h+='<div class="intro-text">'+d.intro+'</div>';
   h+=d.content;
 
   h+='<div class="learn-nav-btns">';
   if(prev){
-    h+='<a class="learn-nav-btn prev" href="#'+prev+'" onclick="event.preventDefault();window._lnav(\''+prev+'\')"><span class="label">&larr; Previous</span><span class="title">'+D[prev].title+'</span></a>';
+    h+='<a class="learn-nav-btn prev" href="#'+prev+'" onclick="event.preventDefault();window._lnav(\''+prev+'\')"><span class="nb-label">&larr; Previous</span><span class="nb-title">'+D[prev].title+'</span></a>';
   }else{
     h+='<div></div>';
   }
   if(next){
-    h+='<a class="learn-nav-btn next" href="#'+next+'" onclick="event.preventDefault();window._lnav(\''+next+'\')"><span class="label">Next &rarr;</span><span class="title">'+D[next].title+'</span></a>';
+    h+='<a class="learn-nav-btn nxt" href="#'+next+'" onclick="event.preventDefault();window._lnav(\''+next+'\')"><span class="nb-label">Next &rarr;</span><span class="nb-title">'+D[next].title+'</span></a>';
   }
   h+='</div>';
 
@@ -637,11 +638,11 @@ function renderHome(){
   breadcrumb.innerHTML='Home';
   buildNav(searchInput.value);
 
-  var h='<div class="learn-home-hero"><h1>Learn <span>Web Development</span></h1><p>Master HTML, CSS, JavaScript, React, and Node.js with hands-on examples you can run in the editor.</p></div>';
-  h+='<div class="learn-cat-grid">';
+  var h='<div class="learn-home"><h1>Learn <span class="hl">Web Development</span></h1><p class="sub">Master HTML, CSS, JavaScript, React, and Node.js with hands-on examples you can run in the editor.</p></div>';
+  h+='<div class="learn-cats">';
   var icons={HTML:'&#128196;',CSS:'&#127912;',JavaScript:'&#9889;',React:'&#9883;','Node.js':'&#128230;',Tools:'&#128295;','Getting Started':'&#128640;'};
   SECTIONS.forEach(function(s){
-    h+='<div class="learn-cat-card" onclick="window._lnav(\''+s.items[0].id+'\')"><div class="icon">'+(icons[s.t]||'&#128187;')+'</div><h3>'+s.t+'</h3><p>'+s.items.length+' lessons</p></div>';
+    h+='<div class="learn-cat" onclick="window._lnav(\''+s.items[0].id+'\')"><span class="cat-icon">'+(icons[s.t]||'&#128187;')+'</span><h3>'+s.t+'</h3><p>'+s.items[0].l+'</p><span class="cat-count">'+s.items.length+' lessons</span></div>';
   });
   h+='</div>';
   article.innerHTML=h;
