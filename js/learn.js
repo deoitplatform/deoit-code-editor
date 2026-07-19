@@ -364,6 +364,69 @@ var FILTER=PAGE?SECTIONS.filter(function(s){return s.page===PAGE}):SECTIONS;
 var activeSection=0;
 var activeLesson=null;
 
+// ═══ SIDEBAR MODE (language pages) ═══
+if(PAGE&&FILTER.length===1){
+  var sec=FILTER[0];
+  var sideList=document.getElementById('lSideList');
+  var mainInner=document.getElementById('lMainInner');
+  if(sideList&&mainInner){
+    // render sidebar list
+    var sh='';
+    sec.items.forEach(function(it,i){
+      sh+='<div class="l-side-item" data-id="'+it.id+'" onclick="window._lesson(\''+it.id+'\')">';
+      sh+='<div class="num" style="background:'+sec.c+'">'+(i+1)+'</div>';
+      sh+='<span class="t">'+it.l+'</span></div>';
+    });
+    sideList.innerHTML=sh;
+
+    window._lesson=function(id){
+      var d=D[id];if(!d)return;
+      activeLesson=id;
+      // highlight sidebar
+      var items=sideList.querySelectorAll('.l-side-item');
+      for(var i=0;i<items.length;i++){
+        items[i].className=items[i].getAttribute('data-id')===id?'l-side-item on':'l-side-item';
+      }
+      // render content
+      var idx=ALL_IDS.indexOf(id);
+      var prev=idx>0?ALL_IDS[idx-1]:null;
+      var next=idx<ALL_IDS.length-1?ALL_IDS[idx+1]:null;
+      var h='<div class="l-content-header"><h2>'+d.title+'</h2><p>'+d.intro+'</p></div>';
+      h+='<div class="l-body">'+d.content+'</div>';
+      h+='<div class="l-navs">';
+      if(prev&&D[prev]){
+        h+='<div class="l-nav-btn" onclick="window._lesson(\''+prev+'\')"><div class="lbl">&larr; Previous</div><div class="ttl">'+D[prev].title+'</div></div>';
+      }else{h+='<div></div>';}
+      if(next&&D[next]){
+        h+='<div class="l-nav-btn nxt" onclick="window._lesson(\''+next+'\')"><div class="lbl">Next &rarr;</div><div class="ttl">'+D[next].title+'</div></div>';
+      }
+      h+='</div>';
+      mainInner.innerHTML=h;
+      mainInner.scrollTop=0;
+      window.scrollTo({top:0,behavior:'smooth'});
+      location.hash=id;
+    };
+
+    window._tryCode=function(btn){
+      var codeEl=btn.closest('.l-ex').querySelector('code');
+      if(!codeEl)return;
+      try{localStorage.setItem('deoit_try_code',JSON.stringify({html:codeEl.textContent,css:'',js:''}));}catch(e){}
+      window.open('pages/editor','_blank');
+    };
+
+    // hash or first lesson
+    var hash=location.hash.slice(1);
+    if(hash&&D[hash]){window._lesson(hash);}
+    else{window._lesson(sec.items[0].id);}
+    window.addEventListener('hashchange',function(){
+      var h=location.hash.slice(1);
+      if(h&&D[h])window._lesson(h);
+    });
+    return;
+  }
+}
+
+// ═══ TAB MODE (index / multi-section pages) ═══
 var tabsEl=document.getElementById('lTabs');
 var lessonsWrap=document.getElementById('lLessonsWrap');
 var lessonsTitle=document.getElementById('lLessonsTitle');
@@ -440,8 +503,6 @@ var hash=location.hash.slice(1);
 if(hash&&D[hash]){
   var s=FILTER.find(function(s){return s.items.some(function(it){return it.id===hash})});
   if(s){activeSection=FILTER.indexOf(s);renderTabs();renderLesson(hash);}
-}else if(FILTER.length===1){
-  renderLessons(0);
 }else{
   renderLessons(0);
 }
