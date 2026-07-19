@@ -1,12 +1,7 @@
 (function(){
 var SECTIONS=[
-{t:'Getting Started',c:'var(--accent)',page:'getting-started',items:[
-  {id:'intro',l:'Introduction',d:'Start your web development journey'},
-  {id:'html-intro',l:'What is HTML',d:'The building blocks of the web'},
-  {id:'css-intro',l:'What is CSS',d:'Styling and layout'},
-  {id:'js-intro',l:'What is JavaScript',d:'The language of the web'}
-]},
 {t:'HTML',c:'var(--accent-html)',page:'html',items:[
+  {id:'html-intro',l:'What is HTML',d:'The building blocks of the web'},
   {id:'html-edit',l:'HTML Editors',d:'Tools for writing HTML'},
   {id:'html-basics',l:'HTML Basics',d:'Document structure and syntax'},
   {id:'html-elements',l:'HTML Elements',d:'Tags, content, and nesting'},
@@ -21,6 +16,7 @@ var SECTIONS=[
   {id:'html-semantics',l:'Semantic HTML',d:'Meaningful markup'}
 ]},
 {t:'CSS',c:'var(--accent-css)',page:'css',items:[
+  {id:'css-intro',l:'What is CSS',d:'Styling and layout'},
   {id:'css-intro2',l:'CSS Introduction',d:'How CSS works'},
   {id:'css-syntax',l:'CSS Syntax',d:'Selectors and declarations'},
   {id:'css-selectors',l:'CSS Selectors',d:'Targeting elements'},
@@ -33,6 +29,7 @@ var SECTIONS=[
   {id:'css-responsive',l:'Responsive Design',d:'Mobile-first approach'}
 ]},
 {t:'JavaScript',c:'var(--accent-js)',page:'js',items:[
+  {id:'js-intro',l:'What is JavaScript',d:'The language of the web'},
   {id:'js-intro2',l:'JS Introduction',d:'What JS can do'},
   {id:'js-variables',l:'Variables',d:'Storing data values'},
   {id:'js-datatypes',l:'Data Types',d:'Strings, numbers, objects'},
@@ -75,22 +72,6 @@ function makeEx(title,code){
 function escH(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
 var D={};
-
-D.intro={id:'intro',title:'Introduction',cat:'Getting Started',intro:'Welcome to Deoit Learn — your free guide to web development.',
-content:'<p>This platform teaches you web development from scratch with hands-on examples you can run in the <a href="pages/editor">Deoit editor</a>.</p>'+
-'<h3>What You Will Learn</h3><ul>'+
-'<li><strong>HTML</strong> — the structure of web pages</li>'+
-'<li><strong>CSS</strong> — styling, colors, and layout</li>'+
-'<li><strong>JavaScript</strong> — interactivity and logic</li>'+
-'<li><strong>React</strong> — modern component-based UIs</li>'+
-'<li><strong>Node.js</strong> — server-side JavaScript</li>'+
-'</ul>'+
-'<h3>How It Works</h3>'+
-'<p>Each lesson explains a concept and shows code. Click <strong>"Try it Yourself"</strong> to run it in the editor.</p>'+
-makeEx('Hello World','<!DOCTYPE html>\n<html>\n<body>\n  <h1>Hello, World!</h1>\n  <p>Welcome to Deoit Learn.</p>\n</body>\n</html>')+
-'<div class="l-tip"><strong>Tip:</strong> Follow lessons in order — HTML first, then CSS, then JavaScript.</div>'+
-'<h3>Prerequisites</h3>'+
-'<p>You need <strong>zero experience</strong>. Just a browser and a willingness to learn.</p>'};
 
 D['html-intro']={id:'html-intro',title:'What is HTML',cat:'HTML',intro:'HTML (HyperText Markup Language) is the standard language for creating web pages.',
 content:'<p>Every website is built with HTML. It describes page structure using elements and tags.</p>'+
