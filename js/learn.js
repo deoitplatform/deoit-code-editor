@@ -1,12 +1,12 @@
 (function(){
 var SECTIONS=[
-{t:'Getting Started',c:'var(--accent)',items:[
+{t:'Getting Started',c:'var(--accent)',page:'getting-started',items:[
   {id:'intro',l:'Introduction',d:'Start your web development journey'},
   {id:'html-intro',l:'What is HTML',d:'The building blocks of the web'},
   {id:'css-intro',l:'What is CSS',d:'Styling and layout'},
   {id:'js-intro',l:'What is JavaScript',d:'The language of the web'}
 ]},
-{t:'HTML',c:'var(--accent-html)',items:[
+{t:'HTML',c:'var(--accent-html)',page:'html',items:[
   {id:'html-edit',l:'HTML Editors',d:'Tools for writing HTML'},
   {id:'html-basics',l:'HTML Basics',d:'Document structure and syntax'},
   {id:'html-elements',l:'HTML Elements',d:'Tags, content, and nesting'},
@@ -20,7 +20,7 @@ var SECTIONS=[
   {id:'html-lists',l:'HTML Lists',d:'Ordered and unordered lists'},
   {id:'html-semantics',l:'Semantic HTML',d:'Meaningful markup'}
 ]},
-{t:'CSS',c:'var(--accent-css)',items:[
+{t:'CSS',c:'var(--accent-css)',page:'css',items:[
   {id:'css-intro2',l:'CSS Introduction',d:'How CSS works'},
   {id:'css-syntax',l:'CSS Syntax',d:'Selectors and declarations'},
   {id:'css-selectors',l:'CSS Selectors',d:'Targeting elements'},
@@ -32,7 +32,7 @@ var SECTIONS=[
   {id:'css-grid',l:'CSS Grid',d:'Two-dimensional layouts'},
   {id:'css-responsive',l:'Responsive Design',d:'Mobile-first approach'}
 ]},
-{t:'JavaScript',c:'var(--accent-js)',items:[
+{t:'JavaScript',c:'var(--accent-js)',page:'js',items:[
   {id:'js-intro2',l:'JS Introduction',d:'What JS can do'},
   {id:'js-variables',l:'Variables',d:'Storing data values'},
   {id:'js-datatypes',l:'Data Types',d:'Strings, numbers, objects'},
@@ -47,7 +47,7 @@ var SECTIONS=[
   {id:'js-async',l:'Async/Await',d:'Asynchronous programming'},
   {id:'js-fetch',l:'Fetch API',d:'HTTP requests'}
 ]},
-{t:'React',c:'var(--accent-react)',items:[
+{t:'React',c:'var(--accent-react)',page:'react',items:[
   {id:'react-intro',l:'React Intro',d:'Component-based UIs'},
   {id:'react-jsx',l:'JSX',d:'HTML-like syntax'},
   {id:'react-components',l:'Components',d:'Building blocks'},
@@ -55,12 +55,12 @@ var SECTIONS=[
   {id:'react-state',l:'State',d:'Managing data'},
   {id:'react-hooks',l:'Hooks',d:'React features'}
 ]},
-{t:'Node.js',c:'var(--accent-node)',items:[
+{t:'Node.js',c:'var(--accent-node)',page:'node',items:[
   {id:'node-intro',l:'Node.js Intro',d:'Server-side JavaScript'},
   {id:'node-npm',l:'npm',d:'Package management'},
   {id:'node-express',l:'Express.js',d:'Web framework'}
 ]},
-{t:'Tools',c:'var(--accent-tools)',items:[
+{t:'Tools',c:'var(--accent-tools)',page:'tools',items:[
   {id:'git-basics',l:'Git Basics',d:'Version control'},
   {id:'terminal',l:'Terminal',d:'Command line basics'}
 ]}
@@ -377,6 +377,9 @@ content:makeEx('Terminal','# Navigate\ncd folder\ncd ..\npwd\n\n# Files\nls / di
 '<div class="l-tip"><strong>Tip:</strong> Press Tab to autocomplete.</div>'};
 
 // ═══ LOGIC ═══
+var PAGE=window.LEARN_PAGE||null;
+var FILTER=PAGE?SECTIONS.filter(function(s){return s.page===PAGE}):SECTIONS;
+
 var activeSection=0;
 var activeLesson=null;
 
@@ -390,8 +393,9 @@ var contentBody=document.getElementById('lContentBody');
 var navsEl=document.getElementById('lNavs');
 
 function renderTabs(){
+  if(FILTER.length<=1){if(tabsEl)tabsEl.innerHTML='';return;}
   var h='';
-  SECTIONS.forEach(function(s,i){
+  FILTER.forEach(function(s,i){
     var on=i===activeSection?' on':'';
     h+='<div class="l-tab'+on+'" onclick="window._tab('+i+')"><span class="dot" style="background:'+s.c+'"></span>'+s.t+'</div>';
   });
@@ -403,12 +407,11 @@ function renderLessons(idx){
   activeLesson=null;
   contentEl.style.display='none';
   lessonsWrap.style.display='block';
-  var s=SECTIONS[idx];
+  var s=FILTER[idx];
   lessonsTitle.textContent=s.t;
   var h='';
   s.items.forEach(function(it,i){
-    var on=activeLesson===it.id?' on':'';
-    h+='<div class="l-lesson-item'+on+'" onclick="window._lesson(\''+it.id+'\')">';
+    h+='<div class="l-lesson-item" onclick="window._lesson(\''+it.id+'\')">';
     h+='<div class="num" style="background:'+s.c+';color:#0d0d0d">'+(i+1)+'</div>';
     h+='<div class="info"><div class="t">'+it.l+'</div><div class="d">'+it.d+'</div></div>';
     h+='<span class="arr">&rarr;</span></div>';
@@ -431,10 +434,10 @@ function renderLesson(id){
   var prev=idx>0?ALL_IDS[idx-1]:null;
   var next=idx<ALL_IDS.length-1?ALL_IDS[idx+1]:null;
   var h='';
-  if(prev){
+  if(prev&&D[prev]){
     h+='<div class="l-nav-btn" onclick="window._lesson(\''+prev+'\')"><div class="lbl">&larr; Previous</div><div class="ttl">'+D[prev].title+'</div></div>';
   }else{h+='<div></div>';}
-  if(next){
+  if(next&&D[next]){
     h+='<div class="l-nav-btn nxt" onclick="window._lesson(\''+next+'\')"><div class="lbl">Next &rarr;</div><div class="ttl">'+D[next].title+'</div></div>';
   }
   navsEl.innerHTML=h;
@@ -454,16 +457,18 @@ window._tryCode=function(btn){
 // Hash routing
 var hash=location.hash.slice(1);
 if(hash&&D[hash]){
-  var s=SECTIONS.find(function(s){return s.items.some(function(it){return it.id===hash})});
-  if(s){activeSection=SECTIONS.indexOf(s);renderTabs();renderLesson(hash);}
+  var s=FILTER.find(function(s){return s.items.some(function(it){return it.id===hash})});
+  if(s){activeSection=FILTER.indexOf(s);renderTabs();renderLesson(hash);}
+}else if(FILTER.length===1){
+  renderLessons(0);
 }else{
   renderLessons(0);
 }
 window.addEventListener('hashchange',function(){
   var h=location.hash.slice(1);
   if(h&&D[h]){
-    var s=SECTIONS.find(function(s){return s.items.some(function(it){return it.id===h})});
-    if(s){activeSection=SECTIONS.indexOf(s);renderTabs();renderLesson(h);}
+    var s=FILTER.find(function(s){return s.items.some(function(it){return it.id===h})});
+    if(s){activeSection=FILTER.indexOf(s);renderTabs();renderLesson(h);}
   }
 });
 })();
