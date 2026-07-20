@@ -11,8 +11,7 @@
   <meta name="google-site-verification" content="AJuuF0rsaIv06P5hV9rmSIwmJUU99Laf3kELRWwfoqo"> <!-- Primary Meta Tags -->
   <title>Deoit - Free Online Code Editor | Learn HTML, CSS & JavaScript</title>
   <meta name="title" content="Deoit - Free Online Code Editor | Learn HTML, CSS & JavaScript">
-  <meta name="description" content="Deoit is a free online code editor for learning and building with HTML, CSS, and JavaScript. Write, run, and preview code instantly with syntax highlighting, autocomplete, file explorer, and live console output. No downloads required. Open source.">
-  <meta name="description" content="Free online code editor for HTML, CSS & JavaScript. Write, run, and preview code instantly with syntax highlighting, autocomplete, and file explorer.">
+  <meta name="description" content="Deoit is a free online code editor for learning and building with HTML, CSS, and JavaScript. Write, run, and preview code instantly with syntax highlighting, autocomplete, file explorer, and live console output. No downloads required.">
   <meta name="keywords" content="online code editor, learn HTML, learn CSS, learn JavaScript, free code editor, web development platform, interactive coding, coding playground, code editor online, HTML editor, CSS editor, JavaScript playground, learn programming online, browser code editor, front-end development, web development tools, code learning platform, online IDE, free coding platform, syntax highlighting editor">
   <meta name="author" content="Majed Qandeel">
   <meta name="robots" content="index, follow">
@@ -319,22 +318,50 @@
         <div class="hero-buttons"> <a href="pages/editor" class="btn btn-accent btn-big">Try the Editor</a> <a href="#features" class="btn btn-outline btn-big">Learn More</a> </div>
       </section> <!-- Features -->
       <section class="features" id="features">
-        <h2 style="text-align:center;font-size:28px;font-weight:700;margin-bottom:32px;">Everything you need to start coding</h2>
+        <h2 style="text-align:center;font-size:clamp(24px,3.5vw,32px);font-weight:800;letter-spacing:-0.8px;margin-bottom:12px;">Everything you need to start coding</h2>
+        <p style="text-align:center;color:var(--text-secondary);font-size:15px;margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7;">A complete toolkit for learning and building — right in your browser.</p>
         <div class="features-grid">
           <div class="feature-card">
-            <div class="feature-icon" style="background:rgba(217,217,217,0.1);color:var(--accent);">&#128221;</div>
-            <h3>Single Editor</h3>
-            <p>Write HTML, CSS, and JavaScript in a clean single-panel editor with syntax highlighting, autocomplete, and file explorer.</p>
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3>Smart Code Editor</h3>
+            <p>Write HTML, CSS, and JavaScript with syntax highlighting, autocomplete, auto-closing tags, and intelligent suggestions across 25+ token types.</p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon" style="background:rgba(217,217,217,0.1);color:var(--accent);">&#128640;</div>
-            <h3>Fast Preview</h3>
-            <p>Run your code instantly in a popup window. No page reloads, no config - just click Run and see the result.</p>
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <h3>Instant Preview</h3>
+            <p>Run your code instantly in a live preview window. See HTML, CSS, and JavaScript results in real-time — no page reloads, no setup.</p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon" style="background:rgba(217,217,217,0.1);color:var(--accent);">&#128190;</div>
-            <h3>Auto-Save &amp; Export</h3>
-            <p>Your projects are automatically saved to your browser. Build, test, and refine without losing your work.</p>
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3>File Explorer</h3>
+            <p>Create, rename, and organize files and folders with drag-and-drop. Build multi-file projects just like a professional IDE.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <h3>81+ Free Lessons</h3>
+            <p>Structured courses covering HTML, CSS, JavaScript, React, and Node.js. Learn at your own pace with interactive code examples.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>Cloud Sync</h3>
+            <p>Sign in with Google or GitHub to save projects to the cloud. Access your code from any device, anywhere — your work is always safe.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </div>
+            <h3>Export &amp; Download</h3>
+            <p>Export projects as JSON or download as ZIP. Share your work, back it up, or continue editing in VS Code — full flexibility.</p>
           </div>
         </div>
       </section> <!-- Editor Showcase -->
@@ -461,16 +488,85 @@
           </details>
         </div>
       </section>
-      <!-- Footer -->
-      <footer class="site-footer">
-        <div class="footer-content" style="grid-template-columns:1fr;gap:0;text-align:center;">
-          <div class="footer-brand">
-            <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:12px;">               <img src="logo.png" style="width:24px;height:24px;border-radius:5px;" loading="lazy" alt="Deoit logo"> <span style="font-size:18px;font-weight:700;">Deoit</span> </div>
-            <p>&copy; 2026 Deoit &middot; Built by <strong>Majed Qandeel</strong></p>
-            <p><a href="mailto:deoit.platform@gmail.com">deoit.platform@gmail.com</a></p>
+      <section class="trust-section">
+        <h2>Built for developers, trusted by learners</h2>
+        <p>A modern code editor and learning platform designed to make web development accessible to everyone.</p>
+        <div class="trust-stats">
+          <div class="trust-stat">
+            <div class="num">81+</div>
+            <div class="lbl">Free Lessons</div>
+          </div>
+          <div class="trust-stat">
+            <div class="num">6</div>
+            <div class="lbl">Languages</div>
+          </div>
+          <div class="trust-stat">
+            <div class="num">100%</div>
+            <div class="lbl">Free Forever</div>
+          </div>
+          <div class="trust-stat">
+            <div class="num">0</div>
+            <div class="lbl">Downloads Needed</div>
           </div>
         </div>
-        <div class="footer-bottom" style="justify-content:center;gap:12px;"> <a href="terms" style="color:inherit;text-decoration:none;">Terms of Service</a> <span>&middot;</span> <a href="privacy" style="color:inherit;text-decoration:none;">Privacy Policy</a> <span>&middot;</span> <span style="color:var(--text-muted);font-size:12px;">Powered by <a href="https://deoit.vercel.app" style="color:var(--accent);text-decoration:none;font-weight:600;">Deoit</a></span> </div>
+        <div class="trust-badges">
+          <span class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            No account required
+          </span>
+          <span class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            Works in any browser
+          </span>
+          <span class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Zero configuration
+          </span>
+          <span class="trust-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Instant code preview
+          </span>
+        </div>
+      </section>
+      <section class="cta-section">
+        <h2>Start coding in seconds</h2>
+        <p>No downloads. No installation. No sign-up required. Just open the editor and start building.</p>
+        <div class="cta-buttons">
+          <a href="pages/editor" class="btn btn-accent btn-big">Open the Editor</a>
+          <a href="learn" class="btn btn-outline btn-big">Browse Courses</a>
+        </div>
+      </section>
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+              <img src="logo.png" style="width:28px;height:28px;border-radius:6px;" loading="lazy" alt="Deoit logo">
+              <span style="font-size:18px;font-weight:700;">Deoit</span>
+            </div>
+            <p>A free online code editor and learning platform for HTML, CSS, and JavaScript. Built to make web development accessible to everyone.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Product</h4>
+            <a href="pages/editor">Code Editor</a>
+            <a href="learn">Courses</a>
+            <a href="learn-html.html">Learn HTML</a>
+            <a href="learn-css.html">Learn CSS</a>
+            <a href="learn-js.html">Learn JavaScript</a>
+          </div>
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <a href="learn-react.html">Learn React</a>
+            <a href="learn-node.html">Learn Node.js</a>
+            <a href="learn-tools.html">Developer Tools</a>
+            <a href="terms">Terms of Service</a>
+            <a href="privacy">Privacy Policy</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; 2026 Deoit &middot; Built by <strong>Majed Qandeel</strong></span>
+          <span><a href="mailto:deoit.platform@gmail.com" style="color:var(--text-secondary);">deoit.platform@gmail.com</a></span>
+        </div>
       </footer>
     </div>
   </div>

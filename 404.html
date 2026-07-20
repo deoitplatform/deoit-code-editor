@@ -22,12 +22,11 @@
   <link rel="canonical" href="https://deoit.vercel.app/404">
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       background: #0d0d0d;
@@ -39,58 +38,92 @@
       min-height: 100vh;
       text-align: center;
       padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: ''; position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(97,175,239,0.04) 0%, rgba(224,108,117,0.03) 40%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .fof { position: relative; z-index: 1; }
+
+    .fof .logo {
+      width: 48px; height: 48px; border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 30px rgba(217,217,217,0.06);
     }
 
     .fof h1 {
-      font-size: 80px;
-      font-weight: 800;
-      letter-spacing: -3px;
-      line-height: 1;
-      margin-bottom: 8px;
+      font-size: 88px; font-weight: 800; letter-spacing: -4px;
+      line-height: 1; margin-bottom: 12px;
     }
 
-    .fof h1 span {
-      color: #8a8a8a;
-    }
+    .fof h1 span { color: #484848; }
 
     .fof p {
-      color: #8a8a8a;
-      font-size: 16px;
-      margin-bottom: 28px;
-      max-width: 360px;
+      color: #6a6a6a; font-size: 16px; margin-bottom: 32px;
+      max-width: 380px; line-height: 1.6;
     }
 
-    .fof a {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 28px;
-      background: #d9d9d9;
-      color: #111;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: opacity 0.2s;
+    .fof .links {
+      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
     }
 
-    .fof a:hover {
-      opacity: 0.8;
+    .fof .links a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px; border-radius: 10px;
+      font-size: 14px; font-weight: 600; text-decoration: none;
+      transition: all 0.25s;
     }
 
-    .fof .logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      margin-bottom: 16px;
+    .fof .links .primary {
+      background: #e8e8e8; color: #111;
     }
+
+    .fof .links .primary:hover {
+      background: #fff; transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(255,255,255,0.08);
+    }
+
+    .fof .links .ghost {
+      background: transparent; color: #6a6a6a;
+      border: 1px solid #252525;
+    }
+
+    .fof .links .ghost:hover {
+      color: #d9d9d9; border-color: #444;
+    }
+
+    .fof .code-hint {
+      margin-top: 40px; padding: 14px 20px;
+      background: #111; border: 1px solid #1a1a1a; border-radius: 10px;
+      font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+      font-size: 13px; color: #484848; display: inline-block;
+    }
+
+    .fof .code-hint span { color: #6a6a6a; }
   </style>
 </head>
 
 <body>
   <div class="fof"> <img src="logo.png" alt="Deoit" class="logo">
     <h1>4<span>0</span>4</h1>
-    <p>This page doesn't exist. It may have been moved or the link is broken.</p> <a href="/">&larr; Back to Home</a>
+    <p>This page doesn't exist or has been moved. Let's get you back on track.</p>
+    <div class="links">
+      <a href="/" class="primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Back to Home
+      </a>
+      <a href="pages/editor" class="ghost">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        Open Editor
+      </a>
+    </div>
+    <div class="code-hint"><span>//</span> return <span>to</span> safety;</div>
   </div>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="50aac514-55b3-446d-a8f5-d9540ebd7792"></script>
   </body>

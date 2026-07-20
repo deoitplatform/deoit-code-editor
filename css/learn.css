@@ -1,14 +1,15 @@
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
   --bg-dark:#0d0d0d;--bg-card:#111111;--bg-code:#161616;--bg-elevated:#1a1a1a;
-  --text-primary:#e0e0e0;--text-secondary:#888;--text-muted:#484848;
-  --accent:#d9d9d9;--accent-hover:#b0b0b0;
+  --text-primary:#e8e8e8;--text-secondary:#888;--text-muted:#484848;
+  --accent:#e8e8e8;--accent-hover:#b0b0b0;
   --accent-html:#e06c75;--accent-css:#61afef;--accent-js:#e5c07b;--accent-react:#61dafb;--accent-node:#98c379;--accent-tools:#c678dd;
   --border:rgba(255,255,255,.08);--border-strong:rgba(255,255,255,.14);
   --font-sans:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
   --font-mono:'JetBrains Mono','Cascadia Code','Fira Code',Consolas,monospace;
   --radius:14px;--radius-sm:10px;--radius-xs:6px;
   --sidebar-w:280px;
+  --shadow:0 8px 32px rgba(0,0,0,.3);--shadow-lg:0 20px 60px rgba(0,0,0,.4);
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--font-sans);background:var(--bg-dark);color:var(--text-primary);overflow-x:hidden;line-height:1.6}
@@ -40,7 +41,7 @@ a{color:inherit;text-decoration:none}
 
 /* ═══ HERO (index page) ═══ */
 .l-hero{
-  text-align:center;padding:130px 24px 56px;max-width:720px;margin:0 auto;position:relative;
+  text-align:center;padding:120px 24px 48px;max-width:720px;margin:0 auto;position:relative;
 }
 .l-hero::before{
   content:'';position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);
@@ -52,15 +53,20 @@ a{color:inherit;text-decoration:none}
   line-height:1.05;background:linear-gradient(180deg,#fff 30%,#888 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
-.l-hero p{font-size:16px;color:var(--text-secondary);max-width:500px;margin:0 auto;line-height:1.75}
+.l-hero p{font-size:16px;color:var(--text-secondary);max-width:520px;margin:0 auto;line-height:1.75}
 
 /* ═══ INDEX CARDS ═══ */
 .l-courses{max-width:900px;margin:0 auto;padding:0 24px 60px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
 .l-card{
   padding:28px 24px;border-radius:var(--radius);background:rgba(255,255,255,.02);
-  border:1px solid var(--border);cursor:pointer;transition:all .25s;text-decoration:none;display:block;
+  border:1px solid var(--border);cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);text-decoration:none;display:block;
+  position:relative;overflow:hidden;
 }
-.l-card:hover{border-color:var(--border-strong);background:rgba(255,255,255,.04);transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,.3)}
+.l-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);
+}
+.l-card:hover{border-color:var(--border-strong);background:rgba(255,255,255,.04);transform:translateY(-4px);box-shadow:var(--shadow)}
 .l-card-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
 .l-card h3{font-size:17px;font-weight:700;margin-bottom:6px;color:var(--text-primary)}
 .l-card p{font-size:13px;color:var(--text-secondary);line-height:1.6}
@@ -194,7 +200,7 @@ a{color:inherit;text-decoration:none}
 /* ═══ FOOTER (index page) ═══ */
 .l-footer{
   text-align:center;padding:40px 24px;border-top:1px solid var(--border);margin-top:40px;
-  font-size:13px;color:var(--text-muted);
+  font-size:13px;color:var(--text-muted);line-height:1.7;
 }
 .l-footer a{color:var(--text-secondary);transition:color .2s}
 .l-footer a:hover{color:var(--text-primary)}
