@@ -1267,6 +1267,7 @@ function setupDelegation() {
     else if (a === 'export') { if (requireAuth()) exportProject(); }
     else if (a === 'import') { if (requireAuth()) document.getElementById('importInput')?.click(); }
     else if (a === 'download-zip') { if (requireAuth()) downloadZip(); }
+    else if (a === 'share') shareProject();
     else if (a === 'logout') { signOut().then(() => window.location.href = '../login'); }
   });
 
@@ -1823,6 +1824,28 @@ function exportProject() {
   document.body.appendChild(a); a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
+}
+
+function shareProject() {
+  saveCurrent();
+  var url = window.location.origin + window.location.pathname;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(function() { showShareToast(); }, function() { fallbackCopy(url); });
+  } else { fallbackCopy(url); }
+}
+function fallbackCopy(url) {
+  var ta = document.createElement('textarea');
+  ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); showShareToast(); } catch(e) { prompt('Copy this link:', url); }
+  document.body.removeChild(ta);
+}
+function showShareToast() {
+  var t = document.createElement('div');
+  t.textContent = 'Link copied to clipboard!';
+  t.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:600;z-index:9999;border:1px solid #333;box-shadow:0 4px 20px rgba(0,0,0,0.4);animation:fadeIn .2s ease';
+  document.body.appendChild(t);
+  setTimeout(function() { t.style.opacity = '0'; t.style.transition = 'opacity .3s'; setTimeout(function() { t.remove(); }, 300); }, 2000);
 }
 
 function isValidNode(n) {
