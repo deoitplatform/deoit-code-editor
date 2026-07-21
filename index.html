@@ -8,7 +8,7 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="theme-color" content="#d9d9d9">
   <meta name="color-scheme" content="dark">
-  <meta name="google-site-verification" content="AJuuF0rsaIv06P5hV9rmSIwmJUU99Laf3kELRWwfoqo"> <!-- Primary Meta Tags -->
+  <meta name="google-site-verification" content="AJuuF0rsaIv06P5hV9rmSIwmJUU99Laf3kELRWwfoqo">
   <title>Deoit - Free Online Code Editor | Learn HTML, CSS & JavaScript</title>
   <meta name="title" content="Deoit - Free Online Code Editor | Learn HTML, CSS & JavaScript">
   <meta name="description" content="Deoit is a free online code editor for learning and building with HTML, CSS, and JavaScript. Write, run, and preview code instantly with syntax highlighting, autocomplete, file explorer, and live console output. No downloads required.">
@@ -16,7 +16,7 @@
   <meta name="author" content="Majed Qandeel">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
-  <meta name="revisit-after" content="7 days"> <!-- Open Graph / Facebook -->
+  <meta name="revisit-after" content="7 days">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://deoit.vercel.app/">
   <meta property="og:site_name" content="Deoit">
@@ -25,26 +25,26 @@
   <meta property="og:image" content="https://deoit.vercel.app/logo.png">
   <meta property="og:image:width" content="512">
   <meta property="og:image:height" content="512">
-  <meta property="og:locale" content="en_US"> <!-- Twitter -->
+  <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Deoit - Free Online Code Editor | Learn HTML, CSS & JavaScript">
   <meta name="twitter:description" content="Learn, write, and run HTML, CSS, and JavaScript online. No setup, no downloads - just pure coding.">
-  <meta name="twitter:image" content="https://deoit.vercel.app/logo.png"> <!-- hreflang -->
+  <meta name="twitter:image" content="https://deoit.vercel.app/logo.png">
   <link rel="alternate" href="https://deoit.vercel.app/" hreflang="en" />
-  <link rel="alternate" href="https://deoit.vercel.app/" hreflang="x-default" /> <!-- Canonical -->
-  <link rel="canonical" href="https://deoit.vercel.app/"> <!-- Icons & PWA -->
+  <link rel="alternate" href="https://deoit.vercel.app/" hreflang="x-default" />
+  <link rel="canonical" href="https://deoit.vercel.app/">
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-  <link rel="manifest" href="manifest.json"> <!-- Preload critical resources -->
+  <link rel="manifest" href="manifest.json">
   <link rel="preload" href="logo.png" as="image" fetchpriority="high">
   <link rel="preload" href="css/style.css" as="style">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
-  <link rel="preload" href="js/auth.js" as="script" fetchpriority="low"> <!-- Preconnect -->
+  <link rel="preload" href="js/auth.js" as="script" fetchpriority="low">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net"> <!-- Styles -->
-  <link rel="stylesheet" href="css/style.css"> <!-- Schema.org JSON-LD -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="css/style.css">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -260,316 +260,370 @@
       top.location.href = self.location.href
     }
   </script>
-  <div class="app-layout"> <!-- Sidebar Overlay -->
-    <div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div> <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
-      <div class="sidebar-logo"> <img src="logo.png" alt="Deoit"> <span><span class="logo-accent">Deoit</span></span> </div>
-      <nav class="sidebar-links"> <a href="/" class="sidebar-link"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-          </svg> Home </a> <a href="pages/editor" class="sidebar-link"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-          </svg> Editor </a> <a href="learn" class="sidebar-link"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-          </svg> Learn </a>
-        <div class="sidebar-divider"></div> <a href="mailto:deoit.platform@gmail.com" class="sidebar-link"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-          </svg> Contact </a>
-      </nav>
-      <div class="sidebar-cta">
-        <p>Learn, practice, and build real projects - all from your browser.</p> <a href="pages/editor" class="btn btn-accent" style="width:100%;justify-content:center;">Start Coding</a>
+
+  <nav class="topnav">
+    <div class="topnav-inner">
+      <a href="/" class="topnav-logo">
+        <img src="logo.png" alt="Deoit" width="32" height="32">
+        <span>Deoit</span>
+      </a>
+      <div class="topnav-links" id="navLinks">
+        <a href="#features">Features</a>
+        <a href="#courses">Courses</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#faq">FAQ</a>
       </div>
-    </aside> <!-- Main -->
-    <div class="main-content"> <!-- Header Bar -->
-      <header class="header-bar"> <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu"> <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-          </svg> </button>
-        <div class="header-actions" id="headerActions"> <a href="pages/editor" class="btn btn-ghost" id="getStartedBtn">Get Started</a> <a href="login" class="btn btn-accent" id="loginBtn">Sign In</a>
-          <div id="userMenu" style="display:none;align-items:center;gap:8px;"> <span id="userName" style="font-size:13px;color:var(--text-secondary);"></span> <button id="logoutBtn" class="btn btn-ghost" style="padding:4px 10px;font-size:12px;">Sign Out</button> </div>
+      <div class="topnav-actions">
+        <a href="pages/editor" class="btn btn-ghost" id="getStartedBtn">Get Started</a>
+        <a href="login" class="btn btn-accent" id="loginBtn">Sign In</a>
+        <div id="userMenu" style="display:none;align-items:center;gap:8px;">
+          <span id="userName" style="font-size:13px;color:var(--text-secondary);"></span>
+          <button id="logoutBtn" class="btn btn-ghost" style="padding:4px 10px;font-size:12px;">Sign Out</button>
         </div>
-      </header> <!-- Hero -->
-      <section class="hero"> <!-- Floating Glass Shapes -->
-        <div class="float-shape shape-circle" style="top:8%;left:5%;width:70px;height:70px;animation-delay:0s;background:rgba(97,175,239,0.06);border-color:rgba(97,175,239,0.12);"></div>
-        <div class="float-shape shape-square" style="top:15%;right:8%;width:55px;height:55px;animation-delay:1.5s;animation-duration:14s;background:rgba(229,192,123,0.06);border-color:rgba(229,192,123,0.12);"></div>
-        <div class="float-shape shape-triangle" style="top:45%;left:3%;width:60px;height:60px;animation-delay:3s;animation-duration:16s;background:rgba(198,120,221,0.06);border-color:rgba(198,120,221,0.12);"></div>
-        <div class="float-shape shape-circle" style="top:55%;right:5%;width:45px;height:45px;animation-delay:2s;animation-duration:13s;background:rgba(224,108,117,0.06);border-color:rgba(224,108,117,0.12);"></div>
-        <div class="float-shape shape-square" style="top:75%;left:12%;width:50px;height:50px;animation-delay:4s;animation-duration:18s;background:rgba(152,195,121,0.06);border-color:rgba(152,195,121,0.12);"></div>
-        <div class="float-shape shape-triangle" style="top:30%;right:2%;width:40px;height:40px;animation-delay:1s;animation-duration:15s;background:rgba(217,217,217,0.06);border-color:rgba(217,217,217,0.12);"></div>
-        <div class="hero-logo"> <img src="logo.png" alt="Deoit" width="64" height="64" style="border-radius:12px;"> </div>
-        <h1><span class="typing-static">Learn, write, and bring your ideas to life</span><br><span class="typing-dynamic"></span><span class="typing-cursor">|</span></h1>
-        <p>Deoit is your playground for learning web development. <strong>Master HTML, CSS, and JavaScript</strong> with interactive lessons, then experiment freely in the built-in editor - no downloads, no setup, just pure coding.</p> <!-- Code Demo -->
-        <div class="code-demo">
-          <div class="code-demo-tabs">
-            <div class="code-demo-tab active" data-lang="html"> <svg viewBox="0 0 16 16" fill="currentColor">
-                <path d="M15 6.675l-1.8-.6c-.2-.1-.3-.3-.2-.4l.9-1.7c.6-1.2-.7-2.5-1.9-1.9l-1.7.9c-.1.1-.3 0-.4-.2l-.6-1.8c-.4-1.3-2.2-1.3-2.6 0l-.6 1.8c-.1.2-.3.3-.4.2l-1.7-.9c-1.2-.6-2.5.7-1.9 1.9l.9 1.7c.1.1 0 .3-.2.4l-1.8.6c-1.3.4-1.3 2.3 0 2.7l1.8.6c.2 0 .3.2.2.3l-.9 1.7c-.6 1.2.7 2.5 1.9 1.9l1.7-.9c.2-.1.4 0 .4.2l.6 1.8c.4 1.3 2.3 1.3 2.7 0l.6-1.8c.1-.2.3-.3.4-.2l1.7.9c1.2.6 2.5-.7 1.9-1.9l-1-1.7c-.1-.2 0-.4.2-.4l1.8-.6c1.3-.4 1.3-2.2 0-2.6zm-7 3.7c-1.3 0-2.4-1.1-2.4-2.4 0-1.3 1.1-2.4 2.4-2.4 1.3 0 2.4 1.1 2.4 2.4 0 1.3-1.1 2.4-2.4 2.4z" />
-              </svg> HTML </div>
-            <div class="code-demo-tab" data-lang="css"> <svg viewBox="0 0 16 16" fill="currentColor">
-                <path d="M15 6.675l-1.8-.6c-.2-.1-.3-.3-.2-.4l.9-1.7c.6-1.2-.7-2.5-1.9-1.9l-1.7.9c-.1.1-.3 0-.4-.2l-.6-1.8c-.4-1.3-2.2-1.3-2.6 0l-.6 1.8c-.1.2-.3.3-.4.2l-1.7-.9c-1.2-.6-2.5.7-1.9 1.9l.9 1.7c.1.1 0 .3-.2.4l-1.8.6c-1.3.4-1.3 2.3 0 2.7l1.8.6c.2 0 .3.2.2.3l-.9 1.7c-.6 1.2.7 2.5 1.9 1.9l1.7-.9c.2-.1.4 0 .4.2l.6 1.8c.4 1.3 2.3 1.3 2.7 0l.6-1.8c.1-.2.3-.3.4-.2l1.7.9c1.2.6 2.5-.7 1.9-1.9l-1-1.7c-.1-.2 0-.4.2-.4l1.8-.6c1.3-.4 1.3-2.2 0-2.6zm-7 3.7c-1.3 0-2.4-1.1-2.4-2.4 0-1.3 1.1-2.4 2.4-2.4 1.3 0 2.4 1.1 2.4 2.4 0 1.3-1.1 2.4-2.4 2.4z" />
-              </svg> CSS </div>
-            <div class="code-demo-tab" data-lang="js"> <svg viewBox="0 0 16 16" fill="currentColor">
-                <path d="M15 6.675l-1.8-.6c-.2-.1-.3-.3-.2-.4l.9-1.7c.6-1.2-.7-2.5-1.9-1.9l-1.7.9c-.1.1-.3 0-.4-.2l-.6-1.8c-.4-1.3-2.2-1.3-2.6 0l-.6 1.8c-.1.2-.3.3-.4.2l-1.7-.9c-1.2-.6-2.5.7-1.9 1.9l.9 1.7c.1.1 0 .3-.2.4l-1.8.6c-1.3.4-1.3 2.3 0 2.7l1.8.6c.2 0 .3.2.2.3l-.9 1.7c-.6 1.2.7 2.5 1.9 1.9l1.7-.9c.2-.1.4 0 .4.2l.6 1.8c.4 1.3 2.3 1.3 2.7 0l.6-1.8c.1-.2.3-.3.4-.2l1.7.9c1.2.6 2.5-.7 1.9-1.9l-1-1.7c-.1-.2 0-.4.2-.4l1.8-.6c1.3-.4 1.3-2.2 0-2.6zm-7 3.7c-1.3 0-2.4-1.1-2.4-2.4 0-1.3 1.1-2.4 2.4-2.4 1.3 0 2.4 1.1 2.4 2.4 0 1.3-1.1 2.4-2.4 2.4z" />
-              </svg> JavaScript </div>
-          </div> <!-- HTML content -->
-          <div class="code-demo-content" data-lang="html" style="display:block"> <span class="hl-tag">&lt;div</span> <span class="hl-attr">class</span>=<span class="hl-string">"card"</span><span class="hl-tag">&gt;</span><br> &nbsp;&nbsp;<span class="hl-tag">&lt;h1&gt;</span>Hello, World!<span class="hl-tag">&lt;/h1&gt;</span><br> &nbsp;&nbsp;<span class="hl-tag">&lt;p&gt;</span>This is a demo<span class="hl-tag">&lt;/p&gt;</span><br> <span class="hl-tag">&lt;/div&gt;</span> </div> <!-- CSS content -->
-          <div class="code-demo-content" data-lang="css" style="display:none"> <span class="hl-selector">.card</span> {<br> &nbsp;&nbsp; <span class="hl-prop">background</span>: <span class="hl-value">linear-gradient(135deg, #444, #222)</span>;<br> &nbsp;&nbsp;<span class="hl-prop">padding</span>: <span class="hl-number">2rem</span>;<br> &nbsp;&nbsp;<span class="hl-prop">border-radius</span>: <span class="hl-number">12px</span>;<br> &nbsp;&nbsp;<span class="hl-prop">color</span>: <span class="hl-value">white</span>;<br> } </div> <!-- JS content -->
-          <div class="code-demo-content" data-lang="js" style="display:none"> <span class="hl-keyword">const</span> <span class="hl-function">greet</span> = <span class="hl-keyword">function</span>() {<br> &nbsp;&nbsp;<span class="hl-keyword">const</span> name = <span class="hl-string">"Developer"</span>;<br> &nbsp;&nbsp;<span class="hl-keyword">return</span> <span class="hl-string">`Hello, <span class="hl-value">${name}</span>!`</span>;<br> };<br> <br> console.<span class="hl-function">log</span>(<span class="hl-function">greet</span>()); </div>
-        </div>
-        <div class="hero-buttons"> <a href="pages/editor" class="btn btn-accent btn-big">Try the Editor</a> <a href="#features" class="btn btn-outline btn-big">Learn More</a> </div>
-      </section> <!-- Features -->
-      <section class="features" id="features">
-        <h2 style="text-align:center;font-size:clamp(24px,3.5vw,32px);font-weight:800;letter-spacing:-0.8px;margin-bottom:12px;">Everything you need to start coding</h2>
-        <p style="text-align:center;color:var(--text-secondary);font-size:15px;margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7;">A complete toolkit for learning and building — right in your browser.</p>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            </div>
-            <h3>Smart Code Editor</h3>
-            <p>Write HTML, CSS, and JavaScript with syntax highlighting, autocomplete, auto-closing tags, and intelligent suggestions across 25+ token types.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-            <h3>Instant Preview</h3>
-            <p>Run your code instantly in a live preview window. See HTML, CSS, and JavaScript results in real-time — no page reloads, no setup.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-            </div>
-            <h3>File Explorer</h3>
-            <p>Create, rename, and organize files and folders with drag-and-drop. Build multi-file projects just like a professional IDE.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-            </div>
-            <h3>81+ Free Lessons</h3>
-            <p>Structured courses covering HTML, CSS, JavaScript, React, and Node.js. Learn at your own pace with interactive code examples.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            </div>
-            <h3>Cloud Sync</h3>
-            <p>Sign in with Google or GitHub to save projects to the cloud. Access your code from any device, anywhere — your work is always safe.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            </div>
-            <h3>Export &amp; Download</h3>
-            <p>Export projects as JSON or download as ZIP. Share your work, back it up, or continue editing in VS Code — full flexibility.</p>
-          </div>
-        </div>
-      </section> <!-- Editor Showcase -->
-      <section class="editor-showcase">
-        <div class="editor-showcase-wrapper">
-          <div>
-            <h2>A lightweight editor for quick front-end experiments</h2>
-            <p>Deoit gives you a distraction-free coding environment with syntax highlighting, smart autocomplete, and a file explorer - all in your browser.</p>
-            <ul class="editor-showcase-list">
-              <li>
-                <div>
-                  <summary>Syntax Highlighting</summary>
-                  <p>Full-color syntax highlighting for HTML, CSS, and JavaScript with support for 25+ token types and bracket pair guides.</p>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <summary>Smart Autocomplete</summary>
-                  <p>Context-aware suggestions for HTML tags &amp; attributes, CSS properties, and JavaScript keywords &amp; snippets.</p>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <summary>File Explorer</summary>
-                  <p>Create, rename, and delete files and folders directly in the editor. Perfect for multi-file projects like landing pages.</p>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <summary>Fast Run Preview</summary>
-                  <p>Run your HTML/CSS/JS combo instantly in a popup window. Supports multiple HTML files with a smart file picker.</p>
-                </div>
-              </li>
-            </ul> <a href="pages/editor" class="btn btn-accent" style="margin-top:16px;">Explore the Editor</a>
-          </div>
-          <div style="background:var(--bg-card);border-radius:12px;border:1px solid var(--border);padding:40px;text-align:center;min-height:300px;display:flex;align-items:center;justify-content:center;">
-            <div>
-              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:24px;">
-                <div style="background:var(--bg-code);padding:12px;border-radius:6px;font-size:12px;font-family:var(--font-mono);color:#d9d9d9;">&lt;div&gt;</div>
-                <div style="background:var(--bg-code);padding:12px;border-radius:6px;font-size:12px;font-family:var(--font-mono);color:#a0a0a0;">.card {}</div>
-                <div style="background:var(--bg-code);padding:12px;border-radius:6px;font-size:12px;font-family:var(--font-mono);color:#b0b0b0;">console.log</div>
-              </div>
-              <p style="color:var(--text-secondary);font-size:14px;">Visual preview of your code in real-time</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section style="padding:72px 32px;max-width:1100px;margin:0 auto;">
-        <h2 style="text-align:center;font-size:28px;font-weight:700;margin-bottom:12px;">How to Use Deoit - Step by Step</h2>
-        <p style="text-align:center;color:var(--text-secondary);font-size:15px;margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto;">Follow these simple steps to start learning web development with our free online code editor.</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:24px;">
-          <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:28px;text-align:center;">
-            <div style="width:48px;height:48px;background:rgba(217,217,217,0.06);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:20px;font-weight:700;color:var(--accent);">1</div>
-            <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Open the Editor</h3>
-            <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Visit <a href="pages/editor" style="color:var(--accent);">deoit.vercel.app</a> and open the free online code editor. No downloads, no installation.</p>
-          </div>
-          <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:28px;text-align:center;">
-            <div style="width:48px;height:48px;background:rgba(217,217,217,0.06);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:20px;font-weight:700;color:var(--accent);">2</div>
-            <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Write Your Code</h3>
-            <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Use the <a href="pages/editor" style="color:var(--accent);">built-in editor</a> to write HTML, CSS, and JavaScript with syntax highlighting and autocomplete.</p>
-          </div>
-          <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:28px;text-align:center;">
-            <div style="width:48px;height:48px;background:rgba(217,217,217,0.06);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:20px;font-weight:700;color:var(--accent);">3</div>
-            <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Run and Preview</h3>
-            <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Click <strong>Run</strong> to see your code in action. Preview HTML, CSS, and JavaScript results instantly in your browser.</p>
-          </div>
-          <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;padding:28px;text-align:center;">
-            <div style="width:48px;height:48px;background:rgba(217,217,217,0.06);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:20px;font-weight:700;color:var(--accent);">4</div>
-            <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Save and Export</h3>
-            <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Sign in to save projects, <a href="pages/editor" style="color:var(--accent);">export as JSON</a>, or download as ZIP. Your work is always safe.</p>
-          </div>
-        </div>
-      </section>
-      <section style="padding:60px 32px;background:var(--bg-card);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);">
-        <div style="max-width:1100px;margin:0 auto;">
-          <h2 style="text-align:center;font-size:28px;font-weight:700;margin-bottom:32px;">Why Developers Choose Deoit</h2>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;">
-            <div>
-              <h3 style="font-size:18px;font-weight:700;margin-bottom:12px;">Free Online Code Editor</h3>
-              <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">Deoit is a powerful, free online code editor that runs entirely in your browser. Write HTML, CSS, and JavaScript with syntax highlighting, smart autocomplete, and a built-in file explorer. No downloads, no installation, no sign-up required to start coding.</p>
-              <h3 style="font-size:18px;font-weight:700;margin-bottom:12px;">Learn Web Development</h3>
-              <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">Whether you are a complete beginner or an experienced developer, Deoit provides the tools you need to learn and practice web development. Write your first HTML page, style it with CSS, and add interactivity with JavaScript - all in one place.</p>
-              <h3 style="font-size:18px;font-weight:700;margin-bottom:12px;">Instant Code Preview</h3>
-              <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">See your code come to life with instant preview. Run HTML, CSS, and JavaScript in real-time with the built-in console and live output. Perfect for rapid prototyping and learning.</p>
-            </div>
-            <div>
-              <h3 style="font-size:18px;font-weight:700;margin-bottom:12px;">Professional Features</h3>
-              <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">Despite being free and browser-based, Deoit packs professional features: syntax highlighting for 25+ token types, context-aware autocomplete, drag-and-drop file management, 7 themes, customizable font size and tab settings, and project export/import.</p>
-              <h3 style="font-size:18px;font-weight:700;margin-bottom:12px;">Works on Any Device</h3>
-              <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">Deoit is fully responsive and works on desktops, tablets, and mobile phones. Write and run code from anywhere - at home, in class, or on the go. The editor adapts to any screen size.</p>
-              <h3 style="font-size:18px;font-weight:700;margin-bottom:12px;">Free Forever</h3>
-              <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">Deoit is completely free with no hidden fees, no premium plans, and no ads. The code is transparent and community-driven.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section style="padding:72px 32px;max-width:900px;margin:0 auto;">
-        <h2 style="text-align:center;font-size:28px;font-weight:700;margin-bottom:12px;">Frequently Asked Questions</h2>
-        <p style="text-align:center;color:var(--text-secondary);font-size:15px;margin-bottom:36px;">Everything you need to know about using Deoit for web development.</p>
-        <div style="display:flex;flex-direction:column;gap:12px;">
-          <details style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:10px;padding:0;">
-            <summary style="padding:16px 20px;font-size:15px;font-weight:600;cursor:pointer;list-style:none;">Is Deoit really free?</summary>
-            <p style="padding:0 20px 16px;font-size:14px;color:var(--text-secondary);line-height:1.7;">Yes. Deoit is 100% free with no hidden fees, no premium plans, and no ads. You get full access to the code editor, syntax highlighting, autocomplete, file explorer, console output, and project export. The only limitation for guest users is the number of files (3 fixed files). Sign in with Google or GitHub to unlock unlimited files.</p>
-          </details>
-          <details style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:10px;padding:0;">
-            <summary style="padding:16px 20px;font-size:15px;font-weight:600;cursor:pointer;list-style:none;">Can I use Deoit to learn HTML, CSS, and JavaScript?</summary>
-            <p style="padding:0 20px 16px;font-size:14px;color:var(--text-secondary);line-height:1.7;">Absolutely. Deoit is designed as a learning platform for web development. It includes interactive lessons for HTML, CSS, and JavaScript, plus a built-in code editor where you can practice writing code with syntax highlighting and instant preview.</p>
-          </details>
-          <details style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:10px;padding:0;">
-            <summary style="padding:16px 20px;font-size:15px;font-weight:600;cursor:pointer;list-style:none;">Do I need to install anything to use Deoit?</summary>
-            <p style="padding:0 20px 16px;font-size:14px;color:var(--text-secondary);line-height:1.7;">No. Deoit runs entirely in your browser. There is nothing to install, download, or configure. Just open the website and start coding immediately.</p>
-          </details>
-          <details style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:10px;padding:0;">
-            <summary style="padding:16px 20px;font-size:15px;font-weight:600;cursor:pointer;list-style:none;">Can I use Deoit on my phone?</summary>
-            <p style="padding:0 20px 16px;font-size:14px;color:var(--text-secondary);line-height:1.7;">Yes. Deoit is fully responsive and works on mobile devices, tablets, and desktops. The editor, file explorer, and console all adapt to your screen size with touch-friendly controls.</p>
-          </details>
-          <details style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:10px;padding:0;">
-            <summary style="padding:16px 20px;font-size:15px;font-weight:600;cursor:pointer;list-style:none;">What makes Deoit different from other online code editors?</summary>
-            <p style="padding:0 20px 16px;font-size:14px;color:var(--text-secondary);line-height:1.7;">Deoit is lightweight, fast, and built with vanilla JavaScript (no frameworks). It offers syntax highlighting, smart autocomplete, drag-and-drop files, 7 themes, instant preview, console output, and project export - all without any build tools or dependencies.</p>
-          </details>
-          <details style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:10px;padding:0;">
-            <summary style="padding:16px 20px;font-size:15px;font-weight:600;cursor:pointer;list-style:none;">Can I export my projects from Deoit?</summary>
-            <p style="padding:0 20px 16px;font-size:14px;color:var(--text-secondary);line-height:1.7;">Yes. You can export your projects as JSON, download them as ZIP files, or copy the code manually. Sign in to access export and import features. Projects are auto-saved to your browser.</p>
-          </details>
-        </div>
-      </section>
-      <section class="trust-section">
-        <h2>Built for developers, trusted by learners</h2>
-        <p>A modern code editor and learning platform designed to make web development accessible to everyone.</p>
-        <div class="trust-stats">
-          <div class="trust-stat">
-            <div class="num">81+</div>
-            <div class="lbl">Free Lessons</div>
-          </div>
-          <div class="trust-stat">
-            <div class="num">6</div>
-            <div class="lbl">Languages</div>
-          </div>
-          <div class="trust-stat">
-            <div class="num">100%</div>
-            <div class="lbl">Free Forever</div>
-          </div>
-          <div class="trust-stat">
-            <div class="num">0</div>
-            <div class="lbl">Downloads Needed</div>
-          </div>
-        </div>
-        <div class="trust-badges">
-          <span class="trust-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            No account required
-          </span>
-          <span class="trust-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            Works in any browser
-          </span>
-          <span class="trust-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-            Zero configuration
-          </span>
-          <span class="trust-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            Instant code preview
-          </span>
-        </div>
-      </section>
-      <section class="cta-section">
-        <h2>Start coding in seconds</h2>
-        <p>No downloads. No installation. No sign-up required. Just open the editor and start building.</p>
-        <div class="cta-buttons">
-          <a href="pages/editor" class="btn btn-accent btn-big">Open the Editor</a>
-          <a href="learn" class="btn btn-outline btn-big">Browse Courses</a>
-        </div>
-      </section>
-      <!-- Footer -->
-      <footer class="site-footer">
-        <div class="footer-content">
-          <div class="footer-brand">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-              <img src="logo.png" style="width:28px;height:28px;border-radius:6px;" loading="lazy" alt="Deoit logo">
-              <span style="font-size:18px;font-weight:700;">Deoit</span>
-            </div>
-            <p>A free online code editor and learning platform for HTML, CSS, and JavaScript. Built to make web development accessible to everyone.</p>
-          </div>
-          <div class="footer-col">
-            <h4>Product</h4>
-            <a href="pages/editor">Code Editor</a>
-            <a href="learn">Courses</a>
-            <a href="learn-html.html">Learn HTML</a>
-            <a href="learn-css.html">Learn CSS</a>
-            <a href="learn-js.html">Learn JavaScript</a>
-          </div>
-          <div class="footer-col">
-            <h4>Resources</h4>
-            <a href="learn-react.html">Learn React</a>
-            <a href="learn-node.html">Learn Node.js</a>
-            <a href="learn-tools.html">Developer Tools</a>
-            <a href="terms">Terms of Service</a>
-            <a href="privacy">Privacy Policy</a>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <span>&copy; 2026 Deoit &middot; Built by <strong>Majed Qandeel</strong></span>
-          <span><a href="mailto:deoit.platform@gmail.com" style="color:var(--text-secondary);">deoit.platform@gmail.com</a></span>
-        </div>
-      </footer>
+        <button class="topnav-burger" id="menuToggle" aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <a href="#features">Features</a>
+      <a href="#courses">Courses</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#faq">FAQ</a>
+      <div class="mobile-menu-divider"></div>
+      <a href="pages/editor" class="btn btn-accent" style="width:100%;justify-content:center;">Open Editor</a>
+      <a href="learn" class="btn btn-outline" style="width:100%;justify-content:center;">Browse Courses</a>
     </div>
   </div>
+
+  <section class="hero-landing">
+    <div class="hero-glow"></div>
+    <div class="hero-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      100% Free &middot; No Sign-up Required
+    </div>
+    <h1>Learn to Code.<br><span class="hero-gradient">Build &amp; Ship.</span></h1>
+    <p class="hero-sub">The free browser-based code editor for HTML, CSS &amp; JavaScript. Write, run, and preview code instantly &mdash; with syntax highlighting, smart autocomplete, and a file explorer. No downloads. No setup.</p>
+    <div class="hero-buttons">
+      <a href="pages/editor" class="btn btn-accent btn-hero">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Try the Editor
+      </a>
+      <a href="learn" class="btn btn-outline btn-hero">
+        Browse Courses
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="hero-editor-mock">
+      <div class="mock-toolbar">
+        <div class="mock-dots">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="mock-tabs">
+          <div class="mock-tab active" data-lang="html">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1 1h14l-1.2 14L7 17 1.2 15zm5.4 4l-.3 2h.1l.1-1.1.1-1h.2l-.1 1zm2.8 0h-.2l-.2 1.6h-.1l.1-1.6h-.2l-.2 1.6h-.1l.1-1.6h-.2l.2-2h.3l.2 2zm1.8 0l.3 2h-.2l-.1-.6h-.3l-.1.6h-.2l.3-2zm-3.7 1l.1.7h.4l-.1-.7z"/></svg>
+            index.html
+          </div>
+          <div class="mock-tab" data-lang="css">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1 1h14l-1.2 14L7 17 1.2 15zm5.4 4l-.3 2h.1l.1-1.1.1-1h.2l-.1 1zm2.8 0h-.2l-.2 1.6h-.1l.1-1.6h-.2l-.2 1.6h-.1l.1-1.6h-.2l.2-2h.3l.2 2zm1.8 0l.3 2h-.2l-.1-.6h-.3l-.1.6h-.2l.3-2zm-3.7 1l.1.7h.4l-.1-.7z"/></svg>
+            style.css
+          </div>
+          <div class="mock-tab" data-lang="js">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1 1h14l-1.2 14L7 17 1.2 15zM5.5 5h1v6h-.8l-.1-4.5L4.5 7v-.2l.2-.5zm2.5 0h1.5l.5 3.2.5-3.2H11l-.8 4.8-.1.5-.1.5h-.7l.5-3z"/></svg>
+            script.js
+          </div>
+        </div>
+      </div>
+      <div class="mock-code">
+        <div class="mock-code-inner" id="mockCode">
+          <div class="code-line"><span class="ln">1</span><span class="hl-tag">&lt;!DOCTYPE html&gt;</span></div>
+          <div class="code-line"><span class="ln">2</span><span class="hl-tag">&lt;html</span> <span class="hl-attr">lang</span>=<span class="hl-string">"en"</span><span class="hl-tag">&gt;</span></div>
+          <div class="code-line"><span class="ln">3</span><span class="hl-tag">&lt;head&gt;</span></div>
+          <div class="code-line"><span class="ln">4</span>&nbsp;&nbsp;<span class="hl-tag">&lt;title&gt;</span><span class="hl-text">My Page</span><span class="hl-tag">&lt;/title&gt;</span></div>
+          <div class="code-line"><span class="ln">5</span>&nbsp;&nbsp;<span class="hl-tag">&lt;link</span> <span class="hl-attr">rel</span>=<span class="hl-string">"stylesheet"</span> <span class="hl-attr">href</span>=<span class="hl-string">"style.css"</span><span class="hl-tag">/&gt;</span></div>
+          <div class="code-line"><span class="ln">6</span><span class="hl-tag">&lt;/head&gt;</span></div>
+          <div class="code-line"><span class="ln">7</span><span class="hl-tag">&lt;body&gt;</span></div>
+          <div class="code-line"><span class="ln">8</span>&nbsp;&nbsp;<span class="hl-tag">&lt;div</span> <span class="hl-attr">class</span>=<span class="hl-string">"card"</span><span class="hl-tag">&gt;</span></div>
+          <div class="code-line"><span class="ln">9</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-tag">&lt;h1&gt;</span><span class="hl-text">Hello, World!</span><span class="hl-tag">&lt;/h1&gt;</span></div>
+          <div class="code-line"><span class="ln">10</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-tag">&lt;p&gt;</span><span class="hl-text">Welcome to Deoit</span><span class="hl-tag">&lt;/p&gt;</span></div>
+          <div class="code-line"><span class="ln">11</span>&nbsp;&nbsp;<span class="hl-tag">&lt;/div&gt;</span></div>
+          <div class="code-line"><span class="ln">12</span><span class="hl-tag">&lt;/body&gt;</span></div>
+          <div class="code-line"><span class="ln">13</span><span class="hl-tag">&lt;/html&gt;</span></div>
+          <div class="code-line mock-cursor-line"><span class="ln">14</span><span class="mock-cursor"></span></div>
+        </div>
+      </div>
+      <div class="mock-preview">
+        <div class="mock-preview-bar">
+          <span class="mock-preview-dot"></span>
+          <span>Preview</span>
+        </div>
+        <div class="mock-preview-content">
+          <div class="mock-preview-card">
+            <h2>Hello, World!</h2>
+            <p>Welcome to Deoit</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trusted-bar">
+    <div class="trusted-bar-inner">
+      <span class="trusted-label">Trusted by beginners learning to code</span>
+      <div class="trusted-icons">
+        <a href="learn-html.html" class="trusted-item"><svg viewBox="0 0 24 24" fill="var(--accent-html)"><path d="M1 1h22l-2 20-9 2.5L1 21zm6.3-5.5h10.6l.2-2H8l.1 1.5h8.2l-.4 4-4.3 1.2-4.3-1.2-.3-2.8h2l.1 1 2.5.7 2.5-.7.3-3.7z"/></svg>HTML</a>
+        <a href="learn-css.html" class="trusted-item"><svg viewBox="0 0 24 24" fill="var(--accent-css)"><path d="M1 1h22l-2 20-9 2.5L1 21zm6.3-5.5h10.6l.2-2H8l.1 1.5h8.2l-.4 4-4.3 1.2-4.3-1.2-.3-2.8h2l.1 1 2.5.7 2.5-.7.3-3.7z"/></svg>CSS</a>
+        <a href="learn-js.html" class="trusted-item"><svg viewBox="0 0 24 24" fill="var(--accent-js)"><path d="M1 1h22l-2 20-9 2.5L1 21zm6.3-5.5h10.6l.2-2H8l.1 1.5h8.2l-.4 4-4.3 1.2-4.3-1.2-.3-2.8h2l.1 1 2.5.7 2.5-.7.3-3.7z"/></svg>JavaScript</a>
+        <a href="learn-react.html" class="trusted-item"><svg viewBox="0 0 24 24" fill="var(--accent-react)"><circle cx="12" cy="12" r="2.5"/><g fill="none" stroke="var(--accent-react)" stroke-width="1.2"><ellipse cx="12" cy="12" rx="10" ry="4.2"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(120 12 12)"/></g></svg>React</a>
+        <a href="learn-node.html" class="trusted-item"><svg viewBox="0 0 24 24" fill="var(--accent-node)"><path d="M11.5 1.5l-10 6v8l10 6 10-6v-8l-10-6zm0 3l6 3.7v7.6l-6 3.7-6-3.7V8.2l6-3.7z"/></svg>Node.js</a>
+        <a href="learn-tools.html" class="trusted-item"><svg viewBox="0 0 24 24" fill="var(--accent-tools)"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Tools</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-landing" id="features">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">Features</span>
+        <h2>Everything you need to start coding</h2>
+        <p>A complete toolkit for learning and building &mdash; right in your browser.</p>
+      </div>
+      <div class="features-grid-landing">
+        <div class="feature-card-landing">
+          <div class="feature-icon-landing" style="color:var(--accent-html);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>Smart Code Editor</h3>
+          <p>Write HTML, CSS, and JavaScript with syntax highlighting, autocomplete, auto-closing tags, and intelligent suggestions across 25+ token types.</p>
+        </div>
+        <div class="feature-card-landing">
+          <div class="feature-icon-landing" style="color:var(--accent-js);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+          <h3>Instant Preview</h3>
+          <p>Run your code instantly in a live preview window. See HTML, CSS, and JavaScript results in real-time &mdash; no page reloads.</p>
+        </div>
+        <div class="feature-card-landing">
+          <div class="feature-icon-landing" style="color:var(--accent-css);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>File Explorer</h3>
+          <p>Create, rename, and organize files and folders with drag-and-drop. Build multi-file projects just like a professional IDE.</p>
+        </div>
+        <div class="feature-card-landing">
+          <div class="feature-icon-landing" style="color:var(--accent-react);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <h3>81+ Free Lessons</h3>
+          <p>Structured courses covering HTML, CSS, JavaScript, React, and Node.js. Learn at your own pace with interactive code examples.</p>
+        </div>
+        <div class="feature-card-landing">
+          <div class="feature-icon-landing" style="color:var(--accent-node);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3>Cloud Sync</h3>
+          <p>Sign in with Google or GitHub to save projects to the cloud. Access your code from any device, anywhere &mdash; always safe.</p>
+        </div>
+        <div class="feature-card-landing">
+          <div class="feature-icon-landing" style="color:var(--accent-tools);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </div>
+          <h3>Export &amp; Download</h3>
+          <p>Export projects as JSON or download as ZIP. Share your work, back it up, or continue editing elsewhere.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-section" id="how-it-works">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">How It Works</span>
+        <h2>Start coding in 3 steps</h2>
+        <p>No downloads. No installation. Just open the editor and start building.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-line"></div>
+          <h3>Open the Editor</h3>
+          <p>Visit deoit.vercel.app and open the free online code editor. Nothing to install.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-line"></div>
+          <h3>Write Your Code</h3>
+          <p>Use the built-in editor to write HTML, CSS, and JavaScript with syntax highlighting and autocomplete.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Run &amp; Preview</h3>
+          <p>Click Run to see your code in action. Preview results instantly in your browser.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="courses-landing" id="courses">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">Courses</span>
+        <h2>Learn web development for free</h2>
+        <p>Structured courses with 81+ lessons across 6 programming languages and tools.</p>
+      </div>
+      <div class="courses-grid-landing">
+        <a href="learn-html.html" class="course-card-landing" style="--card-accent:var(--accent-html);">
+          <div class="course-card-icon">
+            <svg viewBox="0 0 24 24" fill="var(--accent-html)"><path d="M1 1h22l-2 20-9 2.5L1 21zm6.3-5.5h10.6l.2-2H8l.1 1.5h8.2l-.4 4-4.3 1.2-4.3-1.2-.3-2.8h2l.1 1 2.5.7 2.5-.7.3-3.7z"/></svg>
+          </div>
+          <h3>Learn HTML</h3>
+          <p>20 lessons &middot; Tags, forms, semantic HTML, and page structure.</p>
+          <span class="course-card-link">Start Learning &rarr;</span>
+        </a>
+        <a href="learn-css.html" class="course-card-landing" style="--card-accent:var(--accent-css);">
+          <div class="course-card-icon">
+            <svg viewBox="0 0 24 24" fill="var(--accent-css)"><path d="M1 1h22l-2 20-9 2.5L1 21zm6.3-5.5h10.6l.2-2H8l.1 1.5h8.2l-.4 4-4.3 1.2-4.3-1.2-.3-2.8h2l.1 1 2.5.7 2.5-.7.3-3.7z"/></svg>
+          </div>
+          <h3>Learn CSS</h3>
+          <p>17 lessons &middot; Layout, flexbox, grid, animations, and responsive design.</p>
+          <span class="course-card-link">Start Learning &rarr;</span>
+        </a>
+        <a href="learn-js.html" class="course-card-landing" style="--card-accent:var(--accent-js);">
+          <div class="course-card-icon">
+            <svg viewBox="0 0 24 24" fill="var(--accent-js)"><path d="M1 1h22l-2 20-9 2.5L1 21zm6.3-5.5h10.6l.2-2H8l.1 1.5h8.2l-.4 4-4.3 1.2-4.3-1.2-.3-2.8h2l.1 1 2.5.7 2.5-.7.3-3.7z"/></svg>
+          </div>
+          <h3>Learn JavaScript</h3>
+          <p>20 lessons &middot; Variables, functions, DOM, async, and ES6+ features.</p>
+          <span class="course-card-link">Start Learning &rarr;</span>
+        </a>
+        <a href="learn-react.html" class="course-card-landing" style="--card-accent:var(--accent-react);">
+          <div class="course-card-icon">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="2.5" fill="var(--accent-react)"/><g stroke="var(--accent-react)" stroke-width="1.2" fill="none"><ellipse cx="12" cy="12" rx="10" ry="4.2"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(120 12 12)"/></g></svg>
+          </div>
+          <h3>Learn React</h3>
+          <p>12 lessons &middot; Components, JSX, hooks, state, and props.</p>
+          <span class="course-card-link">Start Learning &rarr;</span>
+        </a>
+        <a href="learn-node.html" class="course-card-landing" style="--card-accent:var(--accent-node);">
+          <div class="course-card-icon">
+            <svg viewBox="0 0 24 24" fill="var(--accent-node)"><path d="M11.5 1.5l-10 6v8l10 6 10-6v-8l-10-6zm0 3l6 3.7v7.6l-6 3.7-6-3.7V8.2l6-3.7z"/></svg>
+          </div>
+          <h3>Learn Node.js</h3>
+          <p>6 lessons &middot; Modules, file system, HTTP server, and npm basics.</p>
+          <span class="course-card-link">Start Learning &rarr;</span>
+        </a>
+        <a href="learn-tools.html" class="course-card-landing" style="--card-accent:var(--accent-tools);">
+          <div class="course-card-icon">
+            <svg viewBox="0 0 24 24" fill="var(--accent-tools)"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>Developer Tools</h3>
+          <p>6 lessons &middot; Git, terminal, browser devtools, and VS Code tips.</p>
+          <span class="course-card-link">Start Learning &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-landing" id="faq">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">FAQ</span>
+        <h2>Frequently asked questions</h2>
+        <p>Everything you need to know about using Deoit.</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Is Deoit really free?</summary>
+          <p>Yes. Deoit is 100% free with no hidden fees, no premium plans, and no ads. You get full access to the code editor, syntax highlighting, autocomplete, file explorer, console output, and project export. Sign in with Google or GitHub to unlock unlimited files.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I use Deoit to learn HTML, CSS, and JavaScript?</summary>
+          <p>Absolutely. Deoit is designed as a learning platform for web development. It includes 81+ interactive lessons for HTML, CSS, JavaScript, React, and Node.js, plus a built-in code editor where you can practice writing code with syntax highlighting and instant preview.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need to install anything?</summary>
+          <p>No. Deoit runs entirely in your browser. There is nothing to install, download, or configure. Just open the website and start coding immediately.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I use Deoit on my phone?</summary>
+          <p>Yes. Deoit is fully responsive and works on mobile devices, tablets, and desktops. The editor, file explorer, and console all adapt to your screen size with touch-friendly controls.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What makes Deoit different from other code editors?</summary>
+          <p>Deoit is lightweight, fast, and built with vanilla JavaScript (no frameworks). It offers syntax highlighting, smart autocomplete, drag-and-drop files, 7 themes, instant preview, console output, and project export &mdash; all without any build tools or dependencies.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I export my projects?</summary>
+          <p>Yes. You can export your projects as JSON, download them as ZIP files, or copy the code manually. Sign in to access export and import features.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-landing">
+    <div class="section-inner">
+      <h2>Start coding today</h2>
+      <p>No downloads. No installation. No sign-up required.</p>
+      <div class="cta-buttons-landing">
+        <a href="pages/editor" class="btn btn-accent btn-hero">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Open the Editor
+        </a>
+        <a href="learn" class="btn btn-outline btn-hero">Browse Courses</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-landing">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <a href="/" class="footer-brand-link">
+            <img src="logo.png" alt="Deoit" width="28" height="28">
+            <span>Deoit</span>
+          </a>
+          <p>A free online code editor and learning platform for HTML, CSS, and JavaScript. Built to make web development accessible to everyone.</p>
+        </div>
+        <div class="footer-links-col">
+          <h4>Product</h4>
+          <a href="pages/editor">Code Editor</a>
+          <a href="learn">All Courses</a>
+          <a href="login">Sign In</a>
+        </div>
+        <div class="footer-links-col">
+          <h4>Courses</h4>
+          <a href="learn-html.html">Learn HTML</a>
+          <a href="learn-css.html">Learn CSS</a>
+          <a href="learn-js.html">Learn JavaScript</a>
+        </div>
+        <div class="footer-links-col">
+          <h4>More</h4>
+          <a href="learn-react.html">Learn React</a>
+          <a href="learn-node.html">Learn Node.js</a>
+          <a href="learn-tools.html">Developer Tools</a>
+        </div>
+        <div class="footer-links-col">
+          <h4>Legal</h4>
+          <a href="terms">Terms of Service</a>
+          <a href="privacy">Privacy Policy</a>
+          <a href="mailto:deoit.platform@gmail.com">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Deoit &middot; Built by <strong>Majed Qandeel</strong></span>
+        <a href="mailto:deoit.platform@gmail.com">deoit.platform@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/auth.js"></script>
   <script defer>
@@ -591,16 +645,15 @@
     document.getElementById('logoutBtn').addEventListener('click', () => signOut());
   </script>
   <script defer src="js/script.js"></script>
-
   <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
-<script defer src="/_vercel/insights/script.js"></script>
-<script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js').catch(() => {});
     }
   </script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="50aac514-55b3-446d-a8f5-d9540ebd7792"></script>
-<script>
+  <script>
 var _cspFired=0;
 document.addEventListener('securitypolicyviolation',function(e){
 if(_cspFired>2)return;_cspFired++;
@@ -615,3 +668,4 @@ fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':
 });
 </script>
 </body>
+</html>
