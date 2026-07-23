@@ -19,8 +19,9 @@
   <meta name="twitter:description" content="The fastest way to understand HTML and CSS.">
   <meta name="twitter:image" content="https://deoit.vercel.app/logo.png">
   <link rel="canonical" href="https://deoit.vercel.app/blog/html-css-in-10-minutes">
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="stylesheet" href="css/blog.css">
+  <link rel="icon" type="image/png" href="../logo.png">
+  <link rel="apple-touch-icon" href="../logo.png">
+  <link rel="stylesheet" href="../css/blog.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -29,6 +30,7 @@
     "description": "The fastest way to understand HTML and CSS. Build your first webpage in 10 minutes.",
     "url": "https://deoit.vercel.app/blog/html-css-in-10-minutes",
     "datePublished": "2026-07-20",
+    "dateModified": "2026-07-23",
     "author": { "@type": "Person", "name": "Majed Qandeel" },
     "publisher": { "@type": "Organization", "name": "Deoit", "logo": { "@type": "ImageObject", "url": "https://deoit.vercel.app/logo.png" } }
   }
@@ -37,7 +39,7 @@
 <body>
   <nav class="blog-nav">
     <div class="blog-nav-inner">
-      <a href="/" class="blog-nav-logo"><img src="logo.png" alt="Deoit" width="28" height="28"><span>Deoit</span></a>
+      <a href="/" class="blog-nav-logo">        <img src="../logo.png" alt="Deoit" width="28" height="28"><span>Deoit</span></a>
       <div class="blog-nav-links">
         <a href="/">Home</a>
         <a href="/pages/editor">Editor</a>
@@ -219,6 +221,22 @@ a:hover {
       </div>
     </div>
   </div>
+
+  <section class="related-posts">
+    <h2>Related Articles</h2>
+    <div class="related-grid">
+      <a href="build-weather-app" class="related-card">
+        <span class="blog-card-tag tag-js">JavaScript</span>
+        <h4>Build a Weather App with JavaScript</h4>
+        <p>No API keys, no frameworks. Just vanilla JS.</p>
+      </a>
+      <a href="why-vanilla-js" class="related-card">
+        <span class="blog-card-tag tag-general">Opinion</span>
+        <h4>Why We Built Deoit with Vanilla JavaScript</h4>
+        <p>Zero frameworks. Here's what we learned.</p>
+      </a>
+    </div>
+  </section>
 
   <footer class="blog-footer">
     <p>&copy; 2026 Deoit · Built by <a href="https://deoit.vercel.app"><strong>Majed Qandeel</strong></a></p>

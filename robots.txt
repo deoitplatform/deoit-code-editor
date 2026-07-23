@@ -8,6 +8,10 @@ Allow: /learn-js.html
 Allow: /learn-react.html
 Allow: /learn-node.html
 Allow: /learn-tools.html
+Allow: /blog
+Allow: /blog/build-weather-app
+Allow: /blog/html-css-in-10-minutes
+Allow: /blog/why-vanilla-js
 Allow: /privacy
 Allow: /terms
 Disallow: /login

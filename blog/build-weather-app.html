@@ -19,8 +19,9 @@
   <meta name="twitter:description" content="No API keys, no frameworks, no build tools. Just vanilla JS.">
   <meta name="twitter:image" content="https://deoit.vercel.app/logo.png">
   <link rel="canonical" href="https://deoit.vercel.app/blog/build-weather-app">
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="stylesheet" href="css/blog.css">
+  <link rel="icon" type="image/png" href="../logo.png">
+  <link rel="apple-touch-icon" href="../logo.png">
+  <link rel="stylesheet" href="../css/blog.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -29,6 +30,7 @@
     "description": "Learn how to build a fully functional weather application using vanilla JavaScript, HTML, and CSS.",
     "url": "https://deoit.vercel.app/blog/build-weather-app",
     "datePublished": "2026-07-22",
+    "dateModified": "2026-07-23",
     "author": { "@type": "Person", "name": "Majed Qandeel" },
     "publisher": {
       "@type": "Organization",
@@ -41,7 +43,7 @@
 <body>
   <nav class="blog-nav">
     <div class="blog-nav-inner">
-      <a href="/" class="blog-nav-logo"><img src="logo.png" alt="Deoit" width="28" height="28"><span>Deoit</span></a>
+      <a href="/" class="blog-nav-logo">        <img src="../logo.png" alt="Deoit" width="28" height="28"><span>Deoit</span></a>
       <div class="blog-nav-links">
         <a href="/">Home</a>
         <a href="/pages/editor">Editor</a>
@@ -276,6 +278,22 @@ function getConditionText(code) {
       </div>
     </div>
   </div>
+
+  <section class="related-posts">
+    <h2>Related Articles</h2>
+    <div class="related-grid">
+      <a href="html-css-in-10-minutes" class="related-card">
+        <span class="blog-card-tag tag-html">HTML & CSS</span>
+        <h4>Learn HTML & CSS in 10 Minutes</h4>
+        <p>The fastest way to understand HTML and CSS.</p>
+      </a>
+      <a href="why-vanilla-js" class="related-card">
+        <span class="blog-card-tag tag-general">Opinion</span>
+        <h4>Why We Built Deoit with Vanilla JavaScript</h4>
+        <p>No React, No Vue — here's why vanilla JS was the right choice.</p>
+      </a>
+    </div>
+  </section>
 
   <footer class="blog-footer">
     <p>&copy; 2026 Deoit · Built by <a href="https://deoit.vercel.app"><strong>Majed Qandeel</strong></a></p>
