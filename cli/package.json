@@ -1,0 +1,32 @@
+{
+  "name": "deoit-cli",
+  "version": "1.0.0",
+  "description": "Open Deoit - free browser code editor - from your terminal",
+  "main": "index.js",
+  "bin": {
+    "deoit": "index.js",
+    "deoit-cli": "index.js"
+  },
+  "keywords": [
+    "code-editor",
+    "online-ide",
+    "html-editor",
+    "css-editor",
+    "javascript-editor",
+    "web-development",
+    "learn-to-code",
+    "browser-editor",
+    "deoit"
+  ],
+  "author": "Majed Qandeel <deoit.platform@gmail.com>",
+  "license": "UNLICENSED",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deoitplatform/deoit-code-editor.git"
+  },
+  "homepage": "https://deoit.vercel.app",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

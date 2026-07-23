@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why We Built Deoit with Vanilla JavaScript (No React, No Vue) | Deoit Blog</title>
+  <meta name="description" content="We built a full-featured code editor with zero frameworks. Here's why vanilla JS was the right choice — and what we learned.">
+  <meta name="keywords" content="vanilla javascript, no frameworks, build without react, web development opinion, why vanilla js, javascript performance">
+  <meta name="author" content="Majed Qandeel">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0d0d0d">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://deoit.vercel.app/blog-why-vanilla-js">
+  <meta property="og:title" content="Why We Built Deoit with Vanilla JavaScript (No React, No Vue)">
+  <meta property="og:description" content="We built a full-featured code editor with zero frameworks. Here's why.">
+  <meta property="og:image" content="https://deoit.vercel.app/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why We Built Deoit with Vanilla JavaScript">
+  <meta name="twitter:description" content="Zero frameworks. Zero build tools. Here's what we learned.">
+  <meta name="twitter:image" content="https://deoit.vercel.app/logo.png">
+  <link rel="canonical" href="https://deoit.vercel.app/blog-why-vanilla-js">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="stylesheet" href="css/blog.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Why We Built Deoit with Vanilla JavaScript (No React, No Vue)",
+    "description": "We built a full-featured code editor with zero frameworks. Here's why vanilla JS was the right choice.",
+    "url": "https://deoit.vercel.app/blog-why-vanilla-js",
+    "datePublished": "2026-07-18",
+    "author": { "@type": "Person", "name": "Majed Qandeel" },
+    "publisher": { "@type": "Organization", "name": "Deoit", "logo": { "@type": "ImageObject", "url": "https://deoit.vercel.app/logo.png" } }
+  }
+  </script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="blog-nav-inner">
+      <a href="/" class="blog-nav-logo"><img src="logo.png" alt="Deoit" width="28" height="28"><span>Deoit</span></a>
+      <div class="blog-nav-links">
+        <a href="/">Home</a>
+        <a href="/pages/editor">Editor</a>
+        <a href="/learn">Courses</a>
+        <a href="/blog" class="active">Blog</a>
+      </div>
+      <div class="blog-nav-actions"><a href="/pages/editor" class="btn btn-accent">Open Editor</a></div>
+    </div>
+  </nav>
+
+  <article>
+    <div class="post-hero">
+      <span class="blog-card-tag tag-general">Opinion</span>
+      <h1>Why We Built Deoit with Vanilla JavaScript (No React, No Vue)</h1>
+      <div class="post-meta">
+        <span>Majed Qandeel</span>
+        <span>Jul 18, 2026</span>
+        <span>6 min read</span>
+      </div>
+    </div>
+
+    <div class="post-content">
+      <p>Every web project these days starts with the same question: <strong>React or Vue?</strong> Next.js or Nuxt? TypeScript or not?</p>
+
+      <p>When we built <a href="https://deoit.vercel.app" target="_blank">Deoit</a> — a browser-based code editor with syntax highlighting, autocomplete, file explorer, live preview, and cloud sync — we chose <strong>none of them</strong>.</p>
+
+      <p>Just vanilla JavaScript. Here's why.</p>
+
+      <h2>The Problem with Frameworks for This Use Case</h2>
+      <p>We considered React, Vue, and Svelte. But Deoit is a <strong>tool</strong>, not a content site. It needs to:</p>
+      <ul>
+        <li>Load fast — every millisecond matters for an editor</li>
+        <li>Work offline — developers should code without internet</li>
+        <li>Stay lightweight — no one wants a 2MB bundle for a code editor</li>
+        <li>Be hackable — users should understand every line</li>
+      </ul>
+
+      <p>Frameworks are great for data-driven UIs. But for a <strong>text manipulation tool</strong>, they add overhead without proportional benefit.</p>
+
+      <h2>What We Built Instead</h2>
+      <p>Deoit is approximately <strong>2000 lines of vanilla JavaScript</strong>. Here's what it handles:</p>
+
+      <pre><code>// Syntax highlighting — custom tokenizer
+// 25+ token types: tags, attributes, strings,
+// selectors, properties, functions, keywords...
+
+// File system — full CRUD with folders
+// Drag-and-drop, rename, delete, create
+
+// Auto-complete — context-aware suggestions
+// HTML tags, CSS properties, JS keywords
+
+// Live preview — sandboxed iframe
+// Console bridge via postMessage
+
+// Cloud sync — Supabase auth + storage
+// Google and GitHub sign-in
+
+// Settings — 7 themes, font size, tab size
+// All applied via CSS custom properties</code></pre>
+
+      <h2>The Benefits</h2>
+
+      <h3>1. Zero Build Step</h3>
+      <p>Every edit is instantly deployable. No <code>npm run build</code>, no webpack config, no waiting. Edit → Save → Deploy. That's it.</p>
+
+      <h3>2. Tiny Bundle Size</h3>
+      <p>The entire editor — HTML, CSS, and JS — loads in under <strong>100KB</strong>. Compare that to CodeSandbox's initial load of 2MB+. The result? Deoit loads in under 1 second on 3G.</p>
+
+      <h3>3. No Dependency Hell</h3>
+      <p>Zero <code>node_modules</code>. Zero security vulnerabilities from third-party packages. Zero "this package is deprecated" warnings. Just our code and the browser's APIs.</p>
+
+      <h3>4. Total Control</h3>
+      <p>When the syntax highlighter has a bug, we fix it in 5 lines. When we need a new feature, we don't hunt for a library — we write it. Every line of code is ours.</p>
+
+      <h3>5. It's Educational</h3>
+      <p>Deoit is a learning platform. Students can open DevTools and read every line. There's no magic — just HTML, CSS, and JavaScript they can understand and learn from.</p>
+
+      <h2>What We Sacrificed</h2>
+      <p>Let's be honest about the tradeoffs:</p>
+      <ul>
+        <li><strong>No component reuse</strong> — we rebuild UI patterns instead of importing components</li>
+        <li><strong>No virtual DOM</strong> — we manually update the DOM, which requires more care</li>
+        <li><strong>No TypeScript</strong> — we rely on discipline and testing instead of type checking</li>
+        <li><strong>No ecosystem</strong> — no npm packages, no community components</li>
+      </ul>
+
+      <p>For Deoit, these tradeoffs are worth it. The benefits of simplicity outweigh the costs of ecosystem.</p>
+
+      <h2>The Numbers</h2>
+      <ul>
+        <li><strong>~2000 lines</strong> of JavaScript (editor core)</li>
+        <li><strong>~1500 lines</strong> of CSS</li>
+        <li><strong>0</strong> npm dependencies at runtime</li>
+        <li><strong>&lt;100KB</strong> total page weight</li>
+        <li><strong>&lt;1 second</strong> load time on 3G</li>
+      </ul>
+
+      <h2>Should You Use Vanilla JS?</h2>
+      <p>It depends. If you're building a dashboard with complex state management — use React. If you're building a content site — use Next.js or Astro.</p>
+
+      <p>But if you're building a <strong>tool</strong>, a <strong>utility</strong>, or something where <strong>performance and simplicity</strong> matter most — consider vanilla JavaScript. You might be surprised how much you can build without a framework.</p>
+
+      <blockquote>
+        <strong>"The best code is no code at all." — Jeff Atwood</strong><br>
+        The second best? Simple, readable, vanilla code.
+      </blockquote>
+
+      <p>Try the result: <a href="https://deoit.vercel.app/pages/editor" target="_blank">deoit.vercel.app</a></p>
+    </div>
+  </article>
+
+  <div class="post-cta">
+    <div class="post-cta-box">
+      <h3>See the Result</h3>
+      <p>Experience what 2000 lines of vanilla JavaScript can build — a full-featured code editor in your browser.</p>
+      <div class="post-cta-buttons">
+        <a href="https://deoit.vercel.app/pages/editor" class="btn btn-accent">Try Deoit →</a>
+        <a href="/blog" class="btn btn-ghost">← Back to Blog</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="blog-footer">
+    <p>&copy; 2026 Deoit · Built by <a href="https://deoit.vercel.app"><strong>Majed Qandeel</strong></a></p>
+  </footer>
+</body>
+</html>

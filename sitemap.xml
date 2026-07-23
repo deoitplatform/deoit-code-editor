@@ -80,6 +80,36 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.vercel.app/learn-tools.html"/>
   </url>
   <url>
+    <loc>https://deoit.vercel.app/blog</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://deoit.vercel.app/blog-build-weather-app</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://deoit.vercel.app/blog-html-css-in-10-minutes</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://deoit.vercel.app/blog-why-vanilla-js</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://deoit.vercel.app/embed</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://deoit.vercel.app/terms</loc>
     <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>

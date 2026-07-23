@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn HTML & CSS in 10 Minutes — The Crash Course | Deoit Blog</title>
+  <meta name="description" content="The fastest way to understand HTML and CSS. Build your first webpage in 10 minutes with this hands-on crash course.">
+  <meta name="keywords" content="learn HTML, learn CSS, HTML tutorial, CSS tutorial, web development for beginners, HTML CSS crash course">
+  <meta name="author" content="Majed Qandeel">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0d0d0d">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://deoit.vercel.app/blog-html-css-in-10-minutes">
+  <meta property="og:title" content="Learn HTML & CSS in 10 Minutes — The Crash Course">
+  <meta property="og:description" content="The fastest way to understand HTML and CSS. Build your first webpage in 10 minutes.">
+  <meta property="og:image" content="https://deoit.vercel.app/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Learn HTML & CSS in 10 Minutes">
+  <meta name="twitter:description" content="The fastest way to understand HTML and CSS.">
+  <meta name="twitter:image" content="https://deoit.vercel.app/logo.png">
+  <link rel="canonical" href="https://deoit.vercel.app/blog-html-css-in-10-minutes">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="stylesheet" href="css/blog.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Learn HTML & CSS in 10 Minutes — The Crash Course",
+    "description": "The fastest way to understand HTML and CSS. Build your first webpage in 10 minutes.",
+    "url": "https://deoit.vercel.app/blog-html-css-in-10-minutes",
+    "datePublished": "2026-07-20",
+    "author": { "@type": "Person", "name": "Majed Qandeel" },
+    "publisher": { "@type": "Organization", "name": "Deoit", "logo": { "@type": "ImageObject", "url": "https://deoit.vercel.app/logo.png" } }
+  }
+  </script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="blog-nav-inner">
+      <a href="/" class="blog-nav-logo"><img src="logo.png" alt="Deoit" width="28" height="28"><span>Deoit</span></a>
+      <div class="blog-nav-links">
+        <a href="/">Home</a>
+        <a href="/pages/editor">Editor</a>
+        <a href="/learn">Courses</a>
+        <a href="/blog" class="active">Blog</a>
+      </div>
+      <div class="blog-nav-actions"><a href="/pages/editor" class="btn btn-accent">Open Editor</a></div>
+    </div>
+  </nav>
+
+  <article>
+    <div class="post-hero">
+      <span class="blog-card-tag tag-html">HTML & CSS</span>
+      <h1>Learn HTML & CSS in 10 Minutes — The Crash Course</h1>
+      <div class="post-meta">
+        <span>Majed Qandeel</span>
+        <span>Jul 20, 2026</span>
+        <span>5 min read</span>
+      </div>
+    </div>
+
+    <div class="post-content">
+      <p>HTML and CSS are the foundation of every website. If you've ever wanted to build a webpage but didn't know where to start — this guide is for you.</p>
+
+      <p>By the end of this article, you'll understand the basics well enough to build your own webpage. And you can practice everything in the <a href="https://deoit.vercel.app/pages/editor" target="_blank">Deoit Editor</a> — no installs needed.</p>
+
+      <h2>What is HTML?</h2>
+      <p><strong>HTML (HyperText Markup Language)</strong> is the structure of a webpage. Think of it as the skeleton of a building — it defines what's on the page: headings, paragraphs, images, links, and more.</p>
+
+      <p>HTML uses <strong>tags</strong> — special code wrapped in angle brackets:</p>
+      <pre><code>&lt;h1&gt;This is a heading&lt;/h1&gt;
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;a href="https://example.com"&gt;This is a link&lt;/a&gt;
+&lt;img src="photo.jpg" alt="A photo"&gt;</code></pre>
+
+      <h2>What is CSS?</h2>
+      <p><strong>CSS (Cascading Style Sheets)</strong> is the styling. If HTML is the skeleton, CSS is the paint, furniture, and decoration. It controls colors, fonts, layout, spacing, and animations.</p>
+
+      <pre><code>h1 {
+  color: white;
+  font-size: 32px;
+}
+
+p {
+  color: #888;
+  line-height: 1.6;
+}
+
+body {
+  background: #0d0d0d;
+  font-family: system-ui, sans-serif;
+}</code></pre>
+
+      <h2>Your First Webpage (5 minutes)</h2>
+      <p>Open <a href="https://deoit.vercel.app/pages/editor" target="_blank">Deoit Editor</a> and paste this into <code>index.html</code>:</p>
+
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;My First Page&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello, World!&lt;/h1&gt;
+  &lt;p&gt;This is my first webpage.&lt;/p&gt;
+
+  &lt;h2&gt;About Me&lt;/h2&gt;
+  &lt;p&gt;I'm learning to code with Deoit.&lt;/p&gt;
+
+  &lt;h2&gt;My Favorite Things&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;JavaScript&lt;/li&gt;
+    &lt;li&gt;Web Development&lt;/li&gt;
+    &lt;li&gt;Building Things&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;a href="https://deoit.vercel.app"&gt;Visit Deoit&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      <p>Then switch to <code>style.css</code> and add:</p>
+
+      <pre><code>body {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: system-ui, sans-serif;
+  background: #0d0d0d;
+  color: #e8e8e8;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-top: 32px;
+  color: #61afef;
+}
+
+p {
+  color: #8a8a8a;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+ul {
+  padding-left: 20px;
+  margin-bottom: 24px;
+}
+
+li {
+  margin-bottom: 6px;
+  color: #8a8a8a;
+}
+
+a {
+  color: #e5c07b;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}</code></pre>
+
+      <p>Click <strong>Run</strong> and you'll see your first styled webpage!</p>
+
+      <h2>The 10 HTML Tags You Need to Know</h2>
+      <ol>
+        <li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> — Headings (h1 is biggest)</li>
+        <li><code>&lt;p&gt;</code> — Paragraph</li>
+        <li><code>&lt;a href="..."&gt;</code> — Link</li>
+        <li><code>&lt;img src="..." alt="..."&gt;</code> — Image</li>
+        <li><code>&lt;ul&gt;</code> and <code>&lt;li&gt;</code> — Unordered list</li>
+        <li><code>&lt;ol&gt;</code> and <code>&lt;li&gt;</code> — Ordered list</li>
+        <li><code>&lt;div&gt;</code> — Generic container</li>
+        <li><code>&lt;span&gt;</code> — Inline container</li>
+        <li><code>&lt;button&gt;</code> — Button</li>
+        <li><code>&lt;input&gt;</code> — Form input</li>
+      </ol>
+
+      <h2>The 5 CSS Properties You'll Use Every Day</h2>
+      <ol>
+        <li><strong>color</strong> — Text color</li>
+        <li><strong>background</strong> — Background color or gradient</li>
+        <li><strong>padding</strong> — Space inside an element</li>
+        <li><strong>margin</strong> — Space outside an element</li>
+        <li><strong>border-radius</strong> — Rounded corners</li>
+      </ol>
+
+      <h2>What's Next?</h2>
+      <p>Now that you know the basics, here's your learning path:</p>
+      <ol>
+        <li><strong>HTML</strong> — Learn forms, semantic tags, and page structure</li>
+        <li><strong>CSS</strong> — Master Flexbox, Grid, and responsive design</li>
+        <li><strong>JavaScript</strong> — Make your pages interactive</li>
+      </ol>
+
+      <p>Deoit has <a href="https://deoit.vercel.app/learn" target="_blank">81+ free lessons</a> covering all of these topics. Start with our <a href="https://deoit.vercel.app/learn-html" target="_blank">HTML course</a> and work your way up.</p>
+
+      <blockquote>
+        <strong>Remember:</strong> The best way to learn is by building. Don't just read — open the editor and type the code yourself.
+      </blockquote>
+    </div>
+  </article>
+
+  <div class="post-cta">
+    <div class="post-cta-box">
+      <h3>Practice What You Learned</h3>
+      <p>Open the Deoit Editor and build your first webpage — it takes 30 seconds.</p>
+      <div class="post-cta-buttons">
+        <a href="https://deoit.vercel.app/pages/editor" class="btn btn-accent">Open Editor →</a>
+        <a href="https://deoit.vercel.app/learn-html" class="btn btn-ghost">HTML Course →</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="blog-footer">
+    <p>&copy; 2026 Deoit · Built by <a href="https://deoit.vercel.app"><strong>Majed Qandeel</strong></a></p>
+  </footer>
+</body>
+</html>

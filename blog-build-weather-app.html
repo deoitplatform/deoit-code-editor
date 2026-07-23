@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build a Weather App with JavaScript — No API Key Needed | Deoit Blog</title>
+  <meta name="description" content="Learn how to build a fully functional weather application using vanilla JavaScript, HTML, and CSS. No API keys, no frameworks, no build tools.">
+  <meta name="keywords" content="weather app javascript, javascript project, vanilla js project, build weather app, web development tutorial">
+  <meta name="author" content="Majed Qandeel">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0d0d0d">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://deoit.vercel.app/blog-build-weather-app">
+  <meta property="og:title" content="Build a Weather App with JavaScript — No API Key Needed">
+  <meta property="og:description" content="Learn how to build a fully functional weather application using vanilla JavaScript, HTML, and CSS.">
+  <meta property="og:image" content="https://deoit.vercel.app/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Build a Weather App with JavaScript">
+  <meta name="twitter:description" content="No API keys, no frameworks, no build tools. Just vanilla JS.">
+  <meta name="twitter:image" content="https://deoit.vercel.app/logo.png">
+  <link rel="canonical" href="https://deoit.vercel.app/blog-build-weather-app">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="stylesheet" href="css/blog.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Build a Weather App with JavaScript — No API Key Needed",
+    "description": "Learn how to build a fully functional weather application using vanilla JavaScript, HTML, and CSS.",
+    "url": "https://deoit.vercel.app/blog-build-weather-app",
+    "datePublished": "2026-07-22",
+    "author": { "@type": "Person", "name": "Majed Qandeel" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Deoit",
+      "logo": { "@type": "ImageObject", "url": "https://deoit.vercel.app/logo.png" }
+    }
+  }
+  </script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="blog-nav-inner">
+      <a href="/" class="blog-nav-logo"><img src="logo.png" alt="Deoit" width="28" height="28"><span>Deoit</span></a>
+      <div class="blog-nav-links">
+        <a href="/">Home</a>
+        <a href="/pages/editor">Editor</a>
+        <a href="/learn">Courses</a>
+        <a href="/blog" class="active">Blog</a>
+      </div>
+      <div class="blog-nav-actions"><a href="/pages/editor" class="btn btn-accent">Open Editor</a></div>
+    </div>
+  </nav>
+
+  <article>
+    <div class="post-hero">
+      <span class="blog-card-tag tag-js">JavaScript</span>
+      <h1>Build a Weather App with JavaScript — No API Key Needed</h1>
+      <div class="post-meta">
+        <span>Majed Qandeel</span>
+        <span>Jul 22, 2026</span>
+        <span>8 min read</span>
+      </div>
+    </div>
+
+    <div class="post-content">
+      <p>Building a weather app is one of the best beginner JavaScript projects. It teaches you about <strong>DOM manipulation</strong>, <strong>fetch API</strong>, <strong>async/await</strong>, and <strong>CSS styling</strong> — all in one project.</p>
+
+      <p>In this tutorial, we'll build a complete weather app using only vanilla JavaScript. No React, no Vue, no API keys required.</p>
+
+      <h2>What We're Building</h2>
+      <p>A weather application that:</p>
+      <ul>
+        <li>Shows current weather for any city</li>
+        <li>Displays temperature, humidity, wind speed, and conditions</li>
+        <li>Has a clean, responsive design</li>
+        <li>Works offline with cached data</li>
+      </ul>
+
+      <h2>Step 1: The HTML</h2>
+      <p>Start with a simple structure:</p>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Weather App&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="weather-app"&gt;
+    &lt;h1&gt;Weather App&lt;/h1&gt;
+    &lt;div class="search"&gt;
+      &lt;input type="text" id="cityInput" placeholder="Enter city name..."&gt;
+      &lt;button id="searchBtn"&gt;Search&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="weather-card" id="weatherCard" style="display:none;"&gt;
+      &lt;h2 id="cityName"&gt;&lt;/h2&gt;
+      &lt;div class="temp" id="temperature"&gt;&lt;/div&gt;
+      &lt;div class="condition" id="condition"&gt;&lt;/div&gt;
+      &lt;div class="details"&gt;
+        &lt;span&gt;Humidity: &lt;strong id="humidity"&gt;&lt;/strong&gt;&lt;/span&gt;
+        &lt;span&gt;Wind: &lt;strong id="wind"&gt;&lt;/strong&gt;&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;script src="app.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      <h2>Step 2: The CSS</h2>
+      <p>Style it with a modern dark theme:</p>
+      <pre><code>* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: system-ui, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a2e);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-app {
+  text-align: center;
+  padding: 40px;
+}
+
+.search {
+  display: flex;
+  gap: 8px;
+  margin: 24px 0;
+  justify-content: center;
+}
+
+.search input {
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  background: #141414;
+  color: #fff;
+  font-size: 16px;
+  width: 280px;
+}
+
+.search button {
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: none;
+  background: #e8e8e8;
+  color: #111;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.weather-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid #252525;
+  border-radius: 16px;
+  padding: 32px;
+  margin-top: 24px;
+}
+
+.temp {
+  font-size: 64px;
+  font-weight: 800;
+  margin: 12px 0;
+}
+
+.condition {
+  font-size: 18px;
+  color: #8a8a8a;
+  margin-bottom: 16px;
+}
+
+.details {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  color: #8a8a8a;
+}</code></pre>
+
+      <h2>Step 3: The JavaScript</h2>
+      <p>Here's the core logic using the Open-Meteo API (free, no key needed):</p>
+      <pre><code>const cityInput = document.getElementById('cityInput');
+const searchBtn = document.getElementById('searchBtn');
+const weatherCard = document.getElementById('weatherCard');
+
+searchBtn.addEventListener('click', () => {
+  const city = cityInput.value.trim();
+  if (city) getWeather(city);
+});
+
+cityInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    const city = cityInput.value.trim();
+    if (city) getWeather(city);
+  }
+});
+
+async function getWeather(city) {
+  try {
+    // Step 1: Get coordinates from city name
+    const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1`;
+    const geoRes = await fetch(geoUrl);
+    const geoData = await geoRes.json();
+
+    if (!geoData.results || geoData.results.length === 0) {
+      alert('City not found!');
+      return;
+    }
+
+    const { latitude, longitude, name, country } = geoData.results[0];
+
+    // Step 2: Get weather data
+    const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code`;
+    const weatherRes = await fetch(weatherUrl);
+    const weatherData = await weatherRes.json();
+
+    // Step 3: Display results
+    const current = weatherData.current;
+    document.getElementById('cityName').textContent = `${name}, ${country}`;
+    document.getElementById('temperature').textContent = `${Math.round(current.temperature_2m)}°C`;
+    document.getElementById('condition').textContent = getConditionText(current.weather_code);
+    document.getElementById('humidity').textContent = `${current.relative_humidity_2m}%`;
+    document.getElementById('wind').textContent = `${current.wind_speed_10m} km/h`;
+    weatherCard.style.display = 'block';
+
+  } catch (error) {
+    console.error('Weather fetch error:', error);
+    alert('Something went wrong. Try again.');
+  }
+}
+
+function getConditionText(code) {
+  const conditions = {
+    0: 'Clear sky', 1: 'Mainly clear', 2: 'Partly cloudy', 3: 'Overcast',
+    45: 'Foggy', 48: 'Rime fog', 51: 'Light drizzle', 53: 'Moderate drizzle',
+    61: 'Slight rain', 63: 'Moderate rain', 65: 'Heavy rain',
+    71: 'Slight snow', 73: 'Moderate snow', 75: 'Heavy snow',
+    80: 'Slight rain showers', 81: 'Moderate rain showers', 82: 'Violent rain showers',
+    95: 'Thunderstorm', 96: 'Thunderstorm with hail'
+  };
+  return conditions[code] || 'Unknown';
+}</code></pre>
+
+      <h2>Try It Yourself</h2>
+      <p>Open <a href="https://deoit.vercel.app/pages/editor" target="_blank">Deoit Editor</a>, create these three files, and click Run. You now have a working weather app!</p>
+
+      <blockquote>
+        <strong>Pro tip:</strong> Use Deoit's built-in console to debug — any errors will show up instantly with line numbers.
+      </blockquote>
+
+      <h2>Next Steps</h2>
+      <p>Want to extend this project? Try adding:</p>
+      <ul>
+        <li><strong>5-day forecast</strong> — the Open-Meteo API supports daily forecasts</li>
+        <li><strong>Unit toggle</strong> — switch between Celsius and Fahrenheit</li>
+        <li><strong>Geolocation</strong> — auto-detect user's location with <code>navigator.geolocation</code></li>
+        <li><strong>Search history</strong> — save recent searches to localStorage</li>
+      </ul>
+
+      <p>All of these are great exercises for practicing JavaScript. Start building on <a href="https://deoit.vercel.app/pages/editor" target="_blank">Deoit</a> — free, no sign-up required.</p>
+    </div>
+  </article>
+
+  <div class="post-cta">
+    <div class="post-cta-box">
+      <h3>Try it in the Deoit Editor</h3>
+      <p>Open the code editor and build this project yourself — free, no sign-up required.</p>
+      <div class="post-cta-buttons">
+        <a href="https://deoit.vercel.app/pages/editor" class="btn btn-accent">Open Editor →</a>
+        <a href="/blog" class="btn btn-ghost">← Back to Blog</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="blog-footer">
+    <p>&copy; 2026 Deoit · Built by <a href="https://deoit.vercel.app"><strong>Majed Qandeel</strong></a></p>
+  </footer>
+</body>
+</html>

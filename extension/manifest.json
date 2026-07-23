@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Edit in Deoit",
+  "description": "Right-click any webpage to open its HTML, CSS & JavaScript in Deoit - free online code editor",
+  "version": "1.0.0",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "context_menu": [
+    {
+      "id": "edit-in-deoit-html",
+      "title": "Edit HTML in Deoit",
+      "contexts": ["page"],
+      "document_url_patterns": ["<all_urls>"]
+    },
+    {
+      "id": "edit-in-deoit-selected",
+      "title": "Open selection in Deoit",
+      "contexts": ["selection"]
+    }
+  ]
+}

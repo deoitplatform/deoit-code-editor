@@ -1,242 +1,243 @@
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="logo.png">
-    <img src="logo.png" alt="Deoit" width="72" height="72" style="border-radius:12px;">
-  </picture>
+  <img src="logo.png" alt="Deoit" width="80" height="80" style="border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);">
 </p>
 
-<h1 align="center">Deoit Code Editor</h1>
+<h1 align="center">Deoit</h1>
 
 <p align="center">
-  <strong>A powerful, browser-based code editor for learning and building on the web.</strong>
-</p>
-
-<p align="center">
-  <a href="https://deoit.vercel.app">deoit.vercel.app</a> &nbsp;·&nbsp;
-  <a href="mailto:deoit.platform@gmail.com">Contact</a>
+  <strong>Free browser-based code editor for HTML, CSS & JavaScript</strong><br>
+  Write, run, and preview code instantly — no downloads, no setup.
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white" alt="HTML5">
-  <img src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white" alt="CSS3">
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black" alt="JavaScript">
-  <img src="https://img.shields.io/badge/Vercel-000000?logo=vercel&logoColor=white" alt="Vercel">
-  <img src="https://img.shields.io/badge/PWA-5A0FC8?logo=pwa&logoColor=white" alt="PWA">
+  <a href="https://deoit.vercel.app">
+    <img src="https://img.shields.io/badge/🌐_Try_it-Deoit-0d0d0d?style=for-the-badge&labelColor=0d0d0d&color=e8e8e8" alt="Try Deoit">
+  </a>
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React">
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js">
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/81+_Lessons-0d0d0d?style=flat-square&labelColor=22c55e&color=22c55e" alt="81+ Lessons">
+  <img src="https://img.shields.io/badge/7_Themes-0d0d0d?style=flat-square&labelColor=61afef&color=61afef" alt="7 Themes">
+  <img src="https://img.shields.io/badge/Zero_Frameworks-0d0d0d?style=flat-square&labelColor=e5c07b&color=e5c07b" alt="Zero Frameworks">
+  <img src="https://img.shields.io/badge/Free_Forever-0d0d0d?style=flat-square&labelColor=98c379&color=98c379" alt="Free Forever">
+  <img src="https://img.shields.io/badge/Mobile_Ready-0d0d0d?style=flat-square&labelColor=c678dd&color=c678dd" alt="Mobile Ready">
 </p>
 
 ---
 
-## Overview
+## What is Deoit?
 
-Deoit is a full-featured online code editor built for learning, experimenting, and prototyping with HTML, CSS, and JavaScript. It runs entirely in the browser — no downloads, no server, no setup. The platform combines a professional-grade editing experience with an intuitive file system, live console output, and cloud authentication.
+Deoit is a **free, browser-based code editor** for learning and building with HTML, CSS, and JavaScript. Think of it as CodePen meets free courses — but lighter, faster, and with zero dependencies.
 
-Built as a pure static application (zero frameworks, zero build tools), Deoit demonstrates what modern vanilla web technologies can achieve: real-time syntax highlighting, context-aware autocomplete, drag-and-drop file management, and secure third-party authentication — all from a single HTML page.
+**No installs. No sign-up required. Just open and code.**
+
+🔗 **[deoit.vercel.app](https://deoit.vercel.app)**
+
+---
+
+## Demo
+
+<!-- Replace with actual GIF/Screenshot -->
+<!-- ![Deoit Editor Demo](demo.gif) -->
+
+> 📸 **[Click here to try it live](https://deoit.vercel.app/pages/editor)** — it takes 2 seconds to load.
+
+---
+
+## Why Deoit?
+
+| Feature | Deoit | CodePen | JSFiddle | CodeSandbox |
+|---------|:-----:|:-------:|:--------:|:-----------:|
+| **100% Free** | ✅ | ✅ | ✅ | ❌ |
+| **No sign-up needed** | ✅ | ❌ | ✅ | ❌ |
+| **File Explorer** | ✅ | ❌ | ❌ | ✅ |
+| **Cloud Sync** | ✅ | ✅ | ❌ | ✅ |
+| **81+ Free Lessons** | ✅ | ❌ | ❌ | ❌ |
+| **Console Panel** | ✅ | ❌ | ✅ | ✅ |
+| **Zero Frameworks** | ✅ | ❌ | ❌ | ❌ |
+| **Mobile Friendly** | ✅ | ❌ | ❌ | ❌ |
+| **Offline Support** | ✅ | ❌ | ❌ | ❌ |
+| **Export as ZIP** | ✅ | ✅ | ❌ | ✅ |
 
 ---
 
 ## Features
 
-### Code Editor
-
-- **Single-pane workspace** with tabbed file management
-- **Syntax highlighting** for 25+ token types (tags, attributes, strings, selectors, properties, functions, keywords, numbers, operators, comments, punctuation, entities, diffs, etc.) — all driven by CSS custom properties for instant themeability
-- **Smart autocomplete** with fuzzy matching across four categories: HTML tags, HTML attributes, CSS properties, and JavaScript keywords + snippets
-- **Auto-closing tags** for HTML (`<div>` → `</div>`) and bracket pairs (`{}`, `[]`, `()`)
-- **Auto-indentation** triggered after `{`, `[`, `(` and configurable tab size
-- **Smart backspace** that removes indentation in one press
-- **HTML5 boilerplate** (`!` + Tab)
-- **Indent guides** with dynamic depth indicators
-- **Gutter** with line numbers
-
-### File System
-
-- **Persistent project storage** via `localStorage` — all files survive page reloads
-- **Create, rename, delete** files and folders through an interactive tree
-- **Drag-and-drop** reordering for both the file tree and editor tabs
-- **Default project** with `index.html`, `style.css`, and `script.js` preloaded
-- **Multi-file support** — open and edit multiple files simultaneously with tab navigation
-
-### Run & Output
-
-- **One-click run** — executes your code in a sandboxed popup window
-- **Live console** — captures `console.log`, `console.warn`, `console.error`, `console.info`, runtime errors, and unhandled promise rejections via `postMessage` bridge
-- **Console clearing**, entry counts, and log-level filtering
-- **Multiple HTML file support** with a smart "which file to run?" dialog (with "Don't ask again" option)
-
-### Authentication
-
-- **Google Sign-In** and **GitHub Sign-In** via Firebase Authentication (popup flow)
-- **Persistent sessions** — users stay logged in across visits
-- **Avatar-first UI** — shows the user's initial letter with a deterministic color derived from their name
-- **Dropdown menu** with Settings, Home, and Sign Out
-
-### Auth-Gated Features
-
-The file explorer, settings panel, project export/import, ZIP download, and file operations are locked behind authentication — enforced by both CSS (`pointer-events`, `opacity`) and JavaScript (`requireAuth()` guard at every action point). Unauthenticated users see a clean placeholder with a Sign In prompt.
-
-### Settings Panel
-
+### 🖊️ Smart Code Editor
+- Syntax highlighting for **25+ token types**
+- **Smart autocomplete** with fuzzy matching (HTML tags, CSS properties, JS keywords)
+- **Auto-closing tags** and bracket pairs
+- **HTML5 boilerplate** shortcut (`!` + Tab)
+- **Indent guides** and line numbers
 - **7 themes** — Dark, Light, Dracula, Monokai, Nord, GitHub Dark, One Dark
-- **Font size** slider (12–24px)
-- **Tab size** (2, 4, 8)
-- **Line height** control (1.2–2.0)
-- **Ligatures** toggle
-- **Auto-save** interval (30s)
-- **Indent guides** toggle
-- All settings persisted in `localStorage` and applied instantly via CSS custom properties
 
-### Export & Import
+### 📁 File Explorer
+- Create, rename, delete files and folders
+- **Drag-and-drop** reordering
+- Multi-file project support
+- Auto-save to browser + cloud
 
-- **ZIP download** of the entire project via JSZip (loaded on demand from CDN)
-- **JSON export** of the project file tree
-- **JSON import** to restore or share projects
+### ▶️ Live Preview
+- **One-click run** in a sandboxed popup
+- Multiple HTML file support
+- Smart file picker dialog
 
-### Drag & Drop
+### 📟 Console
+- Captures `console.log`, `warn`, `error`, `info`
+- Runtime error catching
+- Resizable panel
 
-- **Reorder files** in the file tree with visual drop indicators (before, after, into)
-- **Reorder tabs** in the tab bar with a drop indicator line
+### ☁️ Cloud Sync
+- **Google Sign-In** and **GitHub Sign-In**
+- Auto-save projects to cloud
+- Access from any device
 
-### Console
+### 📚 81+ Free Lessons
+- **HTML** (20 lessons) — Tags, forms, semantic HTML
+- **CSS** (17 lessons) — Flexbox, Grid, animations, responsive
+- **JavaScript** (20 lessons) — DOM, async, ES6+
+- **React** (12 lessons) — Components, hooks, state
+- **Node.js** (6 lessons) — Modules, HTTP, npm
+- **Developer Tools** (6 lessons) — Git, terminal, devtools
 
-- Captures real console output from the executed code
-- Supports `log`, `warn`, `error`, `info`, `clear`
-- Shows error count badge
-- Runtime error capture via `window.onerror`
-- Resizable panel with draggable handle
+### 📦 Export
+- **Download as ZIP** with all project files
+- **Export as JSON** for backup
+- **Import** projects from JSON
 
 ---
 
-## Architecture
+## Quick Start
 
-### Stack
+### Option 1: Use Online (Recommended)
+👉 **[Open Deoit](https://deoit.vercel.app/pages/editor)** — zero setup required.
+
+### Option 2: Run Locally
+
+```bash
+git clone https://github.com/deoitplatform/deoit-code-editor.git
+cd code-editor
+npx serve .
+```
+
+Then open `http://localhost:3000` in your browser.
+
+### Option 3: Use the CLI
+
+```bash
+npx deoit-cli
+```
+
+Opens Deoit in your browser instantly.
+
+---
+
+## Embed Deoit in Your Site
+
+Add a live code playground to any webpage:
+
+```html
+<iframe 
+  src="https://deoit.vercel.app/embed" 
+  width="100%" 
+  height="500" 
+  frameborder="0"
+  style="border-radius:12px;border:1px solid #252525;"
+></iframe>
+```
+
+---
+
+## Browser Extension
+
+Install **"Edit in Deoit"** — right-click any webpage to open its HTML/CSS/JS in Deoit.
+
+> 🔧 Coming soon to Chrome Web Store
+
+---
+
+## Tech Stack
 
 | Layer | Technology |
-|---|---|
-| Structure | Semantic HTML5 |
-| Styling | CSS3 (custom properties, Grid, Flexbox, animations) |
-| Logic | Vanilla JavaScript (no frameworks, no build step) |
-| Auth | Firebase Auth (compat SDK v10 via CDN) |
-| Hosting | Vercel (with clean URLs, HTTP/2, global CDN) |
-| Persistence | `localStorage` |
+|-------|-----------|
+| Frontend | Vanilla HTML, CSS, JavaScript |
+| Auth | Supabase (Google + GitHub) |
+| Hosting | Vercel |
+| Storage | localStorage + Supabase Cloud |
+| Build | None — zero build step |
 
-### Key Design Decisions
-
-- **Zero build step** — the entire platform is hand-written HTML, CSS, and JS. Every edit is instantly deployable.
-- **Overlay syntax highlighting** — a `<pre>` overlay sits above a `<textarea>` to render highlighted tokens while preserving native text editing behavior.
-- **PostMessage console bridge** — a small script injected into the `srcdoc` iframe captures console calls and sends them to the editor via `parent.postMessage`.
-- **CSS custom properties for theming** — switching themes is a single JS loop that sets 30+ variables on `document.documentElement`. No re-render, no flicker.
-- **CSS Grid layout** — the editor, sidebar, and console use a CSS Grid with fixed-sidebar and resizable-console tracks, avoiding the nested-flex overflow bugs of earlier iterations.
-- **Defense-in-depth auth gating** — unauthenticated users are blocked at three levels: CSS (`pointer-events`, `opacity`), JavaScript event delegation (`requireAuth()`), and route-level redirects.
-
-### CSP
-
-The editor page uses a strict Content Security Policy that allows only specific CDNs and origins, blocking inline styles (except the editor's own), external images, and form actions. Firebase Auth requires `frame-src` for the OAuth popup and `connect-src` for API endpoints. The `unsafe-inline` in `script-src` is required only for the console bridge script injected into the iframe `srcdoc`.
-
-```
-script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.gstatic.com https://apis.google.com;
-style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-img-src 'self' data:;
-font-src 'self' https://fonts.gstatic.com;
-connect-src 'self' https://identitytoolkit.googleapis.com ...;
-frame-src 'self' https://deoit-d2c47.firebaseapp.com https://apis.google.com;
-frame-ancestors 'none'
-```
-
----
-
-## Performance
-
-| Optimization | Technique |
-|---|---|
-| CSS delivery | `content-visibility: auto` on below-fold sections |
-| Font loading | `font-display: swap`, `preload` + `media="print" onload="this.media='all'"` |
-| Script loading | `defer` for all non-critical scripts, `async` for GA4 |
-| Analytics | GA4 loaded at end of `<body>` (non-render-blocking) |
-| Preconnects | `dns-prefetch` + `preconnect` to Google Fonts, Firebase, CDN |
-| Image loading | `loading="lazy"` on below-fold images |
-| Service Worker | Network-first caching for all static assets |
-| Build | Zero — no bundler, no transpiler, no build step |
-
----
-
-## SEO & Discoverability
-
-- **Semantic HTML5** with proper heading hierarchy
-- **Structured data** via JSON-LD (WebSite, Organization, BreadcrumbList)
-- **Open Graph** and **Twitter Card** meta tags for social sharing
-- **Canonical URLs** and `hreflang` annotations
-- **XML sitemap** and `robots.txt`
-- **Google Search Console** verification
-- **Google Analytics 4** integration
-- **PWA manifest** and Service Worker for installability
-- **ARIA labels**, `sr-only` text, `focus-visible` outlines, and `prefers-reduced-motion` respect
+**Why vanilla?** No React, no Vue, no build tools. Every edit is instantly deployable. The entire editor runs from a single HTML page.
 
 ---
 
 ## Project Structure
 
 ```
-├── index.html             # Landing page
-├── login.html             # Sign-in page
-├── terms.html             # Terms of Service
-├── privacy.html           # Privacy Policy
-├── 404.html               # Custom 404 page
-├── sw.js                  # Service Worker
-├── manifest.json          # PWA manifest
-├── sitemap.xml            # XML sitemap
-├── robots.txt             # Robots exclusion
-├── vercel.json            # Vercel deployment config
-├── logo.png               # Brand logo
+code-editor/
+├── index.html              # Landing page
+├── learn.html              # Course index
+├── learn-html.html         # HTML course
+├── learn-css.html          # CSS course
+├── learn-js.html           # JavaScript course
+├── learn-react.html        # React course
+├── learn-node.html         # Node.js course
+├── learn-tools.html        # Developer tools course
+├── login.html              # Sign-in page
+├── 404.html                # Error page
+├── terms.html              # Terms of Service
+├── privacy.html            # Privacy Policy
 ├── css/
-│   ├── style.css          # Global styles (homepage, sidebar, footer)
-│   ├── editor.css         # Editor-specific styles
-│   └── login.css          # Login page styles
+│   ├── style.css           # Landing page styles
+│   ├── editor.css          # Editor styles
+│   ├── learn.css           # Course page styles
+│   └── login.css           # Login styles
 ├── js/
-│   ├── auth.js            # Firebase Auth (Google + GitHub)
-│   ├── editor.js          # Core editor logic
-│   └── script.js          # Homepage interactivity
+│   ├── editor.js           # Core editor logic (~2000 lines)
+│   ├── auth.js             # Supabase auth
+│   ├── learn.js            # 81 lessons data + rendering
+│   └── script.js           # Landing page interactivity
 └── pages/
-    └── editor.html        # Main editor page
+    └── editor.html         # Main editor page
 ```
 
 ---
 
-## Development
+## For Educators
 
-Deoit is a static site. No build tools, no package managers, no framework dependencies.
+Deoit is perfect for teaching web development:
 
-```bash
-# Clone the repository
-git clone https://github.com/deoitplatform/deoit-code-editor.git
-
-# Open the editor directly
-open pages/editor.html
-```
-
-For local development, use any static HTTP server to avoid CORS issues with Firebase Auth:
-
-```bash
-npx serve .
-# or
-python -m http.server 8000
-```
-
-Then open `http://localhost:8000` in your browser.
+- **No student sign-ups** — just share the link
+- **81 structured lessons** — ready to use as curriculum
+- **"Try it Yourself"** — students jump from lesson to editor instantly
+- **Works on any device** — Chromebooks, tablets, phones
+- **Free forever** — no premium plans, no ads
 
 ---
 
-## Deployment
+## Roadmap
 
-The project is deployed on Vercel with `cleanUrls: true` and `trailingSlash: false`. The Firebase project must have `deoit.vercel.app` added to the Authorized Domains list in the Firebase Console under Authentication > Settings.
+- [ ] Browser Extension ("Edit in Deoit")
+- [ ] Embed Widget (iframe playground)
+- [ ] CLI tool (`npx deoit-cli`)
+- [ ] VS Code Extension
+- [ ] Collaborative editing (real-time)
+- [ ] More lessons (TypeScript, Python, Git)
+- [ ] Dark/Light theme auto-detect
+- [ ] Keyboard shortcuts cheat sheet
 
 ---
 
-## Credits
+## Author
 
-Built by **Majed Qandeel** — [deoit.platform@gmail.com](mailto:deoit.platform@gmail.com)
+**Majed Qandeel** — [deoit.platform@gmail.com](mailto:deoit.platform@gmail.com)
 
 ---
 
-<p align="center">
-  <sub>© 2026 Deoit. All rights reserved.</sub>
-</p>
+## License
+
+All rights reserved. © 2026 Deoit
