@@ -668,14 +668,64 @@
     });
     document.getElementById('logoutBtn').addEventListener('click', () => signOut());
   </script>
+  <div id="pwa-install-banner" class="pwa-banner" style="display:none">
+    <div class="pwa-banner-inner">
+      <img src="logo.png" alt="Deoit" width="32" height="32">
+      <div class="pwa-banner-text">
+        <strong>Install Deoit</strong>
+        <span>Add to your device for faster access</span>
+      </div>
+      <button id="pwa-install-btn" class="pwa-banner-btn">Install</button>
+      <button id="pwa-dismiss-btn" class="pwa-banner-close">&times;</button>
+    </div>
+  </div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').then(reg => {
+        reg.addEventListener('updatefound', () => {
+          const newWorker = reg.installing;
+          if (newWorker) {
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'activated') {
+                newWorker.postMessage('skipWaiting');
+              }
+            });
+          }
+        });
+      }).catch(() => {});
+    }
+    let deferredPrompt;
+    const banner = document.getElementById('pwa-install-banner');
+    const installBtn = document.getElementById('pwa-install-btn');
+    const dismissBtn = document.getElementById('pwa-dismiss-btn');
+    if (localStorage.getItem('pwa-dismissed') !== 'true') {
+      window.addEventListener('beforeinstallprompt', e => {
+        e.preventDefault();
+        deferredPrompt = e;
+        setTimeout(() => { if (banner) banner.style.display = 'block'; }, 3000);
+      });
+    }
+    if (installBtn) {
+      installBtn.addEventListener('click', () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then(choice => {
+            if (choice.outcome === 'accepted') banner.style.display = 'none';
+            deferredPrompt = null;
+          });
+        }
+      });
+    }
+    if (dismissBtn) {
+      dismissBtn.addEventListener('click', () => {
+        banner.style.display = 'none';
+        localStorage.setItem('pwa-dismissed', 'true');
+      });
+    }
+  </script>
   <script defer src="js/script.js"></script>
   <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
   <script defer src="/_vercel/insights/script.js"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js').catch(() => {});
-    }
-  </script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="50aac514-55b3-446d-a8f5-d9540ebd7792"></script>
   <script>
 var _cspFired=0;

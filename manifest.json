@@ -1,13 +1,18 @@
 {
-  "name": "Deoit - Free Online Code Editor & Web Development Learning Platform",
+  "name": "Deoit — Free Online Code Editor",
   "short_name": "Deoit",
-  "description": "Learn, write, and run HTML, CSS, and JavaScript online. Free browser-based code editor with syntax highlighting, autocomplete, file explorer, and instant live preview.",
+  "description": "Write, run, and preview HTML, CSS & JavaScript in your browser. Free code editor with syntax highlighting, autocomplete, and live preview.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#0d0d0e",
-  "theme_color": "#d9d9d9",
+  "background_color": "#0d0d0d",
+  "theme_color": "#0d0d0d",
   "orientation": "any",
   "id": "/",
+  "categories": ["education", "development", "programming"],
+  "lang": "en",
+  "dir": "ltr",
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "/logo.png",
@@ -19,7 +24,7 @@
       "src": "/logo.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "/logo.png",
@@ -28,7 +33,19 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["education", "development", "programming"],
-  "lang": "en",
-  "dir": "ltr"
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Open Editor",
+      "short_name": "Editor",
+      "url": "/pages/editor",
+      "description": "Open the code editor"
+    },
+    {
+      "name": "Courses",
+      "short_name": "Learn",
+      "url": "/learn",
+      "description": "Browse free coding courses"
+    }
+  ]
 }
