@@ -174,7 +174,7 @@ Want to extend this project? Try adding:
 
 ---
 
-*Originally published at [deoit.vercel.app/blog](https://deoit.vercel.app/blog-build-weather-app)*
+*Originally published at [deoit.vercel.app/blog](https://deoit.vercel.app/blog/build-weather-app)*
 
 *Built [Deoit](https://deoit.vercel.app) — a free browser-based code editor for HTML, CSS & JavaScript.*
 
@@ -277,7 +277,7 @@ Deoit has [81+ free lessons](https://deoit.vercel.app/learn) covering HTML, CSS,
 
 ---
 
-*Originally published at [deoit.vercel.app/blog](https://deoit.vercel.app/blog-html-css-in-10-minutes)*
+*Originally published at [deoit.vercel.app/blog](https://deoit.vercel.app/blog/html-css-in-10-minutes)*
 
 ---
 
@@ -349,7 +349,7 @@ Try the result: [deoit.vercel.app](https://deoit.vercel.app)
 
 ---
 
-*Originally published at [deoit.vercel.app/blog](https://deoit.vercel.app/blog-why-vanilla-js)*
+*Originally published at [deoit.vercel.app/blog](https://deoit.vercel.app/blog/why-vanilla-js)*
 
 ---
 
@@ -360,7 +360,7 @@ Try the result: [deoit.vercel.app](https://deoit.vercel.app)
 2. Paste the markdown
 3. Add cover image (use Deoit logo)
 4. Add tags (max 4)
-5. Set canonical URL to deoit.vercel.app/blog-*
+5. Set canonical URL to deoit.vercel.app/blog/*
 6. Publish
 
 ### Hashnode

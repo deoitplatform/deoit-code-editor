@@ -86,19 +86,19 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://deoit.vercel.app/blog-build-weather-app</loc>
+    <loc>https://deoit.vercel.app/blog/build-weather-app</loc>
     <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://deoit.vercel.app/blog-html-css-in-10-minutes</loc>
+    <loc>https://deoit.vercel.app/blog/html-css-in-10-minutes</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://deoit.vercel.app/blog-why-vanilla-js</loc>
+    <loc>https://deoit.vercel.app/blog/why-vanilla-js</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
