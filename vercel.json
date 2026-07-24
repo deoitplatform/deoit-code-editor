@@ -3,7 +3,7 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/(.*)",
+      "source": "/:path(.*)",
       "has": [{ "type": "host", "value": "deoit.vercel.app" }],
       "destination": "https://deoit.js.org/:path",
       "permanent": true
