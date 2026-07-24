@@ -25,7 +25,7 @@
     "type": "git",
     "url": "https://github.com/deoitplatform/deoit-code-editor.git"
   },
-  "homepage": "https://deoit.vercel.app",
+  "homepage": "https://deoit.js.org",
   "engines": {
     "node": ">=14.0.0"
   }

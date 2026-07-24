@@ -8,7 +8,7 @@
 
 Hey r/webdev!
 
-I've been working on **Deoit** (deoit.vercel.app) - a free online code editor designed for learning and building with web technologies.
+I've been working on **Deoit** (deoit.js.org) - a free online code editor designed for learning and building with web technologies.
 
 **What it does:**
 - Write HTML, CSS, and JavaScript with syntax highlighting and autocomplete
@@ -25,7 +25,7 @@ I've been working on **Deoit** (deoit.vercel.app) - a free online code editor de
 
 Would love to hear your feedback! What features would you like to see?
 
-🔗 deoit.vercel.app
+🔗 deoit.js.org
 
 ---
 
@@ -61,7 +61,7 @@ I created **Deoit** - a completely free platform for learning web development. H
 - Sign in with Google/GitHub to save projects
 - Export your work as JSON or ZIP
 
-Try it: deoit.vercel.app
+Try it: deoit.js.org
 
 Feedback welcome! What topics should I add next?
 
@@ -85,7 +85,7 @@ Built a lightweight JavaScript editor that runs entirely in the browser. No fram
 
 Also includes 20 JavaScript lessons covering variables, functions, DOM manipulation, async/await, and more.
 
-Try it: deoit.vercel.app/pages/editor
+Try it: deoit.js.org/pages/editor
 
 Looking for feedback from the JS community!
 

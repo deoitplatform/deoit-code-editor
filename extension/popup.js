@@ -11,11 +11,11 @@ document.getElementById("editPage").addEventListener("click", function() {
 });
 
 document.getElementById("openBlank").addEventListener("click", function() {
-  chrome.tabs.create({ url: "https://deoit.vercel.app/pages/editor" });
+  chrome.tabs.create({ url: "https://deoit.js.org/pages/editor" });
   window.close();
 });
 
 document.getElementById("openLessons").addEventListener("click", function() {
-  chrome.tabs.create({ url: "https://deoit.vercel.app/learn" });
+  chrome.tabs.create({ url: "https://deoit.js.org/learn" });
   window.close();
 });

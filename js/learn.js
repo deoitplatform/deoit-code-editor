@@ -272,7 +272,7 @@ makeEx('Iframe','<iframe src="https://example.com"\n  width="100%" height="400"\
 
 D['html-meta']={id:'html-meta',title:'Meta Tags & SEO',cat:'HTML',
 intro:'Meta tags provide information to browsers and search engines.',
-content:makeEx('Meta Tags','<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <meta name="viewport"\n    content="width=device-width, initial-scale=1.0">\n  <title>Deoit - Online Code Editor</title>\n  <meta name="description"\n    content="Free online code editor">\n  <meta property="og:title"\n    content="Deoit - Online Code Editor">\n  <meta property="og:image"\n    content="https://deoit.vercel.app/og.png">\n  <link rel="canonical"\n    href="https://deoit.vercel.app">\n  <link rel="icon" href="/favicon.ico">\n</head>')+
+content:makeEx('Meta Tags','<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <meta name="viewport"\n    content="width=device-width, initial-scale=1.0">\n  <title>Deoit - Online Code Editor</title>\n  <meta name="description"\n    content="Free online code editor">\n  <meta property="og:title"\n    content="Deoit - Online Code Editor">\n  <meta property="og:image"\n    content="https://deoit.js.org/og.png">\n  <link rel="canonical"\n    href="https://deoit.js.org">\n  <link rel="icon" href="/favicon.ico">\n</head>')+
 '<table><tr><th>Tag</th><th>Purpose</th></tr>'+
 '<tr><td><code>charset</code></td><td>Character encoding (UTF-8)</td></tr>'+
 '<tr><td><code>viewport</code></td><td>Mobile responsive</td></tr>'+

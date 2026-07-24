@@ -1,6 +1,6 @@
 # DEV.to & Hashnode Cross-Post Templates
 
-Copy-paste these into DEV.to and Hashnode. Add "Originally published at deoit.vercel.app/blog" at the bottom.
+Copy-paste these into DEV.to and Hashnode. Add "Originally published at deoit.js.org/blog" at the bottom.
 
 ---
 
@@ -89,7 +89,7 @@ Tailwind is what most developers migrated to. It doesn't ship pre-built componen
 
 ### For Nothing at All → Just CSS
 
-This is the real answer for many projects. Modern CSS is *that* good. We built [Deoit](https://deoit.vercel.app/pages/editor) — a full code editor — with zero CSS frameworks. ~1500 lines of hand-written CSS. No Tailwind. No Bootstrap. No regrets.
+This is the real answer for many projects. Modern CSS is *that* good. We built [Deoit](https://deoit.js.org/pages/editor) — a full code editor — with zero CSS frameworks. ~1500 lines of hand-written CSS. No Tailwind. No Bootstrap. No regrets.
 
 ## The Comparison
 
@@ -115,13 +115,13 @@ Bootstrap isn't bad. It was *perfect* for its time. But its time has passed. CSS
 > **The best framework is the one you don't need.**
 > In 2026, for most projects, that means no framework at all.
 
-Want to see what vanilla HTML, CSS, and JavaScript can actually build? Open the [Deoit editor](https://deoit.vercel.app/pages/editor) and start writing. No framework. No build step. Just code.
+Want to see what vanilla HTML, CSS, and JavaScript can actually build? Open the [Deoit editor](https://deoit.js.org/pages/editor) and start writing. No framework. No build step. Just code.
 
 ---
 
-*Originally published at [deoit.vercel.app/blog](https://deoit.vercel.app/blog/bootstrap-is-dead)*
+*Originally published at [deoit.js.org/blog](https://deoit.js.org/blog/bootstrap-is-dead)*
 
-*Built [Deoit](https://deoit.vercel.app) — a free browser-based code editor for HTML, CSS & JavaScript.*
+*Built [Deoit](https://deoit.js.org) — a free browser-based code editor for HTML, CSS & JavaScript.*
 
 ---
 
@@ -132,14 +132,14 @@ Want to see what vanilla HTML, CSS, and JavaScript can actually build? Open the 
 2. Paste the markdown
 3. Add cover image (use Deoit logo)
 4. Add tags: `bootstrap`, `webdev`, `css`, `javascript`
-5. Set canonical URL to `https://deoit.vercel.app/blog/bootstrap-is-dead`
+5. Set canonical URL to `https://deoit.js.org/blog/bootstrap-is-dead`
 6. Publish
 
 ### Hashnode
 1. Go to your Hashnode dashboard → New Article
 2. Paste the markdown
 3. Add cover image
-4. Set canonical URL to `https://deoit.vercel.app/blog/bootstrap-is-dead`
+4. Set canonical URL to `https://deoit.js.org/blog/bootstrap-is-dead`
 5. Publish
 
 ### Engagement

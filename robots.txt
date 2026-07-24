@@ -9,9 +9,8 @@ Allow: /learn-react.html
 Allow: /learn-node.html
 Allow: /learn-tools.html
 Allow: /blog
-Allow: /blog/build-weather-app
-Allow: /blog/html-css-in-10-minutes
-Allow: /blog/why-vanilla-js
+Allow: /blog/bootstrap-is-dead
+Allow: /embed
 Allow: /privacy
 Allow: /terms
 Disallow: /login
@@ -41,4 +40,4 @@ Disallow: /
 User-agent: CCBot
 Disallow: /
 
-Sitemap: https://deoit.vercel.app/sitemap.xml
+Sitemap: https://deoit.js.org/sitemap.xml

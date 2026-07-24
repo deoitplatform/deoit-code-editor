@@ -34,7 +34,7 @@ function openInDeoit(code) {
   var encodedHtml = encodeURIComponent(code.html || "");
   var encodedCss = encodeURIComponent(code.css || "");
   var encodedJs = encodeURIComponent(code.js || "");
-  var url = "https://deoit.vercel.app/pages/editor?html=" + encodedHtml + "&css=" + encodedCss + "&js=" + encodedJs;
+  var url = "https://deoit.js.org/pages/editor?html=" + encodedHtml + "&css=" + encodedCss + "&js=" + encodedJs;
   chrome.tabs.create({ url: url });
 }
 

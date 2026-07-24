@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://deoit.vercel.app">
+  <a href="https://deoit.js.org">
     <img src="https://img.shields.io/badge/🌐_Try_it-Deoit-0d0d0d?style=for-the-badge&labelColor=0d0d0d&color=e8e8e8" alt="Try Deoit">
   </a>
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
@@ -36,7 +36,7 @@ Deoit is a **free, browser-based code editor** for learning and building with HT
 
 **No installs. No sign-up required. Just open and code.**
 
-🔗 **[deoit.vercel.app](https://deoit.vercel.app)**
+🔗 **[deoit.js.org](https://deoit.js.org)**
 
 ---
 
@@ -45,7 +45,7 @@ Deoit is a **free, browser-based code editor** for learning and building with HT
 <!-- Replace with actual GIF/Screenshot -->
 <!-- ![Deoit Editor Demo](demo.gif) -->
 
-> 📸 **[Click here to try it live](https://deoit.vercel.app/pages/editor)** — it takes 2 seconds to load.
+> 📸 **[Click here to try it live](https://deoit.js.org/pages/editor)** — it takes 2 seconds to load.
 
 ---
 
@@ -115,7 +115,7 @@ Deoit is a **free, browser-based code editor** for learning and building with HT
 ## Quick Start
 
 ### Option 1: Use Online (Recommended)
-👉 **[Open Deoit](https://deoit.vercel.app/pages/editor)** — zero setup required.
+👉 **[Open Deoit](https://deoit.js.org/pages/editor)** — zero setup required.
 
 ### Option 2: Run Locally
 
@@ -143,7 +143,7 @@ Add a live code playground to any webpage:
 
 ```html
 <iframe 
-  src="https://deoit.vercel.app/embed" 
+  src="https://deoit.js.org/embed" 
   width="100%" 
   height="500" 
   frameborder="0"

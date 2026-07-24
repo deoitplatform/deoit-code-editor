@@ -1,6 +1,14 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "deoit.vercel.app" }],
+      "destination": "https://deoit.js.org/:path",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/blog/bootstrap-is-dead", "destination": "/blog/bootstrap-is-dead.html" }
   ],

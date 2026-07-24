@@ -4,7 +4,7 @@ var https = require('https');
 var http = require('http');
 var url = require('url');
 
-var DEOIT_URL = 'https://deoit.vercel.app';
+var DEOIT_URL = 'https://deoit.js.org';
 
 var HELP_TEXT = [
   '',
@@ -19,11 +19,11 @@ var HELP_TEXT = [
   '    deoit --version        Show version number',
   '',
   '  \x1b[36mExamples:\x1b[0m',
-  '    deoit                  # Opens deoit.vercel.app',
+  '    deoit                  # Opens deoit.js.org',
   '    deoit new my-app       # Creates ./my-app and opens Deoit',
   '    deoit embed            # Prints <iframe> embed code',
   '',
-  '  \x1b[36mWebsite:\x1b[0m  https://deoit.vercel.app',
+  '  \x1b[36mWebsite:\x1b[0m  https://deoit.js.org',
   '  \x1b[36mContact:\x1b[0m  deoit.platform@gmail.com',
   ''
 ].join('\n');
@@ -81,7 +81,7 @@ function createProject(name) {
 }
 
 function showEmbedCode() {
-  var embedCode = '<iframe\n  src="https://deoit.vercel.app/embed"\n  width="100%"\n  height="500"\n  frameborder="0"\n  style="border-radius:12px;border:1px solid #252525;"\n></iframe>';
+  var embedCode = '<iframe\n  src="https://deoit.js.org/embed"\n  width="100%"\n  height="500"\n  frameborder="0"\n  style="border-radius:12px;border:1px solid #252525;"\n></iframe>';
 
   console.log('\n  \x1b[1mEmbed Code\x1b[0m - Paste this in your HTML:\n');
   console.log('  \x1b[90m' + embedCode.replace(/\n/g, '\n  ') + '\x1b[0m\n');
