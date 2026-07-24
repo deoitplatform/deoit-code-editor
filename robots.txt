@@ -18,6 +18,7 @@ Disallow: /404
 Disallow: /sw.js
 Disallow: /manifest.json
 Disallow: /admin
+Disallow: /_vercel/
 
 User-agent: GPTBot
 Disallow: /
@@ -35,9 +36,6 @@ User-agent: anthropic-ai
 Disallow: /
 
 User-agent: Bytespider
-Disallow: /
-
-User-agent: CCBot
 Disallow: /
 
 Sitemap: https://deoit.js.org/sitemap.xml

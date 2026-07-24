@@ -30,7 +30,7 @@
     <div class="spinner"></div>
     Loading Deoit Editor...
   </div>
-  <iframe id="editorFrame" src="about:blank" style="display:none;" allowfullscreen></iframe>
+  <iframe id="editorFrame" src="about:blank" style="display:none;" sandbox="allow-scripts allow-forms allow-popups" allowfullscreen></iframe>
   <script>
     (function() {
       var params = new URLSearchParams(window.location.search);
@@ -57,6 +57,7 @@
 
       // Auto-resize height based on parent message
       window.addEventListener('message', function(e) {
+        if (e.origin !== window.location.origin) return;
         if (e.data && e.data.type === 'deoit-resize') {
           document.body.style.height = e.data.height + 'px';
         }

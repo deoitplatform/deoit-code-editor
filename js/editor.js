@@ -1332,6 +1332,7 @@ function setupDelegation() {
   });
 
   window.addEventListener('message', e => {
+    if (e.origin !== window.location.origin) return;
     const preview = document.getElementById('previewFrame');
     if (e.source !== preview?.contentWindow) return;
     if (e.data && e.data.type === 'deoit_console') {
